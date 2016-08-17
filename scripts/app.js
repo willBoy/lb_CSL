@@ -79,10 +79,22 @@ lbApp.config(['$routeProvider', '$locationProvider', '$httpProvider', function($
             controller:'SessionController',
             showHeader:true
         })
+        //新建章节
+        .when('/class/create_session',{
+            templateUrl:'views/class/create_session.html',
+            controller:'CreateCourseController',
+            showHeader:true
+        })
         //习题管理
         .when('/class/exercise',{
             templateUrl:'views/class/exercise.html',
             controller:'SxerciseController',
+            showHeader:true
+        })
+        //添加习题
+        .when('/class/exercise_add',{
+            templateUrl:'views/class/exercise_add.html',
+            controller:'SxerciseAddController',
             showHeader:true
         })
         //// 班级管理
