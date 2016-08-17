@@ -1,32 +1,45 @@
 <div lb-aside-directive></div>
-<div id="robot" class="main-page-margin">
+<div class="main-page-margin">
     <div id="main-title">
         <div class="title font-size-huge font-weight-200">新建班级</div>
-
-    </div>
-    <div class="form-item robot-type">
-        <div class="title">班级名称</div>
-        <div class="content">
-            <input type="text" class="input" placeholder="班级名称">
+        <div class="font-size-normal ">
+            <em class="path" ng-click="utils.href('/')">首页</em>
+            <em> / </em>
+            <em class="path" ng-click="utils.href('/')">班级管理</em>
+            <em> / </em>
+            <em class="last">新建班级</em>
         </div>
     </div>
-    <div class="form-item robot-type">
-        <div class="title">导入课程</div>
-        <select class="select">
-            <option>正音</option>
-            <option>口语</option>
-            <option>韵母</option>
-        </select>
-    </div>
-    <div class="form-item">
-        <div class="title">开班时间</div>
-        <div class="content">
-            <div class="calendar" id="time-start">
-                <input type="text" class="input" disabled="disabled" placeholder="请输入开始日期" ng-model="taskInfo.startTime">
-                <span class="icon icons-calendar"></span>
+    <div class="main-wrapper" ng-show="true">
+        <div class="form-item">
+            <div class="title">班级名称：</div>
+            <div class="content">
+                <input type="text" class="input" name="name"  required ng-maxlength="30" value="">
+                <pre class="line-height-15 color-blue">对学生不可见</pre>
+                <div class="error" ng-show="voice_robot_form.name.$dirty && voice_robot_form.name.$invalid">名称必填，且不多于30个字</div>
             </div>
         </div>
+        <div class="form-item">
+            <div class="title">课程名称：</div>
+            <div class="content">
+                <input type="text" class="input" name="name"  required ng-maxlength="30" value="">
+                <pre class="line-height-15 color-blue">对学生可见</pre>
+                <div class="error" ng-show="voice_robot_form.name.$dirty && voice_robot_form.name.$invalid">名称必填，且不多于30个字</div>
+            </div>
+        </div>
+        <div class="form-item">
+            <div class="title">开班时间：</div>
+            <div class="content">
+                <div class="calendar" id="time-start">
+                    <input type="text" class="input" disabled="disabled" placeholder="请输入开班时间" ng-model="taskInfo.startTime">
+                    <span class="icon icons-calendar"></span>
+                </div>
+            </div>
+        </div>
+        <div class="form-op">
+            <span class="op btn-blue" ng-click="utils.href('/classList')">确认</span>
+            <span class="op btn-blue" ng-click="utils.href('/classList')">取消</span>
+        </div>
     </div>
-    <span class="op btn-blue" ng-click="utils.href('/classList')">确定</span>
-    <span class="op btn-blue" ng-click="utils.href('/classList')">取消</span>
+
 </div>
