@@ -1,0 +1,20 @@
+{
+  "code":0,
+  "msg":"success",
+  "result":[
+    {
+      "studentId":"",
+      "gender":"",
+      "name":"",
+      "nationality":"",
+      "age":"",
+      "exerciseData":[
+        {
+          "exerciseId":"",
+          "rightCount":"",
+          "wrongCount":""
+        }
+      ]
+    }
+  ]
+}

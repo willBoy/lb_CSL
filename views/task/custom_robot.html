@@ -1,0 +1,63 @@
+<div lb-aside-directive></div>
+<div id="custom-robot" class="main-page-margin">
+    <div id="main-title">
+        <div class="title font-size-huge font-weight-200">机器人工厂</div>
+        <div class="font-size-normal ">
+            <em class="path" ng-click="utils.href('/dashboard')">首页</em>
+            <em> / </em>
+            <em class="last">定制机器人</em>
+        </div>
+    </div>
+    <div class="main-wrapper">
+        <div class="title-1">
+            <span class="title">定制机器人</span>
+        </div>
+        <div class="left-and-right">
+            <div class="left-content">
+                <form name="custom_robot_form" novalidate>
+                    <div class="form-item">
+                        <div class="title">联系人</div>
+                        <div class="content">
+                            <input type="text" name="contact" class="input" placeholder="请填写联系人" required ng-model="custom.linkman">
+                            <div class="error" ng-show="custom_robot_form.contact.$dirty && custom_robot_form.contact.$invalid">请填写联系人</div>
+                        </div>
+                    </div>
+                    <div class="form-item">
+                        <div class="title">联系方式</div>
+                        <div class="content">
+                            <input type="text" name="tel" class="input" placeholder="请填写正确的手机号码" required ng-pattern="/[\d-]+/" ng-model="custom.phone">
+                            <div class="error" ng-show="custom_robot_form.tel.$dirty && custom_robot_form.tel.$invalid">请填写正确的手机号码</div>
+                        </div>
+                    </div>
+                    <div class="form-item">
+                        <div class="title">需求描述</div>
+                        <div class="content">
+                            <textarea class="textarea" name="demand" placeholder="请填写您的需求" required ng-maxlength="1000" ng-model="custom.description"></textarea>
+                            <div class="error" ng-show="custom_robot_form.demand.$dirty && custom_robot_form.demand.$invalid">请填写您的需求</div>
+                        </div>
+                    </div>
+                    <div class="form-item">
+                        <div class="title">可选附件</div>
+                        <div class="content">
+                            <p ng-repeat="file in custom.fileList track by $index" class="line-height-40">
+                                <span ng-bind="file"></span>
+                                <span class="del color-blue" ng-click="custom.fileList.splice($index, 1)">删除</span>
+                            </p>
+                            <span class="btn-blue" ng-click="uploadAttachment()" ng-show="custom.fileList.length < 5">选择附件</span>
+                        </div>
+                    </div>
+                    <div class="op text-align-center">
+                            <span class="btn-blue" ng-click="custom_robot_form.contact.$dirty = true;
+                                                             custom_robot_form.tel.$dirty = true;
+                                                             custom_robot_form.demand.$dirty = true;
+                                                             custom_robot_form.$valid && submitRobotDemand()">提交</span>
+                    </div>
+                </form>
+            </div>
+            <div class="right-content">
+                <span class="icon icons-R0"></span>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>

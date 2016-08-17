@@ -1,0 +1,216 @@
+<div lb-aside-directive></div>
+<div id="task-detail" class="main-page-margin">
+    <div id="main-title">
+        <div class="title font-size-huge font-weight-200">任务详情</div>
+        <div class="font-size-normal ">
+            <em class="path" ng-click="utils.href('/dashboard')">首页</em>
+            <em> / </em>
+            <em class="last">任务详情</em>
+        </div>
+    </div>
+    <div class="main-wrapper">
+        <div class="title-1">
+            <span class="title">基础信息</span>
+        </div>
+        <div class="spacefix">
+            <div class="col-4">
+                <div class="form-item">
+                    <div class="title">任务名称</div>
+                    <div class="content text" ng-bind="task.taskName"></div>
+                </div>
+                <div class="form-item">
+                    <div class="title">机器人</div>
+                    <div class="content text" ng-bind="options.robots[task.robotId]"></div>
+                </div>
+                <div class="form-item">
+                    <div class="title">创建人</div>
+                    <div class="content text" ng-bind="task.user.name"></div>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="form-item">
+                    <div class="title">任务状态</div>
+                    <div class="content text" ng-bind="options.taskType[task.taskType]"></div>
+                </div>
+                <div class="form-item">
+                    <div class="title">知识域</div>
+                    <div class="content text" ng-bind="task.knowledgeDomain"></div>
+                </div>
+                <div class="form-item">
+                    <div class="title">创建时间</div>
+                    <div class="content text" ng-bind="task.createTime | lbUTCDate:'yyyy-MM-dd HH:mm'"></div>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="form-item">
+                    <div class="title">任务周期</div>
+                    <div class="content text">
+                        <span ng-bind="task.startTime | lbUTCDate:'yyyy-MM-dd HH:mm'"></span>
+                        <span ng-bind="task.endTime ? '至' + (task.endTime | lbUTCDate:'yyyy-MM-dd HH:mm') : ''"></span>
+                    </div>
+                </div>
+                <div class="form-item">
+                    <div class="title">主叫号码</div>
+                    <div class="content text" ng-bind="options.outboundPhones[task.callingNo]"></div>
+                </div>
+            </div>
+            <div class="form-item">
+                <div class="title">任务描述</div>
+                <div class="content text" ng-bind="task.description"></div>
+            </div>
+        </div>
+    </div>
+    <div class="main-wrapper">
+        <div class="title-1">
+            <span class="title">调度信息</span>
+        </div>
+        <div class="spacefix">
+            <div class="col-4 font-size-normal">
+                <div class="form-item">
+                    <div class="title">调度类型</div>
+                    <div class="content text" ng-bind="schedule.type == 1 ? '默认调度' : '自定义调度'"></div>
+                </div>
+                <div class="form-item">
+                    <div class="title">午休开始时间</div>
+                    <div class="content text" ng-bind="schedule.restStartTime"></div>
+                </div>
+
+                <div class="form-item">
+                    <div class="title">已关机时</div>
+                    <div class="content text" ng-bind="options.shutDown[schedule.shutDown]"></div>
+                </div>
+                <div class="form-item">
+                    <div class="title">外地号码时</div>
+                    <div class="content text" ng-bind="options.outsidePhone[schedule.outsidePhone]"></div>
+                </div>
+            </div>
+            <div class="col-4 font-size-normal">
+                <div class="form-item">
+                    <div class="title">最早外呼时间</div>
+                    <div class="content text" ng-bind="schedule.firstOutCallTime"></div>
+                </div>
+                <div class="form-item">
+                    <div class="title">午休结束时间</div>
+                    <div class="content text" ng-bind="schedule.restEndTime"></div>
+                </div>
+                <div class="form-item">
+                    <div class="title">用户拒接时</div>
+                    <div class="content text" ng-bind="options.reject[schedule.reject]"></div>
+                </div>
+            </div>
+            <div class="col-4 font-size-normal">
+                <div class="form-item">
+                    <div class="title">最晚外呼时间</div>
+                    <div class="content text" ng-bind="schedule.lastOutCallTime"></div>
+                </div>
+                <div class="form-item">
+                    <div class="title">呼叫次数上限</div>
+                    <div class="content text" ng-bind="options.outcallCeiling[schedule.outcallCeiling]"></div>
+                </div>
+                <div class="form-item">
+                    <div class="title">暂时无法接通时</div>
+                    <div class="content text" ng-bind="options.noAnswer[schedule.noAnswer]"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="main-wrapper">
+        <div class="title-1">
+            <span class="title">外呼列表</span>
+            <div class="left">
+                <div class="page-size font-size-normal">
+                    <span>共{{ total }}条记录，每页</span>
+                    <select ng-model="conditions.pageInfo.pageSize" ng-change="getCallList(1)">
+                        <option value="5">5</option>
+                        <option value="10">10</option>
+                        <option value="10">15</option>
+                        <option value="10">20</option>
+                    </select>
+                    <span>条</span>
+                </div>
+            </div>
+            <div class="right">
+                <input type="text" class="input" placeholder="手机号码检索" ng-model="conditions.common.outCallNo">
+            </div>
+        </div>
+        <div class="table-list">
+            <table class="data-list">
+                <tr>
+                    <th>
+                        <input type="checkbox" ng-model="callAll">
+                    </th>
+                    <th>序号</th>
+                    <th>手机号码</th>
+                    <th>姓名</th>
+                    <th>
+                        <select ng-model="conditions.common.sex" ng-change="getCallList(1)">
+                            <option value="">性别</option>
+                            <option value="1">男</option>
+                            <option value="0">女</option>
+                        </select>
+                    </th>
+                    <th>
+                        <select ng-model="conditions.common.jobState" ng-change="getCallList(1)">
+                            <option value="">状态</option>
+                            <option ng-repeat="(value, description) in callOptions.jobState" value="{{ value }}" ng-bind="description"></option>
+                        </select>
+                    </th>
+                    <th>
+                        <select ng-model="conditions.common.outCallStatus" ng-change="getCallList(1)">
+                            <option value="">外呼结果</option>
+                            <option ng-repeat="(value, description) in callOptions.outcallStatus" value="{{ value }}" ng-bind="description"></option>
+                        </select>
+                    </th>
+                    <th>呼叫次数</th>
+                    <th>操作</th>
+                </tr>
+                <tr ng-repeat="call in callList track by $index">
+                    <td>
+                        <input type="checkbox" ng-model="selectedCallList[call.id]" ng-change="changeCallAll()">
+                    </td>
+                    <td ng-bind="(conditions.pageInfo.page - 1) * conditions.pageInfo.pageSize + $index + 1"></td>
+                    <td ng-bind="call.outCallNo"></td>
+                    <td ng-bind="call.name"></td>
+                    <td ng-bind="call.sex | lbConfigFilter:'sex'"></td>
+                    <td ng-bind="callOptions.jobState[call.jobState]"></td>
+                    <td ng-bind="callOptions.outcallStatus[call.outCallStatus]"></td>
+                    <td ng-bind="call.outCallCount"></td>
+                    <td>
+                        <span class="op" ng-show="call.call_success == '0'" ng-click="callMany(call)">立刻重拨</span>
+                        <span class="op" ng-show="call.call_success" ng-click="showCallDetail(call)">通话详情</span>
+                    </td>
+                </tr>
+            </table>
+            <div class="pages">
+                <span class="btn-blue recall-all" ng-click="callMany()">批量重拨</span>
+                <div lb-page-directive data="callList" page-info="conditions.pageInfo" fetch="getCallList"></div>
+            </div>
+        </div>
+    </div>
+    <div id="pop-call-detail" class="pop">
+        <div class="title">通话详情<span class="icons-close close" ng-click="closePop('pop-call-detail')"></span></div>
+        <div class="pop-content">
+            <div class="spacefix">
+                <div class="col-6 font-size-normal">手机号码：<span ng-bind="callDetail.phone"></span></div>
+                <div class="col-6 font-size-normal text-align-right">通话次数<span ng-bind="callDetail.callTimes"></span></div>
+            </div>
+            <div class="records border-grey">
+                <div ng-repeat="cd in callDetailList track by $index" class="record bgcolor-blue color-white" ng-click="playRecord()">
+                    <span>通话录音{{ $index + 1 }}</span><audio class="record-audio" src="{{ cd.recordUrl }}"></audio>
+                </div>
+            </div>
+            <div>
+                <div class="chat" ng-repeat="cd in callDetailList track by $index">
+                    <p class="font-size-small color-555 text-align-center" ng-bind="cd.date"></p>
+                    <p class="font-size-small color-555 text-align-center">第{{ $index + 1 }}次通话</p>
+                    <ul>
+                        <li ng-repeat="tk in cd.talkList">
+                            <span class="person" ng-bind="tk.role | lbConfigFilter:'identity'"></span>
+                            <div class="words" ng-bind="tk.content"></div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,21 @@
+#verify-email{
+    height: 100%;
+    .tips{
+        display: inline-block;
+        width: 500px;
+        height: 100px;
+        position: absolute;
+        left: 50%;
+        margin-left: -250px;
+        top: 50%;
+        margin-top: -50px;
+        .title{
+            padding-left: 20px;
+            height: 50px;
+            line-height: 50px;
+        }
+        .op{
+            margin-top: 20px;
+        }
+    }
+}

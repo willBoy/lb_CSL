@@ -1,0 +1,32 @@
+<div lb-aside-directive></div>
+<div id="robot" class="main-page-margin">
+    <div id="main-title">
+        <div class="title font-size-huge font-weight-200">新建班级</div>
+
+    </div>
+    <div class="form-item robot-type">
+        <div class="title">班级名称</div>
+        <div class="content">
+            <input type="text" class="input" placeholder="班级名称">
+        </div>
+    </div>
+    <div class="form-item robot-type">
+        <div class="title">导入课程</div>
+        <select class="select">
+            <option>正音</option>
+            <option>口语</option>
+            <option>韵母</option>
+        </select>
+    </div>
+    <div class="form-item">
+        <div class="title">开班时间</div>
+        <div class="content">
+            <div class="calendar" id="time-start">
+                <input type="text" class="input" disabled="disabled" placeholder="请输入开始日期" ng-model="taskInfo.startTime">
+                <span class="icon icons-calendar"></span>
+            </div>
+        </div>
+    </div>
+    <span class="op btn-blue" ng-click="utils.href('/classList')">确定</span>
+    <span class="op btn-blue" ng-click="utils.href('/classList')">取消</span>
+</div>

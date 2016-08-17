@@ -1,0 +1,19 @@
+{
+  "code":0,
+  "msg":"success",
+  "result":[
+    {
+      "id":"",
+      "englishName":"",
+      "chineseName":"",
+      "age":"",
+      "gender":"0:女 1:男",
+      "avatarUrl":"头像地址",
+      "nationality":"国籍",
+      "motherTongue":"母语",
+      "foreignLanguage":"外语",
+      "email":"",
+      "remark":""
+    }
+  ]
+}

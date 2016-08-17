@@ -1,0 +1,12 @@
+{
+  "code":0,
+  "msg":"success",
+  "result":[
+    {
+      "id":"课程来源id",
+      "name":"课程来源名称",
+      "logo":"课程来源logo",
+      "description":"课程来源描述"
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+#aside{
+    display: inline-block;
+    position: fixed;
+    top: 63px;
+    left: 0;
+    width: 200px;
+    height: 100%;
+    @extend .bgcolor-black;
+    .aside-list{
+        li{
+            height: 50px;
+            line-height: 50px;
+            border-bottom: 1px solid $black;
+            border-left: 1px solid transparent;
+            cursor: pointer;
+        }
+        li.selected{
+            border-left: 3px solid $blue;
+            cursor: default;
+        }
+        .aside-list-icon{
+            //加上图标后应去掉width和height
+            display: inline-block;
+            margin: 16px 4px 0 40px;
+        }
+    }
+}

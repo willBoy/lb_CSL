@@ -1,0 +1,11 @@
+<div class="page-directive color-blue spacefix">
+    <span class="prev text-align-center font-size-normal" ng-click="fetch(pageInfo.page - 1)" ng-show="pageInfo.page != 1">上一页</span>
+    <table class="page-table font-size-normal">
+        <tbody>
+        <tr>
+            <td ng-repeat="p in pageBtnList track by $index" class="{{ p == pageInfo.page ? 'bgcolor-blue color-white border-blue' : 'border-grey color-blue' }} page-num text-align-center" ng-bind="p" ng-click="fetch(p)"></td>
+        </tr>
+        </tbody>
+    </table>
+    <span class="next text-align-center font-size-normal" ng-click="fetch(pageInfo.page + 1)" ng-show="pageInfo.totalPage != 0 && pageInfo.page != pageInfo.totalPage">下一页</span>
+</div>

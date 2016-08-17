@@ -1,0 +1,137 @@
+<div lb-aside-directive></div>
+<div id="course" class="main-page-margin">
+    <div id="main-title">
+        <div class="title font-size-huge font-weight-200">课程管理</div>
+        <div class="font-size-normal ">
+            <em class="path" ng-click="utils.href('/')">首页</em>
+            <em> / </em>
+            <em class="path" ng-click="utils.href('/classList')">班级管理</em>
+            <em> / </em>
+            <em class="last">课程管理</em>
+        </div>
+    </div>
+    <div class="main-wrapper" ng-show="true">
+        <div class="title-1">
+            <span class="title">课程设置</span>
+        </div>
+        <div class="title-2">
+            <!--<div class="form-item">
+                <div class="title font-size-huge">课程名称：</div>
+                <div class="content">
+                    <input type="text" class="input" name="name" required ng-maxlength="30" value="高级正音">
+                </div>
+            </div>
+            <div class="form-item">
+                <div class="title">课程简介：</div>
+                <div class="content">
+                    <input type="text" class="input" name="name" required ng-maxlength="30" value="blablabla">
+                </div>
+            </div>-->
+            <div class="clearfix">
+                <span class="font-size-16">课程名称：高级正音</span><span class="icon icons-edit edit"></span>
+            </div>
+            <div class="clearfix">
+                <span class="font-size-small intro left"><b>课程简介 : </b>blablabla
+</span><span class="icon icons-edit left"></span>
+            </div>
+        </div>
+    </div>
+    <div class="main-wrapper" ng-show="true">
+        <div class="title-1">
+            <span class="title">章节列表</span>
+            <div class="right">
+                <span class="op btn-blue bgcolor-blue" ng-click="utils.href('/createClass')">+ 创建章节</span>
+                <!--<span class="op btn-blue" ng-click="classList()">获取数据</span>-->
+            </div>
+        </div>
+        <div class="table-list">
+            <table class="data-list">
+                <tr>
+                    <th>序号</th>
+                    <th>章节主题</th>
+                    <th>章节简介</th>
+                    <th>呈现模式</th>
+                    <th>流程模式</th>
+                    <th>章节状态</th>
+                    <th>操作</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>介绍</td>
+                    <td>课程安排介绍/应用软件介绍</td>
+                    <td>顺序</td>
+                    <td>错题不重做</td>
+                    <td>准备中</td>
+                    <td>
+                        <a ng-click="utils.href('/class/session')">章节设置</a>
+                        <a ng-click="utils.href('/class/exercise')">习题管理</a>
+                        <a ng-click="utils.href('')">上移</a>
+                        <a ng-click="utils.href('')">下移</a>
+                        <a ng-click="utils.href('')">删除</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>韵母（一）</td>
+                    <td>a/o/e/i/u/yu</td>
+                    <td>顺序</td>
+                    <td>错题不重做</td>
+                    <td>准备中</td>
+                    <td>
+                        <a ng-click="utils.href('/class/session')">章节设置</a>
+                        <a ng-click="utils.href('/class/exercise')">习题管理</a>
+                        <a ng-click="utils.href('')">上移</a>
+                        <a ng-click="utils.href('')">下移</a>
+                        <a ng-click="utils.href('')">删除</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>韵母（二）</td>
+                    <td>a/o/e/i/u/yu</td>
+                    <td>顺序</td>
+                    <td>错题不重做</td>
+                    <td>准备中</td>
+                    <td>
+                        <a ng-click="utils.href('/class/session')">章节设置</a>
+                        <a ng-click="utils.href('/class/exercise')">习题管理</a>
+                        <a ng-click="utils.href('')">上移</a>
+                        <a ng-click="utils.href('')">下移</a>
+                        <a ng-click="utils.href('')">删除</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>韵母（三）</td>
+                    <td>a/o/e/i/u/yu</td>
+                    <td>顺序</td>
+                    <td>错题不重做</td>
+                    <td>准备中</td>
+                    <td>
+                        <a ng-click="utils.href('/class/session')">章节设置</a>
+                        <a ng-click="utils.href('/class/exercise')">习题管理</a>
+                        <a ng-click="utils.href('')">上移</a>
+                        <a ng-click="utils.href('')">下移</a>
+                        <a ng-click="utils.href('')">删除</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>韵母（四）</td>
+                    <td>a/o/e/i/u/yu</td>
+                    <td>顺序</td>
+                    <td>错题不重做</td>
+                    <td>准备中</td>
+                    <td>
+                        <a ng-click="utils.href('/class/session')">章节设置</a>
+                        <a ng-click="utils.href('/class/exercise')">习题管理</a>
+                        <a ng-click="utils.href('')">上移</a>
+                        <a ng-click="utils.href('')">下移</a>
+                        <a ng-click="utils.href('')">删除</a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+</div>

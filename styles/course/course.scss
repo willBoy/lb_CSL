@@ -1,0 +1,26 @@
+#course{
+    .title-2{
+        border-bottom: none;
+        /*height:40px;*/
+        .clearfix{
+            margin: 20px 0;
+            .icon{
+                margin: 0 10px;
+            }
+        }
+        .intro{
+            /*padding: 10px 20px 0px 0;*/
+            height: auto;
+        }
+        /*.icon{
+            margin-top: 5px;
+        }
+        .edit{
+            margin: 12px;
+        }*/
+        .left{
+            height: 20px;
+        }
+    }
+
+}

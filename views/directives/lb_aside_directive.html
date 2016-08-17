@@ -1,0 +1,8 @@
+<aside id="aside">
+    <ul class="aside-list font-size-16 color-light-blue font-weight-500">
+        <li ng-repeat="tab in asideList[asideTab.listName]" class="{{ tab.name === asideTab.tabName ? 'selected' : '' }}" ng-click="utils.href(tab.url)" ng-mouseover="enter(tab)" ng-mouseleave="leave(tab)">
+            <span class="aside-list-icon icon {{ tab.icon }}"></span>
+            <span ng-bind="tab.value"></span>
+        </li>
+    </ul>
+</aside>

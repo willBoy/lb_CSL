@@ -1,0 +1,17 @@
+{
+  "code":0,
+  "msg":"success",
+  "result":{
+    "userId":"",
+    "email":"",
+    "chineseName":"",
+    "englishName":"",
+    "age":"",
+    "gender":"",
+    "phoneNumber":"",
+    "nationality":"",
+    "motherTongue":"",
+    "foreignLanguage":"",
+    "avatarUrl":""
+  }
+}

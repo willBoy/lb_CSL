@@ -1,0 +1,12 @@
+{
+  "code":0,
+  "msg":"success",
+  "result":{
+    "userId":"1",
+    "email":"123@123.com",
+    "chineseName":"¡È∞È",
+    "englishName":"lingban",
+    "schoolName":"±≥æ∞¥Û—ß",
+    "avatarUrl":""
+  }
+}

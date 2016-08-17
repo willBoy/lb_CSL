@@ -1,0 +1,747 @@
+@charset "utf-8";
+@import "compass/css3";
+
+/*** 初始化 - start ***/
+html, body{
+    font-family: "微软雅黑";
+    font-size: 12px;
+    height: 100%;
+    color: #555555;
+    background: #eee;
+}
+input, textarea{
+    @include box-sizing(border-box);
+}
+#ng-view{
+    height: 100%;
+}
+a{
+    text-decoration: none;
+}
+div, span, li, em{
+    vertical-align: top;
+}
+/*** 初始化 - end ***/
+
+/* 公共样式 - start */
+
+/* 颜色变量定义 */
+$blue: #4eb5e0;
+$grey: #dadada;
+$grey-333: #333333;
+$grey-555: #555555;
+$grey-eee: #eeeeee;
+$grey-ccc: #ccc;
+$black: #1a1c20;
+$black-deep: #272930;
+$red: #FF0000;
+$beidared:#8f000b;
+$cyan: #c9d4f6;
+$white: #FFFFFF;
+$light-blue: #c9d4f6;
+$light-grey: #ECECEC;
+
+/* 字体 */
+.font-size-biggest{
+    font-size: 50px;
+}
+.font-size-huge{
+    font-size: 24px;
+}
+.font-size-large{
+    font-size: 19px;
+}
+.font-size-16{
+    font-size: 16px;
+}
+.font-size-normal{
+    font-size: 14px;
+}
+.font-size-small{
+    font-size: 13px;
+}
+.font-size-tiny{
+    font-size: 10px;
+}
+
+/* 字体权重 */
+.font-weight-200{
+    font-weight: 200;
+}
+.font-weight-300{
+    font-weight: 300;
+}
+.font-weight-500{
+    font-weight: 500;
+}
+
+/* 颜色 */
+.color-blue{
+    color: $blue;
+}
+.color-light-blue{
+    color: $light-blue;
+}
+.color-red{
+    color: $red;
+}
+.color-white{
+    color: $white;
+}
+.color-333{
+    color: $grey-333;
+}
+.color-555{
+    color: $grey-555;
+}
+.color-eee{
+    color: $grey-eee;
+}
+.color-ccc{
+    color: $grey-ccc;
+}
+.color-cyan{
+    color: $cyan;
+}
+.color-black{
+    color: $black;
+}
+
+/* 背景 */
+.bgcolor-white{
+    background-color: $white;
+}
+.bgcolor-blue{
+    background-color: $blue;
+}
+.bgcolor-grey{
+    background-color: $light-grey;
+}
+.bgcolor-black{
+    background-color: $black-deep;
+}
+
+.bgcolor-beidared{
+    background-color: $beidared;
+}
+/* 不透明度 */
+.bg-black-transparent-70{
+    background: rgba(0, 0, 0, 0.7);
+}
+
+/* 行高 */
+.line-height-12{
+    line-height: 1.2;
+}
+.line-height-15{
+    line-height: 1.5;
+}
+.line-height-40{
+    line-height: 40px;
+}
+
+/* 边框 */
+.border-blue{
+    border: 1px solid $blue;
+}
+.border-grey{
+    border: 1px solid $grey;
+}
+
+/* 水平布局 */
+// 将一行12等分，col-3表示占3个宽度，那么宽度就是总宽度25%
+.col-2-4{
+    display: inline-block;
+    width: 20%;
+}
+.col-3{
+    display: inline-block;
+    width:25%;
+}
+.col-4{
+    display: inline-block;
+    width: 33.3333%;
+}
+.col-6{
+    display: inline-block;
+    width: 50%;
+}
+.col-8{
+    display: inline-block;
+    width: 66.6666%;
+}
+.col-9{
+    display: inline-block;
+    width: 75%;
+}
+
+
+/* 固定位置 */
+.fix-top{
+    position: fixed;
+    top: 0;
+}
+.fix-bottom{
+    position: fixed;
+    bottom: 0;
+}
+/* 居中、居左、居右 */
+.text-align-center{
+    text-align: center;
+}
+.text-align-left{
+    text-align: left;
+}
+.text-align-right{
+    text-align: right;
+}
+
+/* clear fix */
+.clearfix{
+    clear: both;
+}
+/* 解决不能inline-block之间的间距问题，给父元素加上下面的样式 */
+.spacefix{
+    font-size: 0;
+}
+
+/* 包裹 */
+.main-wrapper{
+    padding: 30px;
+    margin: 20px;
+    @extend .border-grey;
+    @extend .bgcolor-white;
+}
+.wrapper-padding-30{
+    padding: 30px;
+}
+.fix-wrapper{
+    width: 1200px;
+    height: 100%;
+    margin: 30px auto;
+}
+/* 左右布局 */
+/*
+<div class="left-and-right">
+    <div class="left-content"></div>
+    <div class="right-content"><div>
+    <div class="clearfix"></div>
+</div>
+*/
+.left-and-right{
+    .left-content{
+        display: inline-block;
+        width: 700px;
+        float: left;
+    }
+    .right-content{
+        margin-left: 700px;
+    }
+}
+
+/* 对齐方式 */
+.vertical-align-bottom{
+    vertical-align: bottom;
+}
+
+/* icons-base */
+.icon{
+    display: inline-block;
+}
+
+/*** 公共样式 - end ***/
+
+/*** 网站公共组件样式 - start ***/
+
+.error{
+    display: block;
+    height: 20px;
+    line-height: 20px;
+    @extend .font-size-tiny;
+    @extend .color-red;
+}
+
+.btn-base-1{
+    display: inline-block;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    padding: 2px 20px;
+    cursor: pointer;
+    @extend .font-size-normal;
+}
+.btn-blue{
+    @extend .btn-base-1;
+    @extend .bgcolor-black;
+    @extend .color-white;
+    /*@extend .border-blue;*/
+}
+.btn-white{
+    @extend .btn-base-1;
+    @extend .color-333;
+    @extend .border-grey;
+}
+
+.input{
+    width: 200px;
+    padding: 10px 8px;
+    @extend .border-grey;
+}
+.select{
+    height: 37px;
+    min-width: 200px;
+    border-color: #dadada;
+}
+// 密码输入框
+/*
+<div class="input-pwd">
+    <div class="input-pwd-wrapper">
+        <input type="{{ pwdIsText ? 'text' : 'password' }}" name="password" class="input" placeholder="" ng-model="" required>
+        <span class="{{ pwdIsText ? 'icons-unlock' : 'icons-lock' }}" ng-click="pwdIsText = !pwdIsText"></span>
+    </div>
+</div>
+*/
+.input-pwd{
+    display: inline-block;
+    .input-pwd-wrapper{
+        position: relative;
+        input{
+            width: 100%;
+            @extend .input
+        }
+        .icons-lock, .icons-unlock{
+            position: absolute;
+            right: 10px;
+            top: 12px;
+            cursor: pointer;
+        }
+    }
+}
+
+// 日期
+/*
+<div id="abc" class="calendar">
+    <span class="icon icons-calendar"></span>
+    <input type="text" class="input" disabled="disabled" placeholder="请选择日期">
+</div>
+$('#abc').jdatepicker(options);
+*/
+.calendar{
+    display: inline-block;
+    width: 200px;
+    height: 40px;
+    position: relative;
+    .input{
+        width: 100%;
+    }
+    .icons-calendar{
+        position: absolute;
+        right: 0;
+        top: 0;
+        margin: 10px;
+        cursor: pointer;
+    }
+}
+
+// 时间
+/*
+<div id="abc" class="time-picker">
+    <span class="icon icons-time"></span>
+    <input type="text" class="input" disabled="disabled" placeholer="请选择时间">
+</div>
+$('#abc').jtime(options);
+*/
+.time-picker{
+    display: inline-block;
+    width: 200px;
+    height: 40px;
+    position: relative;
+    .input{
+        width: 180px;
+    }
+    .icons-time{
+        position: absolute;
+        right: 0;
+        top: 0;
+        margin: 10px;
+        cursor: pointer;
+    }
+}
+
+// tab页
+/*
+<div class="tabs">
+    <ul class="font-size-normal tab-titles">
+        <li class="tab-title {{ tabName == 1 ? 'selected' : '' }}" ng-click="tabName = 1">tab1</li>
+        <li class="tab-title {{ tabName == 2 ? 'seleceted' : ''} }}" ng-click="tabName = 2">tab2</li>
+    </ul>
+    <div class="tab" ng-show="tabName == 1"></div>
+    <div class="tab" ng-show="tabName == 2"></div>
+</div>
+UtilsService.genTab($scope, tabName)
+*/
+.tabs{
+    width: 100%;
+    .tab-titles{
+        display: block;
+        width: 100%;
+        height: 40px;
+        line-height: 40px;
+        @extend .color-blue;
+        .tab-title{
+            display: inline-block;
+            padding: 0 10px;
+            text-align: center;
+            border-top: 2px solid transparent;
+            cursor: pointer;
+        }
+        .tab-title.selected{
+            @extend .color-555;
+            border-top: 2px solid $blue;
+            cursor: default;
+        }
+    }
+    .tab{
+        padding: 20px;
+        border: 1px solid $light-grey;
+    }
+}
+// 菜单列表样式1
+.menu-list-1{
+    display: inline-block;
+    @extend .font-size-normal;
+    @extend .bgcolor-white;
+    @extend .border-grey;
+    .item,.item-cursor{
+        height: 30px;
+        line-height: 30px;
+        padding-left: 10px;
+    }
+    .item-cursor{
+        cursor: pointer;
+    }
+    .item-cursor:hover{
+        @extend .bgcolor-blue;
+        @extend .color-white;
+    }
+}
+
+// 主标题
+/*
+
+<div id="main-title">
+    <div class="title font-size-huge font-weight-200"></div>
+    <div class="font-size-normal ">
+        <em class="path" ng-click="utils.href()"></em>
+        <em> / </em>
+        <em class="last"></em>
+    </div>
+    <span class="op btn-blue" ng-click=""></span>
+</div>
+
+*/
+#main-title{
+    padding: 20px 0 20px 20px;
+    border-bottom: 1px solid $grey;
+    margin: 0 20px;
+    @extend .bgcolor-white;
+    .title{
+        margin-bottom: 10px;
+    }
+    .path{
+        cursor: pointer;
+        @extend .color-blue;
+    }
+    .op{
+        float: right;
+        margin: -31px 20px 0 0;
+    }
+}
+
+// 标题样式1
+/*
+<div class="title-1">
+    <span class="title">已有机器人</span>
+    <div class="left"></div>
+    <div class="right"></div>
+</div>
+*/
+.title-1{
+    @extend .font-weight-200;
+    height: 40px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid $grey;
+    .icons-search{
+        display: inline-block;
+        position: relative;
+        left: -30px;
+        top: 10px;
+    }
+    .title{
+        @extend .font-size-large;
+        display: inline-block;
+        height: 40px;
+        line-height: 40px;
+    }
+    .right, .left{
+        display: inline-block;
+        height: 40px;
+        overflow: hidden;
+    }
+    .right{
+        float: right;
+        @extend .text-align-right;
+    }
+}
+.title-2{
+    @extend .title-1;
+    height: auto;
+}
+.main-page-margin{
+    height: 100%;
+    min-width: 1200px;
+    margin: 80px 0 0 200px;
+}
+// 选择卡片
+/*
+<div class="card-list">
+    <span class="card"></span>
+    <span class="card selected"></span>
+</div>
+*/
+.card-list{
+    display: inline-block;
+    height: 30px;
+    @extend .font-size-normal;
+    .card{
+        display: inline-block;
+        height: 30px;
+        line-height: 30px;
+        margin: 0 5px;
+        padding: 0 10px;
+        cursor: pointer;
+        @extend .border-grey
+    }
+    .card.selected{
+        @extend .border-blue;
+        @extend .bgcolor-blue;
+        @extend .color-white;
+    }
+}
+
+
+// 弹框
+/*
+<div id="pop-{name}" class="pop">
+    <div class="pop-title"><span class="icons-close close" ng-click="closePop('pop-{name}')"></span></div>
+    <div class="pop-content"></div>
+</div>
+*/
+
+.trans-bg{
+    display: none;
+    position: fixed;
+    @extend .bg-black-transparent-70;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+.pop{
+    display: none;
+    width: 600px;
+    position: fixed;
+    left: 50%;
+    margin-left: -300px;
+    z-index: 10;
+    .pop-title{
+        padding-left: 30px;
+        height: 50px;
+        line-height: 50px;
+        @extend .font-weight-200;
+        @extend .font-size-huge;
+        @extend .bgcolor-blue;
+        @extend .color-white;
+    }
+    .close{
+        float: right;
+        margin: 17px;
+        cursor: pointer;
+    }
+    .pop-content{
+        @extend .bgcolor-white;
+        @extend .font-size-normal;
+        @extend .line-height-15;
+        padding: 20px;
+    }
+}
+
+// loading
+#loading{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: $white;
+}
+
+/*
+表单项
+<div class="form-item">
+    <div class="title"></div>
+    <div class="content [text]"></div>
+</div>
+*/
+$form-item-height: 40px;
+.form-item{
+    width: 100%;
+    margin-top: 20px;
+
+    .title{
+        display: inline-block;
+        width: 100px;
+        height: $form-item-height;
+        line-height: $form-item-height;
+        float: left;
+        @extend .font-size-normal;
+    }
+    .content{
+        display: block;
+        margin-left: 100px;
+        min-height: $form-item-height;
+        textarea{
+            min-height: 100px;
+            min-width: 100%;
+            max-width: 100%;
+            @extend .font-size-normal;
+            @extend .line-height-15;
+        }
+        pre{
+            margin-top: 5px;
+        }
+    }
+    .text{
+        @extend .font-size-normal;
+        line-height: $form-item-height;
+    }
+}
+
+// 表单按钮
+/*
+<div class="form-op">
+    <span class="op btn-blue"></span>
+</div>
+*/
+.form-op{
+    margin-top: 10px;
+    @extend .text-align-center;
+    .op{
+        margin: 0 10px;
+    }
+}
+
+// 列表
+/*
+<div class="table-list">
+    <table class="data-list">
+        <tr>
+            <th></th>
+            <th></th>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+    <div class="pages">
+        <div lb-page-directive data="" pageinfo="" fetch=""></div>
+    </div>
+</div>
+
+*/
+.table-list{
+    table.data-list{
+        width: 100%;
+        margin-top: 20px;
+        @extend .font-size-normal;
+        th, td{
+            @extend .text-align-center;
+            @extend .border-grey;
+            height: 40px;
+            a{
+                text-decoration: underline;
+                margin: 0 5px;
+                cursor: pointer;
+                @extend .color-blue;
+            }
+            .op{
+                @extend .color-blue;
+                cursor: pointer;
+                margin: 0 10px;
+            }
+        }
+        th{
+            @extend .bgcolor-grey;
+            @extend .color-black;
+        }
+    }
+    .pages{
+        text-align: right;
+        margin-top: 20px;
+    }
+}
+
+// 分页中设置每页多少条数据
+/*
+<div class="page-size font-size-normal">
+    <span>共123条记录，每页</span>
+    <select>
+        <option value="5" selected="selected">5</option>
+        <option value="10">10</option>
+        <option value="10">15</option>
+        <option value="10">20</option>
+    </select>
+    <span>条</span>
+</div>
+*/
+.page-size{
+    display: inline-block;
+    height: 40px;
+    line-height: 40px;
+}
+
+// d3 tips
+.d3-tips{
+    display: none;
+    position: absolute;
+    padding: 10px 8px;
+    width: 100px;
+    height: auto;
+    @extend .text-align-center;
+    background: rgba(0, 0, 0, 0.6);
+    @include border-radius(4px);
+    @extend .color-white;
+}
+// d3 圆点样式
+.d3-dot{
+    fill: white;
+    stroke: steelblue;
+    stroke-width: 1.5px;
+}
+// d3 线
+.d3-line{
+    fill: none;
+    stroke: steelblue;
+    stroke-width: 1.5px;
+}
+// d3 area
+.d3-area{
+    fill: lightsteelblue;
+}
+// d3 柱状图
+.d3-rect{
+    fill: lightsteelblue;
+}
+
+/*** 网站公共组件样式 - end ***/

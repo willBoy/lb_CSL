@@ -1,0 +1,57 @@
+<div lb-aside-directive></div>
+<div class="main-page-margin">
+    <div id="main-title">
+        <div class="title font-size-huge font-weight-200">班级设置</div>
+        <div class="font-size-normal ">
+            <em class="path" ng-click="utils.href('/')">首页</em>
+            <em> / </em>
+            <em class="last">班级管理</em>
+            <em> / </em>
+            <em class="last">班级设置</em>
+        </div>
+    </div>
+    <div class="main-wrapper" ng-show="true">
+        <div class="form-item">
+            <div class="title">班级名称：</div>
+            <div class="content">
+                <input type="text" class="input" name="name"  required ng-maxlength="30" value="班级名称">
+                <pre class="line-height-15 color-blue">对学生不可见</pre>
+                <div class="error" ng-show="voice_robot_form.name.$dirty && voice_robot_form.name.$invalid">名称必填，且不多于30个字</div>
+            </div>
+        </div>
+        <div class="form-item">
+            <div class="title">课程名称：</div>
+            <div class="content">
+                <input type="text" class="input" name="name"  required ng-maxlength="30" value="正音通用">
+                <pre class="line-height-15 color-blue">对学生可见</pre>
+                <div class="error" ng-show="voice_robot_form.name.$dirty && voice_robot_form.name.$invalid">名称必填，且不多于30个字</div>
+            </div>
+        </div>
+        <div class="form-item">
+            <div class="title">开班时间：</div>
+            <div class="content">
+                <div class="calendar" id="time-start">
+                    <input type="text" class="input" disabled="disabled" placeholder="请输入开班时间" ng-model="taskInfo.startTime">
+                    <span class="icon icons-calendar"></span>
+                </div>
+            </div>
+        </div>
+        <div class="form-item">
+            <div class="title">班级状态：</div>
+            <div class="content">
+                <select class="select" name="voice_type" ng-model="voiceRobot.sound" required>
+                    <option value="">准备中</option>
+                    <option value="">开课中</option>
+                    <option value="">已结课</option>
+                    <option ng-repeat="sound in soundList" value="{{ sound.id }}" ng-bind="sound.name"></option>
+                </select>
+                <div class="error" ng-show="voice_robot_form.voice_type.$dirty && voice_robot_form.voice_type.$invalid">请选择班级状态</div>
+            </div>
+        </div>
+        <div class="form-op">
+            <span class="op btn-blue" ng-click="utils.href('/classList')">确认</span>
+            <span class="op btn-blue" ng-click="utils.href('/classList')">取消</span>
+        </div>
+    </div>
+
+</div>

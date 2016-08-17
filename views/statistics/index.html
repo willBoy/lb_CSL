@@ -1,0 +1,71 @@
+<div id="statistics">
+    <div class="fix-wrapper">
+        <div class="title-1">
+            <div class="title">数据分析</div>
+            <div class="right">
+                <select class="select">
+                    <option>生日祝福呼任务</option>
+                </select>
+                <div id="time-start" class="calendar">
+                    <span class="icon icons-calendar"></span>
+                    <input type="text" class="input" disabled="disabled" placeholder="请选择日期">
+                </div>
+                <div id="time-end" class="calendar">
+                    <span class="icon icons-calendar"></span>
+                    <input type="text" class="input" disabled="disabled" placeholder="请选择日期">
+                </div>
+            </div>
+        </div>
+        <div class="base-info spacefix">
+            <div class="base-info-item border-grey">
+                <div class="title font-size-large text-align-center">通话成功率</div>
+                <div class="content text-align-center">
+                    <svg id="call-success"></svg>
+                </div>
+            </div>
+            <div class="base-info-item border-grey">
+                <div class="title font-size-large text-align-center">首呼接通率</div>
+                <div class="content text-align-center">
+                    <svg id="first-call-connected"></svg>
+                </div>
+            </div>
+            <div class="base-info-item border-grey">
+                <div class="title font-size-large text-align-center">外呼接通率</div>
+                <div class="content text-align-center">
+                    <svg id="out-call-success"></svg>
+                </div>
+            </div>
+            <div class="base-info-item border-grey">
+                <div class="title font-size-large text-align-center">机主接通率</div>
+                <div class="content text-align-center">
+                    <svg id="connect-success"></svg>
+                </div>
+            </div>
+        </div>
+        <div class="by-time-wrapper spacefix">
+            <div class="by-time border-grey">
+                <div class="title font-size-large text-align-center">分时段接通情况</div>
+                <div class="content text-align-center">
+                    <svg id="connect-by-time"></svg>
+                </div>
+            </div>
+            <div class="by-time border-grey">
+                <div class="title font-size-large text-align-center">分时段通话成功情况</div>
+                <div class="content text-align-center">
+                    <svg id="call-success-by-time"></svg>
+                </div>
+            </div>
+        </div>
+        <div class="title-1">
+            <div class="title">整体外呼情况</div>
+        </div>
+        <div class="spacefix total-detail">
+            <div class="col-4 text-align-center font-size-small">
+                <svg id="total-connect"></svg>
+            </div>
+            <div class="col-8 font-size-small">
+                <svg id="total-detail"></svg>
+            </div>
+        </div>
+    </div>
+</div>

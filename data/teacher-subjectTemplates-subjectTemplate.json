@@ -1,0 +1,33 @@
+{
+  "code":0,
+  "msg":"success",
+  "result":{
+    "id":"",
+    "name":"",
+    "description":"",
+    "chapterCount":"",
+    "origin":{
+      "id":"课程来源id",
+      "name":"课程来源名称",
+      "logo":"课程来源logo",
+      "description":"课程来源描述"
+    },
+
+    "chapter":[
+      {
+        "chapterId":"",
+        "number":"",
+        "name":"",
+        " descriptionContent ":"章节内容介绍",
+        "descriptionExercise":"训练类型介绍",
+        " descriptionCN":"中文说明",
+        "descriptionEN":"英文说明",
+        "训练范式":"训练范式",
+        "questionCount":"题目数量",
+        "status":"0：关闭 1：开放",
+        "呈现顺序":"答题模式",
+        "练习模式":"答题模式"
+      }
+    ]
+  }
+}

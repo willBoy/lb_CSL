@@ -1,0 +1,42 @@
+#login{
+    height: 100%;
+    #title{
+        height: 54px;
+        line-height: 54px;
+        text-align: center;
+    }
+    #login-wrapper{
+        width: 430px;
+        height: 400px;
+        position: absolute;
+        left: 50%;
+        margin-left: -215px;
+        top: 50%;
+        margin-top: -200px;
+    }
+    .user-info-input{
+        width: 100%;
+        margin-top: 15px;
+    }
+    #btn-reg{
+        margin-right: 10px;
+    }
+    #btn-login{
+        margin-left: 10px;
+    }
+    .tips{
+        margin-bottom: 20px;
+    }
+
+    .code{
+        width: 140px;
+        margin-top: 15px;
+    }
+    .get-code{
+        float: right;
+        margin-top: 15px;
+    }
+    .op{
+        margin-top: 15px;
+    }
+}

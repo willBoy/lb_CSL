@@ -1,0 +1,36 @@
+#profile{
+    .info{
+        margin-top: 20px;
+        .item{
+            height: 30px;
+            line-height: 30px;
+        }
+        .operation{
+            float: right;
+            margin-left: 10px;
+        }
+    }
+    .verify{
+        margin-left: 10px;
+        cursor: pointer;
+    }
+    .title-1{
+        .operation{
+            margin-left: 10px;
+        }
+    }
+    #pop-audit{
+        .form-item{
+            margin-bottom: 15px;
+        }
+    }
+    #pop-test{
+        .content .col-6{
+            text-align: center;
+            margin-top: 20px;
+        }
+        .test-option{
+            margin-top: 20px;
+        }
+    }
+}

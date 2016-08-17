@@ -1,0 +1,112 @@
+<div lb-aside-directive></div>
+<div id="create-robot" class="main-page-margin">
+    <div lb-title-directive></div>
+    <div class="main-wrapper">
+        <div class="title-1">
+            <span class="title">创建机器人</span>
+        </div>
+        <div class="left-and-right">
+            <div class="left-content">
+                <div class="form-item robot-type">
+                    <div class="title">机器人模型</div>
+                    <div class="content">
+                        <select class="select" ng-model="robotModel">
+                            <option ng-repeat="model in modelList" value="{{ model.id }}" ng-bind="model.name"></option>
+                        </select>
+                    </div>
+                </div>
+                <form name="voice_robot_form" ng-show="robotModel == 1">
+                    <div class="form-item">
+                        <div class="title">机器人Key</div>
+                        <div class="content text" ng-bind="key"></div>
+                    </div>
+                    <div class="form-item">
+                        <div class="title">机器人名称</div>
+                        <div class="content">
+                            <input type="text" class="input" name="name" placeholder="给它起个名称" ng-model="voiceRobot.name" required ng-maxlength="30">
+                            <div class="error" ng-show="voice_robot_form.name.$dirty && voice_robot_form.name.$invalid">名称必填，且不多于30个字</div>
+                        </div>
+                    </div>
+                    <div class="form-item">
+                        <div class="title">声音类型</div>
+                        <div class="content">
+                            <select class="select" name="voice_type" ng-model="voiceRobot.sound" required>
+                                <option value="">声音类型</option>
+                                <option ng-repeat="sound in soundList" value="{{ sound.id }}" ng-bind="sound.name"></option>
+                            </select>
+                            <div class="error" ng-show="voice_robot_form.voice_type.$dirty && voice_robot_form.voice_type.$invalid">请选择声音类型</div>
+                        </div>
+                    </div>
+                    <div class="form-item">
+                        <div class="title">主体内容</div>
+                        <div class="content">
+                            <textarea name="content" ng-model="voiceRobot.template" required ng-maxlength="80"></textarea>
+                            <pre class="font-size-small line-height-15">主体内容中的花括号内容为系统预设参数的转义符，不可修改，包括{user}、{code}；花括号之外内容，企业可自由编辑。</pre>
+                            <div class="error" ng-show="voice_robot_form.content.$dirty && voice_robot_form.content.$invalid">主体内容必填，且不能多余80个字</div>
+                        </div>
+                    </div>
+                    <div class="form-item">
+                        <div class="title">播报次数</div>
+                        <div class="content">
+                            <select name="count" class="select" ng-model="voiceRobot.playTimes">
+                                <option value="1">1次</option>
+                                <option value="2">2次</option>
+                                <option value="3">3次</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="text-align-center">
+                        <span class="btn-blue op" ng-click="voice_robot_form.content.$dirty = true; voice_robot_form.voice_type.$dirty = true; voice_robot_form.content.$valid && voice_robot_form.voice_type.$valid && testVoice()">试听</span>
+                        <span class="btn-blue op" ng-click="voice_robot_form.name.$dirty = true; voice_robot_form.voice_type.$dirty = true; voice_robot_form.$valid && createVoiceRobot()">创建</span>
+                    </div>
+                </form>
+                <form name="wish_form" ng-show="robotModel == 2">
+                    <div class="form-item">
+                        <div class="title">声音类型</div>
+                        <div class="content">
+                            <select class="select" name="voice" ng-model="wishRobot.sound" required>
+                                <option value="">声音类型</option>
+                                <option ng-repeat="sound in soundList" value="{{ sound.id }}" ng-bind="sound.name"></option>
+                            </select>
+                            <div class="error" ng-show="wish_form.voice.$dirty && wish_form.voice.$invalid">请选择声音类型</div>
+                        </div>
+                    </div>
+                    <div class="form-item">
+                        <div class="title">机器人名称</div>
+                        <div class="content">
+                            <input class="input" type="text" name="name" placeholder="请给它起个名" ng-model="wishRobot.name" required ng-maxlength="30">
+                            <div class="error" ng-show="wish_form.name.$dirty && wish_form.name.$invalid">机器人名称必填，且在30个字符之内</div>
+                        </div>
+                    </div>
+                    <div class="form-item">
+                        <div class="title">寒暄介绍</div>
+                        <div class="content">
+                            <textarea name="intro" placeholder="示例：您好，今天是您的生日，我是某某中心的xx号客服代表..." ng-maxlength="80" ng-model="wishRobot.introMsg" required></textarea>
+                            <pre class="font-size-small line-height-15">寒暄介绍主要是用于确认机主身份后，表明自己的身份和事由，限80字内。</pre>
+                            <div class="error" ng-show="wish_form.intro.$dirty && wish_form.intro.$invalid">必填，且长度在80个字以内</div>
+                        </div>
+                    </div>
+                    <div class="form-item">
+                        <div class="title">推介词</div>
+                        <div class="content">
+                            <textarea name="refer" placeholder="示例：目前我们开通了xx服务，您可拨打xxx预约免费体检" value="" ng-maxlength="80" ng-model="wishRobot.adMsg" required></textarea>
+                            <pre class="font-size-small line-height-15">推介词主要用于通话过程中宣传自己的品牌和服务，限80字内。</pre>
+                            <div class="error" ng-show="wish_form.refer.$dirty && wish_form.refer.$invalid">必填，且长度在80个字以内</div>
+                        </div>
+                    </div>
+                    <div class="text-align-center">
+                            <span class="btn-blue op" ng-click="wish_form.voice.$dirty = true;
+                                                                wish_form.name.$dirty = true;
+                                                                wish_form.intro.$dirty = true;
+                                                                wish_form.refer.$dirty = true;
+                                                                wish_form.$valid && createWishRobot()">创建</span>
+                    </div>
+                </form>
+            </div>
+            <div class="right-content">
+                <div lb-robot-directive robot="robotModel"></div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>

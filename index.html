@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang=en ng-app=lbApp>
+<head>
+    <meta charset=UTF-8>
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>汉语学堂</title>
+    <base href="/">
+    <!-- build:css tmpcss/project.min.css -->
+    <link rel="stylesheet" type="text/css" href="vendor/jdatepicker/css/jdatepicker-pc.css">
+    <link rel="stylesheet" type="text/css" href="vendor/jdatepicker/css/jtime-pc.css">
+    <link rel="stylesheet" type="text/css" href="dist/css/project.css">
+    <!-- endbuild -->
+</head>
+<body>
+<!--[if lt IE 9]>
+<p>您正在使用 <strong>过期的</strong> 浏览器。 请 <a href="http://browsehappy.com/">更新您的浏览器</a> 以获得更佳的体验。</p>
+<![endif]-->
+<div lb-header-directive></div>
+<div></div>
+<div ng-view id="ng-view"></div>
+<div id="trans-bg" class="trans-bg"></div>
+<div id="loading" ng-show="loading"></div>
+<!-- build:js tmpjs/lib.min.js -->
+<script src="vendor/jquery-3.0.0.js"></script>
+<script src="vendor/angular.js"></script>
+<script src="vendor/angular-route.js"></script>
+<script src="vendor/jupload-for-legacy.js"></script>
+<script src="vendor/jdatepicker/js/jdatepicker-pc.js"></script>
+<script src="vendor/jdatepicker/js/jtime-pc.js"></script>
+<script src="vendor/d3.js"></script>
+<!-- endbuild -->
+<!-- build:js tmpjs/project.min.js -->
+<script src="scripts/app.js"></script>
+
+<script src="scripts/services/config_service.js"></script>
+<script src="scripts/services/cache_service.js"></script>
+<script src="scripts/services/request_service.js"></script>
+<script src="scripts/services/interceptor_service.js"></script>
+<script src="scripts/services/utils_service.js"></script>
+<script src="scripts/services/common_service.js"></script>
+
+<script src="scripts/directives/lb_header_directive.js"></script>
+<script src="scripts/directives/lb_aside_directive.js"></script>
+
+<script src="scripts/filters/common_filter.js"></script>
+
+<script src="scripts/controllers/index.js"></script>
+<script src="scripts/controllers/welcome.js"></script>
+<!--<script src="scripts/controllers/user.js"></script>-->
+<!--<script src="scripts/controllers/task.js"></script>-->
+<!--<script src="scripts/controllers/monitoring.js"></script>-->
+<!--<script src="scripts/controllers/statistics.js"></script>-->
+<script src="scripts/controllers/class.js"></script>
+
+<!--<script src="scripts/directives/lb_page_directive.js"></script>-->
+<!--<script src="scripts/directives/lb_schedule_directive.js"></script>-->
+<!--<script src="scripts/directives/lb_robot_directive.js"></script>-->
+<!--<script src="scripts/directives/lb_task_list_directive.js"></script>-->
+<!-- endbuild -->
+<!-- build:js tmpjs/templates.min.js -->
+<!--<script src="dist/tmpjs/templates.js"></script>-->
+<!-- endbuild -->
+<!--<div class="d3-tips"></div>-->
+<script src="scripts/controllers/student/login.js"></script>
+
+</body>
+</html>

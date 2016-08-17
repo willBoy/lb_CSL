@@ -1,0 +1,121 @@
+<div lb-aside-directive></div>
+<div id="robot-detail" class="main-page-margin">
+    <div id="main-title">
+        <div class="title font-size-huge font-weight-200">机器人工厂</div>
+        <div class="font-size-normal ">
+            <em class="path" ng-click="utils.href('/dashboard')">首页</em>
+            <em> / </em>
+            <em class="last">机器人工厂</em>
+        </div>
+    </div>
+    <div class="main-wrapper">
+        <div class="title-1">
+            <span class="title">机器人详情</span>
+        </div>
+        <div class="left-and-right">
+            <div class="left-content">
+                <div ng-show="robotType == 1">
+                    <div class="form-item">
+                        <div class="title">机器人名称</div>
+                        <div class="content text" ng-bind="robotDetail.name"></div>
+                    </div>
+                    <div class="form-item">
+                        <div class="title">声音类型</div>
+                        <div class="content text" ng-bind="robotDetail.soundName"></div>
+                    </div>
+                    <div class="form-item">
+                        <div class="title">机器人模型</div>
+                        <div class="content text" ng-bind="robotDetail.modelName"></div>
+                    </div>
+                    <div class="form-item">
+                        <div class="title">机器人key</div>
+                        <div class="content text" ng-bind="robotDetail.id"></div>
+                    </div>
+                    <div class="form-item">
+                        <div class="title">主体内容</div>
+                        <div class="content text" ng-bind="robotDetail.template"></div>
+                    </div>
+                    <div class="form-item">
+                        <div class="title">播报次数</div>
+                        <div class="content text" ng-bind="robotDetail.playTimes"></div>
+                    </div>
+                    <div class="form-item">
+                        <div class="title">状态</div>
+                        <div class="content text" ng-bind="robotDetail.status ? '启用' : '禁用'"></div>
+                    </div>
+                </div>
+                <div ng-show="robotType == 2">
+                    <div class="form-item">
+                        <div class="title">机器人名称</div>
+                        <div class="content text" ng-bind="robotDetail.name"></div>
+                    </div>
+                    <div class="form-item">
+                        <div class="title">声音类型</div>
+                        <div class="content text" ng-bind="robotDetail.soundName"></div>
+                    </div>
+                    <div class="form-item">
+                        <div class="title">机器人模型</div>
+                        <div class="content text" ng-bind="robotDetail.modelName"></div>
+                    </div>
+                    <div class="form-item">
+                        <div class="title">寒暄介绍</div>
+                        <div class="content text" ng-bind="robotDetail.introMsg"></div>
+                    </div>
+                    <div class="form-item">
+                        <div class="title">推介词</div>
+                        <div class="content text" ng-bind="robotDetail.adMsg"></div>
+                    </div>
+                    <div class="form-item">
+                        <div class="title">状态</div>
+                        <div class="content text" ng-bind="robotDetail.status ? '启用' : '禁用'"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="right-content">
+                <div lb-robot-directive robot="robotType"></div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+    <div class="main-wrapper" ng-show="isVoiceRobot">
+        <div class="title-1">
+            <span class="title">使用情况</span>
+            <div class="left font-size-normal color-555 line-height-40">
+                （{{ robotDetail.name }}，累计调用 <span ng-bind="summary.sum_count"></span> 次，成功 <span ng-bind="summary.success_count"></span> 次，失败 <span ng-bind="summary.failure_count"></span> 次）
+            </div>
+            <div class="right">
+                <div class="card-list">
+                    <span class="card {{ isByDay ? 'selected' : '' }}" ng-click="isByDay = true; getUsageList(1)">按天</span>
+                    <span class="card {{ !isByDay ? 'selected' : '' }}" ng-click="isByDay = false; getUsageList(1)">按月</span>
+                </div>
+            </div>
+        </div>
+        <div class="table-list">
+            <table class="data-list">
+                <tr>
+                    <th>时间</th>
+                    <th>调用次数</th>
+                    <th>调用成功次数</th>
+                    <th>调用失败次数</th>
+                </tr>
+                <tr ng-repeat="usage in usageList track by $index">
+                    <td ng-bind="usage.date"></td>
+                    <td ng-bind="usage.sum_count"></td>
+                    <td ng-bind="usage.success_count"></td>
+                    <td ng-bind="usage.failure_count"></td>
+                </tr>
+            </table>
+            <div class="pages">
+                <div lb-page-directive data="usageList" page-info="conditions1.pageInfo" fetch="getUsageList"></div>
+            </div>
+        </div>
+    </div>
+    <div class="main-wrapper" ng-show="!isVoiceRobot">
+        <div class="title-1">
+            <span class="title">关联任务情况</span>
+        </div>
+        <div class="related-task">
+            <div lb-task-list-directive robot-id="robotId"></div>
+        </div>
+    </div>
+</div>
