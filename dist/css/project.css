@@ -1831,13 +1831,6 @@ UtilsService.genTab($scope, tabName)
 
 #course .title-2 {
   border-bottom: none;
-  height: 40px;
-  /*.icon{
-      margin-top: 5px;
-  }
-  .edit{
-      margin: 12px;
-  }*/
 }
 #course .title-2 .clearfix {
   margin: 20px 0;
@@ -1846,9 +1839,34 @@ UtilsService.genTab($scope, tabName)
   margin: 0 10px;
 }
 #course .title-2 .intro {
-  /*padding: 10px 20px 0px 0;*/
   height: auto;
 }
 #course .title-2 .left {
   height: 20px;
+}
+
+#exercise .title-2 {
+  border-bottom: none;
+}
+#exercise .title-2 .clearfix {
+  margin: 10px 0;
+}
+#exercise .title-2 .clearfix .icon {
+  margin: 0 10px;
+}
+#exercise .title-2 .intro {
+  height: auto;
+}
+#exercise .title-2 .left {
+  height: 20px;
+}
+
+.col-three {
+  width: 33%;
+  display: inline-block;
+}
+
+.student-detail .form-item .title {
+  width: 200px;
+  line-height: 18px;
 }

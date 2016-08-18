@@ -143,3 +143,30 @@ lbApp.controller('SxerciseController', ['$scope', 'UtilsService', 'RequestServic
         tabName: 'tabName'
     };
 }]);
+//添加习题
+lbApp.controller('SxerciseAddController', ['$scope', 'UtilsService', 'RequestService', function($scope, UtilsService, RequestService) {
+    //
+    "use strict";
+    $scope.asideTab = {
+        listName: 'navigation',
+        tabName: 'tabName'
+    };
+}]);
+//学生管理
+lbApp.controller('StudentController', ['$scope', 'UtilsService', 'RequestService', function($scope, UtilsService, RequestService) {
+    //
+    "use strict";
+    $scope.asideTab = {
+        listName: 'navigation',
+        tabName: 'tabName'
+    };
+}]);
+//学生详情
+lbApp.controller('StudentDetailController', ['$scope', 'UtilsService', 'RequestService', function($scope, UtilsService, RequestService) {
+    //
+    "use strict";
+    $scope.asideTab = {
+        listName: 'navigation',
+        tabName: 'tabName'
+    };
+}]);

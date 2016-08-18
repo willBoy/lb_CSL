@@ -4,7 +4,8 @@ lbApp.run(['$rootScope', 'UtilsService', 'RequestService', function($rootScope, 
     // 是否显示loading页面
     $rootScope.loading = false;
     // 是否显示头部
-    $rootScope.showHeader = true;
+    $rootScope.showHeader = false;
+    $rootScope.showHeaderStudent = false;
 
     $rootScope.utils = UtilsService;
 
@@ -82,7 +83,7 @@ lbApp.config(['$routeProvider', '$locationProvider', '$httpProvider', function($
         //新建章节
         .when('/class/create_session',{
             templateUrl:'views/class/create_session.html',
-            controller:'CreateCourseController',
+            controller:'CreateSessionController',
             showHeader:true
         })
         //习题管理
@@ -96,6 +97,32 @@ lbApp.config(['$routeProvider', '$locationProvider', '$httpProvider', function($
             templateUrl:'views/class/exercise_add.html',
             controller:'SxerciseAddController',
             showHeader:true
+        })
+        //学生管理
+        .when('/class/student',{
+            templateUrl:'views/class/student.html',
+            controller:'StudentController',
+            showHeader:true
+        })
+        //学生详情
+        .when('/class/studentDetail',{
+            templateUrl:'views/class/student_detail.html',
+            controller:'StudentDetailController',
+            showHeader:true
+        })
+        //学生系统
+
+        //我的课程
+        .when('/student/course',{
+            templateUrl:'views/student/login.html',
+            controller:'StudentDetailController',
+            showHeaderStudent:true
+        })
+        //课程详情
+        .when('/student/course_detauk',{
+            templateUrl:'views/student/login.html',
+            controller:'StudentDetailController',
+            showHeaderStudent:true
         })
         //// 班级管理
         //.when('/class_list', {
