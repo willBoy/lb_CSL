@@ -21,7 +21,7 @@ lbApp.controller('ClassListController', ['$scope', 'UtilsService', 'RequestServi
         });
   }]);
 //∞‡º∂…Ë÷√
-lbApp.controller('classDetailController', ['$scope', 'UtilsService', 'RequestService', function($scope, UtilsService, RequestService) {
+lbApp.controller('ClassDetailController', ['$scope', 'UtilsService', 'RequestService', function($scope, UtilsService, RequestService) {
     "use strict";
     // …Ë÷√±ﬂ¿∏
     $scope.asideTab = {
@@ -35,7 +35,6 @@ lbApp.controller('classDetailController', ['$scope', 'UtilsService', 'RequestSer
         method:'post',
         success: function(data){
             $scope.classDetail = data.class;
-            console.log($scope.classDetail);
         }
     })
 
