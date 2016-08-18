@@ -1,0 +1,144 @@
+<div lb-aside-directive></div>
+<div class="main-page-margin">
+    <div id="main-title">
+        <div class="title font-size-huge font-weight-200">班级管理</div>
+        <div class="font-size-normal ">
+            <em class="path" ng-click="utils.href('/')">首页</em>
+            <em> / </em>
+            <em class="path" ng-click="utils.href('/')">班级管理</em>
+            <em> / </em>
+            <em class="last">学生管理</em>
+        </div>
+    </div>
+    <div class="main-wrapper" ng-show="true">
+        <div class="title-1">
+            <span class="title">学生列表</span>
+            <div class="right">
+                <label>性别</label>
+                <select class="select">
+                    <option>所有</option>
+                    <option>男</option>
+                    <option>女</option>
+                </select>
+                <label>国家/地区</label>
+                <select class="select">
+                    <option>所有</option>
+                    <option>美国</option>
+                    <option>加拿大</option>
+                </select>
+                <input type="text" class="input" placeholder="根据姓名、备注查找学生" ng-model="conditions.common.outCallNo">
+                <span class="icons-search"></span>
+                <!--<span class="op btn-blue" ng-click="utils.href('/createClass')">创建班级</span>-->
+                <!--<span class="op btn-blue" ng-click="classList()">获取数据</span>-->
+            </div>
+        </div>
+        <div class="table-list">
+            <table class="data-list">
+                <tr>
+                    <th>中文姓名</th>
+                    <th>英文姓名</th>
+                    <th>性名</th>
+                    <th>国家/地区</th>
+                    <th>备注</th>
+                    <th>操作</th>
+                </tr>
+                <tr>
+                    <td>闫乐坤</td>
+                    <td>yan leCun</td>
+                    <td>男</td>
+                    <td>美国</td>
+                    <td>法裔</td>
+                    <td>
+                        <a ng-click="utils.href('/class/studentDetail')">学生详情</a>
+                        <a ng-click="utils.href('')">编辑备注</a>
+                        <a ng-click="utils.href('')">重置密码</a>
+                        <a ng-click="utils.href('')">删除</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>闫乐坤</td>
+                    <td>yan leCun</td>
+                    <td>男</td>
+                    <td>美国</td>
+                    <td>法裔</td>
+                    <td>
+                        <a ng-click="utils.href('/class/studentDetail')">学生详情</a>
+                        <a ng-click="utils.href('')">编辑备注</a>
+                        <a ng-click="utils.href('')">重置密码</a>
+                        <a ng-click="utils.href('')">删除</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>闫乐坤</td>
+                    <td>yan leCun</td>
+                    <td>男</td>
+                    <td>美国</td>
+                    <td>法裔</td>
+                    <td>
+                        <a ng-click="utils.href('/class/studentDetail')">学生详情</a>
+                        <a ng-click="utils.href('')">编辑备注</a>
+                        <a ng-click="utils.href('')">重置密码</a>
+                        <a ng-click="utils.href('')">删除</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>闫乐坤</td>
+                    <td>yan leCun</td>
+                    <td>男</td>
+                    <td>美国</td>
+                    <td>法裔</td>
+                    <td>
+                        <a ng-click="utils.href('/class/studentDetail')">学生详情</a>
+                        <a ng-click="utils.href('')">编辑备注</a>
+                        <a ng-click="utils.href('')">重置密码</a>
+                        <a ng-click="utils.href('')">删除</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>闫乐坤</td>
+                    <td>yan leCun</td>
+                    <td>男</td>
+                    <td>美国</td>
+                    <td>法裔</td>
+                    <td>
+                        <a ng-click="utils.href('/class/studentDetail')">学生详情</a>
+                        <a ng-click="utils.href('')">编辑备注</a>
+                        <a ng-click="utils.href('')">重置密码</a>
+                        <a ng-click="utils.href('')">删除</a>
+                    </td>
+                </tr>
+            </table>
+            <div class="pages">
+                <div class="right">
+                    <div class="page-size font-size-normal">
+                        <span>共{{ total }}条记录，每页</span>
+                        <select ng-model="conditions.pageInfo.pageSize" ng-change="getRobotList(1)">
+                            <option value="5">5</option>
+                            <option value="10">10</option>
+                            <option value="15">15</option>
+                            <option value="20">20</option>
+                        </select>
+                        <span>条</span>
+                    </div>
+                    <div class="page-directive color-blue spacefix left">
+                        <span class="prev text-align-center font-size-normal">上一页</span>
+                        <table class="page-table font-size-normal">
+                            <tbody>
+                            <tr>
+                                <td class="page-num bgcolor-blue color-white border-blue page-num text-align-center">1</td>
+                                <td class="border-grey color-blue page-num text-align-center">2</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <span class="next text-align-center font-size-normal" >下一页</span>
+                    </div>
+                </div>
+                <div class="left">
+
+                </div>
+                <!--<div lb-page-directive data="robotList" page-info="conditions.pageInfo" fetch="getRobotList"></div>-->
+
+            </div>
+        </div>
+    </div>
+</div>
