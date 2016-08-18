@@ -102,6 +102,20 @@
         "order":"ddd",
         "pattern":"ddd"
       }
-    ]
+    ],
+    "chapter":{
+      "id":"2",
+      "name":"qqqq",
+      "number":"3",
+      "description_content":"aaa",
+      "description_exercise":"bbb",
+      "question_count":"ccc",
+      "description_cn":"ddd",
+      "description_en":"eee",
+      "subject_id":"ddd",
+      "status":"ddd",
+      "order":"ddd",
+      "pattern":"ddd"
+    }
   }
 }
