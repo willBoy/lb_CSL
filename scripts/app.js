@@ -97,6 +97,12 @@ lbApp.config(['$routeProvider', '$locationProvider', '$httpProvider', function($
             controller:'SxerciseAddController',
             showHeader:true
         })
+        //×¢²á
+        .when('/register',{
+            templateUrl:'views/user/teacher/teacher_reg.html',
+            controller:'RegController',
+            showHeader:true
+        })
         //// °à¼¶¹ÜÀí
         //.when('/class_list', {
         //    templateUrl: 'views/class/class_list.html',
