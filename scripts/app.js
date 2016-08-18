@@ -58,7 +58,7 @@ lbApp.config(['$routeProvider', '$locationProvider', '$httpProvider', function($
         //班级设置
         .when('/classDetail',{
             templateUrl:'views/class/class_detail.html',
-            controller:'ClassDetailController',
+            controller:'classDetailController',
             showHeader:true
         })
         //新建班级
@@ -83,6 +83,12 @@ lbApp.config(['$routeProvider', '$locationProvider', '$httpProvider', function($
         .when('/class/exercise',{
             templateUrl:'views/class/exercise.html',
             controller:'SxerciseController',
+            showHeader:true
+        })
+        //注册
+        .when('/register',{
+            templateUrl:'views/user/teacher/teacher_reg.html',
+            controller:'RegController',
             showHeader:true
         })
         //// 班级管理

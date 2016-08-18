@@ -7,26 +7,31 @@
     <div class="form-item robot-type">
         <div class="title">班级名称</div>
         <div class="content">
-            <input type="text" class="input" placeholder="班级名称">
+            <input type="text" class="input" placeholder="班级名称" ng-model="class.name" required>
+            <!--<div class="error" ng-show="class_form.class_name.$dirty&& class_form.class_name.$invalid">名称必填</div>-->
         </div>
     </div>
     <div class="form-item robot-type">
         <div class="title">导入课程</div>
-        <select class="select">
-            <option>正音</option>
-            <option>口语</option>
-            <option>韵母</option>
-        </select>
+        <div class="content">
+            <!--<select class="select" name="voice_type" ng-model="course.name" required>-->
+                <!--<option value="">选择课程</option>-->
+                <!--<option ng-repeat="course in courseList" value="{{ course.id }}" ng-bind="course.name"></option>-->
+            <!--</select>-->
+            <!--<div class="error" ng-show="course_form.course_name.$dirty && course_form.course_name.$invalid">请选择课程</div>-->
+        </div>
+
     </div>
     <div class="form-item">
         <div class="title">开班时间</div>
         <div class="content">
             <div class="calendar" id="time-start">
-                <input type="text" class="input" disabled="disabled" placeholder="请输入开始日期" ng-model="taskInfo.startTime">
+                <input type="text" class="input" disabled="disabled" placeholder="请输入开课时间" ng-model="classInfo.startTime">
                 <span class="icon icons-calendar"></span>
             </div>
         </div>
     </div>
-    <span class="op btn-blue" ng-click="utils.href('/classList')">确定</span>
+    <span class="op btn-blue" ng-click="class_form.class_name.$dirty = true;
+                                        class_form.course_name.$dirty = true && classAdd()">确定</span>
     <span class="op btn-blue" ng-click="utils.href('/classList')">取消</span>
 </div>
