@@ -27,7 +27,7 @@
         <div class="table-list">
             <table class="data-list">
                 <tr>
-                    <th>序号</th>
+                    <!--<th>序号</th>-->
                     <th>开班时间</th>
                     <th>班级名称</th>
                     <th>课程名称</th>
@@ -37,95 +37,16 @@
                     <th>班级状态</th>
                     <th>操作</th>
                 </tr>
-                <tr>
-                    <td>1</td>
-                    <td>2016年7月</td>
-                    <td>16暑期冰岛班</td>
-                    <td>正音（通用）</td>
-                    <td>邓丹</td>
-                    <td>21</td>
-                    <td>1253</td>
+                <tr ng-repeat=" t_class in t_classList track by $index">
+                    <!--<td ng-bind="(conditions.pageInfo.page - 1) * conditions.pageInfo.pageSize + $index + 1"></td>-->
+                    <td ng-bind="t_class.startTime"></td>
+                    <td ng-bind="t_class.name"></td>
+                    <td ng-bind="t_class.subjectName"></td>
+                    <td ng-bind="t_class.teacherName"></td>
+                    <td ng-bind="t_class.memberSize"></td>
+                    <td ng-bind="t_class.sequenceNO"></td>
                     <td>准备中</td>
-                    <td>
-                        <a ng-click="utils.href('/classDetail')">班级设置</a>
-                        <a ng-click="utils.href('/class/course')">课程管理</a>
-                        <a ng-click="utils.href('')">学生管理</a>
-                        <a ng-click="utils.href('')">删除</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>2016年7月</td>
-                    <td>16暑期冰岛班</td>
-                    <td>正音（通用）</td>
-                    <td>邓丹</td>
-                    <td>21</td>
-                    <td>1253</td>
-                    <td>准备中</td>
-                    <td>
-                        <a ng-click="utils.href('/classDetail')">班级设置</a>
-                        <a ng-click="utils.href('/class/course')">课程管理</a>
-                        <a ng-click="utils.href('')">学生管理</a>
-                        <a ng-click="utils.href('')">删除</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>2016年7月</td>
-                    <td>16暑期冰岛班</td>
-                    <td>正音（通用）</td>
-                    <td>邓丹</td>
-                    <td>21</td>
-                    <td>1253</td>
-                    <td>准备中</td>
-                    <td>
-                        <a ng-click="utils.href('/classDetail')">班级设置</a>
-                        <a ng-click="utils.href('/class/course')">课程管理</a>
-                        <a ng-click="utils.href('')">学生管理</a>
-                        <a ng-click="utils.href('')">删除</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>4</td>
-                    <td>2016年7月</td>
-                    <td>16暑期冰岛班</td>
-                    <td>正音（通用）</td>
-                    <td>邓丹</td>
-                    <td>21</td>
-                    <td>1253</td>
-                    <td>准备中</td>
-                    <td>
-                        <a ng-click="utils.href('/classDetail')">班级设置</a>
-                        <a ng-click="utils.href('/class/course')">课程管理</a>
-                        <a ng-click="utils.href('')">学生管理</a>
-                        <a ng-click="utils.href('')">删除</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>5</td>
-                    <td>2016年7月</td>
-                    <td>16暑期冰岛班</td>
-                    <td>正音（通用）</td>
-                    <td>邓丹</td>
-                    <td>21</td>
-                    <td>1253</td>
-                    <td>开课中</td>
-                    <td>
-                        <a ng-click="utils.href('/classDetail')">班级设置</a>
-                        <a ng-click="utils.href('/class/course')">课程管理</a>
-                        <a ng-click="utils.href('')">学生管理</a>
-                        <a ng-click="utils.href('')">删除</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>6</td>
-                    <td>2016年7月</td>
-                    <td>16暑期冰岛班</td>
-                    <td>正音（通用）</td>
-                    <td>邓丹</td>
-                    <td>21</td>
-                    <td>1253</td>
-                    <td>已结课</td>
+                    <!--<td ng-bind="t_class.id"></td>-->
                     <td>
                         <a ng-click="utils.href('/classDetail')">班级设置</a>
                         <a ng-click="utils.href('/class/course')">课程管理</a>
