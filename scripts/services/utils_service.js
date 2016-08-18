@@ -5,7 +5,6 @@ lbApp.factory('UtilsService', ['$window', '$location', '$rootScope', function($w
     "use strict";
     return {
         href: function(url) {
-            console.log(url);
             if (url) {
                 $location.path(url);
             }

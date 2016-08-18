@@ -3,10 +3,16 @@
  */
 lbApp.factory('RequestService', ['$http', 'UtilsService', function($http, UtilsService) {
     "use strict";
-    var baseUrl = '/t';
+    var baseUrl = 'api/';
     var tokenMap = {
         // 提交注册信息
-        //'tk_reg': '/companyInfo',
+        't_reg': 'teacher/register',
+        //教师端班级列表
+        't_classList':'classes/find',
+        //班级设置
+        't_settingClass':'classes/find',
+        //课程设置
+        't_classCourse':'classes/find',
         // 校验邮箱
         //'tk_verifyEmail': '/checkemail',
         // 获取用户信息
@@ -19,8 +25,8 @@ lbApp.factory('RequestService', ['$http', 'UtilsService', function($http, UtilsS
         //'tk_logout': '/logout',
         // 获取企业和个人信息
         //'tk_profile': '/personalCenterPage',
-        //获取课程章节列表
-        'lb_subjectTemplate':'/subjectTemplates'
+        //新增班级
+        'classAdd':'classes/add'
     };
     return {
         tokenMap: tokenMap,
@@ -32,7 +38,6 @@ lbApp.factory('RequestService', ['$http', 'UtilsService', function($http, UtilsS
             }
             // 替换url中的占位符参数
             if (reqConfig.params) {
-                console.log(reqConfig.params);
                 for(var key in reqConfig.params) {
                     url = url.replace(':' + key, reqConfig.params[key]);
                 }
@@ -48,26 +53,41 @@ lbApp.factory('RequestService', ['$http', 'UtilsService', function($http, UtilsS
             }
             // 请求的对象
             var reqObj = {
-                url: "http://www.csl.pi/data/a.json",
-                //method: reqConfig.method || 'GET',
+                url: baseUrl+url,
+                method: reqConfig.method || 'GET',
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded'
                 }
             };
-            // body中的数据
+            //获取教师端班级列表
+            var reqObj2 = {
+                url: "../../data/teacher-class.json",
+            }
+            //班级设置
+            var reqObj3 = {
+                url: "../../data/teacher-settingClass.json",
+            }
+            //课程设置
+            var reqObj4 = {
+                url: "../../data/teacher-settingCourse.json",
+            }
+            // body中的数据C
             if(reqConfig.data) {
                 reqObj.data = reqConfig.data;
             }
             // 发送请求
-            $http(reqObj)
+            $http(reqObj4)
                 .success(function(data, status, headers, config) {
                     console.log(data);
-                    if (/5\d{2}/.test(status)) {
-                        //alert('服务器出错');
-                        return;
-                    }
+                    //if (/5\d{2}/.test(status)) {
+                    //    //alert('服务器出错');
+                    //    return;
+                    //}
                     switch (data.code) {
                         case 0:
+                            reqConfig.success(data.result);
+                            break;
+                        case 20000:
                             reqConfig.success(data.result);
                             break;
                         case 10010:

@@ -98,6 +98,12 @@ lbApp.config(['$routeProvider', '$locationProvider', '$httpProvider', function($
             controller:'SxerciseAddController',
             showHeader:true
         })
+        //注册
+        .when('/register',{
+            templateUrl:'views/user/teacher/teacher_reg.html',
+            controller:'RegController',
+            showHeader:true
+        })
         //学生管理
         .when('/class/student',{
             templateUrl:'views/class/student.html',
@@ -124,6 +130,7 @@ lbApp.config(['$routeProvider', '$locationProvider', '$httpProvider', function($
             controller:'StudentDetailController',
             showHeaderStudent:true
         })
+
         //// 班级管理
         //.when('/class_list', {
         //    templateUrl: 'views/class/class_list.html',

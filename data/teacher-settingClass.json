@@ -22,6 +22,18 @@
       "startRow":0,
       "firstPage":1
     },
+    "class": {
+      "id":"1",
+      "sequenceNO":"2",
+      "name":"qqqq",
+      "startTime":"yyyy-MM-dd",
+      "subjectName":"ddd",
+      "subjectId":"adsada",
+      "memberSize":"dasda",
+      "teacherName":"dsada",
+      "teacherId":"dada",
+      "status":"0"
+    },
     "list":[
       {
         "id":"1",
@@ -47,7 +59,6 @@
         "teacherId":"dada",
         "status":"0:开课中 1:已结课"
       }
-
     ]
   }
 }

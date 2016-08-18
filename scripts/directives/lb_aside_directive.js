@@ -33,6 +33,11 @@ lbApp.directive('lbAsideDirective',function() {
                         /*temp:'实用工具',*/
                         url:'',
                         icon:''
+                    },{
+                        name: 'register',
+                        value: '注册',
+                        url: '/register',
+                        icon: 'icons-user'
                     }/*,
                     {
                         name:'helpCenter',

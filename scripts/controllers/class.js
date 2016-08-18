@@ -8,42 +8,36 @@ lbApp.controller('ClassListController', ['$scope', 'UtilsService', 'RequestServi
         tabName: 'tabName'
     };
 
-    // 获取班级列表项
-    $scope.classList = function(){
-        RequestService.request({
-            token: 'lb_subjectTemplate',
-            method: 'GET',
-            success: function(data) {
+    //班级列表数据
+    $scope.t_classList = [];
 
+    // 获取班级列表项
+        RequestService.request({
+            token: 't_classList',
+            method: 'POST',
+            success: function(data) {
+                $scope.t_classList = data.list;
             }
         });
-    }
   }]);
-//班级详情
-// 首页
+//班级设置
 lbApp.controller('ClassDetailController', ['$scope', 'UtilsService', 'RequestService', function($scope, UtilsService, RequestService) {
-    //
     "use strict";
     // 设置边栏
     $scope.asideTab = {
         listName: 'navigation',
         tabName: 'tabName'
     };
+    //班级详细信息
+    $scope.classDetail ={};
+    RequestService.request({
+        token:'t_settingClass',
+        method:'post',
+        success: function(data){
+            $scope.classDetail = data.class;
+        }
+    })
 
-    // 获取班级列表项
-    $scope.classList = function(){
-        RequestService.request({
-            token: 'lb_subjectTemplate',
-            method: 'GET',
-            success: function(data) {
-
-            }
-        });
-    }
-
-    $scope.class = {
-        name:'1'
-    }
 }]);
 
 //新建班级
@@ -63,7 +57,27 @@ lbApp.controller('CreateClassController', ['$scope', 'UtilsService', 'RequestSer
         // 结束时间
         endTime: '',
     };
-
+    $scope.class ={
+        //班级名称
+        className:'123',
+        //课程名称
+        courseName:'123',
+        //开课时间
+        classStartTime:'1990-02-03',
+        //班级状态
+        classStatus:''
+    }
+    $scope.classAdd = function(){
+            RequestService.request({
+                token:'classAdd',
+                method:'POST',
+                loading:true,
+                data: UtilsService.serialize($scope.class),
+                success: function (data) {
+                    UtilsService.href('/classList');
+                }
+            })
+    }
 
     function initDatePicker(startTimeArray, endTimeArray) {
         // 选择开始日期
@@ -123,6 +137,19 @@ lbApp.controller('CourseController', ['$scope', 'UtilsService', 'RequestService'
         listName: 'navigation',
         tabName: 'tabName'
     };
+    //班级课程
+    $scope.classCourse={};
+    //章节列表
+    $scope.classCourseSession = [];
+    RequestService.request({
+        token:'t_classCourse',
+        method:'POST',
+        loading:true,
+        success:function(data){
+            $scope.classCourse = data.course;
+            $scope.classCourseSession = data.list2;
+        }
+    })
 }]);
 
 //章节设置
