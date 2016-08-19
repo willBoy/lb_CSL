@@ -61,7 +61,7 @@
         <div class="table-list">
             <table class="data-list">
                 <tr>
-                    <th>序号</th>
+                    <!--<th>序号</th>-->
                     <th>汉字</th>
                     <th>音节数</th>
                     <th>声调</th>
@@ -71,60 +71,15 @@
                     <th>儿化音</th>
                     <th>操作</th>
                 </tr>
-                <tr>
-                    <td>1</td>
-                    <td>韵</td>
-                    <td>1</td>
-                    <td>3</td>
-                    <td>男</td>
-                    <td>hsk-1</td>
-                    <td>必读</td>
-                    <td>有</td>
-                    <td>
-                        <a ng-click="utils.href('')">上移</a>
-                        <a ng-click="utils.href('')">下移</a>
-                        <a ng-click="utils.href('')">删除</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>韵</td>
-                    <td>1</td>
-                    <td>3</td>
-                    <td>男</td>
-                    <td>hsk-1</td>
-                    <td>必读</td>
-                    <td>有</td>
-                    <td>
-                        <a ng-click="utils.href('')">上移</a>
-                        <a ng-click="utils.href('')">下移</a>
-                        <a ng-click="utils.href('')">删除</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>韵</td>
-                    <td>1</td>
-                    <td>3</td>
-                    <td>男</td>
-                    <td>hsk-1</td>
-                    <td>必读</td>
-                    <td>有</td>
-                    <td>
-                        <a ng-click="utils.href('')">上移</a>
-                        <a ng-click="utils.href('')">下移</a>
-                        <a ng-click="utils.href('')">删除</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>4</td>
-                    <td>韵</td>
-                    <td>1</td>
-                    <td>3</td>
-                    <td>男</td>
-                    <td>hsk-1</td>
-                    <td>必读</td>
-                    <td>有</td>
+                <tr ng-repeat="t_exe_list in t_exerciseList">
+                    <!--<td>1</td>-->
+                    <td ng-bind="t_exe_list.hanzi"></td>
+                    <td ng-bind="t_exe_list.yinjieshu"></td>
+                    <td ng-bind="t_exe_list.shengdiao"></td>
+                    <td ng-bind="t_exe_list.shuohuaren"></td>
+                    <td ng-bind="t_exe_list.dengji"></td>
+                    <td ng-bind="t_exe_list.qingsheng"></td>
+                    <td ng-bind="t_exe_list.erhuayin"></td>
                     <td>
                         <a ng-click="utils.href('')">上移</a>
                         <a ng-click="utils.href('')">下移</a>

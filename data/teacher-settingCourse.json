@@ -73,7 +73,7 @@
         "status":"0:开课中 1:已结课"
       }
     ],
-    "list2":[
+    "chapterList":[
       {
         "id":"1",
         "name":"qqqq",
@@ -116,6 +116,58 @@
       "status":"ddd",
       "order":"ddd",
       "pattern":"ddd"
+    },
+    "exerciseList":[
+      {
+      "id":"123",
+      "hanzi":"y",
+      "yinjieshu":"1",
+      "shengdiao":"3",
+      "shuohuaren":"n",
+      "dengji":"1",
+      "qingsheng":"d",
+      "erhuayin":"y"
+    },
+    {
+      "id":"123",
+      "hanzi":"y",
+      "yinjieshu":"1",
+      "shengdiao":"3",
+      "shuohuaren":"n",
+      "dengji":"1",
+      "qingsheng":"d",
+      "erhuayin":"y"
+    },
+    {
+      "id":"123",
+      "hanzi":"y",
+      "yinjieshu":"1",
+      "shengdiao":"3",
+      "shuohuaren":"n",
+      "dengji":"1",
+      "qingsheng":"d",
+      "erhuayin":"y"
+    },
+    {
+      "id":"123",
+      "hanzi":"y",
+      "yinjieshu":"1",
+      "shengdiao":"3",
+      "shuohuaren":"n",
+      "dengji":"1",
+      "qingsheng":"d",
+      "erhuayin":"y"
+    },
+    {
+      "id":"123",
+      "hanzi":"y",
+      "yinjieshu":"1",
+      "shengdiao":"3",
+      "shuohuaren":"n",
+      "dengji":"1",
+      "qingsheng":"d",
+      "erhuayin":"y"
     }
+    ]
   }
 }
