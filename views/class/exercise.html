@@ -29,28 +29,33 @@
         <div class="title-1">
             <span class="title">习题列表</span>
             <div class="right">
-                <label>汉字</label>
-                <select class="select">
-                    <option></option>
-                    <option></option>
-                    <option></option>
-                </select>
+                <label>关键词</label>
+                <input type="text" class="input" placeholder="" ng-model="conditions.common.outCallNo">
                 <label>音节数</label>
                 <select class="select">
-                    <option></option>
+                    <option>全部</option>
                     <option></option>
                     <option></option>
                 </select>
-                <label>筛选条件</label>
+                <label>等级</label>
                 <select class="select">
-                    <option></option>
+                    <option>全部</option>
                     <option></option>
                     <option></option>
                 </select>
-                <input type="text" class="input" placeholder="题" ng-model="conditions.common.outCallNo">
-                <span class="icons-search"></span>
-                <span class="op btn-blue bgcolor-blue" ng-click="utils.href('/class/exercise_add')">+ 添加习题</span>
-                <!--<span class="op btn-blue" ng-click="classList()">获取数据</span>-->
+                <!--<input type="text" class="input" placeholder="" ng-model="conditions.common.outCallNo">
+                <span class="icons-search"></span>-->
+                <span class="op btn-blue bgcolor-blue" ng-click="openPop('pop-resetpwd')">+ 添加习题</span>
+
+                <div id="pop-resetpwd" class="pop">
+                    <div class="pop-content">
+                        <input type="radio" name="model" value="随机模式" />
+                        <input type="radio" name="model" value="自选" />
+                        <div class="text-align-center clearfix">
+                            <span class="op btn-blue" ng-click="utils.href('/class')">确定</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="table-list">

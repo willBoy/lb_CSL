@@ -1,0 +1,147 @@
+<div lb-aside-directive></div>
+<div class="main-page-margin">
+    <div id="main-title">
+        <div class="title font-size-huge font-weight-200">我的课程</div>
+        <div class="font-size-normal ">
+            <em class="path" ng-click="utils.href('/')">首页</em>
+            <em> / </em>
+            <em class="last">我的课程</em>
+        </div>
+    </div>
+    <div class="main-wrapper" ng-show="true">
+        <div class="title-1">
+            <span class="title">班级列表</span>
+
+            <div class="right">
+                <label>开课时间</label>
+                <select class="select">
+                    <option>2018</option>
+                    <option>2017</option>
+                    <option>2016</option>
+                </select>
+                <label>关键词</label>
+                <input type="text" class="input" placeholder="关键词" ng-model="conditions.common.outCallNo">
+                <span class="icons-search"></span>
+                <span class="op btn-blue" ng-click="utils.href('/createClass')">+ 加入课程</span>
+                <!--<span class="op btn-blue" ng-click="classList()">获取数据</span>-->
+            </div>
+        </div>
+        <div class="table-list">
+            <table class="data-list">
+                <tr>
+                    <!--<th>序号</th>-->
+                    <th>开课时间</th>
+                    <th>课程名称</th>
+                    <th>任课教师</th>
+                    <th>课程状态</th>
+                    <th>操作</th>
+                </tr>
+                <!--<tr ng-repeat=" t_class in t_classList track by $index">
+                    &lt;!&ndash;<td ng-bind="(conditions.pageInfo.page - 1) * conditions.pageInfo.pageSize + $index + 1"></td>&ndash;&gt;
+                    <td ng-bind="t_class.startTime"></td>
+                    <td ng-bind="t_class.name"></td>
+                    <td ng-bind="t_class.subjectName"></td>
+                    <td ng-bind="t_class.teacherName"></td>
+                    <td ng-bind="t_class.memberSize"></td>
+                    <td ng-bind="t_class.sequenceNO"></td>
+                    <td>准备中</td>
+                    &lt;!&ndash;<td ng-bind="t_class.id"></td>&ndash;&gt;
+                    <td>
+                        <a ng-click="utils.href('')">退出课程</a>
+                    </td>
+                </tr>-->
+                <tr>
+                    <td>2016年8月5日</td>
+                    <td>正音课</td>
+                    <td>老师名</td>
+                    <td>开课中</td>
+                    <td>
+                        <a ng-click="utils.href('')">开始学习</a>
+                        <a ng-click="utils.href('')">退出课程</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>2016年8月18日</td>
+                    <td>正音课</td>
+                    <td>老师名</td>
+                    <td>开课中</td>
+                    <td>
+                        <a ng-click="utils.href('')">开始学习</a>
+                        <a ng-click="utils.href('')">退出课程</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>2016年8月25日</td>
+                    <td>正音课</td>
+                    <td>老师名</td>
+                    <td>开课中</td>
+                    <td>
+                        <a ng-click="utils.href('')">开始学习</a>
+                        <a ng-click="utils.href('')">退出课程</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>2016年8月18日</td>
+                    <td>正音课</td>
+                    <td>老师名</td>
+                    <td>已结课</td>
+                    <td>
+                        <a ng-click="utils.href('')">开始学习</a>
+                        <a ng-click="utils.href('')">退出课程</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>2016年8月18日</td>
+                    <td>正音课</td>
+                    <td>老师名</td>
+                    <td>已结课</td>
+                    <td>
+                        <a ng-click="utils.href('')">开始学习</a>
+                        <a ng-click="utils.href('')">退出课程</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>2016年8月18日</td>
+                    <td>正音课</td>
+                    <td>老师名</td>
+                    <td>已结课</td>
+                    <td>
+                        <a ng-click="utils.href('')">开始学习</a>
+                        <a ng-click="utils.href('')">退出课程</a>
+                    </td>
+                </tr>
+            </table>
+            <div class="pages">
+                <div class="right">
+                    <div class="page-size font-size-normal">
+                        <span>共{{ total }}条记录，每页</span>
+                        <select ng-model="conditions.pageInfo.pageSize" ng-change="getRobotList(1)">
+                            <option value="5">5</option>
+                            <option value="10">10</option>
+                            <option value="15">15</option>
+                            <option value="20">20</option>
+                        </select>
+                        <span>条</span>
+                    </div>
+                    <div class="page-directive color-blue spacefix left">
+                        <span class="prev text-align-center font-size-normal">上一页</span>
+                        <table class="page-table font-size-normal">
+                            <tbody>
+                            <tr>
+                                <td class="page-num bgcolor-blue color-white border-blue page-num text-align-center">1</td>
+                                <td class="border-grey color-blue page-num text-align-center">2</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <span class="next text-align-center font-size-normal">下一页</span>
+                    </div>
+                </div>
+                <div class="left">
+
+                </div>
+                <!--<div lb-page-directive data="robotList" page-info="conditions.pageInfo" fetch="getRobotList"></div>-->
+
+            </div>
+        </div>
+    </div>
+</div>

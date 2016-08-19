@@ -37,7 +37,6 @@ lbApp.controller('ClassDetailController', ['$scope', 'UtilsService', 'RequestSer
             $scope.classDetail = data.class;
         }
     })
-
 }]);
 
 //新建班级
@@ -161,6 +160,15 @@ lbApp.controller('SessionController', ['$scope', 'UtilsService', 'RequestService
         tabName: 'tabName'
     };
 }]);
+//新建章节
+lbApp.controller('CreateSessionController', ['$scope', 'UtilsService', 'RequestService', function($scope, UtilsService, RequestService) {
+    //
+    "use strict";
+    $scope.asideTab = {
+        listName: 'navigation',
+        tabName: 'tabName'
+    };
+}]);
 //习题管理
 lbApp.controller('SxerciseController', ['$scope', 'UtilsService', 'RequestService', function($scope, UtilsService, RequestService) {
     //
@@ -169,6 +177,8 @@ lbApp.controller('SxerciseController', ['$scope', 'UtilsService', 'RequestServic
         listName: 'navigation',
         tabName: 'tabName'
     };
+    // 绑定弹框事件
+    UtilsService.initPop($scope);
 }]);
 //添加习题
 lbApp.controller('SxerciseAddController', ['$scope', 'UtilsService', 'RequestService', function($scope, UtilsService, RequestService) {
@@ -178,6 +188,8 @@ lbApp.controller('SxerciseAddController', ['$scope', 'UtilsService', 'RequestSer
         listName: 'navigation',
         tabName: 'tabName'
     };
+    // 绑定弹框事件
+    UtilsService.initPop($scope);
 }]);
 //学生管理
 lbApp.controller('StudentController', ['$scope', 'UtilsService', 'RequestService', function($scope, UtilsService, RequestService) {
@@ -190,6 +202,55 @@ lbApp.controller('StudentController', ['$scope', 'UtilsService', 'RequestService
 }]);
 //学生详情
 lbApp.controller('StudentDetailController', ['$scope', 'UtilsService', 'RequestService', function($scope, UtilsService, RequestService) {
+    //
+    "use strict";
+    $scope.asideTab = {
+        listName: 'navigation',
+        tabName: 'tabName'
+    };
+}]);
+
+//我的课程
+lbApp.controller('StudentClassController', ['$scope', 'UtilsService', 'RequestService', function($scope, UtilsService, RequestService) {
+    //
+    "use strict";
+    $scope.asideTab = {
+        listName: 'navigation',
+        tabName: 'tabName'
+    };
+}]);
+
+//我的课程
+lbApp.controller('StudentClassController', ['$scope', 'UtilsService', 'RequestService', function($scope, UtilsService, RequestService) {
+    //
+    "use strict";
+    $scope.asideTab = {
+        listName: 'navigation',
+        tabName: 'tabName'
+    };
+}]);
+//我的课程详情
+lbApp.controller('StudentClassDetailController', ['$scope', 'UtilsService', 'RequestService', function($scope, UtilsService, RequestService) {
+    //
+    "use strict";
+    $scope.asideTab = {
+        listName: 'navigation',
+        tabName: 'tabName'
+    };
+}]);
+
+//开始学习
+lbApp.controller('StudyController', ['$scope', 'UtilsService', 'RequestService', function($scope, UtilsService, RequestService) {
+    //
+    "use strict";
+    $scope.asideTab = {
+        listName: 'navigation',
+        tabName: 'tabName'
+    };
+}]);
+
+//开始学习下一步
+lbApp.controller('Study1Controller', ['$scope', 'UtilsService', 'RequestService', function($scope, UtilsService, RequestService) {
     //
     "use strict";
     $scope.asideTab = {

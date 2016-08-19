@@ -119,17 +119,88 @@ lbApp.config(['$routeProvider', '$locationProvider', '$httpProvider', function($
         //学生系统
 
         //我的课程
-        .when('/student/course',{
-            templateUrl:'views/student/login.html',
-            controller:'StudentDetailController',
+        .when('/student/class',{
+            templateUrl:'views/student/class.html',
+            controller:'StudentClassController',
             showHeaderStudent:true
         })
         //课程详情
-        .when('/student/course_detauk',{
-            templateUrl:'views/student/login.html',
-            controller:'StudentDetailController',
+        .when('/student/class_detail',{
+            templateUrl:'views/student/class_detail.html',
+            controller:'StudentClassDetailController',
             showHeaderStudent:true
         })
+
+        //开始学习
+        .when('/student/study',{
+            templateUrl:'views/student/study.html',
+            controller:'StudyController',
+            showHeader:false
+        })
+
+        //开始学习下一步
+        .when('/student/study1',{
+            templateUrl:'views/student/study1.html',
+            controller:'Study1Controller',
+            showHeader:false
+        })
+
+        //音量校准
+        .when('/student/study_volume',{
+            templateUrl:'views/student/study_volume.html',
+            controller:'StudyVolumeController',
+            showHeader:false
+        })
+        //键盘校准
+        .when('/student/study_key',{
+            templateUrl:'views/student/study_key.html',
+            controller:'StudyKeyController',
+            showHeader:false
+        })
+        //请准备
+        .when('/student/study_prepare',{
+            templateUrl:'views/student/study_prepare.html',
+            controller:'StudyPrepareController',
+            showHeader:false
+        })
+        //播放提示音
+        .when('/student/study_prompt',{
+            templateUrl:'views/student/study_prompt.html',
+            controller:'StudyPromptController',
+            showHeader:false
+        })
+        //按键选答案
+        .when('/student/study_keying',{
+            templateUrl:'views/student/study_keying.html',
+            controller:'StudyKeyingController',
+            showHeader:false
+        })
+
+        //播放
+        .when('/student/study_play',{
+            templateUrl:'views/student/study_play.html',
+            controller:'StudyPlayController',
+            showHeader:false
+        })
+        //完成
+        .when('/student/study_finish',{
+            templateUrl:'views/student/study_finish.html',
+            controller:'StudyFinishController',
+            showHeader:false
+        })
+        //未完成
+        .when('/student/study_unfinished',{
+            templateUrl:'views/student/study_unfinished.html',
+            controller:'StudyUnfinishedController',
+            showHeader:false
+        })
+        //是否继续
+        .when('/student/study_continue',{
+            templateUrl:'views/student/study_continue.html',
+            controller:'StudyContinueController',
+            showHeader:false
+        })
+
 
         //// 班级管理
         //.when('/class_list', {

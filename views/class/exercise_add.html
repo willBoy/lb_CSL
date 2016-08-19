@@ -177,8 +177,16 @@
             </table>
         </div>
         <div class="form-op">
-            <span class="op btn-blue" ng-click="utils.href('/class/course')">添加</span>
-            <span class="op btn-blue" ng-click="utils.href('/class/course')">取消</span>
+            <span class="op btn-blue" ng-click="openPop('pop-resetpwd')">添加</span>
+            <span class="op btn-blue" ng-click="utils.href('/class/session')">取消</span>
+        </div>
+        <div id="pop-resetpwd" class="pop">
+            <div class="pop-content">
+                <span class="text" value="">您已添加习题到章节</span>
+                <div class="text-align-center clearfix">
+                    <span class="op btn-blue" ng-click="utils.href('/class/exercise_add')">确定</span>
+                </div>
+            </div>
         </div>
     </div>
 </div>
