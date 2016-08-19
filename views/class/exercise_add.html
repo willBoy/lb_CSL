@@ -121,7 +121,7 @@
             <table class="data-list">
                 <tr>
                     <th>全选<input type="checkbox" name="checkbox1" value="checkbox"></th>
-                    <th>序号</th>
+                    <!--<th>序号</th>-->
                     <th>汉字</th>
                     <th>音节数</th>
                     <th>声调</th>
@@ -130,49 +130,17 @@
                     <th>轻声</th>
                     <th>儿化音</th>
                 </tr>
-                <tr>
+
+                <tr ng-repeat="t_sel_exe_list in t_sel_exeList">
                     <td><input type="checkbox" name="checkbox1" value="checkbox"></td>
-                    <td>1</td>
-                    <td>韵</td>
-                    <td>1</td>
-                    <td>3</td>
-                    <td>男</td>
-                    <td>hsk-1</td>
-                    <td>必读</td>
-                    <td>有</td>
-                </tr>
-                <tr>
-                    <td><input type="checkbox" name="checkbox1" value="checkbox"></td>
-                    <td>2</td>
-                    <td>韵</td>
-                    <td>1</td>
-                    <td>3</td>
-                    <td>男</td>
-                    <td>hsk-1</td>
-                    <td>必读</td>
-                    <td>有</td>
-                </tr>
-                <tr>
-                    <td><input type="checkbox" name="checkbox1" value="checkbox"></td>
-                    <td>3</td>
-                    <td>韵</td>
-                    <td>1</td>
-                    <td>3</td>
-                    <td>男</td>
-                    <td>hsk-1</td>
-                    <td>必读</td>
-                    <td>有</td>
-                </tr>
-                <tr>
-                    <td><input type="checkbox" name="checkbox1" value="checkbox"></td>
-                    <td>4</td>
-                    <td>韵</td>
-                    <td>1</td>
-                    <td>3</td>
-                    <td>男</td>
-                    <td>hsk-1</td>
-                    <td>必读</td>
-                    <td>有</td>
+                    <!--<td>1</td>-->
+                    <td ng-bind="t_sel_exe_list.hanzi"></td>
+                    <td ng-bind="t_sel_exe_list.yinjieshu"></td>
+                    <td ng-bind="t_sel_exe_list.shengdiao"></td>
+                    <td ng-bind="t_sel_exe_list.shuohuaren"></td>
+                    <td ng-bind="t_sel_exe_list.dengji"></td>
+                    <td ng-bind="t_sel_exe_list.qingsheng"></td>
+                    <td ng-bind="t_sel_exe_list.erhuayin"></td>
                 </tr>
             </table>
         </div>

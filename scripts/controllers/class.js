@@ -147,7 +147,7 @@ lbApp.controller('CourseController', ['$scope', 'UtilsService', 'RequestService'
         loading:true,
         success:function(data){
             $scope.classCourse = data.course;
-            $scope.classCourseSession = data.list2;
+            $scope.classCourseSession = data.chapterList;
         }
     })
 }]);
@@ -160,6 +160,17 @@ lbApp.controller('SessionController', ['$scope', 'UtilsService', 'RequestService
         listName: 'navigation',
         tabName: 'tabName'
     };
+    //章节信息
+    $scope.t_chapter = {};
+    RequestService.request({
+        token:'t_classCourse',
+        method:'POST',
+        loading:true,
+        success:function(data){
+            $scope.t_chapter = data.chapter;
+        }
+    })
+
 }]);
 //习题管理
 lbApp.controller('SxerciseController', ['$scope', 'UtilsService', 'RequestService', function($scope, UtilsService, RequestService) {
@@ -169,6 +180,16 @@ lbApp.controller('SxerciseController', ['$scope', 'UtilsService', 'RequestServic
         listName: 'navigation',
         tabName: 'tabName'
     };
+
+    $scope.t_exerciseList = [];
+    RequestService.request({
+        token:'t_exercise',
+        method:'POST',
+        loading:true,
+        success:function(data){
+            $scope.t_exerciseList = data.exerciseList;
+        }
+    })
 }]);
 //添加习题
 lbApp.controller('SxerciseAddController', ['$scope', 'UtilsService', 'RequestService', function($scope, UtilsService, RequestService) {
@@ -178,6 +199,16 @@ lbApp.controller('SxerciseAddController', ['$scope', 'UtilsService', 'RequestSer
         listName: 'navigation',
         tabName: 'tabName'
     };
+    $scope.t_sel_exeList = [];
+    RequestService.request({
+        token:'t_exercise',
+        method:'POST',
+        loading:true,
+        success:function(data){
+            $scope.t_sel_exeList = data.exerciseList;
+        }
+    })
+
 }]);
 //学生管理
 lbApp.controller('StudentController', ['$scope', 'UtilsService', 'RequestService', function($scope, UtilsService, RequestService) {

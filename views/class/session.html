@@ -16,15 +16,13 @@
         <div class="form-item">
             <div class="title">章节主题：</div>
             <div class="content">
-                <input type="text" class="input" name="name"  required ng-maxlength="30" value="章节主题">
-                <div class="error" ng-show="voice_robot_form.name.$dirty && voice_robot_form.name.$invalid">请输入章节主题</div>
+                <input type="text" class="input" name="name" ng-value="t_chapter.description_exercise">
             </div>
         </div>
         <div class="form-item">
             <div class="title">章节简介：</div>
             <div class="content">
-                <input type="text" class="input" name="name"  required ng-maxlength="30" value="章节简介">
-                <div class="error" ng-show="voice_robot_form.name.$dirty && voice_robot_form.name.$invalid">请输入章节简介</div>
+                <input type="text" class="input" name="name" ng-value="t_chapter.description_content">
             </div>
         </div>
         <div class="form-item">
@@ -36,7 +34,6 @@
                     <option ng-repeat="sound in soundList" value="{{ sound.id }}" ng-bind="sound.name"></option>
                 </select>
                 <pre  class="line-height-15 color-blue">学生只能看到已开放的章节</pre>
-                <div class="error" ng-show="voice_robot_form.voice_type.$dirty && voice_robot_form.voice_type.$invalid">请选择章节状态</div>
             </div>
         </div>
         <div class="form-item">
@@ -47,7 +44,6 @@
                     <option value="">随机</option>
                     <option ng-repeat="sound in soundList" value="{{ sound.id }}" ng-bind="sound.name"></option>
                 </select>
-                <div class="error" ng-show="voice_robot_form.voice_type.$dirty && voice_robot_form.voice_type.$invalid">请选择呈现模式</div>
             </div>
         </div>
         <div class="form-item">
@@ -59,7 +55,6 @@
                     <option value="">错题重做到正确</option>
                     <option ng-repeat="sound in soundList" value="{{ sound.id }}" ng-bind="sound.name"></option>
                 </select>
-                <div class="error" ng-show="voice_robot_form.voice_type.$dirty && voice_robot_form.voice_type.$invalid">请选择流程模式</div>
             </div>
         </div>
         <div class="form-op">

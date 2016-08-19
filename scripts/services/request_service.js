@@ -13,6 +13,8 @@ lbApp.factory('RequestService', ['$http', 'UtilsService', function($http, UtilsS
         't_settingClass':'classes/find',
         //课程设置
         't_classCourse':'classes/find',
+        //习题设置
+        't_exercise':'class/find',
         // 校验邮箱
         //'tk_verifyEmail': '/checkemail',
         // 获取用户信息
