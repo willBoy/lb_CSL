@@ -56,22 +56,22 @@ lbApp.controller('CreateClassController', ['$scope', 'UtilsService', 'RequestSer
         // 结束时间
         endTime: '',
     };
-    $scope.class ={
+    $scope.classes ={
         //班级名称
-        className:'123',
+        name:'123',
         //课程名称
-        courseName:'123',
+        subjectName:'123',
         //开课时间
-        classStartTime:'1990-02-03',
+        startTime:'1990-02-03',
         //班级状态
-        classStatus:''
+        status:'1'
     }
     $scope.classAdd = function(){
             RequestService.request({
                 token:'classAdd',
                 method:'POST',
                 loading:true,
-                data: UtilsService.serialize($scope.class),
+                data: UtilsService.serialize($scope.classes),
                 success: function (data) {
                     UtilsService.href('/classList');
                 }
