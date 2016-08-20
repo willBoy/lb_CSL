@@ -222,6 +222,28 @@ lbApp.controller('SxerciseAddController', ['$scope', 'UtilsService', 'RequestSer
     })
 
 }]);
+
+//添加习题
+lbApp.controller('SxerciseAdd2Controller', ['$scope', 'UtilsService', 'RequestService', function($scope, UtilsService, RequestService) {
+    //
+    "use strict";
+    $scope.asideTab = {
+        listName: 'navigation',
+        tabName: 'tabName'
+    };
+    // 绑定弹框事件
+    UtilsService.initPop($scope);
+    $scope.t_sel_exeList = [];
+    RequestService.request({
+        token:'t_exercise',
+        method:'POST',
+        loading:true,
+        success:function(data){
+            $scope.t_sel_exeList = data.exerciseList;
+        }
+    })
+
+}]);
 //学生管理
 lbApp.controller('StudentController', ['$scope', 'UtilsService', 'RequestService', function($scope, UtilsService, RequestService) {
     //
@@ -230,6 +252,8 @@ lbApp.controller('StudentController', ['$scope', 'UtilsService', 'RequestService
         listName: 'navigation',
         tabName: 'tabName'
     };
+    // 绑定弹框事件
+    UtilsService.initPop($scope);
 }]);
 //学生详情
 lbApp.controller('StudentDetailController', ['$scope', 'UtilsService', 'RequestService', function($scope, UtilsService, RequestService) {
@@ -249,16 +273,8 @@ lbApp.controller('StudentClassController', ['$scope', 'UtilsService', 'RequestSe
         listName: 'navigation',
         tabName: 'tabName'
     };
-}]);
-
-//我的课程
-lbApp.controller('StudentClassController', ['$scope', 'UtilsService', 'RequestService', function($scope, UtilsService, RequestService) {
-    //
-    "use strict";
-    $scope.asideTab = {
-        listName: 'navigation',
-        tabName: 'tabName'
-    };
+    // 绑定弹框事件
+    UtilsService.initPop($scope);
 }]);
 //我的课程详情
 lbApp.controller('StudentClassDetailController', ['$scope', 'UtilsService', 'RequestService', function($scope, UtilsService, RequestService) {
