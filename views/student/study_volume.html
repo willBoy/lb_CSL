@@ -1,13 +1,15 @@
 <div class="study text-align-center">
-    <div class="exit">X</div>
+    <div class="exit" ng-click="utils.href('/student/class')">X</div>
     <div class="exercise">
         <h1>音量校准</h1>
         <div class="volume">
             <span class="icon icons-volume"></span>
         </div>
-        <h4>请将音量调整到合适大小</h4>
+        <p>请将音量调整到合适大小</p>
+    </div>
+    <div class="container">
         <div class="form-op">
-            <span class="op btn-blue" ng-click="utils.href('/class/session')">下一步</span>
+            <span class="op btn-blue" ng-click="utils.href('/student/study_key')">下一步</span>
         </div>
     </div>
 </div>

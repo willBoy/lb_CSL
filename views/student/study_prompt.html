@@ -1,20 +1,26 @@
 <div class="study text-align-center">
-    <div class="exit">X</div>
+    <div class="exit" ng-click="utils.href('/student/class')">X</div>
     <div class="exercise">
-        <h4>播放提示音 du~ 500ms 后进入下一页</h4>
-        <div class="volume">
-            <span class="icon icons-cross"></span>
-        </div>
+        <h1>播放提示音 du~ 500ms 后进入下一页</h1>
+        <h1>+</h1>
+       <!-- <span class="icon icons-cross"></span>-->
         <div class="key">
-            <span class="icon icons-1">1</span>
-            <span>2</span>
-            <span>3</span>
-            <span>4</span>
-            <span>5</span>
-            <span>6</span>
+            <div class="col-2-4">
+                <span class="icon icons-1"></span><h1>1</h1>
+            </div>
+            <div class="col-2-4">
+                <span class="icon icons-2"></span><h1>2</h1>
+            </div>
+            <div class="col-2-4">
+                <span class="icon icons-3"></span><h1>3</h1>
+            </div>
+            <div class="col-2-4">
+                <span class="icon icons-4"></span><h1>4</h1>
+            </div>
+
         </div>
         <div class="form-op">
-            <span class="op btn-blue" ng-click="utils.href('/class/session')">下一步</span>
+            <span class="op btn-blue" ng-click="utils.href('/student/study_keying')">下一步</span>
         </div>
     </div>
 </div>

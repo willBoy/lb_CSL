@@ -305,3 +305,63 @@ lbApp.controller('Study1Controller', ['$scope', 'UtilsService', 'RequestService'
         tabName: 'tabName'
     };
 }]);
+
+//音量校准
+lbApp.controller('StudyVolumeController', ['$scope', 'UtilsService', 'RequestService', function($scope, UtilsService, RequestService) {
+    //
+    "use strict";
+    $scope.asideTab = {
+        listName: 'navigation',
+        tabName: 'tabName'
+    };
+}]);
+
+//键盘校准
+lbApp.controller('StudyKeyController', ['$scope', 'UtilsService', 'RequestService', function($scope, UtilsService, RequestService) {
+    //
+    "use strict";
+    $scope.asideTab = {
+        listName: 'navigation',
+        tabName: 'tabName'
+    };
+}]);
+
+//请准备
+lbApp.controller('StudyPrepareController', ['$scope', 'UtilsService', 'RequestService', function($scope, UtilsService, RequestService) {
+    //
+    "use strict";
+    $scope.asideTab = {
+        listName: 'navigation',
+        tabName: 'tabName'
+    };
+}]);
+
+//播放提示音
+lbApp.controller('StudyPromptController', ['$scope', 'UtilsService', 'RequestService', function($scope, UtilsService, RequestService) {
+    //
+    "use strict";
+    $scope.asideTab = {
+        listName: 'navigation',
+        tabName: 'tabName'
+    };
+}]);
+
+//按键选答案
+lbApp.controller('StudyKeyingController', ['$scope', 'UtilsService', 'RequestService', function($scope, UtilsService, RequestService) {
+    //
+    "use strict";
+    $scope.asideTab = {
+        listName: 'navigation',
+        tabName: 'tabName'
+    };
+}]);
+
+//错误提示
+lbApp.controller('StudyErrorController', ['$scope', 'UtilsService', 'RequestService', function($scope, UtilsService, RequestService) {
+    //
+    "use strict";
+    $scope.asideTab = {
+        listName: 'navigation',
+        tabName: 'tabName'
+    };
+}]);
