@@ -47,15 +47,6 @@
                 <span class="icons-search"></span>-->
                 <span class="op btn-blue bgcolor-blue" ng-click="openPop('pop-resetpwd')">+ 添加习题</span>
 
-                <div id="pop-resetpwd" class="pop">
-                    <div class="pop-content">
-                        <input type="radio" name="model" value="随机模式" />
-                        <input type="radio" name="model" value="自选" />
-                        <div class="text-align-center clearfix">
-                            <span class="op btn-blue" ng-click="utils.href('/class')">确定</span>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
         <div class="table-list">
@@ -89,5 +80,20 @@
             </table>
         </div>
     </div>
+    <div id="pop-resetpwd" class="pop">
+        <div class="pop-content">
+            <div class="form-item">
+                <div class="content">
+                    <label>随机模式</label>
+                    <input type="radio" name="model" value="随机模式" />
+                    <label>手动选择</label>
+                    <input type="radio" name="model" value="自选" />
+                </div>
+            </div>
 
+            <div class="text-align-center clearfix">
+                <span class="op btn-blue" ng-click="closePop('pop-resetpwd')">确定</span>
+            </div>
+        </div>
+    </div>
 </div>
