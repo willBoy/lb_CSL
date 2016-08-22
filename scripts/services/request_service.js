@@ -15,6 +15,8 @@ lbApp.factory('RequestService', ['$http', 'UtilsService', function($http, UtilsS
         't_classCourse':'classes/find',
         //习题设置
         't_exercise':'class/find',
+        //登录
+        't_login':'teacher/login',
         // 校验邮箱
         //'tk_verifyEmail': '/checkemail',
         // 获取用户信息
@@ -78,18 +80,11 @@ lbApp.factory('RequestService', ['$http', 'UtilsService', function($http, UtilsS
                 reqObj.data = reqConfig.data;
             }
             // 发送请求
-            $http(reqObj4)
+            $http(reqObj)
                 .success(function(data, status, headers, config) {
-                    console.log(data);
-                    //if (/5\d{2}/.test(status)) {
-                    //    //alert('服务器出错');
-                    //    return;
-                    //}
                     switch (data.code) {
-                        case 0:
-                            reqConfig.success(data.result);
-                            break;
-                        case 20000:
+                        case "0":
+                            console.log("success");
                             reqConfig.success(data.result);
                             break;
                         case 10010:

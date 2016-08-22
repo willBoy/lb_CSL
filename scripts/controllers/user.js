@@ -6,57 +6,24 @@ lbApp.controller('LoginController', ['$scope', 'UtilsService', 'RequestService',
         userName: '',
         password: ''
     };
-    // 动态密码登录
-    $scope.verifyCodeInfo = {
-        phone: '',
-        code: ''
-    };
+
 
     UtilsService.genTabs($scope, 'tabLogin');
     
-    $scope.getCodeText = '获取语音验证码';
-    $scope.isCalling = false;
+    //$scope.getCodeText = '获取语音验证码';
+    //$scope.isCalling = false;
 
-    /**
-     * 获取动态验证码
-     */
-    $scope.getCode = function() {
-        if ($scope.isCalling) {
-            return;
-        }
-        $scope.isCalling = true;
-        RequestService.request({
-            token: 'tk_getCodeByLogin',
-            method: 'GET',
-            strParams: 'phone=' + $scope.verifyCodeInfo.phone,
-            success: function(data) {
-                UtilsService.delayTimer(60, function(sec) {
-                    $scope.$apply(function() {
-                        if (sec == 0) {
-                            $scope.getCodeText = '获取语音验证码';
-                            $scope.isCalling = false;
-                        } else {
-                            $scope.getCodeText = sec + 's';
-                        }
-                    });
-                });
-                alert('正在给您拨打电话，请注意接听');
-            },
-            error: function() {
-                $scope.isCalling = false;
-            }
-        });
-    };
     /**
      * 密码登录
      */
     $scope.loginByPwd = function() {
         RequestService.request({
-            token: 'tk_login',
+            token: 't_login',
             method: 'POST',
             data: UtilsService.serialize($scope.pwdLoginInfo),
             success: function(data) {
-                UtilsService.href('/profile');
+                alert("登录成功");
+                UtilsService.href('/classList');
             }
         });
     };
@@ -96,7 +63,8 @@ lbApp.controller('RegController', ['$scope', '$rootScope', 'RequestService', 'Ut
             method: 'POST',
             data: UtilsService.serialize($scope.t_regInfo),
             success: function(data) {
-                alert(1);
+                console.log(data);
+                alert("注册成功");
                 UtilsService.href('/classList');
             }
         });
