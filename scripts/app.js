@@ -50,6 +50,12 @@ lbApp.config(['$routeProvider', '$locationProvider', '$httpProvider', function($
             controller: 'ClassListController',
             showHeader: true
         })
+        //µÇÂ¼
+        .when('/login', {
+            templateUrl: 'views/user/login.html',
+            controller: 'LoginController',
+            showHeader: false
+        })
         //°à¼¶¹ÜÀí
         .when('/classList',{
             templateUrl:'views/class/class_list.html',
