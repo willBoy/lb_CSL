@@ -57,7 +57,7 @@ lbApp.config(['$routeProvider', '$locationProvider', '$httpProvider', function($
             showHeader: false
         })
         //∞‡º∂π‹¿Ì
-        .when('/classList',{
+        .when('/classList/:classID',{
             templateUrl:'views/class/class_list.html',
             controller:'ClassListController',
             showHeader:true

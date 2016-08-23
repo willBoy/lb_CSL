@@ -42,13 +42,13 @@
                     <th>章节状态</th>
                     <th>操作</th>
                 </tr>
-                <tr ng-repeat="cl_cou_session in classCourseSession track by $index">
+                <tr ng-repeat="cl_cou_chapter in classCourseChapter track by $index">
                     <!--<td ng-bind="cl_cou_session">1</td>-->
-                    <td ng-bind="cl_cou_session.description_exercise"></td>
-                    <td ng-bind="cl_cou_session.description_content"></td>
-                    <td ng-bind="cl_cou_session.order"></td>
-                    <td ng-bind="cl_cou_session.pattern"></td>
-                    <td ng-bind="cl_cou_session.status"></td>
+                    <td ng-bind="cl_cou_chapter.name"></td>
+                    <td ng-bind="cl_cou_chapter.description"></td>
+                    <td ng-bind="cl_cou_chapter.order"></td>
+                    <td ng-bind="cl_cou_chapter.pattern"></td>
+                    <td ng-bind="cl_cou_chapter.status"></td>
                     <td>
                         <a ng-click="utils.href('/class/session')">章节设置</a>
                         <a ng-click="utils.href('/class/exercise')">习题管理</a>
