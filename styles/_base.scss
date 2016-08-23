@@ -263,8 +263,8 @@ $light-grey: #ECECEC;
 
 .btn-base-1{
     display: inline-block;
-    height: 30px;
-    line-height: 30px;
+    height: 33px;
+    line-height: 33px;
     text-align: center;
     padding: 2px 20px;
     cursor: pointer;
@@ -474,7 +474,7 @@ UtilsService.genTab($scope, tabName)
     .icons-search{
         display: inline-block;
         position: relative;
-        left: -30px;
+        left: -12px;
         top: 10px;
     }
     .title{
@@ -485,7 +485,7 @@ UtilsService.genTab($scope, tabName)
     }
     .right, .left{
         display: inline-block;
-        height: 40px;
+        /*height: 40px;*/
         overflow: hidden;
     }
     .right{

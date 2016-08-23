@@ -34,7 +34,7 @@ lbApp.directive('lbAsideDirective',function() {
                         url:'',
                         icon:''
                     },
-                    {
+                    /*{
                         name: 'register',
                         value: '注册',
                         url: '/register',
@@ -45,7 +45,7 @@ lbApp.directive('lbAsideDirective',function() {
                         value: '登录',
                         url: '/login',
                         icon: 'icons-user'
-                    }
+                    }*/
                 ],
                 account: [
                     {

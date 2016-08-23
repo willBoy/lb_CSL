@@ -20,23 +20,9 @@
         </div>
         <div class="col-three">
             <div class="form-item">
-                <div class="title">关键字：</div>
+                <div class="title">词汇：</div>
                 <div class="content">
                     <input type="text" class="input" name="name"  required ng-maxlength="30" value="">
-                </div>
-            </div>
-        </div>
-        <div class="col-three">
-            <div class="form-item">
-                <div class="title">音节数：</div>
-                <div class="content">
-                    <select class="select" name="voice_type" ng-model="voiceRobot.sound" required>
-                        <option value="">全部</option>
-                        <option value="">3</option>
-                        <option value="">2</option>
-                        <option value="">4</option>
-                        <option ng-repeat="sound in soundList" value="{{ sound.id }}" ng-bind="sound.name"></option>
-                    </select>
                 </div>
             </div>
         </div>
@@ -49,6 +35,46 @@
                         <option value="">1</option>
                         <option value="">2</option>
                         <option value="">3</option>
+                        <option value="">4</option>
+                        <option ng-repeat="sound in soundList" value="{{ sound.id }}" ng-bind="sound.name"></option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="col-three">
+            <div class="form-item">
+                <div class="title">轻声：</div>
+                <div class="content">
+                    <select class="select" name="voice_type" ng-model="voiceRobot.sound" required>
+                        <option value="">全部</option>
+                        <option value="">是</option>
+                        <option value="">否</option>
+                        <option ng-repeat="sound in soundList" value="{{ sound.id }}" ng-bind="sound.name"></option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="col-three">
+            <div class="form-item">
+                <div class="title">儿化音：</div>
+                <div class="content">
+                    <select class="select" name="voice_type" ng-model="voiceRobot.sound" required>
+                        <option value="">全部</option>
+                        <option value="">是</option>
+                        <option value="">否</option>
+                        <option ng-repeat="sound in soundList" value="{{ sound.id }}" ng-bind="sound.name"></option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="col-three">
+            <div class="form-item">
+                <div class="title">音节数：</div>
+                <div class="content">
+                    <select class="select" name="voice_type" ng-model="voiceRobot.sound" required>
+                        <option value="">全部</option>
+                        <option value="">3</option>
+                        <option value="">2</option>
                         <option value="">4</option>
                         <option ng-repeat="sound in soundList" value="{{ sound.id }}" ng-bind="sound.name"></option>
                     </select>
@@ -81,66 +107,40 @@
                 </div>
             </div>
         </div>
-        <div class="col-three">
-            <div class="form-item">
-                <div class="title">轻声：</div>
-                <div class="content">
-                    <select class="select" name="voice_type" ng-model="voiceRobot.sound" required>
-                        <option value="">全部</option>
-                        <option value="">是</option>
-                        <option value="">否</option>
-                        <option ng-repeat="sound in soundList" value="{{ sound.id }}" ng-bind="sound.name"></option>
-                    </select>
-                </div>
-            </div>
-        </div>
-        <div class="col-three">
-            <div class="form-item">
-                <div class="title">儿化音：</div>
-                <div class="content">
-                    <select class="select" name="voice_type" ng-model="voiceRobot.sound" required>
-                        <option value="">全部</option>
-                        <option value="">是</option>
-                        <option value="">否</option>
-                        <option ng-repeat="sound in soundList" value="{{ sound.id }}" ng-bind="sound.name"></option>
-                    </select>
-                </div>
-            </div>
-        </div>
         <br/>
         <div class="form-op">
-            <span class="op btn-blue" ng-click="utils.href('/class/course')">确认</span>
+            <span class="op btn-blue" ng-click="utils.href('/class/course')">检索</span>
             <span class="op btn-blue" ng-click="utils.href('/class/course')">取消</span>
         </div>
     </div>
     <div class="main-wrapper" ng-show="true">
         <div class="title-1">
             <span class="title">习题列表</span>
+            <div class="right prompt">您当前章节共有20道题，您已选择了5道。</div>
         </div>
         <div class="table-list">
             <table class="data-list">
                 <tr>
                     <th>全选<input type="checkbox" name="checkbox1" value="checkbox"></th>
                     <!--<th>序号</th>-->
-                    <th>汉字</th>
-                    <th>音节数</th>
+                    <th>词汇</th>
                     <th>声调</th>
-                    <th>说话人</th>
-                    <th>等级</th>
                     <th>轻声</th>
                     <th>儿化音</th>
+                    <th>音节数</th>
+                    <th>说话人</th>
+                    <th>等级</th>
                 </tr>
-
                 <tr ng-repeat="t_sel_exe_list in t_sel_exeList">
                     <td><input type="checkbox" name="checkbox1" value="checkbox"></td>
                     <!--<td>1</td>-->
                     <td ng-bind="t_sel_exe_list.hanzi"></td>
-                    <td ng-bind="t_sel_exe_list.yinjieshu"></td>
                     <td ng-bind="t_sel_exe_list.shengdiao"></td>
-                    <td ng-bind="t_sel_exe_list.shuohuaren"></td>
-                    <td ng-bind="t_sel_exe_list.dengji"></td>
                     <td ng-bind="t_sel_exe_list.qingsheng"></td>
                     <td ng-bind="t_sel_exe_list.erhuayin"></td>
+                    <td ng-bind="t_sel_exe_list.yinjieshu"></td>
+                    <td ng-bind="t_sel_exe_list.shuohuaren"></td>
+                    <td ng-bind="t_sel_exe_list.dengji"></td>
                 </tr>
             </table>
         </div>

@@ -1,5 +1,6 @@
 #reg{
     height: 100%;
+    background: #fff;
     #reg-wrapper{
         overflow: visible;
     }
@@ -9,13 +10,23 @@
         text-align: center;
     }
     #reg-wrapper{
-        width: 430px;
-        height: 300px;
+        width: 100%;
         position: absolute;
-        left: 50%;
-        margin-left: -215px;
-        top: 50%;
-        margin-top: -200px;
+        form{
+            width: 60%;
+            margin-left: 20%;
+            .title_lang{
+                display: inline-block;
+                width: 200px;
+                height: $form-item-height;
+                line-height: 20px;
+                float: left;
+                @extend .font-size-normal;
+            }
+            pre{
+                margin-top: 0;
+            }
+        }
     }
     .reg-info{
         width: 100%;

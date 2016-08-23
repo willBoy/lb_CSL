@@ -11,16 +11,15 @@
     <div class="main-wrapper" ng-show="true">
         <div class="title-1">
             <span class="title">班级列表</span>
-
             <div class="right">
-                <label>按年份</label>
+                <input type="text" class="input retrieval" placeholder="班级名称" ng-model="conditions.common.outCallNo">
+                <span class="icons-search"></span>
                 <select class="select">
-                    <option>2018</option>
+                    <option>按年份</option>
                     <option>2017</option>
                     <option>2016</option>
                 </select>
-                <input type="text" class="input" placeholder="班级名称" ng-model="conditions.common.outCallNo">
-                <span class="icons-search"></span>
+
                 <span class="op btn-blue" ng-click="utils.href('/createClass')">创建班级</span>
                 <!--<span class="op btn-blue" ng-click="classList()">获取数据</span>-->
             </div>

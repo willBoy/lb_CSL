@@ -13,15 +13,15 @@
         </div>
     </div>
     <div class="main-wrapper" ng-show="true">
-        <!--<div class="title-1">
-            <span class="title">课程设置</span>
-        </div>-->
+        <div class="title-1">
+            <span class="title">章节信息</span>
+        </div>
         <div class="title-2">
             <div class="clearfix">
-                <span class="font-size-16">课程名称：高级正音</span>
+                <span class="font-size-16">章节名称：韵母</span>
             </div>
             <div class="clearfix">
-                <span class="font-size-small intro left"><b>课程简介 : </b>blablabla</span>
+                <span class="font-size-small intro left"><b>章节简介 : </b>blablabla</span>
             </div>
         </div>
     </div>
@@ -29,23 +29,19 @@
         <div class="title-1">
             <span class="title">习题列表</span>
             <div class="right">
-                <label>关键词</label>
-                <input type="text" class="input" placeholder="" ng-model="conditions.common.outCallNo">
-                <label>音节数</label>
+                <input type="text" class="input retrieval" placeholder="关键词" ng-model="conditions.common.outCallNo">
+                <span class="icons-search"></span>
                 <select class="select">
-                    <option>全部</option>
+                    <option>音节数</option>
+                    <option>2</option>
+                    <option>4</option>
+                </select>
+                <select class="select">
+                    <option>等级</option>
                     <option></option>
                     <option></option>
                 </select>
-                <label>等级</label>
-                <select class="select">
-                    <option>全部</option>
-                    <option></option>
-                    <option></option>
-                </select>
-                <!--<input type="text" class="input" placeholder="" ng-model="conditions.common.outCallNo">
-                <span class="icons-search"></span>-->
-                <span class="op btn-blue bgcolor-blue" ng-click="openPop('pop-resetpwd')">+ 添加习题</span>
+                <span class="op btn-blue bgcolor-blue" ng-click="utils.href('/class/exercise_add')">+ 添加习题</span>
 
             </div>
         </div>
@@ -53,24 +49,24 @@
             <table class="data-list">
                 <tr>
                     <!--<th>序号</th>-->
-                    <th>汉字</th>
-                    <th>音节数</th>
+                    <th>词汇</th>
                     <th>声调</th>
-                    <th>说话人</th>
-                    <th>等级</th>
                     <th>轻声</th>
                     <th>儿化音</th>
+                    <th>音节数</th>
+                    <th>说话人</th>
+                    <th>等级</th>
                     <th>操作</th>
                 </tr>
                 <tr ng-repeat="t_exe_list in t_exerciseList">
                     <!--<td>1</td>-->
                     <td ng-bind="t_exe_list.hanzi"></td>
-                    <td ng-bind="t_exe_list.yinjieshu"></td>
                     <td ng-bind="t_exe_list.shengdiao"></td>
-                    <td ng-bind="t_exe_list.shuohuaren"></td>
-                    <td ng-bind="t_exe_list.dengji"></td>
                     <td ng-bind="t_exe_list.qingsheng"></td>
                     <td ng-bind="t_exe_list.erhuayin"></td>
+                    <td ng-bind="t_exe_list.yinjieshu"></td>
+                    <td ng-bind="t_exe_list.shuohuaren"></td>
+                    <td ng-bind="t_exe_list.dengji"></td>
                     <td>
                         <a ng-click="utils.href('')">上移</a>
                         <a ng-click="utils.href('')">下移</a>
@@ -78,22 +74,6 @@
                     </td>
                 </tr>
             </table>
-        </div>
-    </div>
-    <div id="pop-resetpwd" class="pop">
-        <div class="pop-content">
-            <div class="form-item">
-                <div class="content">
-                    <label>随机模式</label>
-                    <input type="radio" name="model" value="随机模式" />
-                    <label>手动选择</label>
-                    <input type="radio" name="model" value="自选" />
-                </div>
-            </div>
-
-            <div class="text-align-center clearfix">
-                <span class="op btn-blue" ng-click="closePop('pop-resetpwd')">确定</span>
-            </div>
         </div>
     </div>
 </div>

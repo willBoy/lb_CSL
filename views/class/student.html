@@ -14,20 +14,19 @@
         <div class="title-1">
             <span class="title">学生列表</span>
             <div class="right">
-                <label>性别</label>
+                <input type="text" class="input retrieval" placeholder="根据姓名、备注查找学生" ng-model="conditions.common.outCallNo">
+                <span class="icons-search"></span>
                 <select class="select">
-                    <option>所有</option>
+                    <option>性别</option>
                     <option>男</option>
                     <option>女</option>
                 </select>
-                <label>国家/地区</label>
                 <select class="select">
-                    <option>所有</option>
+                    <option>国籍</option>
                     <option>美国</option>
                     <option>加拿大</option>
                 </select>
-                <input type="text" class="input" placeholder="根据姓名、备注查找学生" ng-model="conditions.common.outCallNo">
-                <span class="icons-search"></span>
+
                 <!--<span class="op btn-blue" ng-click="utils.href('/createClass')">创建班级</span>-->
                 <!--<span class="op btn-blue" ng-click="classList()">获取数据</span>-->
             </div>
@@ -37,8 +36,8 @@
                 <tr>
                     <th>中文姓名</th>
                     <th>英文姓名</th>
-                    <th>性名</th>
-                    <th>国家/地区</th>
+                    <th>性别</th>
+                    <th>国籍</th>
                     <th>备注</th>
                     <th>操作</th>
                 </tr>
@@ -46,8 +45,8 @@
                     <td>闫乐坤</td>
                     <td>yan leCun</td>
                     <td>男</td>
-                    <td>美国</td>
-                    <td>法裔</td>
+                    <td>比如国籍是十个字的情况</td>
+                    <td>法裔长点长点长点长点长点</td>
                     <td>
                         <a ng-click="utils.href('/class/studentDetail')">学生详情</a>
                         <a ng-click="openPop('pop-Remarks')">编辑备注</a>

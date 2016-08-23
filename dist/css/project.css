@@ -383,7 +383,7 @@ div, span, li, em {
   font-size: 16px;
 }
 
-.font-size-normal, .btn-base-1, .btn-blue, .btn-white, .menu-list-1, .card-list, .pop .pop-content, .form-item .title, .form-item .content textarea, .form-item .text, .table-list table.data-list, #header #main-menu li {
+.font-size-normal, .btn-base-1, .btn-blue, .btn-white, .menu-list-1, .card-list, .pop .pop-content, .form-item .title, .form-item .content textarea, .form-item .text, .table-list table.data-list, #reg #reg-wrapper form .title_lang, #header #main-menu li {
   font-size: 14px;
 }
 
@@ -615,8 +615,8 @@ div, span, li, em {
 
 .btn-base-1, .btn-blue, .btn-white {
   display: inline-block;
-  height: 30px;
-  line-height: 30px;
+  height: 33px;
+  line-height: 33px;
   text-align: center;
   padding: 2px 20px;
   cursor: pointer;
@@ -801,7 +801,7 @@ UtilsService.genTab($scope, tabName)
 .title-1 .icons-search, .title-2 .icons-search {
   display: inline-block;
   position: relative;
-  left: -30px;
+  left: -12px;
   top: 10px;
 }
 .title-1 .title, .title-2 .title {
@@ -811,7 +811,7 @@ UtilsService.genTab($scope, tabName)
 }
 .title-1 .right, .title-2 .right, .title-1 .left, .title-2 .left {
   display: inline-block;
-  height: 40px;
+  /*height: 40px;*/
   overflow: hidden;
 }
 .title-1 .right, .title-2 .right {
@@ -1421,6 +1421,7 @@ UtilsService.genTab($scope, tabName)
 
 #reg {
   height: 100%;
+  background: #fff;
 }
 #reg #reg-wrapper {
   overflow: visible;
@@ -1431,13 +1432,22 @@ UtilsService.genTab($scope, tabName)
   text-align: center;
 }
 #reg #reg-wrapper {
-  width: 430px;
-  height: 300px;
+  width: 100%;
   position: absolute;
-  left: 50%;
-  margin-left: -215px;
-  top: 50%;
-  margin-top: -200px;
+}
+#reg #reg-wrapper form {
+  width: 60%;
+  margin-left: 20%;
+}
+#reg #reg-wrapper form .title_lang {
+  display: inline-block;
+  width: 200px;
+  height: 40px;
+  line-height: 20px;
+  float: left;
+}
+#reg #reg-wrapper form pre {
+  margin-top: 0;
 }
 #reg .reg-info {
   width: 100%;
@@ -1905,6 +1915,10 @@ UtilsService.genTab($scope, tabName)
   height: 20px;
 }
 
+.retrieval {
+  margin-right: -22px;
+}
+
 #exercise .title-2 {
   border-bottom: none;
 }
@@ -1926,9 +1940,16 @@ UtilsService.genTab($scope, tabName)
   display: inline-block;
 }
 
+.prompt {
+  height: 40px;
+  line-height: 40px;
+}
+
+.student-detail .form-item {
+  margin-top: 10px;
+}
 .student-detail .form-item .title {
-  width: 200px;
-  line-height: 18px;
+  width: 150px;
 }
 
 .study {

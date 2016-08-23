@@ -1,0 +1,143 @@
+<div id="reg" class="bgimg-black">
+    <div id="reg-wrapper" class="bgcolor-white" ng-show="true">
+        <div id="title" class="color-white font-size-huge bgcolor-blue font-weight-200">注册</div>
+        <form name="rule_form" novalidate>
+            <div class="form-item">
+                <div class="title_lang">* 电子邮箱：<br>E-mail</div>
+                <div class="content">
+                    <input name="key_word" class="input" type="text"  ng-model="qa_task.keyword" required>
+                    <pre class="line-height-15 color-blue">请输入真实有效的邮箱，便于找回密码。</pre>
+                    <div class="error" ng-show="rule_form.illegal_statement.$dirty && rule_form.illegal_statement.$invalid">请输入真实有效的邮箱，便于找回信息。</div>
+                </div>
+            </div>
+            <div class="form-item">
+                <div class="title_lang">* 请设定您的密码：<br>Password</div>
+                <div class="content">
+                    <input name="key_word" class="input" type="text"  ng-model="qa_task.keyword" required>
+                    <pre class="line-height-15 color-blue">请输入6位以上字符。</pre>
+                    <div class="error" ng-show="rule_form.illegal_statement.$dirty && rule_form.illegal_statement.$invalid">请输入6-20位字符，可以用字母或数字。</div>
+                </div>
+            </div>
+            <div class="form-item">
+                <div class="title_lang">* 再输入一次密码：<br>Enter your password again</div>
+                <div class="content">
+                    <input name="key_word" class="input" type="text"  ng-model="qa_task.keyword" required>
+                    <pre class="line-height-15 color-blue">请输入6位以上字符。</pre>
+                    <div class="error" ng-show="rule_form.illegal_statement.$dirty && rule_form.illegal_statement.$invalid">请输入6-20位字符，可以用字母或数字。</div>
+                </div>
+            </div>
+            <div class="form-item">
+                <div class="title_lang">* 英文全名：<br>Full name</div>
+                <div class="content">
+                    <input name="key_word" class="input" type="text"  ng-model="qa_task.keyword" required>
+                    <div class="error" ng-show="rule_form.illegal_statement.$dirty && rule_form.illegal_statement.$invalid"></div>
+                </div>
+            </div>
+            <div class="form-item">
+                <div class="title_lang">* 中文名：<br>Chinese name</div>
+                <div class="content">
+                    <input name="key_word" class="input" type="text"  ng-model="qa_task.keyword" required>
+                    <pre class="line-height-15 color-blue">请输入汉字。</pre>
+                    <div class="error" ng-show="rule_form.illegal_statement.$dirty && rule_form.illegal_statement.$invalid">请输入汉字。</div>
+                </div>
+            </div>
+
+            <div class="form-item">
+                <div class="title_lang">* 年龄：<br>Age</div>
+                <div class="content">
+                    <select name="is_include" class="select" ng-model="qa_task.constrains" required>
+                        <option value="">16-20</option>
+                        <option value="">21-25</option>
+                        <option value="">26-30</option>
+                        <option ng-repeat="(value, description) in options.constrains" value="{{ value }}" ng-bind="description"></option>
+                    </select>
+                    <div class="error" ng-show="rule_form.illegal_statement.$dirty && rule_form.illegal_statement.$invalid">请选择年龄</div>
+                </div>
+            </div>
+            <div class="form-item">
+                <div class="title_lang">* 性别：<br>Gender</div>
+                <div class="content">
+                    <label><input name="gender" type="radio" value="" />男 Male</label>
+                    <label><input name="gender" type="radio" value="" />女 Female</label>
+                    <div class="error" ng-show="rule_form.illegal_statement.$dirty && rule_form.illegal_statement.$invalid">请选择年龄</div>
+                </div>
+            </div>
+            <div class="form-item">
+                <div class="title_lang">* 手机号码：<br>Cellphone number</div>
+                <div class="content">
+                    <input name="key_word" class="input" type="text"  ng-model="qa_task.keyword" required>
+                </div>
+            </div>
+            <div class="form-item">
+                <div class="title_lang">* 国籍：<br>Country of Citizenship</div>
+                <div class="content">
+                    <select name="is_include" class="select" ng-model="qa_task.constrains" required>
+                        <option value="">其它</option>
+                        <option value="">China</option>
+                        <option value="">English</option>
+                        <option value="">French</option>
+                        <option ng-repeat="(value, description) in options.constrains" value="{{ value }}" ng-bind="description"></option>
+                    </select>
+                    <div class="error" ng-show="rule_form.illegal_statement.$dirty && rule_form.illegal_statement.$invalid">请选择年龄</div>
+                </div>
+            </div>
+            <div class="form-item">
+                <div class="title_lang">* 母语：<br>Native language</div>
+                <div class="content">
+                    <select name="is_include" class="select" ng-model="qa_task.constrains" required>
+                        <option value="">其它</option>
+                        <option value="">China</option>
+                        <option value="">English</option>
+                        <option value="">French</option>
+                        <option ng-repeat="(value, description) in options.constrains" value="{{ value }}" ng-bind="description"></option>
+                    </select>
+                    <div class="error" ng-show="rule_form.illegal_statement.$dirty && rule_form.illegal_statement.$invalid">请选择年龄</div>
+                </div>
+            </div>
+            <div class="form-item">
+                <div class="title_lang">* 外语：<br>Foreign language</div>
+                <div class="content">
+                    <select name="is_include" class="select" ng-model="qa_task.constrains" required>
+                        <option value="">无</option>
+                        <option ng-repeat="(value, description) in options.constrains" value="{{ value }}" ng-bind="description"></option>
+                    </select>
+                    <select name="is_include" class="select" ng-model="qa_task.constrains" required>
+                        <option value="">无</option>
+                        <option ng-repeat="(value, description) in options.constrains" value="{{ value }}" ng-bind="description"></option>
+                    </select>
+                    <select name="is_include" class="select" ng-model="qa_task.constrains" required>
+                        <option value="">无</option>
+                        <option ng-repeat="(value, description) in options.constrains" value="{{ value }}" ng-bind="description"></option>
+                    </select>
+
+                    <div class="error" ng-show="rule_form.illegal_statement.$dirty && rule_form.illegal_statement.$invalid">请选择年龄</div>
+                </div>
+            </div>
+            <div class="form-op">
+                <span class="op btn-blue" ng-click="utils.href('/login')">保存</span>
+            </div>
+        </form>
+
+
+
+        <!--<form name="t_reg_form" novalidate>
+            <div class="wrapper-padding-30 bgcolor-white">
+                <input type="text" class="input reg-info" name="tel" placeholder="手机号" ng-model="t_regInfo.phoneNumber" required ng-pattern="/[0-9]+/">
+                <div class="error" ng-show="t_reg_form.phoneNumber.$dirty && t_reg_form.phoneNumber.$invalid">请输入正确的手机号码</div>
+                <input type="text" class="input reg-info" name="name" placeholder="您的姓名" ng-model="t_regInfo.chineseName" required>
+                <div class="error" ng-show="t_reg_form.name.$dirty && t_reg_form.name.$invalid">请输入姓名</div>
+                <input type="email" class="input reg-info" name="email" placeholder="注册邮箱" ng-model="t_regInfo.email" required>
+                <div class="error" ng-show="t_reg_form.email.$dirty && t_reg_form.email.$invalid">请输入正确的邮箱地址</div>
+                <div class="input-pwd reg-info">
+                    <div class="input-pwd-wrapper">
+                        <input name="password" class="input" ng-model="t_regInfo.password" placeholder="密码" required ng-minlength="8" ng-maxlength="12" ng-pattern="/^[0-9a-zA-Z]*(\d[a-zA-Z]|[a-zA-Z]\d)[0-9a-zA-Z]*$/">
+                    </div>
+                </div>
+                <div class="error" ng-show="t_reg_form.password.$dirty && t_reg_form.password.$invalid">密码为8-12位英文和数字的组合</div>
+                <div class="op text-align-center">
+                    <span class="btn-blue" ng-click="t_reg_form.$valid && t_reg()">完成</span>
+                </div>
+            </div>
+        </form>-->
+    </div>
+</div>
