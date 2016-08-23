@@ -62,6 +62,12 @@ lbApp.config(['$routeProvider', '$locationProvider', '$httpProvider', function($
             controller:'ClassListController',
             showHeader:true
         })
+        //班级列表
+        .when('/classList',{
+            templateUrl:'views/class/class_list.html',
+            controller:'ClassListController',
+            showHeader:true
+        })
         //班级设置
         .when('/classDetail/:classID',{
             templateUrl:'views/class/class_detail.html',

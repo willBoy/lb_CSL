@@ -17,6 +17,7 @@ lbApp.controller('LoginController', ['$scope', 'UtilsService', 'RequestService',
      * 密码登录
      */
     $scope.loginByPwd = function() {
+        console.log($scope.pwdLoginInfo);
         RequestService.request({
             token: 't_login',
             method: 'POST',

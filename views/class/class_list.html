@@ -12,16 +12,18 @@
         <div class="title-1">
             <span class="title">班级列表</span>
             <div class="right">
-                <input type="text" class="input retrieval" placeholder="班级名称" ng-model="conditions.common.outCallNo">
-                <span class="icons-search"></span>
-                <select class="select">
-                    <option>按年份</option>
+                <select class="select" ng-model="conditions.startYear">
+                    <!--<option disabled selected='selected'>按年份</option>-->
                     <option>2017</option>
                     <option>2016</option>
                 </select>
+                <input type="text" class="input retrieval" placeholder="班级名称" ng-model="conditions.name">
+                <span class="icons-search" ng-click="select()"></span>
+
                 <span class="op btn-blue" ng-click="utils.href('/createClass')">创建班级</span>
                 <!--<span class="op btn-blue" ng-click="classList()">获取数据</span>-->
             </div>
+
         </div>
         <div class="table-list">
             <table class="data-list">

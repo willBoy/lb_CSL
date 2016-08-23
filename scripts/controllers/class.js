@@ -28,7 +28,6 @@ lbApp.controller('ClassListController', ['$scope', 'UtilsService', 'RequestServi
     }
 
     $scope.select = function(){
-        console.log($scope.conditions);
         RequestService.request({
             token: 't_classList',
             method: 'POST',

@@ -20,8 +20,7 @@
                         <div class="error" ng-show="login_form.password.$dirty && login_form.password.$invalid">请填写密码</div>
                         <div class="op text-align-center">
                             <!--<span id="btn-reg" class="btn-blue" ng-click="utils.href('/register')">注册</span>-->
-                            <span id="btn-login" class="btn-blue" ng-click="utils.href('/classList')">登录</span>
-                            <span id="btn-login" class="btn-blue" ng-click="utils.href('/register')">注册</span>
+                            <span id="btn-login" class="btn-blue" ng-click="login_form.username.$dirty = true; login_form.password.$dirty = true;login_form.$valid && loginByPwd()">登录</span>
                         </div>
                     </div>
                 </form>
