@@ -17,20 +17,10 @@ lbApp.factory('RequestService', ['$http', 'UtilsService', function($http, UtilsS
         't_exercise':'class/find',
         //登录
         't_login':'teacher/login',
-        // 校验邮箱
-        //'tk_verifyEmail': '/checkemail',
-        // 获取用户信息
-        //'tk_currentUser': '/currentUser',
-        // 登录
-        //'tk_login': '/login',
-        // 重新设置密码
-        //'tk_resetPwd': '/change/pwd',
-        // 退出
-        //'tk_logout': '/logout',
-        // 获取企业和个人信息
-        //'tk_profile': '/personalCenterPage',
         //新增班级
-        'classAdd':'classes/add'
+        't_classAdd':'classes/add',
+        //删除班级
+        't_classDel':'classes/delete'
     };
     return {
         tokenMap: tokenMap,
@@ -63,14 +53,6 @@ lbApp.factory('RequestService', ['$http', 'UtilsService', function($http, UtilsS
                     'Content-Type': 'application/x-www-form-urlencoded'
                 }
             };
-            //获取教师端班级列表
-            var reqObj2 = {
-                url: "../../data/teacher-class.json",
-            }
-            //班级设置
-            var reqObj3 = {
-                url: "../../data/teacher-settingClass.json",
-            }
             //课程设置
             var reqObj4 = {
                 url: "../../data/teacher-settingCourse.json",
@@ -82,9 +64,9 @@ lbApp.factory('RequestService', ['$http', 'UtilsService', function($http, UtilsS
             // 发送请求
             $http(reqObj)
                 .success(function(data, status, headers, config) {
+                    console.log(data);
                     switch (data.code) {
                         case "0":
-                            console.log("success");
                             reqConfig.success(data.result);
                             break;
                         case 10010:
