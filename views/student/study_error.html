@@ -1,16 +1,17 @@
 <div class="study text-align-center">
     <div class="exit" ng-click="utils.href('/student/class')">X</div>
     <div class="exercise">
-        <h1>播放词语，依次填写答案</h1>
-        <p>开始计时</p>
+        <div class="exercise-picture">
+            <span class="icon icons-prompt"></span>
+        </div>
         <div class="answer">
             <div class="key">
-            <div class="answer_empty">
-                <span class="icon icons-1"></span>
-            </div>
-            <div class="answer_empty">
-                <span class="icon icons-1"></span>
-            </div>
+                <div class="answer_empty">
+                    <span class="icon icons-1 bgcolor-beidared"></span>
+                </div>
+                <div class="answer_empty">
+                    <span class="icon icons-1"></span>
+                </div>
             </div>
         </div>
 
@@ -29,9 +30,9 @@
                 <span class="icon icons-4"></span><h1>4</h1>
             </div>
         </div>
-
+        <h1>按回车键继续</h1>
         <div class="form-op">
-            <span class="op btn-blue" ng-click="utils.href('/student/study_error')">下一步</span>
+            <span class="op btn-blue" ng-click="utils.href('/student/study_finish')">下一步</span>
         </div>
     </div>
 </div>

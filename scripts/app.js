@@ -188,6 +188,12 @@ lbApp.config(['$routeProvider', '$locationProvider', '$httpProvider', function($
             controller:'StudyPromptController',
             showHeader:false
         })
+        /*//播放提示音后播放词语
+        .when('/student/study_prompt_',{
+            templateUrl:'views/student/study_prompt.html',
+            controller:'StudyPromptController',
+            showHeader:false
+        })*/
         //按键选答案
         .when('/student/study_keying',{
             templateUrl:'views/student/study_keying.html',
@@ -195,10 +201,10 @@ lbApp.config(['$routeProvider', '$locationProvider', '$httpProvider', function($
             showHeader:false
         })
 
-        //播放
-        .when('/student/study_play',{
-            templateUrl:'views/student/study_play.html',
-            controller:'StudyPlayController',
+        //错误提示
+        .when('/student/study_error',{
+            templateUrl:'views/student/study_error.html',
+            controller:'StudyErrorController',
             showHeader:false
         })
         //完成

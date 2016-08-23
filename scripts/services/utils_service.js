@@ -5,6 +5,7 @@ lbApp.factory('UtilsService', ['$window', '$location', '$rootScope', function($w
     "use strict";
     return {
         href: function(url) {
+            $('#trans-bg').hide();
             if (url) {
                 $location.path(url);
             }

@@ -55,271 +55,283 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   display: block;
 }
 
-.icons-sprite, .icons-1, .icons-2, .icons-3, .icons-4, .icons-R0, .icons-R1, .icons-R2, .icons-R3, .icons-R4, .icons-calendar, .icons-close, .icons-cross, .icons-down-order, .icons-edit, .icons-emoji, .icons-enter, .icons-head-client, .icons-head-robot, .icons-key, .icons-list, .icons-lock, .icons-logo, #header .main-logo .logo, .icons-message, .icons-no-order, .icons-robot, .icons-schedule, .icons-search, .icons-setting, .icons-spread, .icons-task, .icons-time, .icons-unlock, .icons-up-order, .icons-user, .icons-volume, .icons-welcome_care, .icons-welcome_elite, .icons-welcome_job_market, .icons-welcome_message, .icons-welcome_more, .icons-welcome_sales, .icons-welcome_society, .icons-welcome_upgrade, .icons-welcome_voice {
-  background-image: url('../images/../images/icons-sb0d716a3ed.png');
+.icons-sprite, .icons-1, .icons-2, .icons-3, .icons-4, .icons-R0, .icons-R1, .icons-R2, .icons-R3, .icons-R4, .icons-calendar, .icons-close, .icons-cross, .icons-down-order, .icons-edit, .icons-emoji, .icons-enter, .icons-head-client, .icons-head-robot, .icons-key, .icons-key1, .icons-list, .icons-lock, .icons-logo, #header .main-logo .logo, .icons-message, .icons-no-order, .icons-prompt, .icons-robot, .icons-schedule, .icons-search, .icons-setting, .icons-spread, .icons-task, .icons-time, .icons-unlock, .icons-up-order, .icons-user, .icons-volume, .icons-welcome_care, .icons-welcome_elite, .icons-welcome_job_market, .icons-welcome_message, .icons-welcome_more, .icons-welcome_sales, .icons-welcome_society, .icons-welcome_upgrade, .icons-welcome_voice {
+  background-image: url('../images/../images/icons-scb8d69ed28.png');
   background-repeat: no-repeat;
 }
 
 .icons-1 {
-  background-position: 0 -860px;
+  background-position: -200px 0;
   height: 100px;
   width: 100px;
 }
 
 .icons-2 {
-  background-position: 0 -1060px;
+  background-position: -500px 0;
   height: 100px;
   width: 100px;
 }
 
 .icons-3 {
-  background-position: -100px -1060px;
+  background-position: -808px 0;
   height: 100px;
   width: 100px;
 }
 
 .icons-4 {
-  background-position: -100px -960px;
+  background-position: -860px -100px;
   height: 100px;
   width: 100px;
 }
 
 .icons-R0 {
-  background-position: 0 -960px;
+  background-position: -760px -100px;
   height: 100px;
   width: 100px;
 }
 
 .icons-R1 {
-  background-position: 0 -1160px;
+  background-position: -850px -200px;
   height: 100px;
   width: 100px;
 }
 
 .icons-R2 {
-  background-position: -100px -860px;
+  background-position: 0 0;
   height: 100px;
   width: 100px;
 }
 
 .icons-R3 {
-  background-position: -100px -760px;
+  background-position: -400px 0;
   height: 100px;
   width: 100px;
 }
 
 .icons-R4 {
-  background-position: 0 -760px;
+  background-position: -300px 0;
   height: 100px;
   width: 100px;
 }
 
 .icons-calendar {
-  background-position: -144px -41px;
+  background-position: -16px -200px;
   height: 16px;
   width: 16px;
 }
 
 .icons-close {
-  background-position: -160px -41px;
+  background-position: -32px -200px;
   height: 16px;
   width: 16px;
 }
 
 .icons-cross {
-  background-position: -78px -105px;
+  background-position: -100px 0;
   height: 100px;
   width: 100px;
 }
 
 .icons-down-order {
-  background-position: 0 -105px;
+  background-position: -64px -200px;
   height: 16px;
   width: 16px;
 }
 
 .icons-edit {
-  background-position: -192px -41px;
+  background-position: -80px -200px;
   height: 16px;
   width: 16px;
 }
 
 .icons-emoji {
-  background-position: -208px -41px;
+  background-position: -96px -200px;
   height: 16px;
   width: 16px;
 }
 
 .icons-enter {
-  background-position: 0 -57px;
+  background-position: -157px -300px;
   height: 48px;
   width: 243px;
 }
 
 .icons-head-client {
-  background-position: -123px 0;
+  background-position: -235px -200px;
   height: 32px;
   width: 32px;
 }
 
 .icons-head-robot {
-  background-position: -91px 0;
+  background-position: -203px -200px;
   height: 32px;
   width: 32px;
 }
 
 .icons-key {
-  background-position: -155px 0;
+  background-position: -267px -200px;
   height: 41px;
   width: 43px;
 }
 
+.icons-key1 {
+  background-position: 0 -457px;
+  height: 452px;
+  width: 970px;
+}
+
 .icons-list {
-  background-position: -16px 0;
+  background-position: -112px -200px;
   height: 16px;
   width: 16px;
 }
 
 .icons-lock {
-  background-position: 0 0;
+  background-position: 0 -200px;
   height: 16px;
   width: 16px;
 }
 
 .icons-logo, #header .main-logo .logo {
-  background-position: -67px 0;
+  background-position: -179px -200px;
   height: 23px;
   width: 24px;
 }
 
 .icons-message {
-  background-position: 0 -41px;
+  background-position: 0 -100px;
   height: 16px;
   width: 16px;
 }
 
 .icons-no-order {
-  background-position: -112px -41px;
+  background-position: -96px -100px;
   height: 16px;
   width: 16px;
 }
 
+.icons-prompt {
+  background-position: -460px -100px;
+  height: 100px;
+  width: 300px;
+}
+
 .icons-robot {
-  background-position: -96px -41px;
+  background-position: -64px -100px;
   height: 16px;
   width: 16px;
 }
 
 .icons-schedule {
-  background-position: -80px -41px;
+  background-position: -48px -100px;
   height: 16px;
   width: 16px;
 }
 
 .icons-search {
-  background-position: -48px 0;
+  background-position: -160px -200px;
   height: 19px;
   width: 19px;
 }
 
 .icons-setting {
-  background-position: -64px -41px;
+  background-position: -32px -100px;
   height: 16px;
   width: 16px;
 }
 
 .icons-spread {
-  background-position: -48px -41px;
+  background-position: -16px -100px;
   height: 16px;
   width: 16px;
 }
 
 .icons-task {
-  background-position: -32px -41px;
+  background-position: -144px -200px;
   height: 16px;
   width: 16px;
 }
 
 .icons-time {
-  background-position: -16px -41px;
+  background-position: -112px -100px;
   height: 16px;
   width: 16px;
 }
 
 .icons-unlock {
-  background-position: -32px 0;
+  background-position: -80px -100px;
   height: 16px;
   width: 16px;
 }
 
 .icons-up-order {
-  background-position: -128px -41px;
+  background-position: -128px -200px;
   height: 16px;
   width: 16px;
 }
 
 .icons-user {
-  background-position: -176px -41px;
+  background-position: -48px -200px;
   height: 16px;
   width: 16px;
 }
 
 .icons-volume {
-  background-position: 0 -1260px;
+  background-position: 0 -300px;
   height: 157px;
   width: 157px;
 }
 
 .icons-welcome_care {
-  background-position: 0 -463px;
+  background-position: -434px -200px;
   height: 99px;
   width: 208px;
 }
 
 .icons-welcome_elite {
-  background-position: -124px -205px;
+  background-position: -190px -100px;
   height: 60px;
   width: 62px;
 }
 
 .icons-welcome_job_market {
-  background-position: -62px -205px;
+  background-position: -372px -200px;
   height: 60px;
   width: 62px;
 }
 
 .icons-welcome_message {
-  background-position: 0 -562px;
+  background-position: -642px -200px;
   height: 99px;
   width: 208px;
 }
 
 .icons-welcome_more {
-  background-position: 0 -265px;
+  background-position: -400px -300px;
   height: 99px;
   width: 208px;
 }
 
 .icons-welcome_sales {
-  background-position: 0 -364px;
+  background-position: -600px 0;
   height: 99px;
   width: 208px;
 }
 
 .icons-welcome_society {
-  background-position: -16px -105px;
+  background-position: -128px -100px;
   height: 60px;
   width: 62px;
 }
 
 .icons-welcome_upgrade {
-  background-position: 0 -205px;
+  background-position: -310px -200px;
   height: 60px;
   width: 62px;
 }
 
 .icons-welcome_voice {
-  background-position: 0 -661px;
+  background-position: -252px -100px;
   height: 99px;
   width: 208px;
 }
@@ -1920,23 +1932,26 @@ UtilsService.genTab($scope, tabName)
 }
 
 .study {
-  width: 100%;
+  width: 80%;
   height: 100%;
+  padding: 0 10%;
   background: #000;
   color: #eee;
-  line-height: 100px;
+  line-height: 120px;
   /* Chrome, Safari, Opera */
   /* Standard syntax */
 }
 .study .exercise {
   position: relative;
-  top: 20%;
+  top: 15%;
 }
 .study h1 {
   font-size: 30px;
 }
-.study h4 {
+.study p {
   font-size: 18px;
+  line-height: 24px;
+  margin: 30px auto 50px;
 }
 .study .exit {
   width: 30px;
@@ -1955,15 +1970,29 @@ UtilsService.genTab($scope, tabName)
   width: 300px;
   margin: 50px auto;
   background: #ccc;
+  padding: 50px;
+}
+.study .key {
+  margin: 100px auto 0;
 }
 .study .key span {
   border: 1px #ccc solid;
 }
+.study .answer {
+  width: 600px;
+  margin: 0 auto;
+}
+.study .answer .answer_empty {
+  width: 150px;
+  height: 120px;
+  margin: 50px;
+  display: inline-block;
+  border-bottom: 1px #4eb5e0 solid;
+}
 .study .container {
   width: 80%;
-  margin: 0 auto;
-  position: relative;
-  top: 30%;
+  position: absolute;
+  top: 85%;
 }
 .study .title {
   background: #545965;

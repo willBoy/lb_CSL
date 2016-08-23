@@ -1,18 +1,30 @@
 <div class="study text-align-center">
-    <div class="exit">X</div>
+    <div class="exit" ng-click="utils.href('/student/class')">X</div>
     <div class="exercise">
         <h1>键盘校准</h1>
         <div class="key">
-            <span>1</span>
-            <span>2</span>
-            <span>3</span>
-            <span>4</span>
-            <span>5</span>
-            <span>6</span>
+            <div class="col-2-4">
+                <span class="icon icons-1 bgcolor-white"></span><h1>1</h1>
+            </div>
+            <div class="col-2-4">
+                <span class="icon icons-2"></span><h1>2</h1>
+            </div>
+            <div class="col-2-4">
+                <span class="icon icons-3"></span><h1>3</h1>
+            </div>
+            <div class="col-2-4">
+                <span class="icon icons-4"></span><h1>4</h1>
+            </div>
+
         </div>
-        <h4>请依次按下上述按键</h4>
+        <p>请依次按下上述按键</p>
         <!--<div class="form-op">
             <span class="op btn-blue" ng-click="utils.href('/class/session')">下一步</span>
         </div>-->
+    </div>
+    <div class="container">
+        <div class="form-op">
+            <span class="op btn-blue" ng-click="utils.href('/student/study_prepare')">下一步</span>
+        </div>
     </div>
 </div>

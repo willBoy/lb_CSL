@@ -1,18 +1,21 @@
 .study{
-    width: 100%;
+    width: 80%;
     height: 100%;
+    padding: 0 10%;
     background: #000;
     color: #eee;
-    line-height: 100px;
+    line-height: 120px;
     .exercise{
         position: relative;
-        top: 20%;
+        top: 15%;
     }
     h1{
         font-size: 30px;
     }
-    h4{
+    p{
         font-size: 18px;
+        line-height: 24px;
+        margin: 30px auto 50px;
     }
     .exit{
         width: 30px;
@@ -29,20 +32,30 @@
         width: 300px;
         margin: 50px auto;
         background: #ccc;
-
+        padding: 50px;
     }
     .key{
+        margin: 100px auto 0;
         span{
             border: 1px #ccc solid;
         }
     }
-
+    .answer{
+        width: 600px;
+        margin: 0 auto;
+        .answer_empty{
+            width: 150px;
+            height: 120px;
+            margin: 50px;
+            display: inline-block;
+            border-bottom: 1px #4eb5e0 solid;
+        }
+    }
 
     .container {
         width:80%;
-        margin:0 auto;
-        position: relative;
-        top: 30%;
+        position: absolute;
+        top: 85%;
     }
 
     .title {
