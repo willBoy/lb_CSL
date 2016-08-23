@@ -87,28 +87,32 @@ lbApp.config(['$routeProvider', '$locationProvider', '$httpProvider', function($
             showHeader:true
         })
         //课程设置
+        .when('/class/courseSetting/:courseID',{
+            templateUrl:'views/class/course.html',
+            controller:'CourseController',
+            showHeader:true
+        })
         .when('/class/courseSetting',{
             templateUrl:'views/class/course.html',
             controller:'CourseController',
             showHeader:true
         })
-
         //章节设置
-        .when('/class/session',{
-            templateUrl:'views/class/session.html',
-            controller:'SessionController',
+        .when('/class/chapter/:chapterID',{
+            templateUrl:'views/class/chapter.html',
+            controller:'ChapterController',
             showHeader:true
         })
         //新建章节
-        .when('/class/create_session',{
-            templateUrl:'views/class/create_session.html',
-            controller:'CreateSessionController',
+        .when('/class/create_chapter/:courseID',{
+            templateUrl:'views/class/create_chapter.html',
+            controller:'CreateChapterController',
             showHeader:true
         })
         //习题管理
-        .when('/class/exercise',{
+        .when('/class/exercise/:chapterID',{
             templateUrl:'views/class/exercise.html',
-            controller:'SxerciseController',
+            controller:'ExerciseController',
             showHeader:true
         })
         //添加习题

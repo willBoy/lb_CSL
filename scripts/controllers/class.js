@@ -33,6 +33,7 @@ lbApp.controller('ClassListController', ['$scope', 'UtilsService', 'RequestServi
             method: 'POST',
             data:UtilsService.serialize($scope.conditions),
             success: function(data) {
+                console.log(data);
                 $scope.t_classListArr = data.result;
             }
         });
@@ -61,10 +62,7 @@ lbApp.controller('ClassDetailController', ['$scope', '$routeParams', 'UtilsServi
         method:'post',
         data:UtilsService.serialize({id:$routeParams.classID}),
         success: function(data){
-            alert("返回班级信息成功");
-            console.log(data);
             $scope.classDetail = data.result[0];
-            console.log($scope.classDetail);
         }
     });
 
@@ -153,15 +151,15 @@ lbApp.controller('CreateClassController', ['$scope', 'UtilsService', 'RequestSer
         //status:''
     };
     $scope.classAdd = function(){
-            RequestService.request({
-                token:'t_classAdd',
-                method:'POST',
-                loading:true,
-                data: UtilsService.serialize($scope.classes),
-                success: function (data) {
-                    UtilsService.href('/classList');
-                }
-            })
+        RequestService.request({
+            token:'t_classAdd',
+            method:'POST',
+            loading:true,
+            data: UtilsService.serialize($scope.classes),
+            success: function (data) {
+                UtilsService.href('/classList');
+            }
+        })
     }
 
     function initDatePicker(startTimeArray, endTimeArray) {
@@ -215,16 +213,12 @@ lbApp.controller('CourseController', ['$scope','$routeParams', 'UtilsService', '
     RequestService.request({
         token:'t_classCourse',
         method:'POST',
-        data:UtilsService.serialize($routeParams.classID),
+        data:UtilsService.serialize({courseId:$routeParams.courseID}),
         loading:true,
         success:function(data){
-            alert("获取课程详情成功");
             console.log(data);
-            //课程对象
-            //$scope.classCourse = data.course;
-
-            //$scope.classCourseSession = data.chapterList;
-            //获取章节列表
+            $scope.classCourse = data;
+            console.log($scope.classCourse.id);
             chapterList($scope.classCourse.id);
         }
     })
@@ -237,16 +231,29 @@ lbApp.controller('CourseController', ['$scope','$routeParams', 'UtilsService', '
             data:UtilsService.serialize({id:param}),
             loading:true,
             success:function(data){
-                alert("获取章节列表成功");
-                $scope.classCourseChapter = data.chapterList;
+                console.log(data);
+                $scope.classCourseChapter = data.result;
             }
         })
+    }
+
+    $scope.chapterDel = function(ID){
+        RequestService.request({
+            token:'t_chapterDel',
+            method:'POST',
+            data:UtilsService.serialize({chapterId:ID}),
+            loading:true,
+            success:function(data){
+                alert(2);
+                //UtilsService.href("/class/courseSetting");
+            }
+        });
     }
 
 }]);
 
 //章节设置
-lbApp.controller('SessionController', ['$scope', 'UtilsService', 'RequestService', function($scope, UtilsService, RequestService) {
+lbApp.controller('ChapterController', ['$scope','$routeParams', 'UtilsService', 'RequestService', function($scope, $routeParams,UtilsService, RequestService) {
     //
     "use strict";
     $scope.asideTab = {
@@ -255,28 +262,67 @@ lbApp.controller('SessionController', ['$scope', 'UtilsService', 'RequestService
     };
     //章节信息
     $scope.t_chapter = {};
-    //RequestService.request({
-    //    token:'t_classCourse',
-    //    method:'POST',
-    //    loading:true,
-    //    success:function(data){
-    //        $scope.t_chapter = data.chapter;
-    //    }
-    //})
+
+    RequestService.request({
+        token:'t_chapterShow',
+        method:'POST',
+        data:UtilsService.serialize({id:$routeParams.chapterID}),
+        success:function(data){
+            $scope.t_chapter = data.result[0];
+        }
+    });
+
+
+
+    $scope.chapterUpdate = function(){
+        RequestService.request({
+            token:'t_chapterUpdate',
+            method:'POST',
+            data:UtilsService.serialize($scope.t_chapter),
+            success:function(data){
+                UtilsService.href("/class/courseSetting");
+            }
+        });
+    }
+
+
 
 }]);
 
 //新建章节
-lbApp.controller('CreateSessionController', ['$scope', 'UtilsService', 'RequestService', function($scope, UtilsService, RequestService) {
+lbApp.controller('CreateChapterController', ['$scope','$routeParams', 'UtilsService', 'RequestService', function($scope,$routeParams, UtilsService, RequestService) {
     //
     "use strict";
     $scope.asideTab = {
         listName: 'navigation',
         tabName: 'tabName'
     };
+    //章节
+    $scope.t_chapter = {
+        courseId:$routeParams.courseID,
+        name:'',
+        descriptionContent:'',
+        status:'',
+        orderNo:'',
+        pattern:''
+    };
+
+
+    $scope.addChapter = function(){
+        RequestService.request({
+            token:'t_addChapter',
+            method:'POST',
+            data:UtilsService.serialize($scope.t_chapter),
+            loading:'true',
+            success:function(data){
+                UtilsService.href('/class/courseSetting/'+$scope.t_chapter.courseId);
+            }
+        })
+    }
+
 }]);
 //习题管理
-lbApp.controller('SxerciseController', ['$scope', 'UtilsService', 'RequestService', function($scope, UtilsService, RequestService) {
+lbApp.controller('ExerciseController', ['$scope','$routeParams', 'UtilsService', 'RequestService', function($scope,$routeParams, UtilsService, RequestService) {
     //
     "use strict";
     $scope.asideTab = {
@@ -287,14 +333,30 @@ lbApp.controller('SxerciseController', ['$scope', 'UtilsService', 'RequestServic
     UtilsService.initPop($scope);
 
     $scope.t_exerciseList = [];
+
+
+
     RequestService.request({
-        token:'t_exercise',
+        token:'t_chapterShow',
         method:'POST',
+        data:UtilsService.serialize({id:$routeParams.chapterID}),
         loading:true,
         success:function(data){
-            $scope.t_exerciseList = data.exerciseList;
+            $scope.t_chapterInfo = data;
         }
-    })
+    });
+    //RequestService.request({
+    //    token:'t_exe_List',
+    //    method:'POST',
+    //    data:UtilsService.serialize({id:$routeParams.chapterID}),
+    //    loading:true,
+    //    success:function(data){
+    //        alert("123");
+    //        //$scope.t_exerciseList = data.exerciseList;
+    //    }
+    //});
+
+    alert($routeParams.chapterID);
 }]);
 //添加习题
 lbApp.controller('SxerciseAddController', ['$scope', 'UtilsService', 'RequestService', function($scope, UtilsService, RequestService) {
