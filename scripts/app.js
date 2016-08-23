@@ -63,9 +63,15 @@ lbApp.config(['$routeProvider', '$locationProvider', '$httpProvider', function($
             showHeader:true
         })
         //班级设置
-        .when('/classDetail',{
+        .when('/classDetail/:classID',{
             templateUrl:'views/class/class_detail.html',
             controller:'ClassDetailController',
+            showHeader:true
+        })
+        //删除
+        .when('/class/delClass/:classID',{
+            templateUrl:'views/class/class_del.html',
+            controller:'classDelController',
             showHeader:true
         })
         //新建班级
@@ -75,11 +81,12 @@ lbApp.config(['$routeProvider', '$locationProvider', '$httpProvider', function($
             showHeader:true
         })
         //课程设置
-        .when('/class/course',{
+        .when('/class/courseSetting',{
             templateUrl:'views/class/course.html',
             controller:'CourseController',
             showHeader:true
         })
+
         //章节设置
         .when('/class/session',{
             templateUrl:'views/class/session.html',
