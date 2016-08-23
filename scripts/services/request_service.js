@@ -11,6 +11,8 @@ lbApp.factory('RequestService', ['$http', 'UtilsService', function($http, UtilsS
         't_classList':'classes/find',
         //班级设置
         't_settingClass':'classes/find',
+        //保存班级设置
+        't_classUpdate':'classes/update',
         //课程设置
         't_classCourse':'classes/find',
         //习题设置
@@ -20,7 +22,9 @@ lbApp.factory('RequestService', ['$http', 'UtilsService', function($http, UtilsS
         //新增班级
         't_classAdd':'classes/add',
         //删除班级
-        't_classDel':'classes/delete'
+        't_classDel':'classes/delete',
+        //章节列表
+        't_courseChapter':'chapter/list'
     };
     return {
         tokenMap: tokenMap,
