@@ -361,7 +361,7 @@ lbApp.controller('StudentDetailController', ['$scope', 'UtilsService', 'RequestS
 }]);
 
 //我的课程
-lbApp.controller('StudentClassController', ['$scope', 'UtilsService', 'RequestService', function($scope, UtilsService, RequestService) {
+lbApp.controller('StudentCourseController', ['$scope', 'UtilsService', 'RequestService', function($scope, UtilsService, RequestService) {
     //
     "use strict";
     $scope.asideTab = {
@@ -372,7 +372,7 @@ lbApp.controller('StudentClassController', ['$scope', 'UtilsService', 'RequestSe
     UtilsService.initPop($scope);
 }]);
 //我的课程详情
-lbApp.controller('StudentClassDetailController', ['$scope', 'UtilsService', 'RequestService', function($scope, UtilsService, RequestService) {
+lbApp.controller('StudentCourseDetailController', ['$scope', 'UtilsService', 'RequestService', function($scope, UtilsService, RequestService) {
     //
     "use strict";
     $scope.asideTab = {

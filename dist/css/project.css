@@ -55,61 +55,61 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   display: block;
 }
 
-.icons-sprite, .icons-1, .icons-2, .icons-3, .icons-4, .icons-R0, .icons-R1, .icons-R2, .icons-R3, .icons-R4, .icons-calendar, .icons-close, .icons-cross, .icons-down-order, .icons-edit, .icons-emoji, .icons-enter, .icons-head-client, .icons-head-robot, .icons-key, .icons-key1, .icons-list, .icons-lock, .icons-logo, #header .main-logo .logo, .icons-message, .icons-no-order, .icons-prompt, .icons-robot, .icons-schedule, .icons-search, .icons-setting, .icons-spread, .icons-task, .icons-time, .icons-unlock, .icons-up-order, .icons-user, .icons-volume, .icons-welcome_care, .icons-welcome_elite, .icons-welcome_job_market, .icons-welcome_message, .icons-welcome_more, .icons-welcome_sales, .icons-welcome_society, .icons-welcome_upgrade, .icons-welcome_voice {
-  background-image: url('../images/../images/icons-scb8d69ed28.png');
+.icons-sprite, .icons-1, .icons-2, .icons-3, .icons-4, .icons-R0, .icons-R1, .icons-R2, .icons-R3, .icons-R4, .icons-calendar, .icons-close, .icons-cross, .icons-down-order, .icons-edit, .icons-emoji, .icons-enter, .icons-error1, .icons-error2, .icons-error3, .icons-error4, .icons-head-client, .icons-head-robot, .icons-key, .icons-key1, .icons-list, .icons-lock, .icons-logo, #header .main-logo .logo, .icons-message, .icons-no-order, .icons-prompt, .icons-robot, .icons-schedule, .icons-search, .icons-setting, .icons-spread, .icons-task, .icons-time, .icons-unlock, .icons-up-order, .icons-user, .icons-volume, .icons-welcome_care, .icons-welcome_elite, .icons-welcome_job_market, .icons-welcome_message, .icons-welcome_more, .icons-welcome_sales, .icons-welcome_society, .icons-welcome_upgrade, .icons-welcome_voice {
+  background-image: url('../images/../images/icons-s2f2c6048fa.png');
   background-repeat: no-repeat;
 }
 
 .icons-1 {
-  background-position: -200px 0;
-  height: 100px;
-  width: 100px;
-}
-
-.icons-2 {
-  background-position: -500px 0;
-  height: 100px;
-  width: 100px;
-}
-
-.icons-3 {
   background-position: -808px 0;
   height: 100px;
   width: 100px;
 }
 
-.icons-4 {
-  background-position: -860px -100px;
-  height: 100px;
-  width: 100px;
-}
-
-.icons-R0 {
+.icons-2 {
   background-position: -760px -100px;
   height: 100px;
   width: 100px;
 }
 
+.icons-3 {
+  background-position: -860px -100px;
+  height: 100px;
+  width: 100px;
+}
+
+.icons-4 {
+  background-position: -408px -457px;
+  height: 100px;
+  width: 100px;
+}
+
+.icons-R0 {
+  background-position: -308px -457px;
+  height: 100px;
+  width: 100px;
+}
+
 .icons-R1 {
-  background-position: -850px -200px;
+  background-position: -208px -457px;
   height: 100px;
   width: 100px;
 }
 
 .icons-R2 {
-  background-position: 0 0;
+  background-position: -850px -200px;
   height: 100px;
   width: 100px;
 }
 
 .icons-R3 {
-  background-position: -400px 0;
+  background-position: -243px -300px;
   height: 100px;
   width: 100px;
 }
 
 .icons-R4 {
-  background-position: -300px 0;
+  background-position: 0 0;
   height: 100px;
   width: 100px;
 }
@@ -127,7 +127,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 }
 
 .icons-cross {
-  background-position: -100px 0;
+  background-position: -500px 0;
   height: 100px;
   width: 100px;
 }
@@ -151,9 +151,33 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 }
 
 .icons-enter {
-  background-position: -157px -300px;
+  background-position: 0 -300px;
   height: 48px;
   width: 243px;
+}
+
+.icons-error1 {
+  background-position: -400px 0;
+  height: 100px;
+  width: 100px;
+}
+
+.icons-error2 {
+  background-position: -300px 0;
+  height: 100px;
+  width: 100px;
+}
+
+.icons-error3 {
+  background-position: -200px 0;
+  height: 100px;
+  width: 100px;
+}
+
+.icons-error4 {
+  background-position: -100px 0;
+  height: 100px;
+  width: 100px;
 }
 
 .icons-head-client {
@@ -175,19 +199,19 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 }
 
 .icons-key1 {
-  background-position: 0 -457px;
+  background-position: 0 -557px;
   height: 452px;
   width: 970px;
 }
 
 .icons-list {
-  background-position: -112px -200px;
+  background-position: -96px -100px;
   height: 16px;
   width: 16px;
 }
 
 .icons-lock {
-  background-position: 0 -200px;
+  background-position: 0 -100px;
   height: 16px;
   width: 16px;
 }
@@ -199,13 +223,13 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 }
 
 .icons-message {
-  background-position: 0 -100px;
+  background-position: -80px -100px;
   height: 16px;
   width: 16px;
 }
 
 .icons-no-order {
-  background-position: -96px -100px;
+  background-position: -64px -100px;
   height: 16px;
   width: 16px;
 }
@@ -217,13 +241,13 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 }
 
 .icons-robot {
-  background-position: -64px -100px;
+  background-position: -32px -100px;
   height: 16px;
   width: 16px;
 }
 
 .icons-schedule {
-  background-position: -48px -100px;
+  background-position: -16px -100px;
   height: 16px;
   width: 16px;
 }
@@ -235,37 +259,37 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 }
 
 .icons-setting {
-  background-position: -32px -100px;
+  background-position: -48px -100px;
   height: 16px;
   width: 16px;
 }
 
 .icons-spread {
-  background-position: -16px -100px;
-  height: 16px;
-  width: 16px;
-}
-
-.icons-task {
-  background-position: -144px -200px;
-  height: 16px;
-  width: 16px;
-}
-
-.icons-time {
   background-position: -112px -100px;
   height: 16px;
   width: 16px;
 }
 
+.icons-task {
+  background-position: 0 -200px;
+  height: 16px;
+  width: 16px;
+}
+
+.icons-time {
+  background-position: -112px -200px;
+  height: 16px;
+  width: 16px;
+}
+
 .icons-unlock {
-  background-position: -80px -100px;
+  background-position: -128px -200px;
   height: 16px;
   width: 16px;
 }
 
 .icons-up-order {
-  background-position: -128px -200px;
+  background-position: -144px -200px;
   height: 16px;
   width: 16px;
 }
@@ -277,7 +301,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 }
 
 .icons-volume {
-  background-position: 0 -300px;
+  background-position: -343px -300px;
   height: 157px;
   width: 157px;
 }
@@ -289,31 +313,31 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 }
 
 .icons-welcome_elite {
-  background-position: -190px -100px;
-  height: 60px;
-  width: 62px;
-}
-
-.icons-welcome_job_market {
   background-position: -372px -200px;
   height: 60px;
   width: 62px;
 }
 
+.icons-welcome_job_market {
+  background-position: -310px -200px;
+  height: 60px;
+  width: 62px;
+}
+
 .icons-welcome_message {
-  background-position: -642px -200px;
+  background-position: -600px 0;
   height: 99px;
   width: 208px;
 }
 
 .icons-welcome_more {
-  background-position: -400px -300px;
+  background-position: -642px -200px;
   height: 99px;
   width: 208px;
 }
 
 .icons-welcome_sales {
-  background-position: -600px 0;
+  background-position: 0 -457px;
   height: 99px;
   width: 208px;
 }
@@ -325,7 +349,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 }
 
 .icons-welcome_upgrade {
-  background-position: -310px -200px;
+  background-position: -190px -100px;
   height: 60px;
   width: 62px;
 }
@@ -1953,9 +1977,9 @@ UtilsService.genTab($scope, tabName)
 }
 
 .study {
-  width: 80%;
+  width: 60%;
   height: 100%;
-  padding: 0 10%;
+  padding: 0 20%;
   background: #000;
   color: #eee;
   line-height: 120px;
@@ -1975,17 +1999,10 @@ UtilsService.genTab($scope, tabName)
   margin: 30px auto 50px;
 }
 .study .exit {
-  width: 30px;
-  height: 30px;
-  line-height: 30px;
-  -moz-border-radius: 50%;
-  -webkit-border-radius: 50%;
-  border-radius: 50%;
-  background: #fff;
-  color: #000;
   position: absolute;
   right: 0;
   top: 0;
+  float: right;
 }
 .study .volume {
   width: 300px;
@@ -1997,7 +2014,10 @@ UtilsService.genTab($scope, tabName)
   margin: 100px auto 0;
 }
 .study .key span {
-  border: 1px #ccc solid;
+  border: 3px #ccc solid;
+}
+.study span.border-red {
+  border: 3px #fa6d78 solid;
 }
 .study .answer {
   width: 600px;
@@ -2008,10 +2028,10 @@ UtilsService.genTab($scope, tabName)
   height: 120px;
   margin: 50px;
   display: inline-block;
-  border-bottom: 1px #4eb5e0 solid;
+  border-bottom: 3px #ccc solid;
 }
 .study .container {
-  width: 80%;
+  width: 60%;
   position: absolute;
   top: 85%;
 }
