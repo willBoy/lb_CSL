@@ -1,7 +1,7 @@
 <div lb-aside-directive></div>
 <div class="main-page-margin">
     <div id="main-title">
-        <div class="title font-size-huge font-weight-200">章节设置</div>
+        <div class="title font-size-huge font-weight-200">新建章节</div>
         <div class="font-size-normal ">
             <em class="path" ng-click="utils.href('/')">首页</em>
             <em> / </em>
@@ -9,56 +9,61 @@
             <em> / </em>
             <em class="path" ng-click="utils.href('/class/course')">课程管理</em>
             <em> / </em>
-            <em class="last">章节设置</em>
+            <em class="last">新建章节</em>
         </div>
     </div>
     <div class="main-wrapper" ng-show="true">
         <div class="form-item">
             <div class="title">章节主题：</div>
             <div class="content">
-                <input type="text" class="input" name="name" ng-value="t_chapter.description_exercise">
+                <input type="text" class="input" name="name"  required ng-maxlength="30" ng-model="t_chapter.name">
+                <div class="error" ng-show="voice_robot_form.name.$dirty && voice_robot_form.name.$invalid">请输入章节主题</div>
             </div>
         </div>
         <div class="form-item">
             <div class="title">章节简介：</div>
             <div class="content">
-                <input type="text" class="input" name="name" ng-value="t_chapter.description_content">
+                <input type="text" class="input" name="name"  required ng-maxlength="30" ng-model="t_chapter.descriptionContent">
+                <div class="error" ng-show="voice_robot_form.name.$dirty && voice_robot_form.name.$invalid">请输入章节简介</div>
             </div>
         </div>
         <div class="form-item">
             <div class="title">章节状态：</div>
             <div class="content">
-                <select class="select" name="voice_type" ng-model="voiceRobot.sound" required>
+                <select class="select" name="voice_type" ng-model="t_chapter.status" required>
                     <option value="">准备中</option>
                     <option value="">已开放</option>
                     <option ng-repeat="sound in soundList" value="{{ sound.id }}" ng-bind="sound.name"></option>
                 </select>
                 <pre  class="line-height-15 color-blue">学生只能看到已开放的章节</pre>
+                <div class="error" ng-show="voice_robot_form.voice_type.$dirty && voice_robot_form.voice_type.$invalid">请选择章节状态</div>
             </div>
         </div>
         <div class="form-item">
             <div class="title">呈现顺序：</div>
             <div class="content">
-                <select class="select" name="voice_type" ng-model="voiceRobot.sound" required>
+                <select class="select" name="voice_type" ng-model="t_chapter.orderNo" required>
                     <option value="">顺序</option>
                     <option value="">随机</option>
                     <option ng-repeat="sound in soundList" value="{{ sound.id }}" ng-bind="sound.name"></option>
                 </select>
+                <div class="error" ng-show="voice_robot_form.voice_type.$dirty && voice_robot_form.voice_type.$invalid">请选择呈现模式</div>
             </div>
         </div>
         <div class="form-item">
             <div class="title">练习流程：</div>
             <div class="content">
-                <select class="select" name="voice_type" ng-model="voiceRobot.sound" required>
+                <select class="select" name="voice_type" ng-model="t_chapter.pattern" required>
                     <option value="">错题不重做</option>
                     <option value="">错题重做一次</option>
                     <option value="">错题重做到正确</option>
                     <option ng-repeat="sound in soundList" value="{{ sound.id }}" ng-bind="sound.name"></option>
                 </select>
+                <div class="error" ng-show="voice_robot_form.voice_type.$dirty && voice_robot_form.voice_type.$invalid">请选择流程模式</div>
             </div>
         </div>
         <div class="form-op">
-            <span class="op btn-blue" ng-click="utils.href('/class/course')">确认</span>
+            <span class="op btn-blue" ng-click="addChapter()">确认</span>
             <span class="op btn-blue" ng-click="utils.href('/class/course')">取消</span>
         </div>
     </div>

@@ -27,7 +27,7 @@
         <div class="title-1">
             <span class="title">章节列表</span>
             <div class="right">
-                <span class="op btn-blue bgcolor-blue" ng-click="utils.href('/class/create_session')">+ 创建章节</span>
+                <span class="op btn-blue bgcolor-blue" ng-click="utils.href('/class/create_chapter/'+classCourse.id)">+ 创建章节</span>
                 <!--<span class="op btn-blue" ng-click="classList()">获取数据</span>-->
             </div>
         </div>
@@ -35,6 +35,7 @@
             <table class="data-list">
                 <tr>
                     <!--<th>序号</th>-->
+                    <th>id</th>
                     <th>章节主题</th>
                     <th>章节简介</th>
                     <th>呈现顺序</th>
@@ -44,17 +45,18 @@
                 </tr>
                 <tr ng-repeat="cl_cou_chapter in classCourseChapter track by $index">
                     <!--<td ng-bind="cl_cou_session">1</td>-->
+                    <td ng-bind="cl_cou_chapter.id"></td>
                     <td ng-bind="cl_cou_chapter.name"></td>
-                    <td ng-bind="cl_cou_chapter.description"></td>
+                    <td ng-bind="cl_cou_chapter.descriptionContent"></td>
                     <td ng-bind="cl_cou_chapter.order"></td>
                     <td ng-bind="cl_cou_chapter.pattern"></td>
                     <td ng-bind="cl_cou_chapter.status"></td>
                     <td>
-                        <a ng-click="utils.href('/class/session')">章节设置</a>
-                        <a ng-click="utils.href('/class/exercise')">习题管理</a>
+                        <a ng-click="utils.href('/class/chapter/'+cl_cou_chapter.id)">章节设置</a>
+                        <a ng-click="utils.href('/class/exercise/'+cl_cou_chapter.id)">习题管理</a>
                         <a ng-click="utils.href('')">上移</a>
                         <a ng-click="utils.href('')">下移</a>
-                        <a ng-click="utils.href('')">删除</a>
+                        <a ng-click="chapterDel(cl_cou_chapter.id)">删除</a>
                     </td>
                 </tr>
             </table>
