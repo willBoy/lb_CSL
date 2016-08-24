@@ -458,14 +458,14 @@ lbApp.controller('StudentDetailController', ['$scope','$routeParams', 'UtilsServ
         method:'POST',
         data:UtilsService.serialize({studentId:$routeParams.studentId}),
         success:function(data){
-        alert("获取学生个人信息成功");
+            alert("获取学生个人信息成功");
             $scope.studentInfo = data.result[0];
         }
     })
 }]);
 
 //我的课程
-lbApp.controller('StudentClassController', ['$scope', 'UtilsService', 'RequestService', function($scope, UtilsService, RequestService) {
+lbApp.controller('StudentCourseController', ['$scope', 'UtilsService', 'RequestService', function($scope, UtilsService, RequestService) {
     //
     "use strict";
     $scope.asideTab = {
@@ -485,7 +485,7 @@ lbApp.controller('StudentClassController', ['$scope', 'UtilsService', 'RequestSe
     })
 }]);
 //我的课程详情
-lbApp.controller('StudentClassDetailController', ['$scope', 'UtilsService', 'RequestService', function($scope, UtilsService, RequestService) {
+lbApp.controller('StudentCourseDetailController', ['$scope', 'UtilsService', 'RequestService', function($scope, UtilsService, RequestService) {
     //
     "use strict";
     $scope.asideTab = {

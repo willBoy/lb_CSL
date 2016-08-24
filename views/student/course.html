@@ -10,17 +10,17 @@
     </div>
     <div class="main-wrapper" ng-show="true">
         <div class="title-1">
-            <span class="title">班级列表</span>
+            <span class="title">课程列表</span>
 
             <div class="right">
                 <label>开课时间</label>
                 <select class="select">
-                    <option>2018</option>
-                    <option>2017</option>
-                    <option>2016</option>
+                    <option>2016年6月</option>
+                    <option>2016年8月</option>
+                    <option>2016年9月</option>
                 </select>
                 <label>关键词</label>
-                <input type="text" class="input" placeholder="关键词" ng-model="conditions.common.outCallNo">
+                <input type="text" class="input retrieval" placeholder="关键词" ng-model="conditions.common.outCallNo">
                 <span class="icons-search"></span>
                 <span class="op btn-blue" ng-click="openPop('pop-class')">+ 加入课程</span>
                 <!--<span class="op btn-blue" ng-click="classList()">获取数据</span>-->
@@ -35,6 +35,7 @@
                     <th>任课教师</th>
                     <th>课程状态</th>
                     <th>操作</th>
+
                 </tr>
                 <!--<tr ng-repeat=" t_class in t_classList track by $index">
                     &lt;!&ndash;<td ng-bind="(conditions.pageInfo.page - 1) * conditions.pageInfo.pageSize + $index + 1"></td>&ndash;&gt;
@@ -56,7 +57,6 @@
                     <td>老师名</td>
                     <td>开课中</td>
                     <td>
-                        <a ng-click="utils.href('/student/class_detail')">课程详情</a>
                         <a ng-click="openPop('pop-continue')">开始学习</a>
                         <a ng-click="openPop('pop-quit')">退出课程</a>
                     </td>
@@ -67,9 +67,8 @@
                     <td>老师名</td>
                     <td>开课中</td>
                     <td>
-                        <a ng-click="utils.href('/student/class_detail')">课程详情</a>
-                        <a ng-click="utils.href('/student/study')">开始学习</a>
-                        <a ng-click="utils.href('')">退出课程</a>
+                        <a ng-click="utils.href('/student/class_detail')">开始学习</a>
+                        <a ng-click="openPop('pop-quit')">退出课程</a>
                     </td>
                 </tr>
                 <tr>
@@ -78,9 +77,8 @@
                     <td>老师名</td>
                     <td>开课中</td>
                     <td>
-                        <a ng-click="utils.href('/student/class_detail')">课程详情</a>
-                        <a ng-click="utils.href('/student/study')">开始学习</a>
-                        <a ng-click="utils.href('')">退出课程</a>
+                        <a ng-click="utils.href('/student/class_detail')">开始学习</a>
+                        <a ng-click="openPop('pop-quit')">退出课程</a>
                     </td>
                 </tr>
                 <tr>
@@ -89,9 +87,8 @@
                     <td>老师名</td>
                     <td>已结课</td>
                     <td>
-                        <a ng-click="utils.href('/student/class_detail')">课程详情</a>
-                        <a ng-click="utils.href('/student/study')">开始学习</a>
-                        <a ng-click="utils.href('')">退出课程</a>
+                        <a ng-click="utils.href('/student/class_detail')">开始学习</a>
+                        <a ng-click="openPop('pop-quit')">退出课程</a>
                     </td>
                 </tr>
                 <tr>
@@ -100,9 +97,8 @@
                     <td>老师名</td>
                     <td>已结课</td>
                     <td>
-                        <a ng-click="utils.href('/student/class_detail')">课程详情</a>
-                        <a ng-click="utils.href('/student/study')">开始学习</a>
-                        <a ng-click="utils.href('')">退出课程</a>
+                        <a ng-click="utils.href('/student/class_detail')">开始学习</a>
+                        <a ng-click="openPop('pop-quit')">退出课程</a>
                     </td>
                 </tr>
                 <tr>
@@ -111,23 +107,15 @@
                     <td>老师名</td>
                     <td>已结课</td>
                     <td>
-                        <a ng-click="utils.href('/student/class_detail')">课程详情</a>
-                        <a ng-click="utils.href('/student/study')">开始学习</a>
-                        <a ng-click="utils.href('')">退出课程</a>
+                        <a ng-click="utils.href('/student/class_detail')">开始学习</a>
+                        <a ng-click="openPop('pop-quit')">退出课程</a>
                     </td>
                 </tr>
             </table>
             <div class="pages">
                 <div class="right">
                     <div class="page-size font-size-normal">
-                        <span>共{{ total }}条记录，每页</span>
-                        <select ng-model="conditions.pageInfo.pageSize" ng-change="getRobotList(1)">
-                            <option value="5">5</option>
-                            <option value="10">10</option>
-                            <option value="15">15</option>
-                            <option value="20">20</option>
-                        </select>
-                        <span>条</span>
+                        <span>共{{ total }}条记录</span>
                     </div>
                     <div class="page-directive color-blue spacefix left">
                         <span class="prev text-align-center font-size-normal">上一页</span>
@@ -143,10 +131,8 @@
                     </div>
                 </div>
                 <div class="left">
-
                 </div>
                 <!--<div lb-page-directive data="robotList" page-info="conditions.pageInfo" fetch="getRobotList"></div>-->
-
             </div>
         </div>
     </div>
@@ -168,7 +154,6 @@
     </div>
     <div id="pop-quit" class="pop">
         <div class="pop-title">退出课程<span class="icons-close close" ng-click="closePop('pop-resetpwd')"></span></div>
-
         <div class="pop-content">
             <div class="form-item">
                 <div class="content">
@@ -186,7 +171,7 @@
             <span class="text" value="">是否继续2016年8月16日未完成的练习？</span>
             <div class="form-op">
                 <span class="op btn-blue" ng-click="utils.href('/student/study')">是</span>
-                <span class="op btn-blue" ng-click="closePop('pop-quit')">否</span>
+                <span class="op btn-blue" ng-click="utils.href('/student/course_detail')">否</span>
             </div>
         </div>
     </div>

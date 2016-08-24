@@ -1,0 +1,43 @@
+<div id="login" class="bgimg-black">
+    <div id="login-wrapper" class="bgcolor-white">
+        <div id="title" class="color-white font-size-huge bgcolor-blue font-weight-200">汉语学堂</div>
+        <div class="wrapper-padding-30">
+            <div class="tabs tabLogin">
+                <!--<ul class="font-size-normal tab-titles">-->
+                    <!--<li class="tab-title {{ tabLogin === 1 ? 'selected' : '' }}" ng-click="selectTab('tabLogin', 1)">登录密码登录</li>-->
+                    <!--&lt;!&ndash;<li class="tab-title {{ tabLogin === 2 ? 'selected' : '' }}" ng-click="selectTab('tabLogin', 2)">动态密码登录</li>&ndash;&gt;-->
+                <!--</ul>-->
+                <form name="login_form" novalidate>
+                    <div id="tab-login-pwd" class="tab" ng-show="tabLogin === 1">
+                        <input type="text" class="input user-info-input" name="username" placeholder="邮箱" ng-model="pwdLoginInfo.userName" required>
+                        <div class="error" ng-show="login_form.username.$dirty && login_form.username.$invalid">请填写邮箱</div>
+                        <div class="input-pwd user-info-input">
+                            <div class="input-pwd-wrapper">
+                                <input type="{{ pwdIsText ? 'text' : 'password' }}" name="password" class="input" placeholder="登录密码" ng-model="pwdLoginInfo.password" required>
+                                <span class="icon {{ pwdIsText ? 'icons-unlock' : 'icons-lock' }}" ng-click="pwdIsText = !pwdIsText"></span>
+                            </div>
+                        </div>
+                        <div class="error" ng-show="login_form.password.$dirty && login_form.password.$invalid">请填写密码</div>
+                        <div class="op text-align-center">
+                            <!--<span id="btn-reg" class="btn-blue" ng-click="utils.href('/register')">注册</span>-->
+                            <span id="btn-login" class="btn-blue" ng-click="login_form.username.$dirty = true; login_form.password.$dirty = true;login_form.$valid && loginByPwd()">登录</span>
+                            <span id="btn-reg" class="btn-blue" ng-click="utils.href('/register')">注册</span>
+                        </div>
+                    </div>
+                </form>
+                <!--<form name="login_2_form" novalidate>-->
+                    <!--<div id="tab-login-verify" class="tab"  ng-show="tabLogin === 2">-->
+                        <!--<input type="text" class="input user-info-input" name="phone" placeholder="手机号" ng-model="verifyCodeInfo.phone" required ng-pattern="/[0-9]+/">-->
+                        <!--<div class="error" ng-show="login_2_form.phone.$dirty && login_2_form.phone.$invalid">请输入正确的手机号码</div>-->
+                        <!--<span class="get-code btn-blue" ng-click="login_2_form.phone.$dirty = true;login_2_form.phone.$valid && getCode()" ng-bind="getCodeText"></span>-->
+                        <!--<input type="text" class="input code" name="code" placeholder="动态密码" ng-model="verifyCodeInfo.code" required>-->
+                        <!--<div class="error" ng-show="login_2_form.code.$dirty && login_2_form.code.$invalid">请输入语音验证码</div>-->
+                        <!--<div class="op text-align-center">-->
+                            <!--<span class="btn-blue" ng-click="login_2_form.phone.$dirty; login_2_form.code.$dirty = true; login_2_form.$valid && loginByCode()">登录</span>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</form>-->
+            </div>
+        </div>
+    </div>
+</div>

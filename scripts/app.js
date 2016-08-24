@@ -143,15 +143,15 @@ lbApp.config(['$routeProvider', '$locationProvider', '$httpProvider', function($
         //学生系统
 
         //我的课程
-        .when('/student/class',{
-            templateUrl:'views/student/class.html',
-            controller:'StudentClassController',
+        .when('/student/course',{
+            templateUrl:'views/student/course.html',
+            controller:'StudentCourseController',
             showHeaderStudent:true
         })
         //课程详情
-        .when('/student/class_detail',{
-            templateUrl:'views/student/class_detail.html',
-            controller:'StudentClassDetailController',
+        .when('/student/course_detail',{
+            templateUrl:'views/student/course_detail.html',
+            controller:'StudentCourseDetailController',
             showHeaderStudent:true
         })
 

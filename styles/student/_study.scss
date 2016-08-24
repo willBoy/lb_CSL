@@ -1,7 +1,7 @@
 .study{
-    width: 80%;
+    width: 60%;
     height: 100%;
-    padding: 0 10%;
+    padding: 0 20%;
     background: #000;
     color: #eee;
     line-height: 120px;
@@ -18,15 +18,10 @@
         margin: 30px auto 50px;
     }
     .exit{
-        width: 30px;
-        height: 30px;
-        line-height: 30px;
-        @include border-radius(50%);
-        background: #fff;
-        color: #000;
         position: absolute;
         right: 0;
         top: 0;
+        float: right;
     }
     .volume{
         width: 300px;
@@ -37,8 +32,11 @@
     .key{
         margin: 100px auto 0;
         span{
-            border: 1px #ccc solid;
+            border: 3px #ccc solid;
         }
+    }
+    span.border-red{
+        border: 3px #fa6d78 solid;
     }
     .answer{
         width: 600px;
@@ -48,12 +46,11 @@
             height: 120px;
             margin: 50px;
             display: inline-block;
-            border-bottom: 1px #4eb5e0 solid;
+            border-bottom: 3px #ccc solid;
         }
     }
-
     .container {
-        width:80%;
+        width:60%;
         position: absolute;
         top: 85%;
     }
