@@ -20,7 +20,7 @@
                     <option>2016年9月</option>
                 </select>
                 <label>关键词</label>
-                <input type="text" class="input" placeholder="关键词" ng-model="conditions.common.outCallNo">
+                <input type="text" class="input retrieval" placeholder="关键词" ng-model="conditions.common.outCallNo">
                 <span class="icons-search"></span>
                 <span class="op btn-blue" ng-click="openPop('pop-class')">+ 加入课程</span>
                 <!--<span class="op btn-blue" ng-click="classList()">获取数据</span>-->
@@ -35,6 +35,7 @@
                     <th>任课教师</th>
                     <th>课程状态</th>
                     <th>操作</th>
+
                 </tr>
                 <!--<tr ng-repeat=" t_class in t_classList track by $index">
                     &lt;!&ndash;<td ng-bind="(conditions.pageInfo.page - 1) * conditions.pageInfo.pageSize + $index + 1"></td>&ndash;&gt;
@@ -56,7 +57,7 @@
                     <td>老师名</td>
                     <td>开课中</td>
                     <td>
-                        <a ng-click="utils.href('/student/class_detail')">开始学习</a>
+                        <a ng-click="openPop('pop-continue')">开始学习</a>
                         <a ng-click="openPop('pop-quit')">退出课程</a>
                     </td>
                 </tr>
@@ -170,7 +171,7 @@
             <span class="text" value="">是否继续2016年8月16日未完成的练习？</span>
             <div class="form-op">
                 <span class="op btn-blue" ng-click="utils.href('/student/study')">是</span>
-                <span class="op btn-blue" ng-click="closePop('pop-quit')">否</span>
+                <span class="op btn-blue" ng-click="utils.href('/student/course_detail')">否</span>
             </div>
         </div>
     </div>
