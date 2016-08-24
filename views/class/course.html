@@ -16,10 +16,10 @@
         </div>
         <div class="title-2">
             <div class="clearfix">
-                <span class="font-size-16">课程名称：</span><span ng-bind="classCourse.name"></span><span class="icon icons-edit edit"></span>
+                <span class="font-size-16">课程名称：</span><span ng-bind="classCourse.name"></span>
             </div>
             <div class="clearfix">
-                <span class="font-size-small intro left">课程简介 :</span><span ng-bind="classCourse.description"></span><span class="icon icons-edit left"></span>
+                <span class="font-size-small intro left">课程简介 :</span><span ng-bind="classCourse.description"></span>
             </div>
         </div>
     </div>
@@ -54,8 +54,6 @@
                     <td>
                         <a ng-click="utils.href('/class/chapter/'+cl_cou_chapter.id)">章节设置</a>
                         <a ng-click="utils.href('/class/exercise/'+cl_cou_chapter.id)">习题管理</a>
-                        <a ng-click="utils.href('')">上移</a>
-                        <a ng-click="utils.href('')">下移</a>
                         <a ng-click="chapterDel(cl_cou_chapter.id)">删除</a>
                     </td>
                 </tr>

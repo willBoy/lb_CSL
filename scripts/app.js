@@ -118,24 +118,24 @@ lbApp.config(['$routeProvider', '$locationProvider', '$httpProvider', function($
         //添加习题
         .when('/class/exercise_add',{
             templateUrl:'views/class/exercise_add.html',
-            controller:'SxerciseAddController',
+            controller:'ExerciseAddController',
             showHeader:true
         })
         //添加习题随机
         .when('/class/exercise_add2',{
             templateUrl:'views/class/exercise_add2.html',
-            controller:'SxerciseAdd2Controller',
+            controller:'ExerciseAdd2Controller',
             showHeader:true
         })
 
         //学生管理
-        .when('/class/student',{
+        .when('/class/student/:classID',{
             templateUrl:'views/class/student.html',
             controller:'StudentController',
             showHeader:true
         })
         //学生详情
-        .when('/class/studentDetail',{
+        .when('/class/studentDetail/:studentID',{
             templateUrl:'views/class/student_detail.html',
             controller:'StudentDetailController',
             showHeader:true

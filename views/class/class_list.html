@@ -29,7 +29,7 @@
             <table class="data-list">
                 <tr>
                     <!--<th>序号</th>-->
-                    <th>开班2时间</th>
+                    <th>开班时间</th>
                     <th>班级名称</th>
                     <th>课程名称</th>
                     <th>任课老师</th>
@@ -46,13 +46,13 @@
                     <td ng-bind="t_classArr.teacherName"></td>
                     <td ng-bind="t_classArr.memberSize"></td>
                     <td ng-bind="t_classArr.sequenceNo"></td>
-                    <td>准备中</td>
+                    <td ng-bind="statusMap[t_classArr.status]"></td>
 
                     <!--<td ng-bind="t_class.id"></td>-->
                     <td>
                         <a ng-click="utils.href('/classDetail/'+t_classArr.id)">班级设置</a>
                         <a ng-click="utils.href('/class/courseSetting/'+t_classArr.courseId)">课程管理</a>
-                        <a ng-click="utils.href('/class/student')+t_classArr.id">学生管理</a>
+                        <a ng-click="utils.href('/class/student/'+t_classArr.id)">学生管理</a>
                         <a ng-click="utils.href('/class/delClass/'+t_classArr.id)">删除</a>
                     </td>
                 </tr>

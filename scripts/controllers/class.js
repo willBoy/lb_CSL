@@ -1,27 +1,34 @@
-// Ê×Ò³
+// é¦–é¡µ
 lbApp.controller('ClassListController', ['$scope', 'UtilsService', 'RequestService', function($scope, UtilsService, RequestService) {
     //
     "use strict";
-    // ÉèÖÃ±ßÀ¸
+    // è®¾ç½®è¾¹æ 
     $scope.asideTab = {
         listName: 'navigation',
         tabName: 'tabName'
     };
 
-    //°à¼¶ÁĞ±íÊı¾İ
+    //ç­çº§çŠ¶æ€
+    $scope.statusMap = {
+        '0':'å‡†å¤‡ä¸­',
+        '1':'å¼€è¯¾ä¸­',
+        '2':'å·²ç»“è¯¾'
+    };
+
+    //ç­çº§åˆ—è¡¨
     $scope.t_classListArr = [];
 
-    // »ñÈ¡°à¼¶ÁĞ±íÏî
-        RequestService.request({
-            token: 't_classList',
-            method: 'POST',
-            success: function(data) {
-                $scope.t_classListArr = data.result;
-                //console.log($scope.t_classListArr);
-            }
-        });
+    // è·å–ç­çº§åˆ—è¡¨é¡¹
+    RequestService.request({
+        token: 't_classList',
+        method: 'POST',
+        success: function(data) {
+            $scope.t_classListArr = data.result;
+            console.log($scope.t_classListArr);
+        }
+    });
 
-    //²éÑ¯Ìõ¼ş
+    //æŸ¥è¯¢æ¡ä»¶
     $scope.conditions = {
         name:'',
         startYear:''
@@ -38,16 +45,16 @@ lbApp.controller('ClassListController', ['$scope', 'UtilsService', 'RequestServi
             }
         });
     };
-  }]);
-//°à¼¶ÉèÖÃ
+}]);
+//ç­çº§è®¾ç½®
 lbApp.controller('ClassDetailController', ['$scope', '$routeParams', 'UtilsService', 'RequestService', function($scope,$routeParams, UtilsService, RequestService) {
     "use strict";
-    // ÉèÖÃ±ßÀ¸
+    // è®¾ç½®è¾¹æ 
     $scope.asideTab = {
         listName: 'navigation',
         tabName: 'tabName'
     };
-    //°à¼¶
+    //ç­çº§
     $scope.classes = {
         id:$routeParams.classID,
         name:'',
@@ -55,19 +62,20 @@ lbApp.controller('ClassDetailController', ['$scope', '$routeParams', 'UtilsServi
         startTime:''
         //status:'1'
     };
-    //°à¼¶ÏêÏ¸ĞÅÏ¢
-    $scope.classDetail ={};
+
     RequestService.request({
         token:'t_settingClass',
         method:'post',
         data:UtilsService.serialize({id:$routeParams.classID}),
         success: function(data){
-            $scope.classDetail = data.result[0];
+            $scope.classes.name = data.result[0].name;
+            $scope.classes.courseName = data.result[0].courseName;
+            $scope.classes.startTime = data.result[0].startTime;
         }
     });
 
     function initDatePicker(startTimeArray, endTimeArray) {
-        // Ñ¡Ôñ¿ªÊ¼ÈÕÆÚ
+        // é€‰æ‹©å¼€å§‹æ—¥æœŸ
         $('#time-start-update').jdatepicker({
             selectedDate: {
                 year: startTimeArray[0],
@@ -89,7 +97,7 @@ lbApp.controller('ClassDetailController', ['$scope', '$routeParams', 'UtilsServi
         nowArray = [now.getFullYear(), now.getMonth() + 1, now.getDate()];
     initDatePicker(nowArray, nowArray);
 
-    //°à¼¶ĞÅÏ¢ÉèÖÃ
+    //ç­çº§ä¿¡æ¯è®¾ç½®
     $scope.updateClass = function(){
         RequestService.request({
             token:'t_classUpdate',
@@ -101,7 +109,7 @@ lbApp.controller('ClassDetailController', ['$scope', '$routeParams', 'UtilsServi
         })
     }
 }]);
-//É¾³ı°à¼¶
+//åˆ é™¤ç­çº§
 lbApp.controller('classDelController', ['$scope','$routeParams', 'UtilsService', 'RequestService', function($scope,$routeParams, UtilsService, RequestService) {
     //
     "use strict";
@@ -109,45 +117,45 @@ lbApp.controller('classDelController', ['$scope','$routeParams', 'UtilsService',
         listName: 'navigation',
         tabName: 'tabName'
     };
-    //ÕÂ½ÚĞÅÏ¢
-        RequestService.request({
-            token:'t_classDel',
-            method:'POST',
-            data:UtilsService.serialize({id:$routeParams.classID}),
-            loading:true,
-            success:function(data){
-                $scope.t_classListArr = data.result;
-                UtilsService.href('/classList');
-            }
-        });
+    //ç« èŠ‚ä¿¡æ¯
+    RequestService.request({
+        token:'t_classDel',
+        method:'POST',
+        data:UtilsService.serialize({id:$routeParams.classID}),
+        loading:true,
+        success:function(data){
+            $scope.t_classListArr = data.result;
+            UtilsService.href('/classList');
+        }
+    });
 
 
 }]);
-//ĞÂ½¨°à¼¶
+//æ–°å»ºç­çº§
 lbApp.controller('CreateClassController', ['$scope', 'UtilsService', 'RequestService', function($scope, UtilsService, RequestService) {
     //
     "use strict";
-    // ÉèÖÃ±ßÀ¸
+    // è®¾ç½®è¾¹æ 
     $scope.asideTab = {
         listName: 'navigation',
         tabName: 'tabName'
     };
 
-    // ÈÎÎñĞÅÏ¢
+    // ä»»åŠ¡ä¿¡æ¯
     $scope.taskInfo = {
-        // ¿ªÊ¼Ê±¼ä
+        // å¼€å§‹æ—¶é—´
         startTime: '',
-        // ½áÊøÊ±¼ä
+        // ç»“æŸæ—¶é—´
         endTime: '',
     };
     $scope.classes ={
-        //°à¼¶Ãû³Æ
+        //ç­çº§åç§°
         name:'',
-        //¿Î³ÌÃû³Æ
+        //è¯¾ç¨‹åç§°
         courseName:'',
-        //¿ª¿ÎÊ±¼ä
+        //å¼€è¯¾æ—¶é—´
         startTime:''
-        //°à¼¶×´Ì¬
+        //ç­çº§çŠ¶æ€
         //status:''
     };
     $scope.classAdd = function(){
@@ -163,7 +171,7 @@ lbApp.controller('CreateClassController', ['$scope', 'UtilsService', 'RequestSer
     }
 
     function initDatePicker(startTimeArray, endTimeArray) {
-        // Ñ¡Ôñ¿ªÊ¼ÈÕÆÚ
+        // é€‰æ‹©å¼€å§‹æ—¥æœŸ
         $('#time-start').jdatepicker({
             selectedDate: {
                 year: startTimeArray[0],
@@ -186,9 +194,9 @@ lbApp.controller('CreateClassController', ['$scope', 'UtilsService', 'RequestSer
     initDatePicker(nowArray, nowArray);
 
     function checkTime() {
-        // ÊÇ·ñÌîĞ´ÁË¿ªÊ¼Ê±¼ä
+        // æ˜¯å¦å¡«å†™äº†å¼€å§‹æ—¶é—´
         if (!$scope.taskInfo.startTime) {
-            $scope.dateError = 'ÇëÑ¡Ôñ¿ªÊ¼ÈÕÆÚ';
+            $scope.dateError = 'è¯·é€‰æ‹©å¼€å§‹æ—¥æœŸ';
             $scope.showDateError = true;
             return false;
         }
@@ -199,7 +207,7 @@ lbApp.controller('CreateClassController', ['$scope', 'UtilsService', 'RequestSer
 
 }]);
 
-//¿Î³Ì¹ÜÀí
+//è¯¾ç¨‹ç®¡ç†
 lbApp.controller('CourseController', ['$scope','$routeParams', 'UtilsService', 'RequestService', function($scope,$routeParams, UtilsService, RequestService) {
     //
     "use strict";
@@ -207,9 +215,9 @@ lbApp.controller('CourseController', ['$scope','$routeParams', 'UtilsService', '
         listName: 'navigation',
         tabName: 'tabName'
     };
-    //°à¼¶¿Î³Ì
+    //ç­çº§è¯¾ç¨‹
     $scope.classCourse={};
-    //¿Î³ÌÏêÇé
+    //è¯¾ç¨‹è¯¦æƒ…
     RequestService.request({
         token:'t_classCourse',
         method:'POST',
@@ -222,7 +230,7 @@ lbApp.controller('CourseController', ['$scope','$routeParams', 'UtilsService', '
             chapterList($scope.classCourse.id);
         }
     })
-    //ÕÂ½ÚÁĞ±í
+    //ç« èŠ‚åˆ—è¡¨
     $scope.classCourseChapter = [];
     function chapterList(param){
         RequestService.request({
@@ -241,7 +249,7 @@ lbApp.controller('CourseController', ['$scope','$routeParams', 'UtilsService', '
         RequestService.request({
             token:'t_chapterDel',
             method:'POST',
-            data:UtilsService.serialize({chapterId:ID}),
+            params: {chapterId: ID},
             loading:true,
             success:function(data){
                 alert(2);
@@ -252,7 +260,7 @@ lbApp.controller('CourseController', ['$scope','$routeParams', 'UtilsService', '
 
 }]);
 
-//ÕÂ½ÚÉèÖÃ
+//ç« èŠ‚è®¾ç½®
 lbApp.controller('ChapterController', ['$scope','$routeParams', 'UtilsService', 'RequestService', function($scope, $routeParams,UtilsService, RequestService) {
     //
     "use strict";
@@ -260,7 +268,7 @@ lbApp.controller('ChapterController', ['$scope','$routeParams', 'UtilsService', 
         listName: 'navigation',
         tabName: 'tabName'
     };
-    //ÕÂ½ÚĞÅÏ¢
+    //ç« èŠ‚ä¿¡æ¯
     $scope.t_chapter = {};
 
     RequestService.request({
@@ -289,7 +297,7 @@ lbApp.controller('ChapterController', ['$scope','$routeParams', 'UtilsService', 
 
 }]);
 
-//ĞÂ½¨ÕÂ½Ú
+//æ–°å»ºç« èŠ‚
 lbApp.controller('CreateChapterController', ['$scope','$routeParams', 'UtilsService', 'RequestService', function($scope,$routeParams, UtilsService, RequestService) {
     //
     "use strict";
@@ -297,7 +305,7 @@ lbApp.controller('CreateChapterController', ['$scope','$routeParams', 'UtilsServ
         listName: 'navigation',
         tabName: 'tabName'
     };
-    //ÕÂ½Ú
+    //ç« èŠ‚
     $scope.t_chapter = {
         courseId:$routeParams.courseID,
         name:'',
@@ -321,7 +329,7 @@ lbApp.controller('CreateChapterController', ['$scope','$routeParams', 'UtilsServ
     }
 
 }]);
-//Ï°Ìâ¹ÜÀí
+//ä¹ é¢˜ç®¡ç†
 lbApp.controller('ExerciseController', ['$scope','$routeParams', 'UtilsService', 'RequestService', function($scope,$routeParams, UtilsService, RequestService) {
     //
     "use strict";
@@ -329,7 +337,7 @@ lbApp.controller('ExerciseController', ['$scope','$routeParams', 'UtilsService',
         listName: 'navigation',
         tabName: 'tabName'
     };
-    // °ó¶¨µ¯¿òÊÂ¼ş
+    // ç»‘å®šå¼¹æ¡†äº‹ä»¶
     UtilsService.initPop($scope);
 
     $scope.t_exerciseList = [];
@@ -358,15 +366,15 @@ lbApp.controller('ExerciseController', ['$scope','$routeParams', 'UtilsService',
 
     alert($routeParams.chapterID);
 }]);
-//Ìí¼ÓÏ°Ìâ
-lbApp.controller('SxerciseAddController', ['$scope', 'UtilsService', 'RequestService', function($scope, UtilsService, RequestService) {
+//æ·»åŠ ä¹ é¢˜
+lbApp.controller('ExerciseAddController', ['$scope', 'UtilsService', 'RequestService', function($scope, UtilsService, RequestService) {
     //
     "use strict";
     $scope.asideTab = {
         listName: 'navigation',
         tabName: 'tabName'
     };
-    // °ó¶¨µ¯¿òÊÂ¼ş
+    // ç»‘å®šå¼¹æ¡†äº‹ä»¶
     UtilsService.initPop($scope);
     $scope.t_sel_exeList = [];
     //RequestService.request({
@@ -380,15 +388,15 @@ lbApp.controller('SxerciseAddController', ['$scope', 'UtilsService', 'RequestSer
 
 }]);
 
-//Ìí¼ÓÏ°Ìâ
-lbApp.controller('SxerciseAdd2Controller', ['$scope', 'UtilsService', 'RequestService', function($scope, UtilsService, RequestService) {
+//æ·»åŠ ä¹ é¢˜
+lbApp.controller('ExerciseAdd2Controller', ['$scope', 'UtilsService', 'RequestService', function($scope, UtilsService, RequestService) {
     //
     "use strict";
     $scope.asideTab = {
         listName: 'navigation',
         tabName: 'tabName'
     };
-    // °ó¶¨µ¯¿òÊÂ¼ş
+    // ç»‘å®šå¼¹æ¡†äº‹ä»¶
     UtilsService.initPop($scope);
     $scope.t_sel_exeList = [];
     //RequestService.request({
@@ -401,28 +409,62 @@ lbApp.controller('SxerciseAdd2Controller', ['$scope', 'UtilsService', 'RequestSe
     //})
 
 }]);
-//Ñ§Éú¹ÜÀí
-lbApp.controller('StudentController', ['$scope', 'UtilsService', 'RequestService', function($scope, UtilsService, RequestService) {
+//å­¦ç”Ÿç®¡ç†
+lbApp.controller('StudentController', ['$scope','$routeParams', 'UtilsService', 'RequestService', function($scope, $routeParams,UtilsService, RequestService) {
     //
     "use strict";
     $scope.asideTab = {
         listName: 'navigation',
         tabName: 'tabName'
     };
-    // °ó¶¨µ¯¿òÊÂ¼ş
+    // ç»‘å®šå¼¹æ¡†äº‹ä»¶
     UtilsService.initPop($scope);
+    //ç­çº§å­¦ç”Ÿ
+    $scope.class_student = [];
+    $scope.classesID = $routeParams.classID;
+    RequestService.request({
+        token:'t_student',
+        method:'POST',
+        data:UtilsService.serialize({classesId:$routeParams.classID}),
+        success:function(data){
+            $scope.class_student = data.result;
+        }
+    });
+
+    $scope.studentDel = function(classesID,studentID){
+        RequestService.request({
+            token:'t_studentDel',
+            method:'POST',
+            data:UtilsService.serialize({classesId:classesID,studentId:studentID}),
+            success:function(){
+                alert("åˆ é™¤æˆåŠŸ");
+            }
+        })
+
+    }
 }]);
-//Ñ§ÉúÏêÇé
-lbApp.controller('StudentDetailController', ['$scope', 'UtilsService', 'RequestService', function($scope, UtilsService, RequestService) {
+//å­¦ç”Ÿè¯¦æƒ…
+lbApp.controller('StudentDetailController', ['$scope','$routeParams', 'UtilsService', 'RequestService', function($scope,$routeParams, UtilsService, RequestService) {
     //
     "use strict";
     $scope.asideTab = {
         listName: 'navigation',
         tabName: 'tabName'
     };
+    //å­¦ç”Ÿä¸ªäººä¿¡æ¯
+    $scope.studentInfo = {};
+    RequestService.request({
+        token:'t_studentInfo',
+        method:'POST',
+        data:UtilsService.serialize({studentId:$routeParams.studentId}),
+        success:function(data){
+        alert("è·å–å­¦ç”Ÿä¸ªäººä¿¡æ¯æˆåŠŸ");
+            $scope.studentInfo = data.result[0];
+        }
+    })
 }]);
 
-//ÎÒµÄ¿Î³Ì
+//æˆ‘çš„è¯¾ç¨‹
 lbApp.controller('StudentClassController', ['$scope', 'UtilsService', 'RequestService', function($scope, UtilsService, RequestService) {
     //
     "use strict";
@@ -430,10 +472,19 @@ lbApp.controller('StudentClassController', ['$scope', 'UtilsService', 'RequestSe
         listName: 'navigation',
         tabName: 'tabName'
     };
-    // °ó¶¨µ¯¿òÊÂ¼ş
+    // ç»‘å®šå¼¹æ¡†äº‹ä»¶
     UtilsService.initPop($scope);
+
+    RequestService.request({
+        token:'s_course_list',
+        method:'GET',
+        success:function(data){
+            alert("è¿”å›æˆ‘çš„è¯¾ç¨‹æˆåŠŸ");
+            console.log(data);
+        }
+    })
 }]);
-//ÎÒµÄ¿Î³ÌÏêÇé
+//æˆ‘çš„è¯¾ç¨‹è¯¦æƒ…
 lbApp.controller('StudentClassDetailController', ['$scope', 'UtilsService', 'RequestService', function($scope, UtilsService, RequestService) {
     //
     "use strict";
@@ -443,7 +494,7 @@ lbApp.controller('StudentClassDetailController', ['$scope', 'UtilsService', 'Req
     };
 }]);
 
-//¿ªÊ¼Ñ§Ï°
+//å¼€å§‹å­¦ä¹ 
 lbApp.controller('StudyController', ['$scope', 'UtilsService', 'RequestService', function($scope, UtilsService, RequestService) {
     //
     "use strict";
@@ -453,7 +504,7 @@ lbApp.controller('StudyController', ['$scope', 'UtilsService', 'RequestService',
     };
 }]);
 
-//¿ªÊ¼Ñ§Ï°ÏÂÒ»²½
+//å¼€å§‹å­¦ä¹ ä¸‹ä¸€æ­¥
 lbApp.controller('Study1Controller', ['$scope', 'UtilsService', 'RequestService', function($scope, UtilsService, RequestService) {
     //
     "use strict";
@@ -463,7 +514,7 @@ lbApp.controller('Study1Controller', ['$scope', 'UtilsService', 'RequestService'
     };
 }]);
 
-//ÒôÁ¿Ğ£×¼
+//éŸ³é‡æ ¡å‡†
 lbApp.controller('StudyVolumeController', ['$scope', 'UtilsService', 'RequestService', function($scope, UtilsService, RequestService) {
     //
     "use strict";
@@ -473,7 +524,7 @@ lbApp.controller('StudyVolumeController', ['$scope', 'UtilsService', 'RequestSer
     };
 }]);
 
-//¼üÅÌĞ£×¼
+//é”®ç›˜æ ¡å‡†
 lbApp.controller('StudyKeyController', ['$scope', 'UtilsService', 'RequestService', function($scope, UtilsService, RequestService) {
     //
     "use strict";
@@ -483,7 +534,7 @@ lbApp.controller('StudyKeyController', ['$scope', 'UtilsService', 'RequestServic
     };
 }]);
 
-//Çë×¼±¸
+//è¯·å‡†å¤‡
 lbApp.controller('StudyPrepareController', ['$scope', 'UtilsService', 'RequestService', function($scope, UtilsService, RequestService) {
     //
     "use strict";
@@ -493,7 +544,7 @@ lbApp.controller('StudyPrepareController', ['$scope', 'UtilsService', 'RequestSe
     };
 }]);
 
-//²¥·ÅÌáÊ¾Òô
+//æ’­æ”¾æç¤ºéŸ³
 lbApp.controller('StudyPromptController', ['$scope', 'UtilsService', 'RequestService', function($scope, UtilsService, RequestService) {
     //
     "use strict";
@@ -503,7 +554,7 @@ lbApp.controller('StudyPromptController', ['$scope', 'UtilsService', 'RequestSer
     };
 }]);
 
-//°´¼üÑ¡´ğ°¸
+//æŒ‰é”®é€‰ç­”æ¡ˆ
 lbApp.controller('StudyKeyingController', ['$scope', 'UtilsService', 'RequestService', function($scope, UtilsService, RequestService) {
     //
     "use strict";
@@ -513,7 +564,7 @@ lbApp.controller('StudyKeyingController', ['$scope', 'UtilsService', 'RequestSer
     };
 }]);
 
-//´íÎóÌáÊ¾
+//é”™è¯¯æç¤º
 lbApp.controller('StudyErrorController', ['$scope', 'UtilsService', 'RequestService', function($scope, UtilsService, RequestService) {
     //
     "use strict";

@@ -33,7 +33,15 @@ lbApp.factory('RequestService', ['$http', 'UtilsService', function($http, UtilsS
         //保存章节设置
         't_chapterUpdate':'chapter/update',
         //删除章节
-        't_chapterDel':'chapter/del'
+        't_chapterDel':'chapter/del/:chapterId',
+        //学生管理
+        't_student':'classes/findStudent',
+        //学生个人信息
+        't_studentInfo':'classes/showStudentInfo',
+        //删除学生
+        't_studentDel':'classes/delStudent',
+        //学生端-我的课程列表
+        's_course_list':'student/course/list'
     };
     return {
         tokenMap: tokenMap,

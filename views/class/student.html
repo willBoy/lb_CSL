@@ -41,17 +41,17 @@
                     <th>备注</th>
                     <th>操作</th>
                 </tr>
-                <tr>
-                    <td>闫乐坤</td>
-                    <td>yan leCun</td>
-                    <td>男</td>
-                    <td>比如国籍是十个字的情况</td>
-                    <td>法裔长点长点长点长点长点</td>
+                <tr ng-repeat="t_c_student_List in class_student">
+                    <td ng-bind="t_c_student_List.chineseName">闫乐坤</td>
+                    <td ng-bind="t_c_student_List.englishName">yan leCun</td>
+                    <td ng-bind="t_c_student_List.gender">男</td>
+                    <td ng-bind="t_c_student_List.nationality">比如国籍是十个字的情况</td>
+                    <td ng-bind="t_c_student_List.remark">法裔长点长点长点长点长点</td>
                     <td>
-                        <a ng-click="utils.href('/class/studentDetail')">学生详情</a>
+                        <a ng-click="utils.href('/class/studentDetail/'+t_c_student_List.id)">学生详情</a>
                         <a ng-click="openPop('pop-Remarks')">编辑备注</a>
                         <a ng-click="openPop('pop-resetpwd')">重置密码</a>
-                        <a ng-click="utils.href('')">删除</a>
+                        <a ng-click="studentDel(classesID,t_c_student_List.id)">删除</a>
                     </td>
                 </tr>
                 <tr>

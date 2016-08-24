@@ -14,22 +14,29 @@
         <div class="form-item">
             <div class="title">班级名称：</div>
             <div class="content">
-                <input type="text" class="input" name="name"  required ng-maxlength="30" ng-value="classDetail.name" ng-model="classes.name">
+                <input type="text" class="input" name="name"  required ng-maxlength="30" ng-model="classes.name">
                 <pre class="line-height-15 color-blue">对学生不可见</pre>
             </div>
         </div>
         <div class="form-item">
             <div class="title">课程名称：</div>
             <div class="content">
-                <input type="text" class="input" name="name"  required ng-maxlength="30" ng-value="classDetail.courseName" ng-model="classes.courseName">
+                <input type="text" class="input" name="name"  required ng-maxlength="30" ng-model="classes.courseName">
                 <pre class="line-height-15 color-blue">对学生可见</pre>
             </div>
         </div>
+        <!--<div class="form-item">-->
+            <!--<div class="title">课程简介：</div>-->
+            <!--<div class="content">-->
+                <!--<input type="text" class="input" name="name"  required ng-maxlength="30" ng-model="classes.courseName">-->
+                <!--<pre class="line-height-15 color-blue">对学生可见</pre>-->
+            <!--</div>-->
+        <!--</div>-->
         <div class="form-item">
             <div class="title">开班时间：</div>
             <div class="content">
                 <div class="calendar" id="time-start-update">
-                    <input type="text" class="input" disabled="disabled" placeholder="请输入开班时间" ng-value="classDetail.startTime" ng-model="classes.startTime">
+                    <input type="text" class="input" disabled="disabled" placeholder="请输入开班时间" ng-model="classes.startTime">
                     <span class="icon icons-calendar"></span>
                 </div>
 
@@ -40,9 +47,9 @@
             <div class="title">班级状态：</div>
             <div class="content">
                 <select class="select" name="voice_type" ng-model="classes.status" required>
-                    <option value="">准备中</option>
-                    <option value="">开课中</option>
-                    <option value="">已结课</option>
+                    <option value="0">准备中</option>
+                    <option value="1">开课中</option>
+                    <option value="2">已结课</option>
                     <!--<option ng-repeat="sound in class" value="{{ sound.id }}" ng-bind="sound.name"></option>-->
                 </select>
                 <div class="error" ng-show="voice_robot_form.voice_type.$dirty && voice_robot_form.voice_type.$invalid">请选择班级状态</div>
