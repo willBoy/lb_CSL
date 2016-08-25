@@ -27,7 +27,7 @@
         <div class="title-1">
             <span class="title">章节列表</span>
             <div class="right">
-                <span class="op btn-blue bgcolor-blue" ng-click="utils.href('/class/create_chapter/'+classCourse.id)">+ 创建章节</span>
+                <span class="op btn-blue bgcolor-blue" ng-click="utils.href('/class/create_chapter/'+classCourse.id+'/'+classCourse.classId)">+ 创建章节</span>
             </div>
         </div>
         <div class="table-list">
@@ -45,13 +45,13 @@
                     <!--<td ng-bind="cl_cou_session">1</td>-->
                     <td ng-bind="cl_cou_chapter.name"></td>
                     <td ng-bind="cl_cou_chapter.descriptionContent"></td>
-                    <td ng-bind="cl_cou_chapter.orderNo"></td>
-                    <td ng-bind="cl_cou_chapter.pattern"></td>
-                    <td ng-bind="cl_cou_chapter.status"></td>
+                    <td ng-bind="orderNoMap[cl_cou_chapter.orderNo]"></td>
+                    <td ng-bind="patternMap[cl_cou_chapter.pattern]"></td>
+                    <td ng-bind="statusMap[cl_cou_chapter.status]"></td>
                     <td>
-                        <a ng-click="utils.href('/class/chapter/'+cl_cou_chapter.id)">章节设置</a>
+                        <a ng-click="utils.href('/class/chapter/'+cl_cou_chapter.id+'/'+classCourse.classId)">章节设置</a>
                         <a ng-click="utils.href('/class/exercise/'+cl_cou_chapter.id)">习题管理</a>
-                        <a ng-click="chapterDel(cl_cou_chapter.id)">删除</a>
+                        <a ng-click="chapterDel(cl_cou_chapter.id,classCourse.classId)">删除</a>
                     </td>
                 </tr>
             </table>

@@ -33,7 +33,6 @@
                 <select class="select" name="voice_type" ng-model="t_chapter.status" required>
                     <option value="0">准备中</option>
                     <option value="1">已开放</option>
-                    <option ng-repeat="sound in soundList" value="{{ sound.id }}" ng-bind="sound.name"></option>
                 </select>
                 <pre  class="line-height-15 color-blue">学生只能看到已开放的章节</pre>
                 <div class="error" ng-show="voice_robot_form.voice_type.$dirty && voice_robot_form.voice_type.$invalid">请选择章节状态</div>
@@ -45,7 +44,6 @@
                 <select class="select" name="voice_type" ng-model="t_chapter.orderNo" required>
                     <option value="0">顺序</option>
                     <option value="1">随机</option>
-                    <option ng-repeat="sound in soundList" value="{{ sound.id }}" ng-bind="sound.name"></option>
                 </select>
                 <div class="error" ng-show="voice_robot_form.voice_type.$dirty && voice_robot_form.voice_type.$invalid">请选择呈现模式</div>
             </div>

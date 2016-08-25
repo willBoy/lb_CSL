@@ -1,0 +1,41 @@
+<div id="reg" class="bgimg-black">
+    <div id="reg-wrapper" class="bgcolor-white" ng-show="true">
+        <div id="title" class="color-white font-size-huge bgcolor-blue font-weight-200">注册</div>
+        <form name="rule_form" novalidate>
+            <div class="form-item">
+                <div class="title_lang">* 电子邮箱：<br>E-mail</div>
+                <div class="content">
+                    <input name="key_email" class="input" type="text"  ng-model="t_regInfo.email" required>
+                    <pre class="line-height-15 color-blue">请输入真实有效的邮箱，便于找回密码</pre>
+                </div>
+            </div>
+            <div class="form-item">
+                <div class="title_lang">* 密码：<br>Password</div>
+                <div class="content">
+                    <input name="key_pwd" class="input" type="text"  ng-model="t_regInfo.password" required>
+                    <pre class="line-height-15 color-blue">请输入6位以上字符</pre>
+                    <div class="error" ng-show="rule_form.key_pwd.$dirty && rule_form.key_pwd.$invalid">请输入6位以上字符</div>
+                </div>
+            </div>
+
+            <div class="form-item">
+                <div class="title_lang">中文名：<br>Chinese name</div>
+                <div class="content">
+                    <input name="key_chineseName" class="input" type="text"  ng-model="t_regInfo.chineseName" required>
+                    <pre class="line-height-15 color-blue">请输入汉字</pre>
+                    <div class="error" ng-show="rule_form.key_chineseName.$dirty && rule_form.key_chineseName.$invalid">请输入中文名</div>
+                </div>
+            </div>
+            <div class="form-item">
+                <div class="title_lang">手机号码：<br>Cellphone number</div>
+                <div class="content">
+                    <input name="key_phone" class="input" type="text"  ng-model="t_regInfo.phoneNumber" required>
+                </div>
+            </div>
+            <div class="form-op">
+                <span class="op btn-blue" ng-click="t_reg()">保存</span>
+            </div>
+        </form>
+
+    </div>
+</div>

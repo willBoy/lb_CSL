@@ -88,7 +88,7 @@ lbApp.controller('s_LoginController', ['$scope', 'UtilsService', 'RequestService
     };
 }]);
 // 注册
-lbApp.controller('RegController', ['$scope', '$rootScope', 'RequestService', 'UtilsService', function($scope, $rootScope, RequestService, UtilsService) {
+lbApp.controller('t_RegController', ['$scope', '$rootScope', 'RequestService', 'UtilsService', function($scope, $rootScope, RequestService, UtilsService) {
     "use strict";
 
     // 注册信息
