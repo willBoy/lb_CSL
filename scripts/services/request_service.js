@@ -30,7 +30,7 @@ lbApp.factory('RequestService', ['$http', 'UtilsService', function($http, UtilsS
         //章节信息
         't_chapterShow':'chapter/show',
         //习题列表
-        't_exe_list':'pronunciationLibrary/find',
+        't_exe_list':'QuestionPronunciation/findChapterQuestions',
         //保存章节设置
         't_chapterUpdate':'chapter/update',
         //删除章节
@@ -46,7 +46,11 @@ lbApp.factory('RequestService', ['$http', 'UtilsService', function($http, UtilsS
         //学生端-注册
         's_reg':'student/register',
         //学生端-登录
-        's_login':'student/login'
+        's_login':'student/login',
+        //检索习题
+        't_exeIndex':'QuestionPronunciation/find',
+        //添加习题
+        't_addExe':'chapter/addChapterQuestion'
     };
     return {
         tokenMap: tokenMap,

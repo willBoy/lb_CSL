@@ -57,9 +57,9 @@ lbApp.config(['$routeProvider', '$locationProvider', '$httpProvider', function($
             showHeader: false
         })
         //老师注册
-        .when('/register',{
+        .when('/t_register',{
             templateUrl:'views/user/teacher_reg.html',
-            controller:'RegController',
+            controller:'t_RegController',
             showHeader:false
         })
         //学生注册
@@ -106,19 +106,19 @@ lbApp.config(['$routeProvider', '$locationProvider', '$httpProvider', function($
             controller:'CourseController',
             showHeader:true
         })
-        //.when('/class/courseSetting',{
-        //    templateUrl:'views/class/course.html',
-        //    controller:'CourseController',
-        //    showHeader:true
-        //})
+        .when('/class/courseSetting',{
+            templateUrl:'views/class/course.html',
+            controller:'CourseController',
+            showHeader:true
+        })
         //章节设置
-        .when('/class/chapter/:chapterID',{
+        .when('/class/chapter/:chapterID/:classID',{
             templateUrl:'views/class/chapter.html',
             controller:'ChapterController',
             showHeader:true
         })
         //新建章节
-        .when('/class/create_chapter/:courseID',{
+        .when('/class/create_chapter/:courseID/:classID',{
             templateUrl:'views/class/create_chapter.html',
             controller:'CreateChapterController',
             showHeader:true
@@ -130,7 +130,7 @@ lbApp.config(['$routeProvider', '$locationProvider', '$httpProvider', function($
             showHeader:true
         })
         //添加习题
-        .when('/class/exercise_add',{
+        .when('/class/exercise_add/:chapterID',{
             templateUrl:'views/class/exercise_add.html',
             controller:'ExerciseAddController',
             showHeader:true
