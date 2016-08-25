@@ -44,18 +44,32 @@ lbApp.config(['$routeProvider', '$locationProvider', '$httpProvider', function($
             controller: 'WelcomeController',
             showHeader: false
         })
-        //登录
-        .when('/login', {
+        //教师登录
+        .when('/t_login', {
             templateUrl: 'views/user/login.html',
             controller: 'LoginController',
             showHeader: false
         })
-        //注册
+        //学生登录
+        .when('/s_login', {
+            templateUrl: 'views/user/login_student.html',
+            controller: 's_LoginController',
+            showHeader: false
+        })
+        //老师注册
         .when('/register',{
             templateUrl:'views/user/teacher_reg.html',
             controller:'RegController',
             showHeader:false
         })
+        //学生注册
+        .when('/s_register',{
+            templateUrl:'views/user/register.html',
+            controller:'S_RegController',
+            showHeader:false
+        })
+
+
         //班级管理
         .when('/classList/:classID',{
             templateUrl:'views/class/class_list.html',
@@ -87,16 +101,16 @@ lbApp.config(['$routeProvider', '$locationProvider', '$httpProvider', function($
             showHeader:true
         })
         //课程设置
-        .when('/class/courseSetting/:courseID',{
+        .when('/class/courseSetting/:classID',{
             templateUrl:'views/class/course.html',
             controller:'CourseController',
             showHeader:true
         })
-        .when('/class/courseSetting',{
-            templateUrl:'views/class/course.html',
-            controller:'CourseController',
-            showHeader:true
-        })
+        //.when('/class/courseSetting',{
+        //    templateUrl:'views/class/course.html',
+        //    controller:'CourseController',
+        //    showHeader:true
+        //})
         //章节设置
         .when('/class/chapter/:chapterID',{
             templateUrl:'views/class/chapter.html',

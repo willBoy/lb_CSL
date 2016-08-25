@@ -22,7 +22,7 @@
             <div class="form-item">
                 <div class="title">词汇：</div>
                 <div class="content">
-                    <input type="text" class="input" name="name"  required ng-maxlength="30" value="">
+                    <input type="text" class="input" name="name"  required ng-maxlength="30" ng-model="exercise.chsChars">
                 </div>
             </div>
         </div>
@@ -30,12 +30,12 @@
             <div class="form-item">
                 <div class="title">声调：</div>
                 <div class="content">
-                    <select class="select" name="voice_type" ng-model="voiceRobot.sound" required>
+                    <select class="select" name="voice_type" ng-model="exercise.chsChars" required>
                         <option value="">全部</option>
-                        <option value="">1</option>
-                        <option value="">2</option>
-                        <option value="">3</option>
-                        <option value="">4</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
                         <option ng-repeat="sound in soundList" value="{{ sound.id }}" ng-bind="sound.name"></option>
                     </select>
                 </div>
@@ -45,10 +45,11 @@
             <div class="form-item">
                 <div class="title">轻声：</div>
                 <div class="content">
-                    <select class="select" name="voice_type" ng-model="voiceRobot.sound" required>
+                    <select class="select" name="voice_type" ng-model="exercise.qingsheng" required>
                         <option value="">全部</option>
-                        <option value="">是</option>
-                        <option value="">否</option>
+                        <option value="0">无(非必读)</option>
+                        <option value="1">必读</option>
+                        <option value="2">可读</option>
                         <option ng-repeat="sound in soundList" value="{{ sound.id }}" ng-bind="sound.name"></option>
                     </select>
                 </div>
@@ -58,10 +59,10 @@
             <div class="form-item">
                 <div class="title">儿化音：</div>
                 <div class="content">
-                    <select class="select" name="voice_type" ng-model="voiceRobot.sound" required>
+                    <select class="select" name="voice_type" ng-model="exercise.erhua" required>
                         <option value="">全部</option>
-                        <option value="">是</option>
-                        <option value="">否</option>
+                        <option value="0">无</option>
+                        <option value="1">有</option>
                         <option ng-repeat="sound in soundList" value="{{ sound.id }}" ng-bind="sound.name"></option>
                     </select>
                 </div>
@@ -71,7 +72,7 @@
             <div class="form-item">
                 <div class="title">音节数：</div>
                 <div class="content">
-                    <select class="select" name="voice_type" ng-model="voiceRobot.sound" required>
+                    <select class="select" name="voice_type" ng-model="exercise.nbSyllables" required>
                         <option value="">全部</option>
                         <option value="">3</option>
                         <option value="">2</option>
@@ -85,10 +86,10 @@
             <div class="form-item">
                 <div class="title">说话人：</div>
                 <div class="content">
-                    <select class="select" name="voice_type" ng-model="voiceRobot.sound" required>
+                    <select class="select" name="voice_type" ng-model="exercise.speaker" required>
                         <option value="">全部</option>
-                        <option value="">男</option>
-                        <option value="">女</option>
+                        <option value="1">普通话水平测试(男)</option>
+                        <option value="2">普通话水平测试(男)</option>
                         <option ng-repeat="sound in soundList" value="{{ sound.id }}" ng-bind="sound.name"></option>
                     </select>
                 </div>
@@ -98,10 +99,15 @@
             <div class="form-item">
                 <div class="title">等级：</div>
                 <div class="content">
-                    <select class="select" name="voice_type" ng-model="voiceRobot.sound" required>
+                    <select class="select" name="voice_type" ng-model="exercise.hskLevel" required>
                         <option value="">全部</option>
-                        <option value="">hsk-3</option>
-                        <option value="">hsk-6</option>
+                        <option value="1">HSK-1</option>
+                        <option value="2">HSK-2</option>
+                        <option value="3">HSK-3</option>
+                        <option value="4">HSK-4</option>
+                        <option value="5">HSK-5</option>
+                        <option value="6">HSK-6</option>
+                        <option value="7">超纲</option>
                         <option ng-repeat="sound in soundList" value="{{ sound.id }}" ng-bind="sound.name"></option>
                     </select>
                 </div>

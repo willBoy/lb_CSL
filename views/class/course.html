@@ -28,14 +28,12 @@
             <span class="title">章节列表</span>
             <div class="right">
                 <span class="op btn-blue bgcolor-blue" ng-click="utils.href('/class/create_chapter/'+classCourse.id)">+ 创建章节</span>
-                <!--<span class="op btn-blue" ng-click="classList()">获取数据</span>-->
             </div>
         </div>
         <div class="table-list">
             <table class="data-list">
                 <tr>
                     <!--<th>序号</th>-->
-                    <th>id</th>
                     <th>章节主题</th>
                     <th>章节简介</th>
                     <th>呈现顺序</th>
@@ -45,10 +43,9 @@
                 </tr>
                 <tr ng-repeat="cl_cou_chapter in classCourseChapter track by $index">
                     <!--<td ng-bind="cl_cou_session">1</td>-->
-                    <td ng-bind="cl_cou_chapter.id"></td>
                     <td ng-bind="cl_cou_chapter.name"></td>
                     <td ng-bind="cl_cou_chapter.descriptionContent"></td>
-                    <td ng-bind="cl_cou_chapter.order"></td>
+                    <td ng-bind="cl_cou_chapter.orderNo"></td>
                     <td ng-bind="cl_cou_chapter.pattern"></td>
                     <td ng-bind="cl_cou_chapter.status"></td>
                     <td>

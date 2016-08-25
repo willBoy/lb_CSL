@@ -14,9 +14,9 @@ lbApp.factory('RequestService', ['$http', 'UtilsService', function($http, UtilsS
         //保存班级设置
         't_classUpdate':'classes/update',
         //课程设置
-        't_classCourse':'course/show',
-        //习题设置
-        't_exe_List':'exercise/list',
+        't_classCourse':'classes/show',
+        //章节信息
+        //'t_exe_List':'exercise/list',
         //登录
         't_login':'teacher/login',
         //新增班级
@@ -27,9 +27,10 @@ lbApp.factory('RequestService', ['$http', 'UtilsService', function($http, UtilsS
         't_courseChapter':'chapter/list',
         //新建章节
         't_addChapter':'chapter/add',
-
         //章节信息
         't_chapterShow':'chapter/show',
+        //习题列表
+        't_exe_list':'pronunciationLibrary/find',
         //保存章节设置
         't_chapterUpdate':'chapter/update',
         //删除章节
@@ -41,7 +42,11 @@ lbApp.factory('RequestService', ['$http', 'UtilsService', function($http, UtilsS
         //删除学生
         't_studentDel':'classes/delStudent',
         //学生端-我的课程列表
-        's_course_list':'student/course/list'
+        's_course_list':'student/course/list',
+        //学生端-注册
+        's_reg':'student/register',
+        //学生端-登录
+        's_login':'student/login'
     };
     return {
         tokenMap: tokenMap,

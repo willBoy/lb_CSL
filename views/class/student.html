@@ -62,7 +62,7 @@
                     <td>法裔</td>
                     <td>
                         <a ng-click="utils.href('/class/studentDetail')">学生详情</a>
-                        <a ng-click="utils.href('')">编辑备注</a>
+                        <a ng-click="openPop('pop-Remarks')">编辑备注</a>
                         <a ng-click="utils.href('')">重置密码</a>
                         <a ng-click="utils.href('')">删除</a>
                     </td>
@@ -132,18 +132,18 @@
 
             </div>
             <div id="pop-Remarks" class="pop">
-                <div class="pop-title">编辑备注<span class="icons-close close" ng-click="closePop('pop-resetpwd')"></span></div>
+                <div class="pop-title">编辑备注</div>
 
                 <div class="pop-content">
                     <div class="form-item">
                         <div class="content">
                             <label>备注:</label>
-                            <input type="text" class="input" name="name"  required ng-maxlength="30" ng-value="classDetail.id">
+                            <input type="text" class="input" name="name"  required ng-maxlength="30" ng-model="studentInfo_r.remark">
                         </div>
                     </div>
                     <div class="form-op">
-                        <span class="op btn-blue" ng-click="closePop('pop-Remarks')">确定</span>
-                        <span class="op btn-blue" ng-click="closePop('pop-Remarks')">取消</span>
+                        <span class="op btn-blue" ng-click="submit11()">确定</span>
+                        <span class="op btn-blue" ng-click="closePop('pop-Remarks') ">取消</span>
                     </div>
                 </div>
             </div>

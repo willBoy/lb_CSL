@@ -31,8 +31,8 @@
             <div class="title">章节状态：</div>
             <div class="content">
                 <select class="select" name="voice_type" ng-model="t_chapter.status" required>
-                    <option value="">准备中</option>
-                    <option value="">已开放</option>
+                    <option value="0">准备中</option>
+                    <option value="1">已开放</option>
                     <option ng-repeat="sound in soundList" value="{{ sound.id }}" ng-bind="sound.name"></option>
                 </select>
                 <pre  class="line-height-15 color-blue">学生只能看到已开放的章节</pre>
@@ -43,8 +43,8 @@
             <div class="title">呈现顺序：</div>
             <div class="content">
                 <select class="select" name="voice_type" ng-model="t_chapter.orderNo" required>
-                    <option value="">顺序</option>
-                    <option value="">随机</option>
+                    <option value="0">顺序</option>
+                    <option value="1">随机</option>
                     <option ng-repeat="sound in soundList" value="{{ sound.id }}" ng-bind="sound.name"></option>
                 </select>
                 <div class="error" ng-show="voice_robot_form.voice_type.$dirty && voice_robot_form.voice_type.$invalid">请选择呈现模式</div>
@@ -54,10 +54,8 @@
             <div class="title">练习流程：</div>
             <div class="content">
                 <select class="select" name="voice_type" ng-model="t_chapter.pattern" required>
-                    <option value="">错题不重做</option>
-                    <option value="">错题重做一次</option>
-                    <option value="">错题重做到正确</option>
-                    <option ng-repeat="sound in soundList" value="{{ sound.id }}" ng-bind="sound.name"></option>
+                    <option value="1">错题重做一次</option>
+                    <option value="0">错题重做到正确</option>
                 </select>
                 <div class="error" ng-show="voice_robot_form.voice_type.$dirty && voice_robot_form.voice_type.$invalid">请选择流程模式</div>
             </div>

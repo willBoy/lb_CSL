@@ -5,53 +5,59 @@
             <div class="form-item">
                 <div class="title_lang">* 电子邮箱：<br>E-mail</div>
                 <div class="content">
-                    <input name="key_word" class="input" type="text"  ng-model="qa_task.keyword" required>
+                    <input name="key_email" class="input" type="text"  ng-model="s_regInfo.email" required>
                     <pre class="line-height-15 color-blue">请输入真实有效的邮箱，便于找回密码</pre>
-                    <div class="error" ng-show="rule_form.illegal_statement.$dirty && rule_form.illegal_statement.$invalid">请输入真实有效的邮箱，便于找回信息</div>
                 </div>
             </div>
             <div class="form-item">
                 <div class="title_lang">* 请设定您的密码：<br>Password</div>
                 <div class="content">
-                    <input name="key_word" class="input" type="text"  ng-model="qa_task.keyword" required>
+                    <input name="key_pwd" class="input" type="text"  ng-model="s_regInfo.password" required>
                     <pre class="line-height-15 color-blue">请输入6位以上字符</pre>
-                    <div class="error" ng-show="rule_form.illegal_statement.$dirty && rule_form.illegal_statement.$invalid">请输入6位以上字符</div>
+                    <div class="error" ng-show="rule_form.key_pwd.$dirty && rule_form.key_pwd.$invalid">请输入6位以上字符</div>
                 </div>
             </div>
             <div class="form-item">
                 <div class="title_lang">* 再输入一次密码：<br>Enter your password again</div>
                 <div class="content">
-                    <input name="key_word" class="input" type="text"  ng-model="qa_task.keyword" required>
+                    <input name="key_again" class="input" type="text" required>
                     <pre class="line-height-15 color-blue">请输入6位以上字符</pre>
-                    <div class="error" ng-show="rule_form.illegal_statement.$dirty && rule_form.illegal_statement.$invalid">请输入6位以上字符</div>
+                    <!--<div class="error" ng-show="rule_form.key_pwd.$viewValue != rule_form.key_again.$viewValue">请输入6位以上字符</div>-->
                 </div>
             </div>
+            <!--<div class="form-item">-->
+                <!--<div class="title_lang">* 再输入一次密码：<br>Enter your password again</div>-->
+                <!--<div class="content">-->
+                    <!--<input name="key_again" class="input" type="text" ng-model="s_regInfo.rePassword"  required>-->
+                    <!--<pre class="line-height-15 color-blue">请输入6位以上字符</pre>-->
+                    <!--<div class="error" ng-show="rule_form.key_again.$dirty && rule_form.key_again.$invalid">两次密码输入不一致</div>-->
+                <!--</div>-->
+            <!--</div>-->
             <div class="form-item">
                 <div class="title_lang">* 英文全名：<br>Full name</div>
                 <div class="content">
-                    <input name="key_word" class="input" type="text"  ng-model="qa_task.keyword" required>
-                    <div class="error" ng-show="rule_form.illegal_statement.$dirty && rule_form.illegal_statement.$invalid"></div>
+                    <input name="key_englishName" class="input" type="text"  ng-model="s_regInfo.englishName" required>
+                    <div class="error" ng-show="rule_form.key_englishName.$dirty && rule_form.key_englishName.$invalid">请输入英文全名</div>
                 </div>
             </div>
             <div class="form-item">
                 <div class="title_lang">中文名：<br>Chinese name</div>
                 <div class="content">
-                    <input name="key_word" class="input" type="text"  ng-model="qa_task.keyword" required>
+                    <input name="key_chineseName" class="input" type="text"  ng-model="s_regInfo.chineseName" required>
                     <pre class="line-height-15 color-blue">请输入汉字</pre>
-                    <div class="error" ng-show="rule_form.illegal_statement.$dirty && rule_form.illegal_statement.$invalid">请输入汉字</div>
+                    <div class="error" ng-show="rule_form.key_chineseName.$dirty && rule_form.key_chineseName.$invalid">请输入中文名</div>
                 </div>
             </div>
 
             <div class="form-item">
                 <div class="title_lang">* 年龄：<br>Age</div>
                 <div class="content">
-                    <select name="is_include" class="select" ng-model="qa_task.constrains" required>
-                        <option value="">16-20</option>
-                        <option value="">21-25</option>
-                        <option value="">26-30</option>
-                        <option ng-repeat="(value, description) in options.constrains" value="{{ value }}" ng-bind="description"></option>
+                    <select name="key_age" class="select" ng-model="s_regInfo.age" required>
+                        <option value="16-20">16-20</option>
+                        <option value="21-25">21-25</option>
+                        <option value="26-30">26-30</option>
                     </select>
-                    <div class="error" ng-show="rule_form.illegal_statement.$dirty && rule_form.illegal_statement.$invalid">请选择年龄</div>
+                    <div class="error" ng-show="rule_form.key_age.$dirty && rule_form.key_age.$invalid">请选择年龄</div>
                 </div>
             </div>
             <div class="form-item">
@@ -59,62 +65,63 @@
                 <div class="content">
                     <label><input name="gender" type="radio" value="" />男 Male</label>
                     <label><input name="gender" type="radio" value="" />女 Female</label>
-                    <div class="error" ng-show="rule_form.illegal_statement.$dirty && rule_form.illegal_statement.$invalid">请选择性别</div>
+                    <!--<div class="error" ng-show="rule_form.illegal_statement.$dirty && rule_form.illegal_statement.$invalid">请选择性别</div>-->
                 </div>
             </div>
             <div class="form-item">
                 <div class="title_lang">手机号码：<br>Cellphone number</div>
                 <div class="content">
-                    <input name="key_word" class="input" type="text"  ng-model="qa_task.keyword" required>
+                    <input name="key_phone" class="input" type="text"  ng-model="s_regInfo.phoneNumber" required>
                 </div>
             </div>
             <div class="form-item">
                 <div class="title_lang">* 国籍：<br>Country of Citizenship</div>
                 <div class="content">
-                    <select name="is_include" class="select" ng-model="qa_task.constrains" required>
-                        <option value="">其它</option>
-                        <option value="">China</option>
-                        <option value="">Iceland</option>
-                        <option value="">Korea</option>
-                        <option ng-repeat="(value, description) in options.constrains" value="{{ value }}" ng-bind="description"></option>
+                    <select name="key_nationality" class="select" ng-model="s_regInfo.nationality" required>
+                        <option value="其它">其它</option>
+                        <option value="China">China</option>
+                        <option value="Iceland">Iceland</option>
+                        <option value="Korea">Korea</option>
                     </select>
-                    <div class="error" ng-show="rule_form.illegal_statement.$dirty && rule_form.illegal_statement.$invalid">请选择国籍</div>
+                    <div class="error" ng-show="rule_form.key_nationality.$dirty && rule_form.key_nationality.$invalid">请选择国籍</div>
                 </div>
             </div>
             <div class="form-item">
                 <div class="title_lang">* 母语：<br>Native language</div>
                 <div class="content">
-                    <select name="is_include" class="select" ng-model="qa_task.constrains" required>
-                        <option value="">其它</option>
-                        <option value="">China</option>
-                        <option value="">English</option>
-                        <option value="">French</option>
-                        <option ng-repeat="(value, description) in options.constrains" value="{{ value }}" ng-bind="description"></option>
+                    <select name="key_motherTongue" class="select" ng-model="student.motherTongue" required>
+                        <option value="其它">其它</option>
+                        <option value="China">China</option>
+                        <option value="English">English</option>
+                        <option value="French">French</option>
                     </select>
-                    <div class="error" ng-show="rule_form.illegal_statement.$dirty && rule_form.illegal_statement.$invalid">请选择母语</div>
+                    <div class="error" ng-show="rule_form.key_motherTongue.$dirty && rule_form.key_motherTongue.$invalid">请选择母语</div>
                 </div>
             </div>
-            <div class="form-item">
-                <div class="title_lang">* 外语：<br>Foreign language</div>
-                <div class="content">
-                    <select name="is_include" class="select" ng-model="qa_task.constrains" required>
-                        <option value="">无</option>
-                        <option ng-repeat="(value, description) in options.constrains" value="{{ value }}" ng-bind="description"></option>
-                    </select>
-                    <select name="is_include" class="select" ng-model="qa_task.constrains" required>
-                        <option value="">无</option>
-                        <option ng-repeat="(value, description) in options.constrains" value="{{ value }}" ng-bind="description"></option>
-                    </select>
-                    <select name="is_include" class="select" ng-model="qa_task.constrains" required>
-                        <option value="">无</option>
-                        <option ng-repeat="(value, description) in options.constrains" value="{{ value }}" ng-bind="description"></option>
-                    </select>
+            <!--<div class="form-item">-->
+                <!--<div class="title_lang">* 外语：<br>Foreign language</div>-->
+                <!--<div class="content">-->
+                    <!--<select name="is_include" class="select" ng-model="student.foreignLanguage" required>-->
+                        <!--<option value="无">无</option>-->
+                        <!--<option value="其它">其它</option>-->
+                        <!--<option value="China">China</option>-->
+                        <!--<option value="English">English</option>-->
+                        <!--<option value="French">French</option>-->
+                    <!--</select>-->
+                    <!--<select name="is_include" class="select" ng-model="qa_task.constrains" required>-->
+                        <!--<option value="">无</option>-->
+                        <!--<option ng-repeat="(value, description) in options.constrains" value="{{ value }}" ng-bind="description"></option>-->
+                    <!--</select>-->
+                    <!--<select name="is_include" class="select" ng-model="qa_task.constrains" required>-->
+                        <!--<option value="">无</option>-->
+                        <!--<option ng-repeat="(value, description) in options.constrains" value="{{ value }}" ng-bind="description"></option>-->
+                    <!--</select>-->
 
-                    <div class="error" ng-show="rule_form.illegal_statement.$dirty && rule_form.illegal_statement.$invalid">请选择年龄</div>
-                </div>
-            </div>
+                    <!--<div class="error" ng-show="rule_form.illegal_statement.$dirty && rule_form.illegal_statement.$invalid">请选择年龄</div>-->
+                <!--</div>-->
+            <!--</div>-->
             <div class="form-op">
-                <span class="op btn-blue" ng-click="utils.href('/login')">保存</span>
+                <span class="op btn-blue" ng-click="s_reg()">保存</span>
             </div>
         </form>
 

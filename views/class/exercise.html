@@ -60,12 +60,13 @@
                 </tr>
                 <tr ng-repeat="t_exe_list in t_exerciseList">
                     <!--<td>1</td>-->
-                    <td ng-bind="t_exe_list.hanzi"></td>
-                    <td ng-bind="t_exe_list.shengdiao"></td>
+                    <td ng-bind="t_exe_list.chsChars"></td>
+                    <td ng-bind="t_exe_list.tones"></td>
                     <td ng-bind="t_exe_list.qingsheng"></td>
-                    <td ng-bind="t_exe_list.erhuayin"></td>
-                    <td ng-bind="t_exe_list.yinjieshu"></td>
-                    <td ng-bind="t_exe_list.shuohuaren"></td>                    <td ng-bind="t_exe_list.dengji"></td>
+                    <td ng-bind="t_exe_list.erhua"></td>
+                    <td ng-bind="t_exe_list.nbSyllables"></td>
+                    <td ng-bind="t_exe_list.speaker"></td>
+                    <td ng-bind="t_exe_list.hskLevel"></td>
                     <td>
                         <a ng-click="utils.href('')">删除</a>
                     </td>

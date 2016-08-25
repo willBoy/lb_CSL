@@ -9,19 +9,19 @@
                 <!--</ul>-->
                 <form name="login_form" novalidate>
                     <div id="tab-login-pwd" class="tab" ng-show="tabLogin === 1">
-                        <input type="text" class="input user-info-input" name="username" placeholder="邮箱" ng-model="pwdLoginInfo.userName" required>
+                        <input type="text" class="input user-info-input" name="username" placeholder="邮箱" ng-model="student_login.userName" required>
                         <div class="error" ng-show="login_form.username.$dirty && login_form.username.$invalid">请填写邮箱</div>
                         <div class="input-pwd user-info-input">
                             <div class="input-pwd-wrapper">
-                                <input type="{{ pwdIsText ? 'text' : 'password' }}" name="password" class="input" placeholder="登录密码" ng-model="pwdLoginInfo.password" required>
+                                <input type="{{ pwdIsText ? 'text' : 'password' }}" name="password" class="input" placeholder="登录密码" ng-model="student_login.password" required>
                                 <span class="icon {{ pwdIsText ? 'icons-unlock' : 'icons-lock' }}" ng-click="pwdIsText = !pwdIsText"></span>
                             </div>
                         </div>
                         <div class="error" ng-show="login_form.password.$dirty && login_form.password.$invalid">请填写密码</div>
                         <div class="op text-align-center">
                             <!--<span id="btn-reg" class="btn-blue" ng-click="utils.href('/register')">注册</span>-->
-                            <span id="btn-login" class="btn-blue" ng-click="login_form.username.$dirty = true; login_form.password.$dirty = true;login_form.$valid && loginByPwd()">登录</span>
-                            <span id="btn-reg" class="btn-blue" ng-click="utils.href('/register')">注册</span>
+                            <span id="btn-login" class="btn-blue" ng-click="login_form.username.$dirty = true; login_form.password.$dirty = true;login_form.$valid && s_loginByPwd()">登录</span>
+                            <span id="btn-reg" class="btn-blue" ng-click="utils.href('/s_register')">注册</span>
                         </div>
                     </div>
                 </form>

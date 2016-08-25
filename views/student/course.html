@@ -37,77 +37,14 @@
                     <th>操作</th>
 
                 </tr>
-                <!--<tr ng-repeat=" t_class in t_classList track by $index">
-                    &lt;!&ndash;<td ng-bind="(conditions.pageInfo.page - 1) * conditions.pageInfo.pageSize + $index + 1"></td>&ndash;&gt;
-                    <td ng-bind="t_class.startTime"></td>
-                    <td ng-bind="t_class.name"></td>
-                    <td ng-bind="t_class.subjectName"></td>
-                    <td ng-bind="t_class.teacherName"></td>
-                    <td ng-bind="t_class.memberSize"></td>
-                    <td ng-bind="t_class.sequenceNO"></td>
-                    <td>准备中</td>
-                    &lt;!&ndash;<td ng-bind="t_class.id"></td>&ndash;&gt;
-                    <td>
-                        <a ng-click="utils.href('')">退出课程</a>
-                    </td>
-                </tr>-->
-                <tr>
-                    <td>2016年8月5日</td>
-                    <td>正音课</td>
-                    <td>老师名</td>
-                    <td>开课中</td>
+                <tr ng-repeat=" s_course_list in s_myCourse track by $index">
+                    <!--<td ng-bind="(conditions.pageInfo.page - 1) * conditions.pageInfo.pageSize + $index + 1"></td>-->
+                    <td ng-bind="s_course_list.classesStartTime"></td>
+                    <td ng-bind="s_course_list.name"></td>
+                    <td ng-bind="s_course_list.teacherName"></td>
+                    <td ng-bind="s_course_list.classesStatus"></td>
                     <td>
                         <a ng-click="openPop('pop-continue')">开始学习</a>
-                        <a ng-click="openPop('pop-quit')">退出课程</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>2016年8月18日</td>
-                    <td>正音课</td>
-                    <td>老师名</td>
-                    <td>开课中</td>
-                    <td>
-                        <a ng-click="utils.href('/student/class_detail')">开始学习</a>
-                        <a ng-click="openPop('pop-quit')">退出课程</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>2016年8月25日</td>
-                    <td>正音课</td>
-                    <td>老师名</td>
-                    <td>开课中</td>
-                    <td>
-                        <a ng-click="utils.href('/student/class_detail')">开始学习</a>
-                        <a ng-click="openPop('pop-quit')">退出课程</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>2016年8月18日</td>
-                    <td>正音课</td>
-                    <td>老师名</td>
-                    <td>已结课</td>
-                    <td>
-                        <a ng-click="utils.href('/student/class_detail')">开始学习</a>
-                        <a ng-click="openPop('pop-quit')">退出课程</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>2016年8月18日</td>
-                    <td>正音课</td>
-                    <td>老师名</td>
-                    <td>已结课</td>
-                    <td>
-                        <a ng-click="utils.href('/student/class_detail')">开始学习</a>
-                        <a ng-click="openPop('pop-quit')">退出课程</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>2016年8月18日</td>
-                    <td>正音课</td>
-                    <td>老师名</td>
-                    <td>已结课</td>
-                    <td>
-                        <a ng-click="utils.href('/student/class_detail')">开始学习</a>
                         <a ng-click="openPop('pop-quit')">退出课程</a>
                     </td>
                 </tr>
