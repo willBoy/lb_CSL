@@ -55,8 +55,8 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   display: block;
 }
 
-.icons-sprite, .icons-1, .icons-2, .icons-3, .icons-4, .icons-R0, .icons-R1, .icons-R2, .icons-R3, .icons-R4, .icons-calendar, .icons-close, .icons-cross, .icons-down-order, .icons-edit, .icons-emoji, .icons-enter, .icons-error1, .icons-error2, .icons-error3, .icons-error4, .icons-head-client, .icons-head-robot, .icons-key, .icons-key1, .icons-list, .icons-lock, .icons-logo, #header .main-logo .logo, .icons-message, .icons-no-order, .icons-prompt, .icons-robot, .icons-schedule, .icons-search, .icons-setting, .icons-spread, .icons-task, .icons-time, .icons-unlock, .icons-up-order, .icons-user, .icons-volume, .icons-welcome_care, .icons-welcome_elite, .icons-welcome_job_market, .icons-welcome_message, .icons-welcome_more, .icons-welcome_sales, .icons-welcome_society, .icons-welcome_upgrade, .icons-welcome_voice {
-  background-image: url('../images/../images/icons-s2f2c6048fa.png');
+.icons-sprite, .icons-1, .icons-2, .icons-3, .icons-4, .icons-R0, .icons-R1, .icons-R2, .icons-R3, .icons-R4, .icons-bgbgbg, .icons-calendar, .icons-close, .icons-cross, .icons-down-order, .icons-edit, .icons-emoji, .icons-enter, .icons-error1, .icons-error2, .icons-error3, .icons-error4, .icons-head-client, .icons-head-robot, .icons-key, .icons-key1, .icons-list, .icons-lock, .icons-logo, #header .main-logo .logo, .icons-message, .icons-no-order, .icons-prompt, .icons-robot, .icons-schedule, .icons-search, .icons-setting, .icons-spread, .icons-task, .icons-time, .icons-unlock, .icons-up-order, .icons-user, .icons-volume, .icons-welcome_care, .icons-welcome_elite, .icons-welcome_job_market, .icons-welcome_message, .icons-welcome_more, .icons-welcome_sales, .icons-welcome_society, .icons-welcome_upgrade, .icons-welcome_voice {
+  background-image: url('../images/../images/icons-se546e91a82.png');
   background-repeat: no-repeat;
 }
 
@@ -67,43 +67,43 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 }
 
 .icons-2 {
-  background-position: -760px -100px;
+  background-position: -829px -399px;
   height: 100px;
   width: 100px;
 }
 
 .icons-3 {
-  background-position: -860px -100px;
+  background-position: 0 -299px;
   height: 100px;
   width: 100px;
 }
 
 .icons-4 {
-  background-position: -408px -457px;
+  background-position: -100px -299px;
   height: 100px;
   width: 100px;
 }
 
 .icons-R0 {
-  background-position: -308px -457px;
+  background-position: -400px -299px;
   height: 100px;
   width: 100px;
 }
 
 .icons-R1 {
-  background-position: -208px -457px;
+  background-position: -300px -299px;
   height: 100px;
   width: 100px;
 }
 
 .icons-R2 {
-  background-position: -850px -200px;
+  background-position: -200px -299px;
   height: 100px;
   width: 100px;
 }
 
 .icons-R3 {
-  background-position: -243px -300px;
+  background-position: -743px -299px;
   height: 100px;
   width: 100px;
 }
@@ -114,14 +114,20 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   width: 100px;
 }
 
+.icons-bgbgbg {
+  background-position: -157px -399px;
+  height: 260px;
+  width: 672px;
+}
+
 .icons-calendar {
-  background-position: -16px -200px;
+  background-position: -540px -199px;
   height: 16px;
   width: 16px;
 }
 
 .icons-close {
-  background-position: -32px -200px;
+  background-position: -556px -199px;
   height: 16px;
   width: 16px;
 }
@@ -133,25 +139,25 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 }
 
 .icons-down-order {
-  background-position: -64px -200px;
+  background-position: -588px -199px;
   height: 16px;
   width: 16px;
 }
 
 .icons-edit {
-  background-position: -80px -200px;
+  background-position: -604px -199px;
   height: 16px;
   width: 16px;
 }
 
 .icons-emoji {
-  background-position: -96px -200px;
+  background-position: -620px -199px;
   height: 16px;
   width: 16px;
 }
 
 .icons-enter {
-  background-position: 0 -300px;
+  background-position: -500px -299px;
   height: 48px;
   width: 243px;
 }
@@ -181,181 +187,181 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 }
 
 .icons-head-client {
-  background-position: -235px -200px;
+  background-position: -743px -199px;
   height: 32px;
   width: 32px;
 }
 
 .icons-head-robot {
-  background-position: -203px -200px;
+  background-position: -711px -199px;
   height: 32px;
   width: 32px;
 }
 
 .icons-key {
-  background-position: -267px -200px;
+  background-position: -775px -199px;
   height: 41px;
   width: 43px;
 }
 
 .icons-key1 {
-  background-position: 0 -557px;
+  background-position: 0 -659px;
   height: 452px;
   width: 970px;
 }
 
 .icons-list {
-  background-position: -96px -100px;
+  background-position: -624px -100px;
   height: 16px;
   width: 16px;
 }
 
 .icons-lock {
-  background-position: 0 -100px;
+  background-position: -672px -100px;
   height: 16px;
   width: 16px;
 }
 
 .icons-logo, #header .main-logo .logo {
-  background-position: -179px -200px;
+  background-position: -687px -199px;
   height: 23px;
   width: 24px;
 }
 
 .icons-message {
-  background-position: -80px -100px;
+  background-position: -656px -100px;
   height: 16px;
   width: 16px;
 }
 
 .icons-no-order {
-  background-position: -64px -100px;
+  background-position: -640px -100px;
   height: 16px;
   width: 16px;
 }
 
 .icons-prompt {
-  background-position: -460px -100px;
+  background-position: -208px -199px;
   height: 100px;
   width: 300px;
 }
 
 .icons-robot {
-  background-position: -32px -100px;
+  background-position: -652px -199px;
   height: 16px;
   width: 16px;
 }
 
 .icons-schedule {
-  background-position: -16px -100px;
+  background-position: -688px -100px;
   height: 16px;
   width: 16px;
 }
 
 .icons-search {
-  background-position: -160px -200px;
+  background-position: -668px -199px;
   height: 19px;
   width: 19px;
 }
 
 .icons-setting {
-  background-position: -48px -100px;
+  background-position: -704px -100px;
   height: 16px;
   width: 16px;
 }
 
 .icons-spread {
-  background-position: -112px -100px;
+  background-position: -720px -100px;
   height: 16px;
   width: 16px;
 }
 
 .icons-task {
-  background-position: 0 -200px;
+  background-position: -736px -100px;
   height: 16px;
   width: 16px;
 }
 
 .icons-time {
-  background-position: -112px -200px;
+  background-position: -508px -199px;
   height: 16px;
   width: 16px;
 }
 
 .icons-unlock {
-  background-position: -128px -200px;
+  background-position: -636px -199px;
   height: 16px;
   width: 16px;
 }
 
 .icons-up-order {
-  background-position: -144px -200px;
+  background-position: -572px -199px;
   height: 16px;
   width: 16px;
 }
 
 .icons-user {
-  background-position: -48px -200px;
+  background-position: -524px -199px;
   height: 16px;
   width: 16px;
 }
 
 .icons-volume {
-  background-position: -343px -300px;
+  background-position: 0 -399px;
   height: 157px;
   width: 157px;
 }
 
 .icons-welcome_care {
-  background-position: -434px -200px;
+  background-position: -416px -100px;
   height: 99px;
   width: 208px;
 }
 
 .icons-welcome_elite {
-  background-position: -372px -200px;
+  background-position: -880px -199px;
   height: 60px;
   width: 62px;
 }
 
 .icons-welcome_job_market {
-  background-position: -310px -200px;
+  background-position: -814px -100px;
   height: 60px;
   width: 62px;
 }
 
 .icons-welcome_message {
-  background-position: -600px 0;
+  background-position: -208px -100px;
   height: 99px;
   width: 208px;
 }
 
 .icons-welcome_more {
-  background-position: -642px -200px;
+  background-position: -600px 0;
   height: 99px;
   width: 208px;
 }
 
 .icons-welcome_sales {
-  background-position: 0 -457px;
+  background-position: 0 -100px;
   height: 99px;
   width: 208px;
 }
 
 .icons-welcome_society {
-  background-position: -128px -100px;
+  background-position: -752px -100px;
   height: 60px;
   width: 62px;
 }
 
 .icons-welcome_upgrade {
-  background-position: -190px -100px;
+  background-position: -818px -199px;
   height: 60px;
   width: 62px;
 }
 
 .icons-welcome_voice {
-  background-position: -252px -100px;
+  background-position: 0 -199px;
   height: 99px;
   width: 208px;
 }
@@ -1454,14 +1460,18 @@ UtilsService.genTab($scope, tabName)
   height: 54px;
   line-height: 54px;
   text-align: center;
+  margin-bottom: 50px;
 }
 #reg #reg-wrapper {
   width: 100%;
   position: absolute;
 }
 #reg #reg-wrapper form {
-  width: 60%;
-  margin-left: 20%;
+  width: 700px;
+  margin: 0 auto;
+}
+#reg #reg-wrapper form .form-item {
+  position: relative;
 }
 #reg #reg-wrapper form .title_lang {
   display: inline-block;
@@ -1472,6 +1482,9 @@ UtilsService.genTab($scope, tabName)
 }
 #reg #reg-wrapper form pre {
   margin-top: 0;
+  position: absolute;
+  top: 10px;
+  left: 423px;
 }
 #reg .reg-info {
   width: 100%;
