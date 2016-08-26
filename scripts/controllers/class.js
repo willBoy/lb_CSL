@@ -650,13 +650,23 @@ lbApp.controller('StudentCourseDetailController', ['$scope', 'UtilsService', 'Re
 }]);
 
 //开始学习
-lbApp.controller('StudyController', ['$scope', 'UtilsService', 'RequestService', function($scope, UtilsService, RequestService) {
+lbApp.controller('StudyController', ['$scope','$routeParams', 'UtilsService', 'RequestService', function($scope, $routeParams,UtilsService, RequestService) {
     //
     "use strict";
     $scope.asideTab = {
         listName: 'navigation',
         tabName: 'tabName'
     };
+
+    RequestService.request({
+        token:'t_chapterShow',
+        method:'POST',
+        data:UtilsService.serialize({id:$routeParams.chapterID}),
+        success:function(data){
+            console.log(data);
+            $scope.chapterInfo = data;
+        }
+    })
 }]);
 
 //开始学习下一步
