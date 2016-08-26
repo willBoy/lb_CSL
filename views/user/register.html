@@ -14,7 +14,7 @@
             <div class="form-item">
                 <div class="title_lang">* 请设定您的密码：<br>Password</div>
                 <div class="content">
-                    <input name="password" class="input" type="password" ng-minlength="6" ng-maxlength="20" ng-model="password" required>
+                    <input name="password" class="input" type="password" ng-minlength="6" ng-maxlength="20" ng-model="s_regInfo.password" required>
                     <!--<pre class="line-height-15 color-blue">请输入6位以上字符</pre>-->
                     <div class="error" ng-show="reg_form.password.$dirty && reg_form.password.$invalid">请输入6位以上字符</div>
                 </div>
@@ -23,9 +23,9 @@
             <div class="form-item">
                 <div class="title_lang">* 再输入一次密码：<br>Enter your password again</div>
                 <div class="content">
-                    <input name="passwordagain" class="input" type="password" ng-model="passwordagain" required>
+                    <input name="passwordagain" class="input" type="password" ng-model="s_regInfo.passwordagain">
                     <!--<pre class="line-height-15 color-blue">请输入6位以上字符</pre>-->
-                    <div class="error" ng-show="passwordagain!=password">密码不一致</div>
+                    <div class="error" ng-show="s_regInfo.passwordagain!=s_regInfo.password">密码不一致</div>
                 </div>
             </div>
             <div class="form-item">
@@ -58,8 +58,8 @@
             <div class="form-item">
                 <div class="title_lang">* 性别：<br>Gender</div>
                 <div class="content">
-                    <input name="gender" type="radio" value="" ng-model="gender" required/>男 Male
-                    <input name="gender" type="radio" value="" ng-model="gender1"  required/>女 Female
+                    <input name="gender" type="radio" value="" ng-model="s_regInfo.gender" />男 Male
+                    <input name="gender" type="radio" value="" ng-model="s_regInfo.gender" />女 Female
                     <!--<div class="error" ng-show="reg_form.gender.$dirty && reg_form.gender.$invalid">请选择性别</div>-->
                     <div class="error" ng-show="reg_form.gender.$dirty">
                         <span ng-show="reg_form.gender.$pristine || reg_form.gender.$pristine">请选择性别</span></div>
@@ -88,7 +88,7 @@
             <div class="form-item">
                 <div class="title_lang">* 母语：<br>Native language</div>
                 <div class="content">
-                    <select name="motherTongue" class="select" ng-model="student.motherTongue" required>
+                    <select name="motherTongue" class="select" ng-model="s_regInfo.motherTongue" required>
                         <option value="其它">其它</option>
                         <option value="China">China</option>
                         <option value="English">English</option>
