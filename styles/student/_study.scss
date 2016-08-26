@@ -30,8 +30,13 @@
         padding: 50px;
     }
     .key{
-        margin: 100px auto 0;
+        margin: 100px auto 100px;
         span{
+            border: 3px #ccc solid;
+        }
+        .numberkey{
+            display: inline-block;
+            width: 130px;
             border: 3px #ccc solid;
         }
     }

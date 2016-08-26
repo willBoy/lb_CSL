@@ -11,9 +11,8 @@
     <div class="main-wrapper" ng-show="true">
         <div class="title-1">
             <span class="title">课程列表</span>
-
             <div class="right">
-                <label>开课时间</label>
+                <!--<label>开课时间</label>
                 <select class="select">
                     <option>2016年6月</option>
                     <option>2016年8月</option>
@@ -21,7 +20,7 @@
                 </select>
                 <label>关键词</label>
                 <input type="text" class="input retrieval" placeholder="关键词" ng-model="conditions.common.outCallNo">
-                <span class="icons-search"></span>
+                <span class="icons-search"></span>-->
                 <span class="op btn-blue" ng-click="openPop('pop-class')">+ 加入课程</span>
                 <!--<span class="op btn-blue" ng-click="classList()">获取数据</span>-->
             </div>
@@ -45,7 +44,7 @@
                     <td ng-bind="s_course_list.classesStatus"></td>
                     <td>
                         <a ng-click="openPop('pop-continue')">开始学习</a>
-                        <a ng-click="openPop('pop-quit')">退出课程</a>
+                        <a ng-click="studentDel(classesID,s_course_list.id)">退出课程</a>
                     </td>
                 </tr>
             </table>

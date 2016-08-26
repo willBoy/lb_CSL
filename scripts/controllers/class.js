@@ -621,7 +621,7 @@ lbApp.controller('StudentDetailController', ['$scope','$routeParams', 'UtilsServ
 }]);
 
 //我的课程
-lbApp.controller('StudentCourseController', ['$scope', 'UtilsService', 'RequestService', function($scope, UtilsService, RequestService) {
+lbApp.controller('StudentCourseController', ['$scope','$routeParams', 'UtilsService', 'RequestService', function($scope, $routeParams, UtilsService, RequestService) {
     //
     "use strict";
     $scope.asideTab = {
@@ -638,6 +638,21 @@ lbApp.controller('StudentCourseController', ['$scope', 'UtilsService', 'RequestS
             $scope.s_myCourse = data.result;
         }
     })
+
+    //退出课程
+    $scope.studentDel = function(classesID,studentID){
+        RequestService.request({
+            token:'s_delCourse',
+            method:'POST',
+            data:UtilsService.serialize({classesId:classesID,studentId:studentID}),
+            success:function(){
+                alert("退出成功");
+            }
+        })
+
+    }
+
+
 }]);
 //我的课程详情
 lbApp.controller('StudentCourseDetailController', ['$scope', 'UtilsService', 'RequestService', function($scope, UtilsService, RequestService) {

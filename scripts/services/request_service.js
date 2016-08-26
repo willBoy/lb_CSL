@@ -47,6 +47,10 @@ lbApp.factory('RequestService', ['$http', 'UtilsService', function($http, UtilsS
         's_reg':'student/register',
         //学生端-登录
         's_login':'student/login',
+        //学生端-加入课程
+        's_addCourse':'student/addCourse',
+        //学生端-退出课程
+        's_delCourse':'student/delCourse/{classesId}',
         //检索习题
         't_exeIndex':'QuestionPronunciation/find',
         //添加习题
