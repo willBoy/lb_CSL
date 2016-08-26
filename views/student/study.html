@@ -2,19 +2,19 @@
     <span class="btn btn-blue exit" ng-click="utils.href('/student/course_detail')">edit</span>
     <div class="exercise">
         <h1>练习说明</h1>
-        <p>这行为中文的练习说明,这行为中文的练习说明,这行为中文的练习说明,这行为中文的练习说明,这行为中文的练习说明</p>
+        <p ng-bind="chapterInfo.descriptionCn"></p>
         <h1>Instructions</h1>
-        <p>这行为英文的练习说明,这行为英文的练习说明,这行为英文的练习说明,这行为英文的练习说明,这行为英文的练习说明,这行为英文的练习说明</p>
+        <p ng-bind="chapterInfo.descriptionEn"></p>
     </div>
-    <div class="container">
-        <div class="bar">
-        <span class="bar-unfill">
-            <span class="bar-fill"></span>
-        </span>
-        </div>
-    </div>
+    <!--<div class="container">-->
+        <!--<div class="bar">-->
+        <!--<span class="bar-unfill">-->
+            <!--<span class="bar-fill"></span>-->
+        <!--</span>-->
+        <!--</div>-->
+    <!--</div>-->
 
 </div>
 <div class="form-op">
-    <span class="op btn-blue" ng-click="utils.href('/student/study1')">下一步</span>
+    <span class="op btn-blue" ng-click="utils.href('/student/studyHelp')">下一步</span>
 </div>

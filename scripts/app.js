@@ -58,7 +58,7 @@ lbApp.config(['$routeProvider', '$locationProvider', '$httpProvider', function($
         })
         //老师注册
         .when('/t_register',{
-            templateUrl:'views/user/teacher_reg.html',
+            templateUrl:'views/user/teacherReg.html',
             controller:'t_RegController',
             showHeader:false
         })
@@ -170,15 +170,15 @@ lbApp.config(['$routeProvider', '$locationProvider', '$httpProvider', function($
         })
 
         //开始学习
-        .when('/student/study',{
+        .when('/student/study/:chapterID',{
             templateUrl:'views/student/study.html',
             controller:'StudyController',
             showHeader:false
         })
 
         //开始学习下一步
-        .when('/student/study1',{
-            templateUrl:'views/student/study1.html',
+        .when('/student/studyHelp',{
+            templateUrl:'views/student/studyHelp.html',
             controller:'Study1Controller',
             showHeader:false
         })

@@ -48,8 +48,8 @@ lbApp.controller('s_LoginController', ['$scope', 'UtilsService', 'RequestService
     "use strict";
     // 密码登录信息
     $scope.student_login = {
-        userName: '',
-        password: ''
+        userName: '3067586864@qq.com',
+        password: '123456789'
     };
 
 
@@ -96,7 +96,8 @@ lbApp.controller('t_RegController', ['$scope', '$rootScope', 'RequestService', '
         phoneNumber:'',
         email: '', // 邮箱
         password: '', // 密码
-        chineseName:''
+        chineseName:'',
+        schoolName:'北京大学'
     };
     /**
      * 注册
