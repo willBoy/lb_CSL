@@ -58,7 +58,7 @@ lbApp.config(['$routeProvider', '$locationProvider', '$httpProvider', function($
         })
         //ÀÏÊ¦×¢²á
         .when('/t_register',{
-            templateUrl:'views/user/teacher_reg.html',
+            templateUrl:'views/user/teacherReg.html',
             controller:'t_RegController',
             showHeader:false
         })
