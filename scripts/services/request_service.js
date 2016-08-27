@@ -14,7 +14,7 @@ lbApp.factory('RequestService', ['$http', 'UtilsService', function($http, UtilsS
         //保存班级设置
         't_classUpdate':'classes/update',
         //课程设置
-        't_classCourse':'classes/show',
+        't_classCourse':'course/show',
         //章节信息
         //'t_exe_List':'exercise/list',
         //登录
@@ -59,6 +59,8 @@ lbApp.factory('RequestService', ['$http', 'UtilsService', function($http, UtilsS
         't_exeIndex':'QuestionPronunciation/find',
         //添加习题
         't_addExe':'chapter/addChapterQuestion',
+        //删除习题
+        't_exe_del':'chapter/delQuestion/:id',
         //初始化试卷
         't_exercise_list':'exercise/:chapterId/list',
         //提取习题
@@ -66,7 +68,8 @@ lbApp.factory('RequestService', ['$http', 'UtilsService', function($http, UtilsS
         //提交习题答案
         's_exe_sub':'exercise/submit',
         //交卷
-        's_exe_submit':'exercise/submit/Chapter/:chapterExerciseId'
+        's_exe_submit':'exercise/submit/Chapter/:chapterExerciseId',
+
     };
     return {
         tokenMap: tokenMap,

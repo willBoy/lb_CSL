@@ -222,12 +222,13 @@ lbApp.controller('CourseController', ['$scope','$routeParams', 'UtilsService', '
     RequestService.request({
         token:'t_classCourse',
         method:'POST',
-        data:UtilsService.serialize({id:$routeParams.classID}),
+        data:UtilsService.serialize({courseId:$routeParams.courseID}),
         loading:true,
         success:function(data){
-            $scope.classCourse = data.course;
-            $scope.classCourse.classId = $routeParams.classID;
-            console.log($scope.classCourse);
+            console.log(data);
+            $scope.classCourse = data;
+            //$scope.classCourse.classId = $routeParams.classID;
+            //console.log($scope.classCourse);
             chapterList($scope.classCourse.id);
         }
     })
@@ -288,8 +289,6 @@ lbApp.controller('ChapterController', ['$scope','$routeParams', 'UtilsService', 
         method:'POST',
         data:UtilsService.serialize({id:$routeParams.chapterID}),
         success:function(data){
-            console.log(data);
-            console.log($routeParams);
             $scope.t_chapter = data;
             $scope.t_chapter.questionCount = '';
             $scope.t_chapter.classesId = $routeParams.classID;
@@ -363,16 +362,12 @@ lbApp.controller('ExerciseController', ['$scope','$routeParams', 'UtilsService',
 
     $scope.t_exerciseList = [];
 
-
-
-
     RequestService.request({
         token:'t_chapterShow',
         method:'POST',
         data:UtilsService.serialize({id:$routeParams.chapterID}),
         loading:true,
         success:function(data){
-            console.log(data);
             $scope.t_chapterInfo = data;
             t_exe_show();
         }
@@ -385,8 +380,23 @@ lbApp.controller('ExerciseController', ['$scope','$routeParams', 'UtilsService',
             data:UtilsService.serialize({chapterId:$routeParams.chapterID}),
             loading:true,
             success:function(data){
-                console.log(data);
+                console.log(data.result);
                 $scope.t_exerciseList = data.result;
+
+            }
+        });
+    }
+
+    $scope.exe_del = function(ID){
+        RequestService.request({
+            token:'t_exe_del',
+            method:'POST',
+            params:{id:ID},
+            loading:true,
+            success:function(data){
+                console.log(data.result);
+                location.reload();
+                //$scope.t_exerciseList = data.result;
             }
         });
     }
@@ -455,9 +465,6 @@ lbApp.controller('ExerciseAddController', ['$scope','$routeParams', 'UtilsServic
      */
     $scope.addExe = function(call) {
         var data = '';
-        //if (call) {
-        //    data = call.id;
-        //} else {
             for (var jid in $scope.selectedCallList) {
                 if ($scope.selectedCallList[jid]) {
                     data += '@@' + jid;
@@ -469,6 +476,8 @@ lbApp.controller('ExerciseAddController', ['$scope','$routeParams', 'UtilsServic
                 method:'POST',
                 data:UtilsService.serialize({questionIds:data,chapterId:$routeParams.chapterID}),
                 success:function(data){
+                    alert("添加习题成功");
+                    location.reload();
 
                 }
             })
@@ -737,9 +746,7 @@ lbApp.controller('StudentCourseDetailController', ['$scope','$routeParams', 'Uti
             data:UtilsService.serialize({courseId:param}),
             loading: true,
             success: function(data) {
-                /*console.log(data);*/
                 $scope.courseChapter = data.result;
-                /*console.log($scope.courseChapter)*/
             }
         });
     }
@@ -768,28 +775,28 @@ lbApp.controller('StudyController', ['$scope','$routeParams', 'UtilsService', 'R
         //音量校准
         if(NO==2){
             var musicAudio = document.getElementById("musicAudio");
-            window.setTimeout(function () {
                 musicAudio.play();
-            }, 1000);
         }
         if(NO == 3){
+            var musicAudio = document.getElementById("musicAudio");
+            musicAudio.pause();
             //键盘校准 1 ， 2 ， 3 ， 4 ， 回车
             document.onkeydown=function(event){
                 var e = event || window.event;
                 if(e && e.keyCode==49){ // 按 1
-                    $("#keyCode").find(".numberkey").removeClass("bgcolor-blue").eq(0).addClass("bgcolor-blue");
+                    $("#keyCode").find(".numberkey").eq(0).addClass("bgcolor-blue");
                 }
                 if(e && e.keyCode==50){ // 按 2
-                    $("#keyCode").find(".numberkey").removeClass("bgcolor-blue").eq(1).addClass("bgcolor-blue");
+                    $("#keyCode").find(".numberkey").eq(1).addClass("bgcolor-blue");
                 }
                 if(e && e.keyCode==51){ // 按 3
-                    $("#keyCode").find(".numberkey").removeClass("bgcolor-blue").eq(2).addClass("bgcolor-blue");
+                    $("#keyCode").find(".numberkey").eq(2).addClass("bgcolor-blue");
                 }
                 if(e && e.keyCode==52){ // 按 4
-                    $("#keyCode").find(".numberkey").removeClass("bgcolor-blue").eq(3).addClass("bgcolor-blue");
+                    $("#keyCode").find(".numberkey").eq(3).addClass("bgcolor-blue");
                 }
                 if(e && e.keyCode==13){ // 按 4
-                    $("#keyCode").find(".numberkey").removeClass("bgcolor-blue").eq(4).addClass("bgcolor-blue");
+                    $("#keyCode").find(".numberkey").eq(4).addClass("bgcolor-blue");
                 }
             };
         }

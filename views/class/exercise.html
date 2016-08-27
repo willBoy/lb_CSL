@@ -58,15 +58,15 @@
                 </tr>
                 <tr ng-repeat="t_exe_list in t_exerciseList">
                     <!--<td>1</td>-->
-                    <td ng-bind="t_exe_list.chsChars"></td>
-                    <td ng-bind="t_exe_list.tones"></td>
-                    <td ng-bind="t_exe_list.qingsheng"></td>
-                    <td ng-bind="t_exe_list.erhua"></td>
-                    <td ng-bind="t_exe_list.nbSyllables"></td>
-                    <td ng-bind="t_exe_list.speaker"></td>
-                    <td ng-bind="t_exe_list.hskLevel"></td>
+                    <td ng-bind="t_exe_list.pronunciationQuestions.chsChars"></td>
+                    <td ng-bind="t_exe_list.pronunciationQuestions.tones"></td>
+                    <td ng-bind="t_exe_list.pronunciationQuestions.qingsheng"></td>
+                    <td ng-bind="t_exe_list.pronunciationQuestions.erhua"></td>
+                    <td ng-bind="t_exe_list.pronunciationQuestions.nbSyllables"></td>
+                    <td ng-bind="t_exe_list.pronunciationQuestions.speaker"></td>
+                    <td ng-bind="t_exe_list.pronunciationQuestions.hskLevel"></td>
                     <td>
-                        <a ng-click="utils.href('')">删除</a>
+                        <a ng-click="exe_del(t_exe_list.id)">删除</a>
                     </td>
                 </tr>
             </table>
