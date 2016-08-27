@@ -1056,17 +1056,6 @@ lbApp.controller('StudyFinishController', ['$scope','$routeParams', 'UtilsServic
             var r_Code = data.rightCount/(data.rightCount+data.wrongCount);
             var b =  r_Code.toFixed(4);
             $scope.percentCode = b.slice(2,4)+"."+b.slice(4,6)+"%";
-
-
         }
     })
-
-
-    document.onkeydown=function(event){
-        if(event && event.keyCode==13){ // 按 回车
-           // UtilsService.href('/student/study_finish/'+$routeParams.exerciseID);
-        }
-    };
-
-
 }]);
