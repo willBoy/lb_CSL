@@ -20,7 +20,7 @@
         <div class="form-item">
             <div class="title">章节简介：</div>
             <div class="content">
-                <input type="text" class="input" name="name" ng-model="t_chapter.descriptionContent">
+                <input type="text" class="input" name="name" ng-model="t_chapter.descriptionCn">
             </div>
         </div>
         <div class="form-item">
@@ -39,7 +39,6 @@
                 <select class="select" name="voice_type" ng-model="t_chapter.orderNo" required>
                     <option value="0">顺序</option>
                     <option value="1">随机</option>
-                    <option ng-repeat="sound in soundList" value="{{ sound.id }}" ng-bind="sound.name"></option>
                 </select>
             </div>
         </div>
@@ -49,7 +48,6 @@
                 <select class="select" name="voice_type" ng-model="t_chapter.pattern" required>
                     <option value="0">错题重做一次</option>
                     <option value="1">错题重做到正确</option>
-                    <option ng-repeat="sound in soundList" value="{{ sound.id }}" ng-bind="sound.name"></option>
                 </select>
             </div>
         </div>

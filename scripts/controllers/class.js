@@ -60,8 +60,8 @@ lbApp.controller('ClassDetailController', ['$scope', '$routeParams', 'UtilsServi
         id:$routeParams.classID,
         name:'',
         courseName:'',
-        startTime:''
-        //status:'1'
+        startTime:'',
+        status:''
     };
 
     RequestService.request({
@@ -72,6 +72,7 @@ lbApp.controller('ClassDetailController', ['$scope', '$routeParams', 'UtilsServi
             $scope.classes.name = data.result[0].name;
             $scope.classes.courseName = data.result[0].courseName;
             $scope.classes.startTime = data.result[0].startTime;
+            $scope.classes.status = data.result[0].status + "";
         }
     });
 
@@ -289,8 +290,12 @@ lbApp.controller('ChapterController', ['$scope','$routeParams', 'UtilsService', 
         method:'POST',
         data:UtilsService.serialize({id:$routeParams.chapterID}),
         success:function(data){
+            console.log(data);
             $scope.t_chapter = data;
-            $scope.t_chapter.questionCount = '';
+            $scope.t_chapter.orderNo = data.orderNo + "";
+            $scope.t_chapter.pattern = data.pattern + "";
+            $scope.t_chapter.status = data.status + "";
+            $scope.t_chapter.descriptionCn = data.descriptionCn;
             $scope.t_chapter.classesId = $routeParams.classID;
         }
     });
@@ -572,16 +577,7 @@ lbApp.controller('StudentController', ['$scope','$routeParams', 'UtilsService', 
         remark:''
     };
 
-    $scope.submit11 = function(){
-        RequestService.request({
-            token:'',
-            method:'POST',
-            data:UtilsService.serialize({remark:$scope.studentInfo_r.remark})
-        })
 
-        alert("提交成功");
-        $scope.closePop('pop-Remarks');
-    }
     //班级学生
     $scope.class_student = [];
     $scope.classesID = $routeParams.classID;
@@ -605,6 +601,18 @@ lbApp.controller('StudentController', ['$scope','$routeParams', 'UtilsService', 
         })
 
     }
+    //学生备注
+    $scope.submitRemark = function(classesID,studentID){
+        RequestService.request({
+            token:'t_studentRemark',
+            method:'POST',
+            data:UtilsService.serialize({classesId:classesID,studentId:studentID,remark:$scope.studentInfo_r.remark})
+        })
+
+        alert("提交成功");
+        $scope.closePop('pop-Remarks');
+    }
+
 }]);
 //学生详情
 lbApp.controller('StudentDetailController', ['$scope','$routeParams', 'UtilsService', 'RequestService', function($scope,$routeParams, UtilsService, RequestService) {
@@ -905,11 +913,16 @@ lbApp.controller('StudyKeyingController', ['$scope', '$routeParams','UtilsServic
         success:function(data){
             console.log(data);
             chapterExercise(data);
-
         }
-
     });
         function chapterExercise(data){
+            $("#dududu").show();
+            $("#exerciseQ").hide();
+            setTimeout(function(){
+                $("#dududu").hide();
+                $("#exerciseQ").show();
+            },2000);
+
             $scope.exerciseInfo = data;
             $scope.execiseAnswer.chapterExerciseId = data.chapterExerciseId;
             $scope.execiseAnswer.exerciseId = data.id;
@@ -918,37 +931,24 @@ lbApp.controller('StudyKeyingController', ['$scope', '$routeParams','UtilsServic
                 var html = '<div class="answer_empty">'+'</div>';
             }else if($scope.exerciseInfo.questionsPronunciation.tones.length ==2){
                 var html = '<div class="key">'+
-                    '<div class="answer_empty">'+'</div>'
-                    +'</div>'
-                    +'<div class="key">'+
+                    '<div class="answer_empty">'+'</div>'+
                     '<div class="answer_empty">'+'</div>'
                     +'</div>';
             }else if($scope.exerciseInfo.questionsPronunciation.tones.length ==3){
                 var html = '<div class="key">'+
-                    '<div class="answer_empty">'+'</div>'
-                    +'</div>'
-                    +'<div class="key">'+
-                    '<div class="answer_empty">'+'</div>'
-                    +'</div>'
-                    +'<div class="key">'+
+                    '<div class="answer_empty">'+'</div>'+
+                    '<div class="answer_empty">'+'</div>'+
                     '<div class="answer_empty">'+'</div>'
                     +'</div>'
             }else if($scope.exerciseInfo.questionsPronunciation.tones.length ==4){
                 var html = '<div class="key">'+
-                    '<div class="answer_empty">'+'</div>'
-                    +'</div>'
-                    +'<div class="key">'+
-                    '<div class="answer_empty">'+'</div>'
-                    +'</div>'
-                    +'<div class="key">'+
-                    '<div class="answer_empty">'+'</div>'
-                    +'</div>'
-                    +'<div class="key">'+
+                    '<div class="answer_empty">'+'</div>'+
+                    '<div class="answer_empty">'+'</div>'+
+                    '<div class="answer_empty">'+'</div>'+
                     '<div class="answer_empty">'+'</div>'
                     +'</div>'
             }
-
-            var a = $scope.exerciseInfo.questionsPronunciation.tones.length;
+             $scope.lengthNum = $scope.exerciseInfo.questionsPronunciation.tones.length;
             $("#answer").html(html);
         }
         document.onkeydown=function(event){
@@ -972,15 +972,12 @@ lbApp.controller('StudyKeyingController', ['$scope', '$routeParams','UtilsServic
                     select(-1,4);
                 }
             }
-
         };
-
     function select(num,code){
-        var lengthNum = $scope.exerciseInfo.questionsPronunciation.tones.length;
-        lengthNum += num;
+        --$scope.lengthNum;
         var codeT='';
         codeT += code;
-        var i = $scope.exerciseInfo.questionsPronunciation.tones.length - lengthNum-1;
+        var i = $scope.exerciseInfo.questionsPronunciation.tones.length - $scope.lengthNum-1;
         var selectHtml = '<span class="icon icons-'+code+'"></span>';
         $("#answer").find('.answer_empty').eq(i).html(selectHtml);
         $scope.execiseAnswer.answerBody = codeT;
@@ -1002,7 +999,7 @@ lbApp.controller('StudyKeyingController', ['$scope', '$routeParams','UtilsServic
             for(var n in obj){return false}
             return true;
         }
-        if(lengthNum <= 0){
+        if($scope.lengthNum <= 0){
             console.log($scope.execiseAnswer);
             RequestService.request({
                 token:'s_exe_sub',
@@ -1051,6 +1048,8 @@ lbApp.controller('StudyFinishController', ['$scope','$routeParams', 'UtilsServic
             var r_Code = data.rightCount/(data.rightCount+data.wrongCount);
             var b =  r_Code.toFixed(4);
             $scope.percentCode = b.slice(2,4)+"."+b.slice(4,6)+"%";
+             $scope.ave_time = (data.endTime-data.startTime)/(data.rightCount+data.wrongCount);
+
         }
     })
 }]);

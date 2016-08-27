@@ -39,6 +39,7 @@ lbApp.factory('RequestService', ['$http', 'UtilsService', function($http, UtilsS
         't_student':'classes/findStudent',
         //学生个人信息
         't_studentInfo':'classes/showStudentInfo',
+        't_studentRemark':'classes/updateStudentMemo',
         //删除学生
         't_studentDel':'classes/delStudent',
         //学生端-我的课程列表
