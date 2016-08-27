@@ -262,12 +262,10 @@ lbApp.controller('CourseController', ['$scope','$routeParams', 'UtilsService', '
         RequestService.request({
             token:'t_chapterDel',
             method:'POST',
-            //params: {chapterId: ID},
-            data:UtilsService.serialize({chapterId:ID}),
+            params: {chapterId: ID},
             loading:true,
             success:function(data){
-                location.reload()
-                //UtilsService.href("/class/courseSetting/"+classID);
+                location.reload();
             }
         });
     }
