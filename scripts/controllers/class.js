@@ -629,14 +629,17 @@ lbApp.controller('StudentCourseController', ['$scope','$routeParams', 'UtilsServ
     // 绑定弹框事件
     UtilsService.initPop($scope);
     $scope.s_myCourse = [];
-    RequestService.request({
-        token:'s_course_list',
-        method:'GET',
-        success:function(data){
-            $scope.s_myCourse = data.result;
-            console.log($scope.s_myCourse)
-        }
-    })
+    $scope.s_courseList = function(){
+        RequestService.request({
+            token:'s_course_list',
+            method:'GET',
+            success:function(data){
+                $scope.s_myCourse = data.result;
+                console.log($scope.s_myCourse)
+            }
+        })
+    }
+
 
     //加入课程
     $scope.addCourse = function(sequenceNo){
@@ -650,6 +653,7 @@ lbApp.controller('StudentCourseController', ['$scope','$routeParams', 'UtilsServ
                 alert("加入课程成功");
                 $scope.closePop('pop-class');
                 UtilsService.href('/student/course');
+                $scope.s_courseList();
             }
         })
     }
@@ -666,6 +670,7 @@ lbApp.controller('StudentCourseController', ['$scope','$routeParams', 'UtilsServ
             success:function(data){
                 alert("退出成功");
                 //UtilsService.href("/class/courseSetting/"+classID);
+                $scope.s_courseList();
             }
         });
     }
