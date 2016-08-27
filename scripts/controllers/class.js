@@ -636,32 +636,115 @@ lbApp.controller('StudentCourseController', ['$scope','$routeParams', 'UtilsServ
         method:'GET',
         success:function(data){
             $scope.s_myCourse = data.result;
+            console.log($scope.s_myCourse)
         }
     })
+    //加入课程
+    $scope.addCourse = function(classesId){
+        RequestService.request({
+            token:'s_addCourse',
+            method:'POST',
+            data:UtilsService.serialize({sequenceNo:$scope.s_myCourse.sequenceNo}),
+            success:function(){
+                alert("加入课程成功");
+                $scope.closePop('pop-class');
+                UtilsService.href('/student/course');
+            }
+        })
+    }
+
 
     //退出课程
-    $scope.studentDel = function(classesID,studentID){
+    $scope.delCourse = function(classesId){
         RequestService.request({
             token:'s_delCourse',
             method:'POST',
-            data:UtilsService.serialize({classesId:classesID,studentId:studentID}),
+            data:UtilsService.serialize({classesId:$scope.s_myCourse.classesId}),
             success:function(){
                 alert("退出成功");
             }
         })
-
     }
 
-
 }]);
-//我的课程详情
-lbApp.controller('StudentCourseDetailController', ['$scope', 'UtilsService', 'RequestService', function($scope, UtilsService, RequestService) {
+
+/*//退出课程
+lbApp.controller('delCourseController', ['$scope','$routeParams', 'UtilsService', 'RequestService', function($scope, $routeParams, UtilsService, RequestService) {
     //
     "use strict";
     $scope.asideTab = {
         listName: 'navigation',
         tabName: 'tabName'
     };
+    //退出课程
+    RequestService.request({
+        token:'s_delCourse',
+        method:'POST',
+        data:UtilsService.serialize({id:$routeParams.classesId}),
+        loading:true,
+        success:function(data){
+            $scope.s_myCourse = data.result;
+            alert("退出成功");
+            UtilsService.href('/student/course');
+        }
+    });
+
+}]);*/
+
+
+//我的课程详情
+lbApp.controller('StudentCourseDetailController', ['$scope','$routeParams', 'UtilsService', 'RequestService', function($scope, $routeParams, UtilsService, RequestService) {
+    //
+    "use strict";
+    $scope.asideTab = {
+        listName: 'navigation',
+        tabName: 'tabName'
+    };
+    $scope.course = {
+        //课程名
+        name:'',
+        //课程简介
+        description:''
+    }
+    //课程信息
+    RequestService.request({
+        token:'s_course',
+        method:'post',
+        data:UtilsService.serialize({courseId:$routeParams.classID}),
+        success: function(data){
+            console.log(data);
+            $scope.course = data;
+            //$scope.course.description = data.description;
+
+            chapterList($scope.course.id);
+
+        }
+    });
+
+
+    $scope.courseChapter = []/*{
+        //章节号
+        chapter_no:'',
+        //章节名
+        name:'',
+        //章节内容介绍
+        description:''
+    }*/
+
+    // 请求章节列表数据
+    function chapterList(param){
+        RequestService.request({
+            token: 't_courseChapter',
+            method: 'GET',
+            data:UtilsService.serialize({courseId:param}),
+            loading: true,
+            success: function(data) {
+                /*console.log(data);*/
+                $scope.courseChapter = data.result;
+                /*console.log($scope.courseChapter)*/
+            }
+        });
+    }
 }]);
 
 //开始学习
