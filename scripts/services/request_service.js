@@ -50,7 +50,7 @@ lbApp.factory('RequestService', ['$http', 'UtilsService', function($http, UtilsS
         //学生端-加入课程
         's_addCourse':'student/addCourse',
         //学生端-退出课程
-        's_delCourse':'student/delCourse/{classesId}',
+        's_delCourse':'student/delCourse/:classesId',
         //学生端-章节信息
         's_course':'/course/show',
         /*//学生端-章节列表

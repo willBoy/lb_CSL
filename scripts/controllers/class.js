@@ -639,12 +639,15 @@ lbApp.controller('StudentCourseController', ['$scope','$routeParams', 'UtilsServ
             console.log($scope.s_myCourse)
         }
     })
+
     //加入课程
-    $scope.addCourse = function(classesId){
+    $scope.addCourse = function(sequenceNo){
         RequestService.request({
             token:'s_addCourse',
             method:'POST',
-            data:UtilsService.serialize({sequenceNo:$scope.s_myCourse.sequenceNo}),
+            /*params: {sequenceNo: sequenceNo},*/
+            strParams:'sequenceNo=' + sequenceNo,
+            data:UtilsService.serialize({sequenceNo:sequenceNo}),
             success:function(){
                 alert("加入课程成功");
                 $scope.closePop('pop-class');
@@ -655,41 +658,23 @@ lbApp.controller('StudentCourseController', ['$scope','$routeParams', 'UtilsServ
 
 
     //退出课程
+
     $scope.delCourse = function(classesId){
         RequestService.request({
             token:'s_delCourse',
             method:'POST',
-            data:UtilsService.serialize({classesId:$scope.s_myCourse.classesId}),
-            success:function(){
+            params: {classesId: classesId},
+            data:UtilsService.serialize({classesId:classesId}),
+            success:function(data){
                 alert("退出成功");
+                //UtilsService.href("/class/courseSetting/"+classID);
             }
-        })
+        });
     }
+
 
 }]);
 
-/*//退出课程
-lbApp.controller('delCourseController', ['$scope','$routeParams', 'UtilsService', 'RequestService', function($scope, $routeParams, UtilsService, RequestService) {
-    //
-    "use strict";
-    $scope.asideTab = {
-        listName: 'navigation',
-        tabName: 'tabName'
-    };
-    //退出课程
-    RequestService.request({
-        token:'s_delCourse',
-        method:'POST',
-        data:UtilsService.serialize({id:$routeParams.classesId}),
-        loading:true,
-        success:function(data){
-            $scope.s_myCourse = data.result;
-            alert("退出成功");
-            UtilsService.href('/student/course');
-        }
-    });
-
-}]);*/
 
 
 //我的课程详情
