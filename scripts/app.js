@@ -163,12 +163,23 @@ lbApp.config(['$routeProvider', '$locationProvider', '$httpProvider', function($
             showHeaderStudent:true
         })
         //课程详情
+        .when('/student/course_detail/:classID',{
+            templateUrl:'views/student/course_detail.html',
+            controller:'StudentCourseDetailController',
+            showHeader:true
+        })
+        /*//课程详情
         .when('/student/course_detail',{
             templateUrl:'views/student/course_detail.html',
             controller:'StudentCourseDetailController',
             showHeaderStudent:true
+        })*/
+        //退出课程
+        .when('/class/delCourse/:classID',{
+            templateUrl:'views/student/course_del.html',
+            controller:'delCourseController',
+            showHeader:true
         })
-
         //开始学习
         .when('/student/study/:chapterID',{
             templateUrl:'views/student/study.html',
