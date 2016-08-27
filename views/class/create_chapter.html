@@ -11,55 +11,63 @@
         </div>
     </div>
     <div class="main-wrapper" ng-show="true">
-        <div class="form-item">
-            <div class="title">章节主题：</div>
-            <div class="content">
-                <input type="text" class="input" name="name"  required ng-maxlength="30" ng-model="t_chapter.name">
-                <div class="error" ng-show="voice_robot_form.name.$dirty && voice_robot_form.name.$invalid">请输入章节主题</div>
+        <form name="newchapter_form" novalidate>
+            <div class="form-item">
+                <div class="title">章节主题：</div>
+                <div class="content">
+                    <input type="text" class="input" name="name"  required ng-maxlength="30" ng-model="t_chapter.name">
+                    <div class="error" ng-show="newchapter_form.name.$dirty && newchapter_form.name.$invalid">请输入章节主题</div>
+                </div>
             </div>
-        </div>
-        <div class="form-item">
-            <div class="title">章节简介：</div>
-            <div class="content">
-                <input type="text" class="input" name="name"  required ng-maxlength="30" ng-model="t_chapter.descriptionContent">
-                <div class="error" ng-show="voice_robot_form.name.$dirty && voice_robot_form.name.$invalid">请输入章节简介</div>
+            <div class="form-item">
+                <div class="title">章节简介：</div>
+                <div class="content">
+                    <input type="text" class="input" name="descriptionContent"  required ng-maxlength="30" ng-model="t_chapter.descriptionContent">
+                    <div class="error" ng-show="newchapter_form.descriptionContent.$dirty && newchapter_form.descriptionContent.$invalid">请输入章节简介</div>
+                </div>
             </div>
-        </div>
-        <div class="form-item">
-            <div class="title">章节状态：</div>
-            <div class="content">
-                <select class="select" name="voice_type" ng-model="t_chapter.status" required>
-                    <option value="0">准备中</option>
-                    <option value="1">已开放</option>
-                </select>
-                <pre  class="line-height-15 color-blue">学生只能看到已开放的章节</pre>
-                <div class="error" ng-show="voice_robot_form.voice_type.$dirty && voice_robot_form.voice_type.$invalid">请选择章节状态</div>
+            <div class="form-item">
+                <div class="title">章节状态：</div>
+                <div class="content">
+                    <select class="select" name="status" ng-model="t_chapter.status" required>
+                        <option value="0">准备中</option>
+                        <option value="1">已开放</option>
+                    </select>
+                    <pre  class="line-height-15 color-blue">学生只能看到已开放的章节</pre>
+                    <div class="error" ng-show="newchapter_form.status.$dirty && newchapter_form.status.$invalid">请选择章节状态</div>
+                </div>
             </div>
-        </div>
-        <div class="form-item">
-            <div class="title">呈现顺序：</div>
-            <div class="content">
-                <select class="select" name="voice_type" ng-model="t_chapter.orderNo" required>
-                    <option value="0">顺序</option>
-                    <option value="1">随机</option>
-                </select>
-                <div class="error" ng-show="voice_robot_form.voice_type.$dirty && voice_robot_form.voice_type.$invalid">请选择呈现模式</div>
+            <div class="form-item">
+                <div class="title">呈现顺序：</div>
+                <div class="content">
+                    <select class="select" name="orderNo" ng-model="t_chapter.orderNo" required>
+                        <option value="0">顺序</option>
+                        <option value="1">随机</option>
+                    </select>
+                    <div class="error" ng-show="newchapter_form.orderNo.$dirty && newchapter_form.orderNo.$invalid">请选择呈现模式</div>
+                </div>
             </div>
-        </div>
-        <div class="form-item">
-            <div class="title">练习流程：</div>
-            <div class="content">
-                <select class="select" name="voice_type" ng-model="t_chapter.pattern" required>
-                    <option value="1">错题重做一次</option>
-                    <option value="0">错题重做到正确</option>
-                </select>
-                <div class="error" ng-show="voice_robot_form.voice_type.$dirty && voice_robot_form.voice_type.$invalid">请选择流程模式</div>
+            <div class="form-item">
+                <div class="title">练习流程：</div>
+                <div class="content">
+                    <select class="select" name="pattern" ng-model="t_chapter.pattern" required>
+                        <option value="1">错题重做一次</option>
+                        <option value="0">错题重做到正确</option>
+                    </select>
+                    <div class="error" ng-show="newchapter_form.pattern.$dirty && newchapter_form.pattern.$invalid">请选择流程模式</div>
+                </div>
             </div>
-        </div>
-        <div class="form-op">
-            <span class="op btn-blue" ng-click="addChapter()">确认</span>
-            <span class="op btn-blue" ng-click="utils.href('/class/course')">取消</span>
-        </div>
+            <div class="form-op">
+                <span class="op btn-blue" ng-click="newchapter_form.name.$dirty = true;
+                                                    newchapter_form.descriptionContent.$dirty = true;
+                                                    newchapter_form.status.$dirty = true;
+                                                    newchapter_form.orderNo.$dirty = true;
+                                                    newchapter_form.pattern.$dirty = true;
+                                                    newchapter_form.$valid && addChapter()">确认</span>
+                <span class="op btn-blue" ng-click="utils.href('/class/course')">取消</span>
+            </div>
+        </form>
+
     </div>
 
 </div>
