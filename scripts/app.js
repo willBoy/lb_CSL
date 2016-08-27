@@ -222,7 +222,7 @@ lbApp.config(['$routeProvider', '$locationProvider', '$httpProvider', function($
             showHeader:false
         })
         //Íê³É
-        .when('/student/study_finish',{
+        .when('/student/study_finish/:exerciseID',{
             templateUrl:'views/student/study_finish.html',
             controller:'StudyFinishController',
             showHeader:false

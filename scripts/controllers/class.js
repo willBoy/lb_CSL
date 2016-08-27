@@ -826,84 +826,72 @@ lbApp.controller('StudyKeyingController', ['$scope', '$routeParams','UtilsServic
         params:{chapterExerciseId:$routeParams.exerciseID},
         success:function(data){
             console.log(data);
-            $scope.exerciseInfo = data;
-            $scope.execiseAnswer.chapterExerciseId = data.chapterExerciseId;
-            $scope.execiseAnswer.exerciseId = data.id;
-                if($scope.exerciseInfo.questionsPronunciation.tones.length ==1 ){
-                    var html = '<div class="answer_empty">'+'</div>';
-                }else if($scope.exerciseInfo.questionsPronunciation.tones.length ==2){
-                    var html = '<div class="key">'+
-                        '<div class="answer_empty">'+'</div>'
-                        +'</div>'
-                    +'<div class="key">'+
-                    '<div class="answer_empty">'+'</div>'
-                    +'</div>';
-                }else if($scope.exerciseInfo.questionsPronunciation.tones.length ==3){
-                    var html = '<div class="key">'+
-                        '<div class="answer_empty">'+'</div>'
-                        +'</div>'
-                    +'<div class="key">'+
-                        '<div class="answer_empty">'+'</div>'
-                        +'</div>'
-                    +'<div class="key">'+
-                        '<div class="answer_empty">'+'</div>'
-                        +'</div>'
-                }else if($scope.exerciseInfo.questionsPronunciation.tones.length ==4){
-                    var html = '<div class="key">'+
-                        '<div class="answer_empty">'+'</div>'
-                        +'</div>'
-                    +'<div class="key">'+
-                        '<div class="answer_empty">'+'</div>'
-                        +'</div>'
-                    +'<div class="key">'+
-                        '<div class="answer_empty">'+'</div>'
-                        +'</div>'
-                    +'<div class="key">'+
-                        '<div class="answer_empty">'+'</div>'
-                        +'</div>'
-                }
+            chapterExercise(data);
 
-                var a = $scope.exerciseInfo.questionsPronunciation.tones.length;
-                $("#answer").html(html);
         }
 
     });
+        function chapterExercise(data){
+            $scope.exerciseInfo = data;
+            $scope.execiseAnswer.chapterExerciseId = data.chapterExerciseId;
+            $scope.execiseAnswer.exerciseId = data.id;
+            $("#answer").html("");
+            if($scope.exerciseInfo.questionsPronunciation.tones.length ==1 ){
+                var html = '<div class="answer_empty">'+'</div>';
+            }else if($scope.exerciseInfo.questionsPronunciation.tones.length ==2){
+                var html = '<div class="key">'+
+                    '<div class="answer_empty">'+'</div>'
+                    +'</div>'
+                    +'<div class="key">'+
+                    '<div class="answer_empty">'+'</div>'
+                    +'</div>';
+            }else if($scope.exerciseInfo.questionsPronunciation.tones.length ==3){
+                var html = '<div class="key">'+
+                    '<div class="answer_empty">'+'</div>'
+                    +'</div>'
+                    +'<div class="key">'+
+                    '<div class="answer_empty">'+'</div>'
+                    +'</div>'
+                    +'<div class="key">'+
+                    '<div class="answer_empty">'+'</div>'
+                    +'</div>'
+            }else if($scope.exerciseInfo.questionsPronunciation.tones.length ==4){
+                var html = '<div class="key">'+
+                    '<div class="answer_empty">'+'</div>'
+                    +'</div>'
+                    +'<div class="key">'+
+                    '<div class="answer_empty">'+'</div>'
+                    +'</div>'
+                    +'<div class="key">'+
+                    '<div class="answer_empty">'+'</div>'
+                    +'</div>'
+                    +'<div class="key">'+
+                    '<div class="answer_empty">'+'</div>'
+                    +'</div>'
+            }
 
+            var a = $scope.exerciseInfo.questionsPronunciation.tones.length;
+            $("#answer").html(html);
+        }
         document.onkeydown=function(event){
             if(event && event.keyCode==49){ // 按 1
                 if($("#exerciseQ").is(":visible")){
-                    console.log(true);
                     select(-1,1);
-                }else{
-                    console.log(false);
                 }
-
             }
             if(event && event.keyCode==50){ // 按 2
                 if($("#exerciseQ").is(":visible")){
-                    console.log(true);
                     select(-1,2);
-                }else{
-                    console.log(false);
                 }
-
             }
             if(event && event.keyCode==51){ // 按 3
-
                 if($("#exerciseQ").is(":visible")){
-                    console.log(true);
                     select(-1,3);
-                }else{
-                    console.log(false);
                 }
             }
             if(event && event.keyCode==52){ // 按 4
-
                 if($("#exerciseQ").is(":visible")){
-                    console.log(true);
                     select(-1,4);
-                }else{
-                    console.log(false);
                 }
             }
 
@@ -931,73 +919,31 @@ lbApp.controller('StudyKeyingController', ['$scope', '$routeParams','UtilsServic
                 $scope.execiseAnswer.answer = false;
             }
         }
-
+        //判断是否为空
+        function isEmptyObject(obj){
+            for(var n in obj){return false}
+            return true;
+        }
         if(lengthNum <= 0){
+            console.log($scope.execiseAnswer);
             RequestService.request({
                 token:'s_exe_sub',
                 method:'POSt',
                 data:UtilsService.serialize($scope.execiseAnswer),
                 success:function(data){
-                    //console.log(data);
-                    if(!data){
-                    ///////////////////////////////////////////////////////////////////////////////////
-                        $("#dududu").show();
-                        $("#exerciseQ").hide();
-
-                        setTimeout(function(){
-                            $("#dududu").hide();
-                            $("#exerciseQ").show();
-                        },2000);
-
-
-                        RequestService.request({
-                            token:'s_chapterExercise',
-                            method:'GET',
-                            params:{chapterExerciseId:$routeParams.exerciseID},
-                            success:function(data){
-                                console.log(data);
-                                $scope.exerciseInfo = data;
-                                $scope.execiseAnswer.chapterExerciseId = data.chapterExerciseId;
-                                $scope.execiseAnswer.exerciseId = data.id;
-                                if($scope.exerciseInfo.questionsPronunciation.tones.length ==1 ){
-                                    var html = '<div class="answer_empty">'+'</div>';
-                                }else if($scope.exerciseInfo.questionsPronunciation.tones.length ==2){
-                                    var html =  '<div class="answer_empty">'+'</div>'
-                                        +'<div class="answer_empty">'+'</div>'
-                                }else if($scope.exerciseInfo.questionsPronunciation.tones.length ==3){
-                                    var html =  '<div class="answer_empty">'+'</div>'
-                                        +'<div class="answer_empty">'+'</div>'
-                                        +'<div class="answer_empty">'+'</div>'
-                                }else if($scope.exerciseInfo.questionsPronunciation.tones.length ==4){
-                                    var html =  '<div class="answer_empty">'+'</div>'
-                                        +'<div class="answer_empty">'+'</div>'
-                                        +'<div class="answer_empty">'+'</div>'
-                                        +'<div class="answer_empty">'+'</div>'
-                                }
-                                var a = $scope.exerciseInfo.questionsPronunciation.tones.length;
-                                $("#answer").html('');
-                                $("#answer").html(html);
-                            }
-
-                        });
-                    ///////////////////////////////////////////////////////////////////////////////////
-
-
+                    console.log(data);
+                    if(isEmptyObject(data)){
+                        //$scope.exe_submit();
+                        UtilsService.href('/student/study_finish/'+$routeParams.exerciseID);
+                    }else{
+                        chapterExercise(data);
                     }
+
                 }
             })
         }
     }
-    $scope.exe_submit = function(){
-        RequestService.request({
-            token:'s_exe_submit',
-            method:'POST',
-            params:{chapterExerciseId:$routeParams.exerciseID},
-            success:function(data){
-                console.log(data);
-            }
-        })
-    }
+
 
 }]);
 
@@ -1009,4 +955,35 @@ lbApp.controller('StudyErrorController', ['$scope', 'UtilsService', 'RequestServ
         listName: 'navigation',
         tabName: 'tabName'
     };
+}]);
+//完成做题
+lbApp.controller('StudyFinishController', ['$scope','$routeParams', 'UtilsService', 'RequestService', function($scope, $routeParams,UtilsService, RequestService) {
+    //
+    "use strict";
+    $scope.asideTab = {
+        listName: 'navigation',
+        tabName: 'tabName'
+    };
+    RequestService.request({
+        token:'s_exe_submit',
+        method:'POST',
+        params:{chapterExerciseId:$routeParams.exerciseID},
+        success:function(data){
+            $scope.exerciseResult = data;
+            var r_Code = data.rightCount/(data.rightCount+data.wrongCount);
+            var b =  r_Code.toFixed(4);
+            $scope.percentCode = b.slice(2,4)+"."+b.slice(4,6)+"%";
+
+
+        }
+    })
+
+
+    document.onkeydown=function(event){
+        if(event && event.keyCode==13){ // 按 回车
+           // UtilsService.href('/student/study_finish/'+$routeParams.exerciseID);
+        }
+    };
+
+
 }]);
