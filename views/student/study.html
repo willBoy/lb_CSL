@@ -1,20 +1,81 @@
-<div class="study text-align-center">
-    <span class="btn btn-blue exit" ng-click="utils.href('/student/course_detail')">edit</span>
-    <div class="exercise">
-        <h1>练习说明</h1>
-        <p ng-bind="chapterInfo.descriptionCn"></p>
-        <h1>Instructions</h1>
-        <p ng-bind="chapterInfo.descriptionEn"></p>
-    </div>
-    <!--<div class="container">-->
+<div ng-show="p_status == 1">
+    <div class="study text-align-center">
+        <span class="btn btn-blue exit" ng-click="utils.href('/student/course_detail')">edit</span>
+        <div class="exercise">
+            <h1>练习说明</h1>
+            <p ng-bind="chapterInfo.descriptionCn"></p>
+            <h1>Instructions</h1>
+            <p ng-bind="chapterInfo.descriptionEn"></p>
+        </div>
+        <!--<div class="container">-->
         <!--<div class="bar">-->
         <!--<span class="bar-unfill">-->
-            <!--<span class="bar-fill"></span>-->
+        <!--<span class="bar-fill"></span>-->
         <!--</span>-->
         <!--</div>-->
-    <!--</div>-->
+        <!--</div>-->
 
+    </div>
+    <div class="form-op">
+        <span class="op btn-blue" ng-click="pageS(2)" >下一步</span>
+    </div>
 </div>
-<div class="form-op">
-    <span class="op btn-blue" ng-click="utils.href('/student/studyHelp')">下一步</span>
+
+
+<!---------------------------------------------------------------------------------------- -->
+<div ng-show="p_status==2">
+<div class="study text-align-center">
+    <div class="exercise">
+        <h1>音量校准</h1>
+        <div class="volume">
+            <span class="icon icons-volume"></span>
+        </div>
+        <p>请将音量调整到合适大小</p>
+    </div>
+
+    <section id="music">
+        <audio id="musicAudio" preload="none" loop src="../../vendor/mp3/volume.mp3"/>
+    </section>
 </div>
+    <div class="form-op">
+        <span class="op btn-blue" ng-click="pageS(3)">下一步</span>
+    </div>
+</div>
+<!---------------------------------------------------------------------------------------->
+<div ng-show="p_status==3">
+<div class="study text-align-center">
+    <div class="exercise">
+        <h1>键盘校准</h1>
+        <div class="key" id="keyCode">
+            <span class="numberkey"><h1>1</h1></span>
+            <span class="numberkey"><h1>2</h1></span>
+            <span class="numberkey"><h1>3</h1></span>
+            <span class="numberkey"><h1>4</h1></span>
+            <span class="numberkey icon icons-enterkey"></span>
+        </div>
+        <p>请依次按下上述按键</p>
+        <!--<div class="form-op">
+            <span class="op btn-blue" ng-click="utils.href('/class/session')">下一步</span>
+        </div>-->
+    </div>
+</div>
+<div class="container">
+    <div class="form-op">
+        <span class="op btn-blue" ng-click="pageS(4)">下一步</span>
+    </div>
+</div>
+</div>
+<!----------------------------------------------------------------------------------------------------->
+<div ng-show="p_status==4">
+<div class="study text-align-center">
+    <div class="exercise">
+        <h1>请准备</h1>
+        <span class="icon icons-key1"></span>
+        <p>按回车键开始练习</p>
+    </div>
+    <div class="form-op">
+        <span class="op btn-blue" ng-click="utils.href('/student/study_keying/'+execiseID)">下一步</span>
+    </div>
+</div>
+</div>
+<!-- ------------------------------------------------------------------------------------------->

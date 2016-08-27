@@ -672,16 +672,78 @@ lbApp.controller('StudyController', ['$scope','$routeParams', 'UtilsService', 'R
         listName: 'navigation',
         tabName: 'tabName'
     };
+    //页面切换
+    $scope.p_status = '1';
+    //页面切换的状态码
+    $scope.pageStatus = {
+        '1':'1',
+        '2':'2',
+        '3':'3',
+        '4':'4'
+    }
+    $scope.pageS = function(NO){
+        //切换
+        $scope.p_status=$scope.pageStatus[NO];
+        //音量校准
+        if(NO==2){
+            var musicAudio = document.getElementById("musicAudio");
+            window.setTimeout(function () {
+                musicAudio.play();
+            }, 1000);
+        }
+        if(NO == 3){
+            //键盘校准 1 ， 2 ， 3 ， 4 ， 回车
+            document.onkeydown=function(event){
+                var e = event || window.event;
+                if(e && e.keyCode==49){ // 按 1
+                    $("#keyCode").find(".numberkey").removeClass("bgcolor-blue").eq(0).addClass("bgcolor-blue");
+                }
+                if(e && e.keyCode==50){ // 按 2
+                    $("#keyCode").find(".numberkey").removeClass("bgcolor-blue").eq(1).addClass("bgcolor-blue");
+                }
+                if(e && e.keyCode==51){ // 按 3
+                    $("#keyCode").find(".numberkey").removeClass("bgcolor-blue").eq(2).addClass("bgcolor-blue");
+                }
+                if(e && e.keyCode==52){ // 按 4
+                    $("#keyCode").find(".numberkey").removeClass("bgcolor-blue").eq(3).addClass("bgcolor-blue");
+                }
+                if(e && e.keyCode==13){ // 按 4
+                    $("#keyCode").find(".numberkey").removeClass("bgcolor-blue").eq(4).addClass("bgcolor-blue");
+                }
+            };
+        }
+        if(NO == 4){
+            document.onkeydown=function(event){
+                if(event && event.keyCode==13){ // 按 4
+                    alert(1);
+                    UtilsService.href('/student/study_keying/'+$routeParams.chapterID);
+                }
+            };
+
+        }
+
+    }
 
     RequestService.request({
         token:'t_chapterShow',
         method:'POST',
         data:UtilsService.serialize({id:$routeParams.chapterID}),
         success:function(data){
-            console.log(data);
             $scope.chapterInfo = data;
+            shengcheng();
         }
-    })
+    });
+
+    function shengcheng(){
+        RequestService.request({
+            token:'t_exercise_list',
+            method:'GET',
+            params:{chapterId:$routeParams.chapterID},
+            success:function(data){
+                $scope.execiseID = data;
+            }
+        })
+    }
 }]);
 
 //开始学习下一步
@@ -735,13 +797,208 @@ lbApp.controller('StudyPromptController', ['$scope', 'UtilsService', 'RequestSer
 }]);
 
 //按键选答案
-lbApp.controller('StudyKeyingController', ['$scope', 'UtilsService', 'RequestService', function($scope, UtilsService, RequestService) {
+lbApp.controller('StudyKeyingController', ['$scope', '$routeParams','UtilsService', 'RequestService', function($scope, $routeParams,UtilsService, RequestService) {
     //
     "use strict";
     $scope.asideTab = {
         listName: 'navigation',
         tabName: 'tabName'
     };
+    //练习
+    $scope.exerciseInfo = {};
+    //答题
+    $scope.execiseAnswer = {
+        chapterExerciseId:'',
+        exerciseId:'',
+        answer:'',
+        answerBody:''
+    };
+
+    setTimeout(function(){
+       $("#dududu").hide();
+       $("#exerciseQ").show();
+    },2000);
+
+
+    RequestService.request({
+        token:'s_chapterExercise',
+        method:'GET',
+        params:{chapterExerciseId:$routeParams.exerciseID},
+        success:function(data){
+            console.log(data);
+            $scope.exerciseInfo = data;
+            $scope.execiseAnswer.chapterExerciseId = data.chapterExerciseId;
+            $scope.execiseAnswer.exerciseId = data.id;
+                if($scope.exerciseInfo.questionsPronunciation.tones.length ==1 ){
+                    var html = '<div class="answer_empty">'+'</div>';
+                }else if($scope.exerciseInfo.questionsPronunciation.tones.length ==2){
+                    var html = '<div class="key">'+
+                        '<div class="answer_empty">'+'</div>'
+                        +'</div>'
+                    +'<div class="key">'+
+                    '<div class="answer_empty">'+'</div>'
+                    +'</div>';
+                }else if($scope.exerciseInfo.questionsPronunciation.tones.length ==3){
+                    var html = '<div class="key">'+
+                        '<div class="answer_empty">'+'</div>'
+                        +'</div>'
+                    +'<div class="key">'+
+                        '<div class="answer_empty">'+'</div>'
+                        +'</div>'
+                    +'<div class="key">'+
+                        '<div class="answer_empty">'+'</div>'
+                        +'</div>'
+                }else if($scope.exerciseInfo.questionsPronunciation.tones.length ==4){
+                    var html = '<div class="key">'+
+                        '<div class="answer_empty">'+'</div>'
+                        +'</div>'
+                    +'<div class="key">'+
+                        '<div class="answer_empty">'+'</div>'
+                        +'</div>'
+                    +'<div class="key">'+
+                        '<div class="answer_empty">'+'</div>'
+                        +'</div>'
+                    +'<div class="key">'+
+                        '<div class="answer_empty">'+'</div>'
+                        +'</div>'
+                }
+
+                var a = $scope.exerciseInfo.questionsPronunciation.tones.length;
+                $("#answer").html(html);
+        }
+
+    });
+
+        document.onkeydown=function(event){
+            if(event && event.keyCode==49){ // 按 1
+                if($("#exerciseQ").is(":visible")){
+                    console.log(true);
+                    select(-1,1);
+                }else{
+                    console.log(false);
+                }
+
+            }
+            if(event && event.keyCode==50){ // 按 2
+                if($("#exerciseQ").is(":visible")){
+                    console.log(true);
+                    select(-1,2);
+                }else{
+                    console.log(false);
+                }
+
+            }
+            if(event && event.keyCode==51){ // 按 3
+
+                if($("#exerciseQ").is(":visible")){
+                    console.log(true);
+                    select(-1,3);
+                }else{
+                    console.log(false);
+                }
+            }
+            if(event && event.keyCode==52){ // 按 4
+
+                if($("#exerciseQ").is(":visible")){
+                    console.log(true);
+                    select(-1,4);
+                }else{
+                    console.log(false);
+                }
+            }
+
+        };
+
+    function select(num,code){
+        var lengthNum = $scope.exerciseInfo.questionsPronunciation.tones.length;
+        lengthNum += num;
+        var codeT='';
+        codeT += code;
+        var i = $scope.exerciseInfo.questionsPronunciation.tones.length - lengthNum-1;
+        var selectHtml = '<span class="icon icons-'+code+'"></span>';
+        $("#answer").find('.answer_empty').eq(i).html(selectHtml);
+        $scope.execiseAnswer.answerBody = codeT;
+        if(i=0){
+            if($scope.exerciseInfo.questionsPronunciation.tones == code){
+                $scope.execiseAnswer.answer = true;
+            }else{
+                $scope.execiseAnswer.answer = false;
+            }
+        }else{
+            if($scope.exerciseInfo.questionsPronunciation.tones == codeT){
+                $scope.execiseAnswer.answer = true;
+            }else{
+                $scope.execiseAnswer.answer = false;
+            }
+        }
+
+        if(lengthNum <= 0){
+            RequestService.request({
+                token:'s_exe_sub',
+                method:'POSt',
+                data:UtilsService.serialize($scope.execiseAnswer),
+                success:function(data){
+                    //console.log(data);
+                    if(!data){
+                    ///////////////////////////////////////////////////////////////////////////////////
+                        $("#dududu").show();
+                        $("#exerciseQ").hide();
+
+                        setTimeout(function(){
+                            $("#dududu").hide();
+                            $("#exerciseQ").show();
+                        },2000);
+
+
+                        RequestService.request({
+                            token:'s_chapterExercise',
+                            method:'GET',
+                            params:{chapterExerciseId:$routeParams.exerciseID},
+                            success:function(data){
+                                console.log(data);
+                                $scope.exerciseInfo = data;
+                                $scope.execiseAnswer.chapterExerciseId = data.chapterExerciseId;
+                                $scope.execiseAnswer.exerciseId = data.id;
+                                if($scope.exerciseInfo.questionsPronunciation.tones.length ==1 ){
+                                    var html = '<div class="answer_empty">'+'</div>';
+                                }else if($scope.exerciseInfo.questionsPronunciation.tones.length ==2){
+                                    var html =  '<div class="answer_empty">'+'</div>'
+                                        +'<div class="answer_empty">'+'</div>'
+                                }else if($scope.exerciseInfo.questionsPronunciation.tones.length ==3){
+                                    var html =  '<div class="answer_empty">'+'</div>'
+                                        +'<div class="answer_empty">'+'</div>'
+                                        +'<div class="answer_empty">'+'</div>'
+                                }else if($scope.exerciseInfo.questionsPronunciation.tones.length ==4){
+                                    var html =  '<div class="answer_empty">'+'</div>'
+                                        +'<div class="answer_empty">'+'</div>'
+                                        +'<div class="answer_empty">'+'</div>'
+                                        +'<div class="answer_empty">'+'</div>'
+                                }
+                                var a = $scope.exerciseInfo.questionsPronunciation.tones.length;
+                                $("#answer").html('');
+                                $("#answer").html(html);
+                            }
+
+                        });
+                    ///////////////////////////////////////////////////////////////////////////////////
+
+
+                    }
+                }
+            })
+        }
+    }
+    $scope.exe_submit = function(){
+        RequestService.request({
+            token:'s_exe_submit',
+            method:'POST',
+            params:{chapterExerciseId:$routeParams.exerciseID},
+            success:function(data){
+                console.log(data);
+            }
+        })
+    }
+
 }]);
 
 //错误提示

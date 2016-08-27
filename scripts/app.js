@@ -209,7 +209,7 @@ lbApp.config(['$routeProvider', '$locationProvider', '$httpProvider', function($
         })
 
         //°´¼üÑ¡´ð°¸
-        .when('/student/study_keying',{
+        .when('/student/study_keying/:exerciseID',{
             templateUrl:'views/student/study_keying.html',
             controller:'StudyKeyingController',
             showHeader:false
