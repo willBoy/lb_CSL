@@ -58,7 +58,15 @@ lbApp.factory('RequestService', ['$http', 'UtilsService', function($http, UtilsS
         //检索习题
         't_exeIndex':'QuestionPronunciation/find',
         //添加习题
-        't_addExe':'chapter/addChapterQuestion'
+        't_addExe':'chapter/addChapterQuestion',
+        //初始化试卷
+        't_exercise_list':'exercise/:chapterId/list',
+        //提取习题
+        's_chapterExercise':'exercise/:chapterExerciseId',
+        //提交习题答案
+        's_exe_sub':'exercise/submit',
+        //交卷
+        's_exe_submit':'exercise/submit/Chapter/:chapterExerciseId'
     };
     return {
         tokenMap: tokenMap,

@@ -3,8 +3,8 @@ lbApp.controller('LoginController', ['$scope', 'UtilsService', 'RequestService',
     "use strict";
     // 密码登录信息
     $scope.pwdLoginInfo = {
-        userName: '',
-        password: ''
+        userName: '531402593@qq.com',
+        password: '12345678w'
     };
 
 

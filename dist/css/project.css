@@ -2035,6 +2035,9 @@ UtilsService.genTab($scope, tabName)
 .study .key span {
   border: 3px #ccc solid;
 }
+#answer span {
+  border: 3px #ccc solid;
+}
 .study .key .numberkey {
   display: inline-block;
   width: 130px;
