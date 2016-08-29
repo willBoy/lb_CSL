@@ -20,6 +20,7 @@ lbApp.directive('lbHeaderDirective', function() {
                     });
                 }, 300);
             };
+
         }
     };
 });

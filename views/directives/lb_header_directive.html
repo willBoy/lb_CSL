@@ -11,11 +11,10 @@
     <div id="main-status">
         <div class="user icon icons-user" ng-mouseover="showUserOp()" ng-mouseleave="hideUserOp()">
             <div class="user-op menu-list-1" ng-show="userOpIsShow" ng-mouseover="showUserOp()" ng-mouseleave="hideUserOp()">
-                <div class="item">帐户信息</div>
-                <div class="item">姓名：张金</div>
-                <div class="item">学校：北京大学</div>
+                <div class="item" ng-click="utils.href('/s_profile')">帐户信息</div>
                 <div class="item-cursor color-blue">修改密码</div>
             </div>
+
         </div>
         <div class="user exit" ng-click="logout()">退出</div>
     </div>

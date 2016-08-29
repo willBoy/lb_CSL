@@ -3,9 +3,7 @@
     <div id="main-title">
         <div class="title font-size-huge font-weight-200">课程详情</div>
         <div class="font-size-normal ">
-            <em class="path" ng-click="utils.href('/')">首页</em>
-            <em> / </em>
-            <em class="path" ng-click="utils.href('/student/class')">我的课程</em>
+            <em class="path" ng-click="utils.href('/student/course')">我的课程</em>
             <em> / </em>
             <em class="last">课程详情</em>
         </div>
@@ -19,7 +17,7 @@
                 <span class="font-size-16">课程名称：<span ng-bind="course.name"></span></span>
             </div>
             <div class="clearfix">
-                <span class="font-size-small intro left"><b>课程简介 : </b><span ng-bind="course.descriptionContent"></span></span>
+                <span class="font-size-small intro left"><b>课程简介 : </b><span ng-bind="course.description"></span></span>
             </div>
         </div>
     </div>
@@ -42,7 +40,7 @@
                     <td ng-bind="s_courseChapter_list.descriptionContent"></td>
                     <!--<td ng-bind="s_courseChapter_list.chapterNo">98%</td>-->
                     <td>
-                        <a ng-click="utils.href('student/study/'+'6f3874f564494ef4986ba2080ffc3640')">开始练习</a>
+                        <a ng-click="utils.href('/student/study/'+s_courseChapter_list.id)">开始练习</a>
                     </td>
                 </tr>
             </table>
