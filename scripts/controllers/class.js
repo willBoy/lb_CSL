@@ -337,12 +337,12 @@ lbApp.controller('CreateChapterController', ['$scope','$routeParams', 'UtilsServ
         pattern:''
     };
 
-
-    $scope.addChapter = function(){
-        console.log($scope.t_chapter);
+    $scope.addChapter = function(t_chapter){
+       /* console.log($scope.t_chapter);*/
         RequestService.request({
             token:'t_addChapter',
             method:'POST',
+            strParams:'name=' + t_chapter.name + '&descriptionContent='+t_chapter.descriptionContent + '&courseId='+t_chapter.courseId+'&classesId='+t_chapter.classesId,
             data:UtilsService.serialize($scope.t_chapter),
             loading:'true',
             success:function(data){

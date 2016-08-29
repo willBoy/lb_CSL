@@ -118,7 +118,7 @@ lbApp.config(['$routeProvider', '$locationProvider', '$httpProvider', function($
             showHeader:true
         })
         //新建章节
-        .when('/class/create_chapter/:courseID/:classID',{
+        .when('/class/create_chapter/',{
             templateUrl:'views/class/create_chapter.html',
             controller:'CreateChapterController',
             showHeader:true
@@ -175,11 +175,11 @@ lbApp.config(['$routeProvider', '$locationProvider', '$httpProvider', function($
             showHeaderStudent:true
         })*/
         //退出课程
-        .when('/class/delCourse/:classID',{
+        /*.when('/class/delCourse/:classID',{
             templateUrl:'views/student/course_del.html',
             controller:'delCourseController',
             showHeader:true
-        })
+        })*/
         //开始学习
         .when('/student/study/:chapterID',{
             templateUrl:'views/student/study.html',
