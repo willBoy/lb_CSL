@@ -26,6 +26,7 @@ lbApp.controller('ClassListController', ['$scope', 'UtilsService', 'RequestServi
             $scope.t_classListArr = data.result;
             $scope.total = data.total;
             console.log($scope.t_classListArr);
+            console.log($scope.t_classListArr.courseId);
         }
     });
 
@@ -142,36 +143,33 @@ lbApp.controller('CreateClassController', ['$scope', 'UtilsService', 'RequestSer
         listName: 'navigation',
         tabName: 'tabName'
     };
-
-    // 任务信息
-    $scope.taskInfo = {
-        // 开始时间
-        startTime: '',
-        // 结束时间
-        endTime: '',
-    };
+    //班级信息
     $scope.classes ={
         //班级名称
         name:'',
         //课程名称
         courseName:'',
+        // 课程简介
+        description:'',
         //开课时间
         startTime:''
         //班级状态
         //status:''
     };
+
     $scope.classAdd = function(){
         RequestService.request({
             token:'t_classAdd',
             method:'POST',
-            loading:true,
             data: UtilsService.serialize($scope.classes),
+            /*strParams:'name'+classes.name+'courseName=' + classes.courseName + '&startTime='+classes.startTime,*/
             success: function (data) {
+                console.log(data);
+                alert("创建班级成功");
                 UtilsService.href('/classList');
             }
         })
-    }
-
+    };
     function initDatePicker(startTimeArray, endTimeArray) {
         // 选择开始日期
         $('#time-start').jdatepicker({
@@ -189,6 +187,7 @@ lbApp.controller('CreateClassController', ['$scope', 'UtilsService', 'RequestSer
                     checkTime();
                 });
             }
+
         });
     }
     var now = new Date(),
@@ -197,7 +196,8 @@ lbApp.controller('CreateClassController', ['$scope', 'UtilsService', 'RequestSer
 
     function checkTime() {
         // 是否填写了开始时间
-        if (!$scope.taskInfo.startTime) {
+
+        if (!$scope.classes.startTime) {
             $scope.dateError = '请选择开始日期';
             $scope.showDateError = true;
             return false;
@@ -206,7 +206,7 @@ lbApp.controller('CreateClassController', ['$scope', 'UtilsService', 'RequestSer
         $scope.showDateError = false;
         return true;
     }
-
+    /*$scope.showDateError = false;*/
 }]);
 
 //课程管理
@@ -218,21 +218,24 @@ lbApp.controller('CourseController', ['$scope','$routeParams', 'UtilsService', '
         tabName: 'tabName'
     };
     //班级课程
-    $scope.classCourse={};
+    $scope.classCourse={
+        courseName:'',
+        description:''
+    };
+
     //课程详情
     RequestService.request({
         token:'t_classCourse',
         method:'POST',
-        data:UtilsService.serialize({courseId:$routeParams.courseID}),
-        loading:true,
+        strParams:'courseId='+$routeParams.courseID,
         success:function(data){
-            console.log(data);
             $scope.classCourse = data;
-            //$scope.classCourse.classId = $routeParams.classID;
-            //console.log($scope.classCourse);
-            chapterList($scope.classCourse.id);
+            console.log(data);
+            console.log($routeParams.courseID);
+            chapterList($routeParams.courseID);
         }
     })
+
     //章节列表
     $scope.classCourseChapter = [];
     $scope.orderNoMap ={
@@ -251,8 +254,9 @@ lbApp.controller('CourseController', ['$scope','$routeParams', 'UtilsService', '
         RequestService.request({
             token:'t_courseChapter',
             method:'GET',
-            data:UtilsService.serialize({id:param}),
-            loading:true,
+            strParams:'courseId=' + param,
+            /*data:UtilsService.serialize({courseId:param}),
+            loading:true,*/
             success:function(data){
                 console.log(data);
                 $scope.classCourseChapter = data.result;
@@ -308,8 +312,8 @@ lbApp.controller('ChapterController', ['$scope','$routeParams', 'UtilsService', 
             method:'POST',
             data:UtilsService.serialize($scope.t_chapter),
             success:function(data){
-                console.log(data);
-                UtilsService.href("/class/courseSetting/"+data);
+                console.log(data.courseId);
+                UtilsService.href("/class/courseSetting/"+data.courseId);
             }
         });
     }
@@ -336,6 +340,18 @@ lbApp.controller('CreateChapterController', ['$scope','$routeParams', 'UtilsServ
         orderNo:'',
         pattern:''
     };
+
+    RequestService.request({
+        token:'t_addChapter',
+        method:'POST',
+        strParams:'courseId='+$routeParams.courseID,
+        success:function(data){
+            $scope.classCourse = data;
+            console.log(data);
+            console.log($routeParams.courseID);
+            chapterList($routeParams.courseID);
+        }
+    })
 
     $scope.addChapter = function(t_chapter){
        /* console.log($scope.t_chapter);*/
