@@ -646,16 +646,14 @@ lbApp.controller('StudentCourseController', ['$scope','$routeParams', 'UtilsServ
     // 绑定弹框事件
     UtilsService.initPop($scope);
     $scope.s_myCourse = [];
-    $scope.s_courseList = function(){
-        RequestService.request({
-            token:'s_course_list',
-            method:'GET',
-            success:function(data){
-                $scope.s_myCourse = data.result;
-                console.log($scope.s_myCourse)
-            }
-        })
-    }
+    RequestService.request({
+        token:'s_course_list',
+        method:'GET',
+        success:function(data){
+            $scope.s_myCourse = data.result;
+            console.log($scope.s_myCourse)
+        }
+    });
 
 
     //加入课程
@@ -712,17 +710,15 @@ lbApp.controller('StudentCourseDetailController', ['$scope','$routeParams', 'Uti
         description:''
     }
     //课程信息
+    console.log($routeParams.classID);
     RequestService.request({
         token:'s_course',
         method:'post',
-        data:UtilsService.serialize({courseId:$routeParams.classID}),
+        data:UtilsService.serialize({courseId:$routeParams.courseID}),
         success: function(data){
             console.log(data);
             $scope.course = data;
-            //$scope.course.description = data.description;
-
-            chapterList($scope.course.id);
-
+            s_chapterList($scope.course.id);
         }
     });
 
@@ -737,13 +733,14 @@ lbApp.controller('StudentCourseDetailController', ['$scope','$routeParams', 'Uti
     }*/
 
     // 请求章节列表数据
-    function chapterList(param){
+    function s_chapterList(courseID){
         RequestService.request({
             token: 't_courseChapter',
             method: 'GET',
-            data:UtilsService.serialize({courseId:param}),
+            data:UtilsService.serialize({courseId:courseID}),
             loading: true,
             success: function(data) {
+                console.log(data);
                 $scope.courseChapter = data.result;
             }
         });

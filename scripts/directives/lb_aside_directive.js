@@ -21,31 +21,12 @@ lbApp.directive('lbAsideDirective',function() {
                         url:'',
                         icon:''
                     },
-                    /*{
-                        name:'course',
-                        value:'课程管理',
-                        url:'/course',
-                        icon:''
-                    },*/
                     {
                         name:'realTimeTool',
                         value:'实用工具',
-                        /*temp:'实用工具',*/
                         url:'',
                         icon:''
                     },
-                    /*{
-                        name: 'register',
-                        value: '注册',
-                        url: '/register',
-                        icon: 'icons-user'
-                    },
-                    {
-                        name: 'login',
-                        value: '登录',
-                        url: '/login',
-                        icon: 'icons-user'
-                    }*/
                 ],
                 account: [
                     {

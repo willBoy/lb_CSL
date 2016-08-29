@@ -163,7 +163,7 @@ lbApp.config(['$routeProvider', '$locationProvider', '$httpProvider', function($
             showHeaderStudent:true
         })
         //ฟฮณฬฯ๊ว้
-        .when('/student/course_detail/:classID',{
+        .when('/student/course_detail/:courseID',{
             templateUrl:'views/student/course_detail.html',
             controller:'StudentCourseDetailController',
             showHeader:true
