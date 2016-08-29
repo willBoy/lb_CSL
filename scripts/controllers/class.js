@@ -692,6 +692,7 @@ lbApp.controller('StudentCourseController', ['$scope','$routeParams', 'UtilsServ
             data:UtilsService.serialize({classesId:classesId}),
             success:function(data){
                 alert("退出成功");
+                location.reload();
                 //UtilsService.href("/class/courseSetting/"+classID);
                 $scope.s_courseList();
             }
@@ -907,7 +908,7 @@ lbApp.controller('StudyKeyingController', ['$scope', '$routeParams','UtilsServic
     setTimeout(function(){
        $("#dududu").hide();
        $("#exerciseQ").show();
-    },2000);
+    },500);
 
 
     RequestService.request({
@@ -922,19 +923,26 @@ lbApp.controller('StudyKeyingController', ['$scope', '$routeParams','UtilsServic
         function chapterExercise(data){
             $("#dududu").show();
             $("#exerciseQ").hide();
-            var dududu_Audio = document.getElementById('dududu_Audio');
-            dududu_Audio.play();
-            dududu_Audio.addEventListener('ended',function(){
-                setTimeout(function(){
-                    $("#dududu").hide();
-                    $("#exerciseQ").show();
-                },500);
-            },false);
 
 
             $scope.exerciseInfo = data;
             $scope.execiseAnswer.chapterExerciseId = data.chapterExerciseId;
             $scope.execiseAnswer.exerciseId = data.id;
+            var filePath = $scope.exerciseInfo.questionsPronunciation.filePath.substr(12);
+            //$scope.musicSrc = '';
+            $scope.musicSrc = '../../vendor/mp3/'+$scope.exerciseInfo.questionsPronunciation.filePath.substr(12);
+            console.log($scope.musicSrc);
+
+            var dududu_Audio = document.getElementById('dududu_Audio');
+            dududu_Audio.play();
+            var musicAudio = document.getElementById('musicAuto');
+            dududu_Audio.addEventListener('ended',function(){
+                setTimeout(function(){
+                    $("#dududu").hide();
+                    $("#exerciseQ").show();
+                    musicAudio.play();
+                },500);
+            },false);
             $("#answer").html("");
             if($scope.exerciseInfo.questionsPronunciation.tones.length ==1 ){
                 var html = '<div class="answer_empty">'+'</div>';
@@ -1057,7 +1065,13 @@ lbApp.controller('StudyFinishController', ['$scope','$routeParams', 'UtilsServic
             var r_Code = data.rightCount/(data.rightCount+data.wrongCount);
             var b =  r_Code.toFixed(4);
             $scope.percentCode = b.slice(2,4)+"."+b.slice(4,6)+"%";
-             $scope.ave_time = (data.endTime-data.startTime)/(data.rightCount+data.wrongCount);
+                var startTime = data.startTimeStr;
+                var endTime = data.endTimeStr;
+                var startT_date = new Date(startTime);
+                var endT_date = new Date(endTime);
+                var m=parseInt(Math.abs(endT_date-startT_date));
+                console.log(m);
+             $scope.ave_time = m/(data.rightCount+data.wrongCount);
 
         }
     })
