@@ -68,6 +68,8 @@ lbApp.controller('s_LoginController', ['$scope', 'UtilsService', 'RequestService
             method: 'POST',
             data: UtilsService.serialize($scope.student_login),
             success: function(data) {
+                console.log(data);
+                $scope.dataTest = data;
                 UtilsService.href('/student/course');
             }
         });

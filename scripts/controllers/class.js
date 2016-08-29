@@ -251,7 +251,7 @@ lbApp.controller('CourseController', ['$scope','$routeParams', 'UtilsService', '
         RequestService.request({
             token:'t_courseChapter',
             method:'GET',
-            data:UtilsService.serialize({id:param}),
+            data:UtilsService.serialize({courseId:param}),
             loading:true,
             success:function(data){
                 console.log(data);
@@ -329,7 +329,6 @@ lbApp.controller('CreateChapterController', ['$scope','$routeParams', 'UtilsServ
     //章节
     $scope.t_chapter = {
         courseId:$routeParams.courseID,
-        classesId:$routeParams.classID,
         name:'',
         descriptionContent:'',
         status:'',
@@ -338,15 +337,16 @@ lbApp.controller('CreateChapterController', ['$scope','$routeParams', 'UtilsServ
     };
 
     $scope.addChapter = function(t_chapter){
-       /* console.log($scope.t_chapter);*/
+        console.log(t_chapter);
         RequestService.request({
             token:'t_addChapter',
             method:'POST',
-            strParams:'name=' + t_chapter.name + '&descriptionContent='+t_chapter.descriptionContent + '&courseId='+t_chapter.courseId+'&classesId='+t_chapter.classesId,
+            //strParams:'name=' + t_chapter.name + '&descriptionContent='+t_chapter.descriptionContent + '&courseId='+t_chapter.courseId,
             data:UtilsService.serialize($scope.t_chapter),
             loading:'true',
             success:function(data){
                 console.log(data);
+                alert("创建章节成功");
                 //Utils.href('/class/courseSetting/');
                 UtilsService.href('/class/courseSetting/'+data)
             }
@@ -643,6 +643,15 @@ lbApp.controller('StudentCourseController', ['$scope','$routeParams', 'UtilsServ
         listName: 'navigation',
         tabName: 'tabName'
     };
+
+    //课程状态
+    $scope.classesStatusMap = {
+        '0':'未开课',
+        '1':'开课中',
+        '2':'已完结'
+    }
+
+
     // 绑定弹框事件
     UtilsService.initPop($scope);
     $scope.s_myCourse = [];
@@ -661,14 +670,13 @@ lbApp.controller('StudentCourseController', ['$scope','$routeParams', 'UtilsServ
         RequestService.request({
             token:'s_addCourse',
             method:'POST',
-            /*params: {sequenceNo: sequenceNo},*/
-            strParams:'sequenceNo=' + sequenceNo,
             data:UtilsService.serialize({sequenceNo:sequenceNo}),
             success:function(){
                 alert("加入课程成功");
                 $scope.closePop('pop-class');
-                UtilsService.href('/student/course');
-                $scope.s_courseList();
+                location.reload();
+                //UtilsService.href('/student/course');
+                //$scope.s_courseList();
             }
         })
     }
@@ -798,7 +806,6 @@ lbApp.controller('StudyController', ['$scope','$routeParams', 'UtilsService', 'R
         if(NO == 4){
             document.onkeydown=function(event){
                 if(event && event.keyCode==13){ // 按 4
-                    alert(1);
                     UtilsService.href('/student/study_keying/'+$routeParams.chapterID);
                 }
             };
@@ -915,10 +922,15 @@ lbApp.controller('StudyKeyingController', ['$scope', '$routeParams','UtilsServic
         function chapterExercise(data){
             $("#dududu").show();
             $("#exerciseQ").hide();
-            setTimeout(function(){
-                $("#dududu").hide();
-                $("#exerciseQ").show();
-            },2000);
+            var dududu_Audio = document.getElementById('dududu_Audio');
+            dududu_Audio.play();
+            dududu_Audio.addEventListener('ended',function(){
+                setTimeout(function(){
+                    $("#dududu").hide();
+                    $("#exerciseQ").show();
+                },500);
+            },false);
+
 
             $scope.exerciseInfo = data;
             $scope.execiseAnswer.chapterExerciseId = data.chapterExerciseId;

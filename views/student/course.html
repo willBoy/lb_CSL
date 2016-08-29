@@ -1,4 +1,4 @@
-<!--<div lb-aside-directive></div>-->
+<div lb-aside-directive></div>
 <div class="main-page-margin">
     <div id="main-title">
         <div class="title font-size-huge font-weight-200">我的课程</div>
@@ -39,7 +39,7 @@
                     <td ng-bind="s_course_list.classesStartTime"></td>
                     <td ng-bind="s_course_list.name"></td>
                     <td ng-bind="s_course_list.teacherName"></td>
-                    <td ng-bind="s_course_list.classesStatus"></td>
+                    <td ng-bind="classesStatusMap[s_course_list.classesStatus]"></td>
                     <td>
                         <!--<a ng-click="openPop('pop-continue')">开始学习</a>-->
                         <a ng-click="utils.href('/student/course_detail/'+s_course_list.id)">课程详情</a>
@@ -79,7 +79,7 @@
             <div class="form-item">
                 <div class="content">
                     <label>请输入班级代码:</label>
-                    <input type="text" class="input" name="code" ng-maxlength="30" ng-value="classDetail.id" ng-model="s_myCourse.sequenceNo" required>
+                    <input type="text" class="input" name="code" ng-maxlength="30" ng-model="s_myCourse.sequenceNo" required>
                     <div class="error" ng-show="addclass_form.code.$dirty && addclass_form.code.$invalid">请输入班级代码</div>
                 </div>
             </div>

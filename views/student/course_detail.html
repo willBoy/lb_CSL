@@ -1,4 +1,4 @@
-<!--<div lb-aside-directive></div>-->
+<div lb-aside-directive></div>
 <div id="exercise" class="main-page-margin">
     <div id="main-title">
         <div class="title font-size-huge font-weight-200">课程详情</div>
@@ -40,7 +40,7 @@
                     <td ng-bind="s_courseChapter_list.descriptionContent"></td>
                     <!--<td ng-bind="s_courseChapter_list.chapterNo">98%</td>-->
                     <td>
-                        <a ng-click="utils.href('/student/study/'+'86a88459bff44c83acaff68990dba71b')">开始练习</a>
+                        <a ng-click="utils.href('/student/study/'+s_courseChapter_list.id)">开始练习</a>
                     </td>
                 </tr>
             </table>
