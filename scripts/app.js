@@ -157,9 +157,9 @@ lbApp.config(['$routeProvider', '$locationProvider', '$httpProvider', function($
         //学生系统
 
         //学生个人中心
-        .when('/student/course',{
-            templateUrl:'views/student/course.html',
-            controller:'StudentCourseController',
+        .when('/s_profile',{
+            templateUrl:'views/student/student_profile.html',
+            controller:'StudentProfileController',
             showHeaderStudent:true
         })
         //我的课程
