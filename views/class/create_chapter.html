@@ -63,7 +63,7 @@
                                                     newchapter_form.status.$dirty = true;
                                                     newchapter_form.orderNo.$dirty = true;
                                                     newchapter_form.pattern.$dirty = true;
-                                                    newchapter_form.$valid && addChapter(t_chapter)">确认</span>
+                                                    newchapter_form.$valid && addChapter(t_chapter.courseId)">确认</span>
                 <span class="op btn-blue" ng-click="utils.href('/class/courseSetting/'+t_chapter.courseId)">取消</span>
             </div>
         </form>

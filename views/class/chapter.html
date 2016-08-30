@@ -11,18 +11,16 @@
         </div>
     </div>
     <div class="main-wrapper" ng-show="true">
-        <form name="chapter_set_form" novalidate>
         <div class="form-item">
             <div class="title">章节名称：</div>
             <div class="content">
-                <input type="text" class="input" name="name" ng-model="t_chapter.name" required>
-                <div class="error" ng-show="chapter_form.name.$dirty && chapter_form.name.$invalid">名称必填，且不多于30个字</div>
+                <input type="text" class="input" name="name" ng-model="t_chapter.name">
             </div>
         </div>
         <div class="form-item">
             <div class="title">章节简介：</div>
             <div class="content">
-                <input type="text" class="input" name="name" ng-model="t_chapter.descriptionCn">
+                <input type="text" class="input" name="name" ng-model="t_chapter.descriptionContent">
             </div>
         </div>
         <div class="form-item">
@@ -54,11 +52,9 @@
             </div>
         </div>
         <div class="form-op">
-            <span class="op btn-blue" ng-click="chapter_form.name.$dirty = true
-                                                chapter_form.$dirty = true ">确认</span>/* chapterUpdate()*/
+            <span class="op btn-blue" ng-click="chapterUpdate()">确认</span>
             <span class="op btn-blue" ng-click="utils.href('/class/courseSetting/'+t_chapter.courseId)">取消</span>
         </div>
-        </form>
     </div>
 
 </div>
