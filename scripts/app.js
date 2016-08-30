@@ -154,6 +154,12 @@ lbApp.config(['$routeProvider', '$locationProvider', '$httpProvider', function($
             controller:'StudentDetailController',
             showHeader:true
         })
+        //学生详情
+        .when('/class/student/:classID/:studentID',{
+            templateUrl:'views/class/student.html',
+            controller:'StudentDetailController',
+            showHeader:true
+        })
         //学生系统
 
         //学生个人中心
