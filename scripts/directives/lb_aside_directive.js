@@ -28,6 +28,14 @@ lbApp.directive('lbAsideDirective',function() {
                         icon:''
                     },
                 ],
+                student:[
+                    {
+                        name:'myClass',
+                        value:'我的班级',
+                        url:'/student/course',
+                        icon:''
+                    }
+                ],
                 account: [
                     {
                         name: 'profile',

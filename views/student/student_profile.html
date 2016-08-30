@@ -9,170 +9,17 @@
         </div>
     </div>
     <div class="main-wrapper">
-        <div class="title-1">
-            <span class="title">企业信息</span>
-            <div class="right">
-                <span class="btn-blue operation" ng-click="openPop('pop-audit')" ng-show="company.checkStatus != 2">审核资质</span>
-                <span class="btn-blue operation" ng-click="openPop('pop-test')">免费体验</span>
-            </div>
-        </div>
-        <div class="info spacefix">
-            <div class="col-3 item font-size-normal">企业名称：<span ng-bind="company.name_">aaa</span></div>
-            <div class="col-3 item font-size-normal">账户余额：￥<span ng-bind="company.balance"></span></div>
-            <div class="col-3 item font-size-normal">企业状态：<span ng-bind="company.checkStatus | lbConfigFilter:'companyVerifyStatus'">未审核</span></div>
-            <div class="col-3 item font-size-normal">联系人：<span ng-bind="company.contacts"></span></div>
-            <div class="col-3 item font-size-normal">注册时间：<span ng-bind="company.registTime | lbUTCDate:'yyyy-MM-dd'"></span></div>
-        </div>
-    </div>
-    <div class="main-wrapper">
         <div class="title-1 user-info">
             <span class="title">个人信息</span>
-            <div class="right">
-                <span class="btn-blue operation" ng-click="resetPasswordForm(); openPop('pop-resetpwd')">修改密码</span>
-                <span class="btn-blue operation" ng-click="resetPhoneForm(); openPop('pop-resetphone')">修改手机号</span>
-                <!--
-                <span class="btn-blue operation" ng-click="utils.href('/authInfo')">我的权限</span>
-                -->
-            </div>
         </div>
         <div class="info spacefix">
-            <div class="col-3 item font-size-normal">姓名：<span ng-bind="user.name_"></span></div>
-            <div class="col-3 item font-size-normal">注册邮箱：<span ng-bind="user.emailAddress"></span><!--<span class="verify color-blue" ng-if="!user.checkEmail" ng-click="verifyEmail()">验证</span> --><span ng-if="user.checkEmail">（已验证）</span></div>
-            <div class="col-3 item font-size-normal">手机号码：<span ng-bind="user.phoneNumber"></span><!-- <span class="verify color-blue" ng-if="!user.checkPhone">验证</span>--><span ng-if="user.checkPhone">（已验证）</span></div>
-            <div class="col-3 item font-size-normal">角色：<span ng-bind="user.roleId | lbConfigFilter:'role'"></span></div>
-            <div class="col-3 item font-size-normal">注册时间：<span ng-bind="user.registTime | lbUTCDate:'yyyy-MM-dd'"></span></div>
-        </div>
-    </div>
-    <div id="pop-audit" class="pop">
-        <div class="pop-title">资质审核<span class="icon icons-close close" ng-click="closePop('pop-audit')"></span></div>
-        <div class="pop-content">
-            <form name="auth_form" novalidate>
-                <div class="form-item">
-                    <div class="title">企业全称</div>
-                    <div class="content">
-                        <input class="input" name="company" ng-model="authInfo.qualificationName" placeholder="请输入企业全称" required>
-                        <div class="error" ng-show="auth_form.company.$dirty && auth_form.company.$invalid">请输入企业全称</div>
-                    </div>
-                </div>
-                <div class="form-item">
-                    <div class="title">营业执照</div>
-                    <div class="content text">
-                        <span ng-bind="authInfo.fileUrl"></span>
-                        <span class="btn-blue" ng-click="uploadFile()">选择文件</span>
-                        <p class="tips font-size-tiny color-grey">格式要求：gif、png、jpg、jpeg，图片大小不能超过10M</p>
-                        <div class="error" ng-show="licensesError">请选择要上传的营业执照</div>
-                    </div>
-                </div>
-                <div class="text-align-center clearfix">
-                    <span class="submit-audit btn-blue" ng-click="auth_form.company.$dirty = true; auth_form.$valid && submitAudit()">提交</span>
-                </div>
-            </form>
-        </div>
-    </div>
-    <div id="pop-test" class="pop">
-        <div class="pop-title">提示<span class="icon icons-close close" ng-click="closePop('pop-test');testIsSend=false"></span></div>
-        <div class="pop-content">
-            <p>机器人将会给您的注册手机拨打电话聊两句，您现在是否方便接听？”方便则立即呼叫，不便则不外呼；具体体验话术（机器人）需单独定制</p>
-            <div class="test-option spacefix text-align-center">
-                <span class="btn-blue" ng-click="doTest()">立刻体验</span>
-            </div>
-        </div>
-    </div>
-    <div id="pop-resetpwd" class="pop">
-        <div class="pop-title">修改密码<span class="icons-close close" ng-click="closePop('pop-resetpwd')"></span></div>
-        <div class="pop-content">
-            <form name="resetpwd_form" novalidate>
-                <div class="form-item">
-                    <div class="title">原密码</div>
-                    <div class="content">
-                        <div class="input-pwd">
-                            <div class="input-pwd-wrapper">
-                                <input type="{{ pwdIsText.password ? 'text' : 'password' }}" name="password" class="input" placeholder="" autocomplete="off" ng-model="resetPwdInfo.password" required>
-                                <span class="{{ pwdIsText.password ? 'icons-unlock' : 'icons-lock' }}" ng-click="pwdIsText.password = !pwdIsText.password"></span>
-                            </div>
-                        </div>
-                        <div class="error" ng-show="resetpwd_form.password.$dirty && resetpwd_form.password.$invalid">请输入原密码</div>
-                    </div>
-                </div>
-                <div class="form-item">
-                    <div class="title">新密码</div>
-                    <div class="content">
-                        <div class="input-pwd">
-                            <div class="input-pwd-wrapper">
-                                <input type="{{ pwdIsText.newPassword ? 'text' : 'password' }}" name="new_password" class="input" autocomplete="off" placeholder="" ng-model="resetPwdInfo.newPassword" required ng-minlength="8" ng-maxlength="12" ng-pattern="/^[0-9a-zA-Z]*(\d[a-zA-Z]|[a-zA-Z]\d)[0-9a-zA-Z]*$/">
-                                <span class="{{ pwdIsText.newPassword ? 'icons-unlock' : 'icons-lock' }}" ng-click="pwdIsText.newPassword = !pwdIsText.newPassword"></span>
-                            </div>
-                        </div>
-                        <div class="error" ng-show="resetpwd_form.new_password.$dirty && resetpwd_form.new_password.$invalid">密码为8-12位英文和数字的组合</div>
-                    </div>
-                </div>
-                <div class="form-item">
-                    <div class="title">确认新密码</div>
-                    <div class="content">
-                        <div class="input-pwd">
-                            <div class="input-pwd-wrapper">
-                                <input type="{{ pwdIsText.confirmPassword ? 'text' : 'password' }}" name="confirm_password" class="input" placeholder="" autocomplete="off" ng-model="confirmPassword" required>
-                                <span class="{{ pwdIsText.confirmPassword ? 'icons-unlock' : 'icons-lock' }}" ng-click="pwdIsText.confirmPassword = !pwdIsText.confirmPassword"></span>
-                            </div>
-                        </div>
-                        <div class="error" ng-show="resetpwd_form.confirm_password.$dirty && resetpwd_form.confirm_password.$invalid">请再次输入密码</div>
-                    </div>
-                </div>
-                <div class="form-op">
-                    <span class="op btn-blue" ng-click="resetpwd_form.password.$dirty = true;
-                                                        resetpwd_form.new_password.$dirty = true;
-                                                        resetpwd_form.confirm_password.$dirty = true;
-                                                        resetpwd_form.$valid && modifyPwd();
-                                                        resetpwd_form.password.$dirty = false;
-                                                        resetpwd_form.new_password.$dirty = false;
-                                                        resetpwd_form.confirm_password.$dirty = false;
-                                                        ">保存</span>
-                </div>
-            </form>
-        </div>
-    </div>
-    <div id="pop-resetphone" class="pop">
-        <div class="pop-title">修改手机号码<span class="icons-close close" ng-click="closePop('pop-resetphone')"></span></div>
-        <div class="pop-content">
-            <form name="resetphone_form" novalidate>
-                <div class="form-item">
-                    <div class="title">登录密码</div>
-                    <div class="content">
-                        <div class="input-pwd">
-                            <div class="input-pwd-wrapper">
-                                <input type="{{ pwdIsText.password ? 'text' : 'password' }}" name="password" class="input" placeholder="" autocomplete="off" ng-model="resetPhoneInfo.password" required>
-                                <span class="{{ pwdIsText.password ? 'icons-unlock' : 'icons-lock' }}" ng-click="pwdIsText.password = !pwdIsText.password"></span>
-                            </div>
-                        </div>
-                        <div class="error" ng-show="resetphone_form.password.$dirty && resetphone_form.password.$invalid">请输入密码</div>
-                    </div>
-                </div>
-                <div class="form-item">
-                    <div class="title">手机号码</div>
-                    <div class="content">
-                        <input type="text" name="phone" class="input" ng-model="resetPhoneInfo.phone" required ng-pattern="/[0-9]+/">
-                        <div class="error" ng-show="resetphone_form.phone.$dirty && resetphone_form.phone.$invalid">请输入正确的手机号码</div>
-                    </div>
-                </div>
-                <div class="form-item">
-                    <div class="title">验证码</div>
-                    <div class="content">
-                        <input class="input" type="text" name="code" ng-model="resetPhoneInfo.code" required>
-                        <span class="get-code btn-blue" ng-click="resetphone_form.phone.$dirty = true; resetphone_form.phone.$valid && getCode()" ng-bind="getCodeText"></span>
-                        <div class="error" ng-show="resetphone_form.code.$dirty && resetphone_form.code.$invalid">请输入验证码</div>
-                    </div>
-                </div>
-                <div class="form-op">
-                    <span class="op btn-blue" ng-click="resetphone_form.password.$dirty = true;
-                                                resetphone_form.phone.$dirty = true;
-                                                resetphone_form.code.$dirty = true;
-                                                resetphone_form.$valid && modifyPhone();
-                                                resetphone_form.password.$dirty = false;
-                                                resetphone_form.phone.$dirty = false;
-                                                resetphone_form.code.$dirty = false;
-                                                ">确定</span>
-                </div>
-            </form>
+            <div class="col-1 item font-size-normal">姓名：<span ng-bind="studentInfo.chineseName"></span></div>
+            <div class="col-1 item font-size-normal">注册邮箱：<span ng-bind="studentInfo.email"></span></div>
+            <div class="col-1 item font-size-normal">英文名：<span ng-bind="studentInfo.englishName"></span></div>
+            <div class="col-1 item font-size-normal">年龄：<span ng-bind="studentInfo.age"></span></div>
+            <div class="col-1 item font-size-normal">性别：<span ng-bind="studentInfo.gender"></span></div>
+            <div class="col-1 item font-size-normal">电话：<span ng-bind="studentInfo.phoneNumber"></span></div>
+            <div class="col-1 item font-size-normal">国家：<span ng-bind="studentInfo.nationality"></span></div>
         </div>
     </div>
 </div>

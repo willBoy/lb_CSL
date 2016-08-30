@@ -70,6 +70,8 @@ lbApp.factory('RequestService', ['$http', 'UtilsService', function($http, UtilsS
         's_exe_sub':'exercise/submit',
         //交卷
         's_exe_submit':'exercise/submit/Chapter/:chapterExerciseId',
+        //学生端-个人信息
+        's_profile':'student/getCurrentUser'
 
     };
     return {
@@ -131,6 +133,7 @@ lbApp.factory('RequestService', ['$http', 'UtilsService', function($http, UtilsS
                             UtilsService.href('/profile');
                             break;
                         default:
+                            UtilsService.href('/exception');
                             reqConfig.error && reqConfig.error(data);
                             alert(data.msg);
                     }

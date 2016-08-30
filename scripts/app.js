@@ -50,26 +50,12 @@ lbApp.config(['$routeProvider', '$locationProvider', '$httpProvider', function($
             controller: 'LoginController',
             showHeader: false
         })
-        //学生登录
-        .when('/s_login', {
-            templateUrl: 'views/user/login_student.html',
-            controller: 's_LoginController',
-            showHeader: false
-        })
         //老师注册
         .when('/t_register',{
             templateUrl:'views/user/teacherReg.html',
             controller:'t_RegController',
             showHeader:false
         })
-        //学生注册
-        .when('/s_register',{
-            templateUrl:'views/user/register.html',
-            controller:'S_RegController',
-            showHeader:false
-        })
-
-
         //班级管理
         .when('/classList/:classID',{
             templateUrl:'views/class/class_list.html',
@@ -141,7 +127,6 @@ lbApp.config(['$routeProvider', '$locationProvider', '$httpProvider', function($
             controller:'ExerciseAdd2Controller',
             showHeader:true
         })
-
         //学生管理
         .when('/class/student/:classID',{
             templateUrl:'views/class/student.html',
@@ -162,10 +147,28 @@ lbApp.config(['$routeProvider', '$locationProvider', '$httpProvider', function($
         })
         //学生系统
 
+        //学生登录
+        .when('/s_login', {
+            templateUrl: 'views/user/login_student.html',
+            controller: 's_LoginController',
+            showHeader: false
+        })
+        //学生注册
+        .when('/s_register',{
+            templateUrl:'views/user/register.html',
+            controller:'S_RegController',
+            showHeader:false
+        })
         //学生个人中心
         .when('/s_profile',{
             templateUrl:'views/student/student_profile.html',
             controller:'StudentProfileController',
+            showHeaderStudent:true
+        })
+        //修改密码
+        .when('/s_changePwd',{
+            templateUrl:'views/student/student_editPwd.html',
+            controller:'StudentEditPwdController',
             showHeaderStudent:true
         })
         //我的课程
@@ -256,10 +259,10 @@ lbApp.config(['$routeProvider', '$locationProvider', '$httpProvider', function($
             controller:'StudyUnfinishedController',
             showHeader:false
         })
-        //是否继续
-        .when('/student/study_continue',{
-            templateUrl:'views/student/study_continue.html',
-            controller:'StudyContinueController',
+        //异常
+        .when('/exception',{
+            templateUrl:'views/index/exception.html',
+            controller:'exceptionController',
             showHeader:false
         })
 
