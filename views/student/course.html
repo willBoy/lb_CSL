@@ -1,9 +1,10 @@
 <div lb-aside-directive></div>
+<div ng-show="inflag" style="position: absolute;width: 100%;height: 100%; top: 0px; filter: alpha(opacity=60); background-color: #777;z-index: 1002; left: 0px;opacity:0.5; -moz-opacity:0.5;"></div>
 <div class="main-page-margin">
     <div id="main-title">
         <div class="title font-size-huge font-weight-200">我的课程</div>
         <div class="font-size-normal ">
-            <em class="last">我的课程</em>
+            <!--<em class="last">我的课程</em>-->
         </div>
     </div>
     <div class="main-wrapper" ng-show="true">
@@ -19,7 +20,7 @@
                 <label>关键词</label>
                 <input type="text" class="input retrieval" placeholder="关键词" ng-model="conditions.common.outCallNo">
                 <span class="icons-search"></span>-->
-                <span class="op btn-blue" ng-click="openPop('pop-class')">+ 加入课程</span>
+                <span class="op btn-blue" ng-click="openPop('pop-class')">加入课程</span>
                 <!--<span class="op btn-blue" ng-click="classList()">获取数据</span>-->
             </div>
         </div>
@@ -42,7 +43,7 @@
                     <td ng-bind="classesStatusMap[s_course_list.classesStatus]"></td>
                     <td>
                         <!--<a ng-click="openPop('pop-continue')">开始学习</a>-->
-                        <a ng-click="utils.href('/student/course_detail/'+s_course_list.id)">课程详情</a>
+                        <a ng-click="utils.href('/student/course_detail/'+s_course_list.id)">开始学习</a>
                         <a ng-click="delCourse(s_course_list.classesId)">退出课程</a>
                         <!--<a ng-click="utils.href('/class/delCourse/'+s_course_list.id)">退出课程</a>-->
                     </td>

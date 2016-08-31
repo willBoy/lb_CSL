@@ -1,0 +1,26 @@
+<div lb-aside-directive></div>
+<div id="profile" class="main-page-margin">
+    <div id="main-title">
+        <div class="title font-size-huge font-weight-200">个人中心</div>
+        <div class="font-size-normal ">
+            <em class="path" ng-click="utils.href('/dashboard')">首页</em>
+            <em> / </em>
+            <em class="last">个人中心</em>
+        </div>
+    </div>
+    <div class="main-wrapper">
+        <div class="title-1 user-info">
+            <span class="title">个人信息</span>
+        </div>
+        <div class="info spacefix">
+            <div class="col-1 item font-size-normal">姓名：<span ng-bind="studentInfo.chineseName"></span></div>
+            <div class="col-1 item font-size-normal">注册邮箱：<span ng-bind="studentInfo.email"></span></div>
+            <div class="col-1 item font-size-normal">英文名：<span ng-bind="studentInfo.englishName"></span></div>
+            <div class="col-1 item font-size-normal">年龄：<span ng-bind="studentInfo.age"></span></div>
+            <div class="col-1 item font-size-normal">性别：<span ng-bind="studentInfo.gender"></span></div>
+            <div class="col-1 item font-size-normal">电话：<span ng-bind="studentInfo.phoneNumber"></span></div>
+            <div class="col-1 item font-size-normal">国家：<span ng-bind="studentInfo.nationality"></span></div>
+            <div class="col-1 item font-size-normal">密码：<input type="text" ng-model="password"></input></div>
+        </div>
+    </div>
+</div>

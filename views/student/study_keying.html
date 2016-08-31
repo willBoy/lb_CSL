@@ -2,9 +2,7 @@
     <span class="btn btn-blue exit" ng-click="utils.href('/student/course')">edit</span>
 
     <div class="exercise" id="dududu">
-        <h1>播放提示音 du~ 500ms 后进入下一页</h1>
         <h1>+</h1>
-        <!-- <span class="icon icons-cross"></span>-->
         <section id="musicPro">
             <audio id="dududu_Audio"  src="../../vendor/mp3/dududu.mp3"/>
         </section>
@@ -30,7 +28,6 @@
     </div>
 
     <div class="exercise" style="display: none" id="exerciseQ">
-        <h1>播放词语，依次填写答案</h1>
         <section id="musicSelect">
             <audio id="musicAuto" autoplay="autoplay" ng-src="{{musicSrc}}"></audio>
         </section>
@@ -39,9 +36,6 @@
                     <div class="answer_empty" ></div>
                 </div>
         </div>
-        <!--<div class="key">-->
-            <!--<span class="icon icons-1"></span>-->
-        <!--</div>-->
         <div class="key">
             <div class="col-2-4">
                 <span class="icon icons-1"></span><h1>1</h1>
@@ -56,8 +50,5 @@
                 <span class="icon icons-4"></span><h1>4</h1>
             </div>
         </div>
-        <!--<div class="form-op">-->
-            <!--<span class="op btn-blue" ng-click="exe_submit()">提交</span>-->
-        <!--</div>-->
     </div>
 </div>

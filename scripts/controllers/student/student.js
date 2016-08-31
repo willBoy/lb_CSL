@@ -1,5 +1,5 @@
 // 学生个人信息
-lbApp.controller('StudentProfileController', ['$scope', '$routeParams','UtilsService', 'RequestService', function($scope,$routeParams, UtilsService, RequestService) {
+lbApp.controller('StudentProfileController', ['$rootScope','$scope', '$routeParams','UtilsService', 'RequestService', function($rootScope,$scope,$routeParams, UtilsService, RequestService) {
     //
     "use strict";
     // 设置边栏
@@ -12,12 +12,12 @@ lbApp.controller('StudentProfileController', ['$scope', '$routeParams','UtilsSer
         method:'GET',
         loading:true,
         success:function(data){
-        $scope.studentInfo =data;
+        $rootScope.studentInfo =data;
         }
     })
 }]);
-// 学生个人信息
-lbApp.controller('StudentEditPwdController', ['$scope', '$routeParams','UtilsService', 'RequestService', function($scope,$routeParams, UtilsService, RequestService) {
+// 修改密码
+lbApp.controller('StudentEditPwdController', ['$rootScope','$scope', '$routeParams','UtilsService', 'RequestService', function($rootScope,$scope,$routeParams, UtilsService, RequestService) {
     //
     "use strict";
     // 设置边栏
@@ -25,96 +25,19 @@ lbApp.controller('StudentEditPwdController', ['$scope', '$routeParams','UtilsSer
         listName: 'student',
         tabName: 'tabName'
     };
-    RequestService.request({
-        token:'s_Edit',
-        method:'GET',
-        loading:true,
-        success:function(data){
-            $scope.studentInfo =data;
-        }
-    })
-}]);
-
-// 学生登录
-lbApp.controller('s_LoginController', ['$scope', 'UtilsService', 'RequestService', function($scope, UtilsService, RequestService) {
-    "use strict";
-    // 密码登录信息
-    $scope.student_login = {
-        userName: '531402593@qq.com',
-        password: '123456789'
-    };
-
-
-    UtilsService.genTabs($scope, 'tabLogin');
-
-    //$scope.getCodeText = '获取语音验证码';
-    //$scope.isCalling = false;
-
-    /**
-     * 密码登录
-     */
-    $scope.s_loginByPwd = function() {
-        console.log($scope.student_login);
+        $scope.password ='';
         RequestService.request({
-            token: 's_login',
-            method: 'POST',
-            data: UtilsService.serialize($scope.student_login),
-            success: function(data) {
-                console.log(data);
-                $scope.dataTest = data;
-                UtilsService.href('/student/course');
-            }
-        });
-    };
+            token:'s_editPwd',
+            method:'POST',
+            data:UtilsService.serialize({id:$rootScope.studentInfo.id}),
+            loading:true,
+            success:function(){
 
-    /**
-     * 动态密码登录
-     */
-    $scope.loginByCode = function() {
-        RequestService.request({
-            token: 'tk_loginByVV',
-            method: 'POST',
-            data: UtilsService.serialize($scope.verifyCodeInfo),
-            success: function(data) {
-                UtilsService.href('/profile');
             }
         })
-    };
 }]);
-// 学生注册
-lbApp.controller('S_RegController', ['$scope', '$rootScope', 'RequestService', 'UtilsService', function($scope, $rootScope, RequestService, UtilsService) {
-    "use strict";
-
-    // 注册信息
-    $scope.s_regInfo = {
-        phoneNumber:'',//电话
-        email: '', // 邮箱
-        password: '', // 密码
-        chineseName:'',//中文名
-        englishName:'',//英文名字
-        age:'',//年龄
-        gender:'0',//性别
-        nationality:'',//国籍
-        motherTongue:''//母语
-    };
-    /**
-     * 注册
-     */
-    $scope.s_reg = function() {
-        RequestService.request({
-            token: 's_reg',
-            method: 'POST',
-            data: UtilsService.serialize($scope.s_regInfo),
-            success: function(data) {
-                console.log(data);
-                alert("学生注册成功");
-                UtilsService.href('/s_login');
-            }
-        });
-    };
 
 
-}]);
 
 //我的课程
 lbApp.controller('StudentCourseController', ['$scope','$routeParams', 'UtilsService', 'RequestService', function($scope, $routeParams, UtilsService, RequestService) {
@@ -132,47 +55,59 @@ lbApp.controller('StudentCourseController', ['$scope','$routeParams', 'UtilsServ
         '2':'已完结'
     }
 
+    $scope.inflag = true;
 
     // 绑定弹框事件
     UtilsService.initPop($scope);
     $scope.s_myCourse = [];
+    //防止重复提交多次
     RequestService.request({
         token:'s_course_list',
         method:'GET',
         success:function(data){
+            $scope.inflag = false;
             $scope.s_myCourse = data.result;
             console.log($scope.s_myCourse)
         }
     });
     //加入课程
+
+    $scope.sequenceNo;
+    document.onkeydown=function(event){
+        if(event && event.keyCode==13){ // 按 4
+            $scope.inflag = true;
+            $scope.addCourse($scope.s_myCourse.sequenceNo);
+        }
+    };
+
     $scope.addCourse = function(sequenceNo){
         RequestService.request({
             token:'s_addCourse',
             method:'POST',
             data:UtilsService.serialize({sequenceNo:sequenceNo}),
             success:function(){
-                alert("加入课程成功");
+                $scope.inflag = false;
                 $scope.closePop('pop-class');
                 location.reload();
-                //UtilsService.href('/student/course');
-                //$scope.s_courseList();
             }
         })
     }
     //退出课程
     $scope.delCourse = function(classesId){
-        RequestService.request({
-            token:'s_delCourse',
-            method:'POST',
-            params: {classesId: classesId},
-            data:UtilsService.serialize({classesId:classesId}),
-            success:function(data){
-                alert("退出成功");
-                location.reload();
-                //UtilsService.href("/class/courseSetting/"+classID);
-                $scope.s_courseList();
-            }
-        });
+        if(confirm("确定删除吗")){
+            RequestService.request({
+                token:'s_delCourse',
+                method:'POST',
+                params: {classesId: classesId},
+                data:UtilsService.serialize({classesId:classesId}),
+                success:function(data){
+                    location.reload();
+                    //UtilsService.href("/class/courseSetting/"+classID);
+                    $scope.s_courseList();
+                }
+            });
+        }
+
     }
 
 
@@ -329,7 +264,7 @@ lbApp.controller('StudyKeyingController', ['$scope', '$routeParams','UtilsServic
     setTimeout(function(){
         $("#dududu").hide();
         $("#exerciseQ").show();
-    },500);
+    },2000);
 
 
     RequestService.request({
@@ -362,7 +297,7 @@ lbApp.controller('StudyKeyingController', ['$scope', '$routeParams','UtilsServic
                 $("#dududu").hide();
                 $("#exerciseQ").show();
                 musicAudio.play();
-            },500);
+            },2000);
         },false);
         $("#answer").html("");
         if($scope.exerciseInfo.questionsPronunciation.tones.length ==1 ){
@@ -493,7 +428,7 @@ lbApp.controller('StudyFinishController', ['$scope','$routeParams', 'UtilsServic
             var count = data.rightCount+data.wrongCount;
             console.log(m);
             console.log(count);
-            $scope.ave_time = (m-count*500)/count;
+            $scope.ave_time = parseInt((m-count*500)/count);
             console.log($scope.ave_time);
 
         }

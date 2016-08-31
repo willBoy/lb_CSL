@@ -60,9 +60,13 @@ lbApp.controller('ClassDetailController', ['$scope', '$routeParams', 'UtilsServi
     $scope.classes = {
         id:$routeParams.classID,
         name:'',
-        courseName:'',
         startTime:'',
-        status:''
+        status:'',
+        course:{
+            id:'',
+            name:'',
+            description:''
+        }
     };
 
     RequestService.request({
@@ -70,10 +74,12 @@ lbApp.controller('ClassDetailController', ['$scope', '$routeParams', 'UtilsServi
         method:'post',
         data:UtilsService.serialize({id:$routeParams.classID}),
         success: function(data){
+            console.log(data);
             $scope.classes.name = data.result[0].name;
-            $scope.classes.courseName = data.result[0].courseName;
             $scope.classes.startTime = data.result[0].startTime;
             $scope.classes.status = data.result[0].status + "";
+            $scope.classes.course.id = data.result[0].courseId;
+            $scope.classes.course.name = data.result[0].courseName;
         }
     });
 
@@ -250,11 +256,11 @@ lbApp.controller('CourseController', ['$scope','$routeParams', 'UtilsService', '
         '0':'错题重做一次',
         '1':'错题重做到正确'
     }
-    function chapterList(param){
+    function chapterList(){
         RequestService.request({
             token:'t_courseChapter',
             method:'GET',
-            data:UtilsService.serialize({courseId:param}),
+            strParams:'courseId='+$routeParams.courseID,
             loading:true,
             success:function(data){
                 console.log(data);

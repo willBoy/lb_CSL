@@ -71,7 +71,9 @@ lbApp.factory('RequestService', ['$http', 'UtilsService', function($http, UtilsS
         //交卷
         's_exe_submit':'exercise/submit/Chapter/:chapterExerciseId',
         //学生端-个人信息
-        's_profile':'student/getCurrentUser'
+        's_profile':'student/getCurrentUser',
+        //学生端-修改密码
+        's_editPwd':'student/updatePassword'
 
     };
     return {
