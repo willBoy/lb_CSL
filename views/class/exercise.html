@@ -3,10 +3,10 @@
     <div id="main-title">
         <div class="title font-size-huge font-weight-200">习题管理</div>
         <div class="font-size-normal ">
-            <!--<em class="path" ng-click="utils.href('/classList')">班级管理</em>-->
-            <!--<em> / </em>-->
-            <!--<em class="path" ng-click="utils.href('/class/course')">课程管理</em>-->
-            <!--<em> / </em>-->
+            <em class="path" ng-click="utils.href('/classList')">班级管理</em>
+            <em> / </em>
+            <!--<em class="path" ng-click="daohang()">课程管理</em>
+            <em> / </em>-->
             <em class="last">习题管理</em>
         </div>
     </div>
@@ -28,18 +28,25 @@
             <span class="title">习题列表</span>
             <div class="right">
                 <!--<select class="select" ng-model="conditions.common.startYear" ng-options="act for act in activities"></select>-->
-                <select class="select">
+                <!--<select class="select" ng-model="conditions.common.startYear" >
                     <option>音节数</option>
+                    <option>1</option>
                     <option>2</option>
+                    <option>3</option>
                     <option>4</option>
                 </select>
                 <select class="select">
                     <option>等级</option>
-                    <option></option>
-                    <option></option>
+                    <option>HSK1</option>
+                    <option>HSK2</option>
+                    <option>HSK3</option>
+                    <option>HSK4</option>
+                    <option>HSK5</option>
+                    <option>HSK6</option>
+                    <option>超纲</option>
                 </select>
                 <input type="text" class="input retrieval" placeholder="关键词" ng-model="conditions.common.outCallNo">
-                <span class="icons-search"></span>
+                <span class="icons-search"></span>-->
                 <span class="op btn-blue bgcolor-blue" ng-click="utils.href('/class/exercise_add/'+t_chapterInfo.id)">添加习题</span>
             </div>
         </div>
@@ -70,6 +77,14 @@
                     </td>
                 </tr>
             </table>
+            <div class="pages">
+                <div class="right">
+                    <div class="page-size font-size-normal left">
+                        <span>共{{ total }}条记录</span>
+                    </div>
+                    <div lb-page-directive class="right" data="t_exerciseList" page-info="conditions.pageInfo" fetch="t_exe_List"></div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
