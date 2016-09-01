@@ -14,7 +14,7 @@ lbApp.directive('lbAsideDirective',function() {
                         value:'班级管理',
                         url:'/classList',
                         icon:''
-                    },
+                    }/*,
                     {
                         name:'courseManage',
                         value:'模板管理',
@@ -26,7 +26,7 @@ lbApp.directive('lbAsideDirective',function() {
                         value:'实用工具',
                         url:'',
                         icon:''
-                    },
+                    },*/
                 ],
                 student:[
                     {

@@ -21,7 +21,7 @@
         </div>
         <div class="form-item">
             <div class="title">性别：</div>
-            <div class="content text" ng-bind="studentInfo.gengder"></div>
+            <div class="content text" ng-bind="studentInfo.gender"></div>
         </div>
         <div class="form-item">
             <div class="title">邮箱：</div>
@@ -48,7 +48,8 @@
             <div class="content text" ng-bind="studentInfo.foreignLanguage"></div>
         </div>
         <div class="form-op">
-            <span class="op btn-blue" ng-click="utils.href('/class/student')">确认</span>
+            <!--<span class="op btn-blue" ng-click="utils.href('/class/student'+studentInfo.id)">确认</span>-->
+            <span class="op btn-blue" ng-click="returnStudent()">确认</span>
         </div>
     </div>
 

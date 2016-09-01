@@ -6,9 +6,19 @@ lbApp.run(['$rootScope', 'UtilsService', 'RequestService', function($rootScope, 
     // 是否显示头部
     $rootScope.showHeader = false;
     $rootScope.showHeaderStudent = false;
-
+    $rootScope.showHeaderTeacher = false;
     $rootScope.utils = UtilsService;
-
+    //教师退出
+    $rootScope.t_logout = function() {
+        RequestService.request({
+            token: 't_logout',
+            method: 'POST',
+            success: function(data) {
+                UtilsService.href('/');
+            }
+        });
+    };
+//学生退出
     $rootScope.s_logout = function() {
         RequestService.request({
             token: 's_logout',
@@ -22,8 +32,12 @@ lbApp.run(['$rootScope', 'UtilsService', 'RequestService', function($rootScope, 
     $rootScope.$on('$routeChangeStart', function(e, next, current) {
         if (next.$$route.showHeader === false) {
             $rootScope.showHeader = false;
+            $rootScope.showHeaderStudent = false;
+            $rootScope.showHeaderTeacher = false;
         } else {
             $rootScope.showHeader = true;
+            $rootScope.showHeaderStudent = true;
+            $rootScope.showHeaderTeacher = true;
         }
     });
 }]);
@@ -50,23 +64,43 @@ lbApp.config(['$routeProvider', '$locationProvider', '$httpProvider', function($
             controller: 'LoginController',
             showHeader: false
         })
+        //学生登录
+        .when('/s_login', {
+            templateUrl: 'views/user/login_student.html',
+            controller: 's_LoginController',
+            showHeader: false
+        })
+        //教师修改密码
+        .when('/s_login', {
+            templateUrl: 'views/user/login_student.html',
+            controller: 's_LoginController',
+            showHeader: false
+        })
         //老师注册
         .when('/t_register',{
             templateUrl:'views/user/teacherReg.html',
             controller:'t_RegController',
             showHeader:false
         })
+        //学生注册
+        .when('/s_register',{
+            templateUrl:'views/user/register.html',
+            controller:'S_RegController',
+            showHeader:false
+        })
+
+
         //班级管理
         .when('/classList/:classID',{
             templateUrl:'views/class/class_list.html',
             controller:'ClassListController',
-            showHeader:true
+            showHeaderTeacher:true
         })
         //班级列表
         .when('/classList',{
             templateUrl:'views/class/class_list.html',
             controller:'ClassListController',
-            showHeader:true
+            showHeaderTeacher:true
         })
         //班级设置
         .when('/classDetail/:classID',{
@@ -127,8 +161,9 @@ lbApp.config(['$routeProvider', '$locationProvider', '$httpProvider', function($
             controller:'ExerciseAdd2Controller',
             showHeader:true
         })
+
         //学生管理
-        .when('/class/student/:classID',{
+        .when('/class/student/:classesID',{
             templateUrl:'views/class/student.html',
             controller:'StudentController',
             showHeader:true
@@ -139,27 +174,27 @@ lbApp.config(['$routeProvider', '$locationProvider', '$httpProvider', function($
             controller:'StudentDetailController',
             showHeader:true
         })
-        //学生详情
-        .when('/class/student/:classID/:studentID',{
-            templateUrl:'views/class/student.html',
-            controller:'StudentDetailController',
-            showHeader:true
-        })
+        //重置密码
+        /*.when('/class/studentDetail/:studentID',{
+         templateUrl:'views/class/student.html',
+         controller:'StudentController',
+         showHeader:true
+         })*/
+        /*//学生详情
+         .when('/class/student/:classID/:studentID',{
+         templateUrl:'views/class/student.html',
+         controller:'StudentDetailController',
+         showHeader:true
+         })*/
+        /*//学生备注
+         .when('/class/student/:classID/:studentID',{
+         templateUrl:'views/class/student.html',
+         controller:'StudentController',
+         showHeader:true
+         })*/
         //学生系统
 
-        //学生登录
-        .when('/s_login', {
-            templateUrl: 'views/user/login_student.html',
-            controller: 's_LoginController',
-            showHeader: false
-        })
-        //学生注册
-        .when('/s_register',{
-            templateUrl:'views/user/register.html',
-            controller:'S_RegController',
-            showHeader:false
-        })
-        //学生个人中心
+//学生个人中心
         .when('/s_profile',{
             templateUrl:'views/student/student_profile.html',
             controller:'StudentProfileController',
@@ -184,17 +219,17 @@ lbApp.config(['$routeProvider', '$locationProvider', '$httpProvider', function($
             showHeader:true
         })
         /*//课程详情
-        .when('/student/course_detail',{
-            templateUrl:'views/student/course_detail.html',
-            controller:'StudentCourseDetailController',
-            showHeaderStudent:true
-        })*/
+         .when('/student/course_detail',{
+         templateUrl:'views/student/course_detail.html',
+         controller:'StudentCourseDetailController',
+         showHeaderStudent:true
+         })*/
         //退出课程
         /*.when('/class/delCourse/:classID',{
-            templateUrl:'views/student/course_del.html',
-            controller:'delCourseController',
-            showHeader:true
-        })*/
+         templateUrl:'views/student/course_del.html',
+         controller:'delCourseController',
+         showHeader:true
+         })*/
         //开始学习
         .when('/student/study/:chapterID',{
             templateUrl:'views/student/study.html',
@@ -259,10 +294,10 @@ lbApp.config(['$routeProvider', '$locationProvider', '$httpProvider', function($
             controller:'StudyUnfinishedController',
             showHeader:false
         })
-        //异常
-        .when('/exception',{
-            templateUrl:'views/index/exception.html',
-            controller:'exceptionController',
+        //是否继续
+        .when('/student/study_continue',{
+            templateUrl:'views/student/study_continue.html',
+            controller:'StudyContinueController',
             showHeader:false
         })
 

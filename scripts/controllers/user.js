@@ -155,6 +155,25 @@ lbApp.controller('S_RegController', ['$scope', '$rootScope', 'RequestService', '
 
 
 }]);
+lbApp.controller('updatePassword', ['$scope', '$rootScope', 'RequestService', 'UtilsService', function($scope, $rootScope, RequestService, UtilsService) {
+    "use strict";
+
+    // 绑定弹框事件
+    UtilsService.initPop($scope);
+    // 教师修改密码
+    $scope.t_updatePassword = function(password) {
+        RequestService.request({
+            token: 't_updatePassword',
+            method:'POST',
+            strParams:'id='+$scope.currentUser.id+'&password='+password,
+            /*data:UtilsService.serialize({classID:$routeParams.classID,studentId:$routeParams.studentId,remark:$scope.studentInfo_r.remark}),*/
+            success:function(){
+                alert("修改成功");
+                $scope.closePop('pop-resetpwd')
+            }
+        });
+    };
 
 
-
+}]);
+>>>>>>> 263892806924cdbeba92c175c3821a3eb44bbb3e

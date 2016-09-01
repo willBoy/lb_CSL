@@ -1,0 +1,43 @@
+<div id="header" class="bgcolor-white " ng-show="showHeaderTeacher">
+    <div class="main-logo" ng-click="utils.href('/classList')">
+        <div class="title font-size-large font-weight-200 color-block">汉语学堂</div>
+    </div>
+    <!--<ul id="main-menu" class="color-white font-weight-300">-->
+        <!--<li ng-click="utils.href('/dashboard')">首页</li>-->
+        <!--<li ng-click="utils.href('/robot')">任务中心</li>-->
+        <!--<li ng-click="utils.href('/monitoring')">实时监控</li>-->
+        <!--<li ng-click="utils.href('/statistics')">数据分析</li>-->
+    <!--</ul>-->
+    <div id="main-status">
+        <!--<div class="user icon icons-user" ng-mouseover="showUserOp()" ng-mouseleave="hideUserOp()">
+            <div class="user-op menu-list-1" ng-show="userOpIsShow" ng-mouseover="showUserOp()" ng-mouseleave="hideUserOp()">
+                <div class="item" ng-click="utils.href('/s_profile')">帐户信息</div>
+                <div class="item-cursor color-blue">修改密码</div>
+            </div>
+        </div>-->
+        <div class="user icon icons-user" ng-mouseover="showUserOp()" ng-mouseleave="hideUserOp()">
+            <div class="user-op menu-list-1" ng-show="userOpIsShow" ng-mouseover="showUserOp()" ng-mouseleave="hideUserOp()">
+                <div class="item" ng-bind="currentUser.chineseName"></div>
+                <div class="item" ng-bind="currentUser.email"></div>
+                <div class="item-cursor color-blue" ng-click="openPop('pop-updatePassword')">修改密码</div>
+            </div>
+        </div>
+        <div class="user exit" ng-click="t_logout()">退出</div>
+    </div>
+
+    <div id="pop-updatePassword" class="pop">
+        <div class="pop-title">修改密码</div>
+        <div class="pop-content">
+            <div class="form-item">
+                <div class="content">
+                    <label>请输入新密码:</label>
+                    <input type="text" class="input" name="name"  required ng-maxlength="30" ng-model="currentUser.password">
+                </div>
+            </div>
+            <div class="form-op">
+                <span class="op btn-blue" ng-click="updatePassword(currentUser.password)">确定</span>
+                <span class="op btn-blue" ng-click="closePop('pop-updatePassword')">取消</span>
+            </div>
+        </div>
+    </div>
+</div>

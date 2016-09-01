@@ -10,13 +10,9 @@
         <div class="title-1">
             <span class="title">班级列表</span>
             <div class="right">
-                <select class="select" ng-model="conditions.startYear">
-                    <!--<option disabled selected='selected'>按年份</option>-->
-                    <option>2017</option>
-                    <option>2016</option>
-                </select>
-                <input type="text" class="input retrieval" placeholder="班级名称" ng-model="conditions.name">
-                <span class="icons-search" ng-click="select()"></span>
+                <select class="select" ng-model="conditions.common.startYear" ng-options="act for act in activities" ng-change="getclasslist()"></select>
+                <input type="text" class="input retrieval" placeholder="班级名称" ng-model="conditions.common.name" ng-change="getclasslist()">
+                <span class="icons-search"></span>
 
                 <span class="op btn-blue" ng-click="utils.href('/createClass')">创建班级</span>
                 <!--<span class="op btn-blue" ng-click="classList()">获取数据</span>-->
@@ -56,26 +52,11 @@
             </table>
             <div class="pages">
                 <div class="right">
-                    <div class="page-size font-size-normal">
+                    <div class="page-size font-size-normal left">
                         <span>共{{ total }}条记录</span>
                     </div>
-                    <div class="page-directive color-blue spacefix left">
-                        <span class="prev text-align-center font-size-normal">上一页</span>
-                        <table class="page-table font-size-normal">
-                            <tbody>
-                            <tr>
-                                <td class="page-num bgcolor-blue color-white border-blue page-num text-align-center">1</td>
-                            </tr>
-                            </tbody>
-                        </table>
-                        <span class="next text-align-center font-size-normal">下一页</span>
-                    </div>
+                    <div lb-page-directive class="right" data="t_classListArr" page-info="conditions.pageInfo" fetch="getclasslist"></div>
                 </div>
-                <div class="left">
-
-                </div>
-                <!--<div lb-page-directive data="robotList" page-info="conditions.pageInfo" fetch="getRobotList"></div>-->
-
             </div>
         </div>
     </div>

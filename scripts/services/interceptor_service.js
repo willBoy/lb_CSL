@@ -23,8 +23,8 @@ lbApp.factory('InterceptorService', ['$q', '$location', '$rootScope', 'UtilsServ
             }
             
             // 如果结果中有登录用户，则保存下来
-            if (data.result && data.result.currUser) {
-                $rootScope.currentUser = data.result.currUser;
+            if (data.result && data.currentUser) {
+                $rootScope.currentUser = data.currentUser;
             }
             return res;
         },

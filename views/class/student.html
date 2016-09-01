@@ -12,19 +12,18 @@
         <div class="title-1">
             <span class="title">学生列表</span>
             <div class="right">
-                <input type="text" class="input retrieval" placeholder="根据姓名、备注查找学生" ng-model="conditions.common.outCallNo">
-                <span class="icons-search"></span>
-                <select class="select">
+
+                <select class="select" ng-model="conditions.gender">
                     <option>性别</option>
-                    <option>男</option>
-                    <option>女</option>
+                    <option ng-repeat="value in options.business_name  track by $index" value="{{ value }}" ng-bind="value"></option>
                 </select>
-                <select class="select">
+                <select class="select" ng-model="conditions.nationality">
                     <option>国籍</option>
                     <option>美国</option>
                     <option>加拿大</option>
                 </select>
-
+                <input type="text" class="input retrieval" placeholder="根据姓名、备注查找学生" ng-model="conditions.common.outCallNo">
+                <span class="icons-search" ng-click="select()"></span>
                 <!--<span class="op btn-blue" ng-click="utils.href('/createClass')">创建班级</span>-->
                 <!--<span class="op btn-blue" ng-click="classList()">获取数据</span>-->
             </div>
@@ -40,11 +39,11 @@
                     <th>操作</th>
                 </tr>
                 <tr ng-repeat="t_c_student_List in class_student">
-                    <td ng-bind="t_c_student_List.chineseName">闫乐坤</td>
-                    <td ng-bind="t_c_student_List.englishName">yan leCun</td>
-                    <td ng-bind="t_c_student_List.gender">男</td>
-                    <td ng-bind="t_c_student_List.nationality">比如国籍是十个字的情况</td>
-                    <td ng-bind="t_c_student_List.remark">法裔长点长点长点长点长点</td>
+                    <td ng-bind="t_c_student_List.chineseName"></td>
+                    <td ng-bind="t_c_student_List.englishName"></td>
+                    <td ng-bind="t_c_student_List.gender"></td>
+                    <td ng-bind="t_c_student_List.nationality"></td>
+                    <td ng-bind="t_c_student_List.remark"></td>
                     <td>
                         <a ng-click="utils.href('/class/studentDetail/'+t_c_student_List.id)">学生详情</a>
                         <a ng-click="openPop('pop-Remarks')">编辑备注</a>
@@ -106,7 +105,7 @@
                     </td>
                 </tr>-->
             </table>
-            <div class="pages">
+            <!--<div class="pages">
                 <div class="right">
                     <div class="page-size font-size-normal">
                         <span>共{{ total }}条记录</span>
@@ -127,9 +126,13 @@
                 <div class="left">
 
                 </div>
-                <!--<div lb-page-directive data="robotList" page-info="conditions.pageInfo" fetch="getRobotList"></div>-->
+                &lt;!&ndash;<div lb-page-directive data="robotList" page-info="conditions.pageInfo" fetch="getRobotList"></div>&ndash;&gt;
 
+            </div>-->
+            <div class="pages">
+                <div lb-page-directive data="class_student" page-info="conditions.pageInfo" fetch="studentList()"></div>
             </div>
+
             <div id="pop-Remarks" class="pop">
                 <div class="pop-title">编辑备注</div>
 
@@ -141,8 +144,8 @@
                         </div>
                     </div>
                     <div class="form-op">
-                        <span class="op btn-blue" ng-click="submitRemark(classesID,t_c_student_List.id)">确定</span>
-                        <span class="op btn-blue" ng-click="closePop('pop-Remarks') ">取消</span>
+                        <span class="op btn-blue" ng-click="submitRemark(studentInfo_r.remark)">确定</span>
+                        <span class="op btn-blue" ng-click="closePop('pop-Remarks')">取消</span>
                     </div>
                 </div>
             </div>
@@ -150,10 +153,10 @@
                 <div class="pop-title">重置密码<span class="icons-close close" ng-click="closePop('pop-resetpwd')"></span></div>
                 <div class="pop-content">
                     <div class="form-item">
-                        <div class="text">原密码已重置为“1121212121”</div>
+                        <div class="text">原密码已重置为<span ng-model="studentInfo_r.password">123456</span></div>
                     </div>
                     <div class="form-op">
-                    <span class="op btn-blue" ng-click="closePop('pop-resetpwd')">保存</span>
+                    <span class="op btn-blue" ng-click="resetPassword(123456)">保存</span>
                     </div>
                 </div>
             </div>
