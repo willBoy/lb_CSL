@@ -29,6 +29,7 @@
             <div class="form-item">
                 <div class="title">章节状态：</div>
                 <div class="content">
+                    <!--<select class="select" ng-model="t_chapter.status" ng-options="act for act in status"></select>-->
                     <select class="select" name="status" ng-model="t_chapter.status" required>
                         <option value="0">准备中</option>
                         <option value="1">已开放</option>
@@ -40,6 +41,7 @@
             <div class="form-item">
                 <div class="title">呈现顺序：</div>
                 <div class="content">
+                    <!--<select class="select" ng-model="t_chapter.orderNo" ng-options="act for act in orderNo"></select>-->
                     <select class="select" name="orderNo" ng-model="t_chapter.orderNo" required>
                         <option value="0">顺序</option>
                         <option value="1">随机</option>
@@ -50,6 +52,7 @@
             <div class="form-item">
                 <div class="title">练习流程：</div>
                 <div class="content">
+                    <!--<select class="select" ng-model="t_chapter.pattern" ng-options="act for act in pattern"></select>-->
                     <select class="select" name="pattern" ng-model="t_chapter.pattern" required>
                         <option value="1">错题重做一次</option>
                         <option value="0">错题重做到正确</option>

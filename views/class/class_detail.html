@@ -17,28 +17,12 @@
             </div>
         </div>
         <div class="form-item">
-            <div class="title">课程名称：</div>
-            <div class="content">
-                <input type="text" class="input" name="name"  required ng-maxlength="30" ng-model="classes.courseName">
-                <pre class="line-height-15 color-blue">对学生可见</pre>
-            </div>
-        </div>
-        <!--<div class="form-item">-->
-            <!--<div class="title">课程简介：</div>-->
-            <!--<div class="content">-->
-                <!--<input type="text" class="input" name="name"  required ng-maxlength="30" ng-model="classes.courseName">-->
-                <!--<pre class="line-height-15 color-blue">对学生可见</pre>-->
-            <!--</div>-->
-        <!--</div>-->
-        <div class="form-item">
             <div class="title">开班时间：</div>
             <div class="content">
                 <div class="calendar" id="time-start-update">
                     <input type="text" class="input" disabled="disabled" placeholder="请输入开班时间" ng-model="classes.startTime">
                     <span class="icon icons-calendar"></span>
                 </div>
-
-
             </div>
         </div>
         <div class="form-item">
@@ -53,6 +37,14 @@
                 <div class="error" ng-show="voice_robot_form.voice_type.$dirty && voice_robot_form.voice_type.$invalid">请选择班级状态</div>
             </div>
         </div>
+        <div class="form-item">
+            <div class="title">课程名称：</div>
+            <div class="content">
+                <input type="text" class="input" name="name"  required ng-maxlength="30" ng-model="classes.courseName">
+                <pre class="line-height-15 color-blue">对学生可见</pre>
+            </div>
+        </div>
+
         <div class="form-op">
             <span class="op btn-blue" ng-click="updateClass()">确认</span>
             <span class="op btn-blue" ng-click="utils.href('/classList/'+classes.id)">取消</span>

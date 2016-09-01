@@ -46,6 +46,7 @@
                         <a ng-click="utils.href('/classDetail/'+t_classArr.id)">班级设置</a>
                         <a ng-click="utils.href('/class/courseSetting/'+t_classArr.courseId)">课程管理</a>
                         <a ng-click="utils.href('/class/student/'+t_classArr.id)">学生管理</a>
+                        <!--<a ng-click="openPop('pop-del')">删除</a>-->
                         <a ng-click="utils.href('/class/delClass/'+t_classArr.id)">删除</a>
                     </td>
                 </tr>
@@ -57,6 +58,18 @@
                     </div>
                     <div lb-page-directive class="right" data="t_classListArr" page-info="conditions.pageInfo" fetch="getclasslist"></div>
                 </div>
+            </div>
+        </div>
+    </div>
+    <div id="pop-del" class="pop">
+        <div class="pop-title">删除<span class="icons-close close" ng-click="closePop('pop-del')"></span></div>
+        <div class="pop-content">
+            <div class="form-item">
+                <div class="text">确定要删除<span ng-model="t_classArr.name"></span></div>
+            </div>
+            <div class="form-op">
+                <span class="op btn-blue" ng-click="delclass(t_classListArr.id)">删除</span><!--&& utils.href('/class/delClass/'+t_classListArr.id)-->
+                <span class="op btn-blue" ng-click="closePop('pop-del')">取消</span>
             </div>
         </div>
     </div>

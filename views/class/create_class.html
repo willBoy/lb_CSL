@@ -31,19 +31,19 @@
             <div class="form-item">
                 <div class="title">课程名称：</div>
                 <div class="content">
-                    <input type="text" class="input" name="courseName" ng-maxlength="30" ng-model="classes.courseName" required>
+                    <input type="text" class="input" name="courseName" ng-maxlength="30" ng-model="classes['course.name']" required>
                     <pre class="line-height-15 color-blue">对学生可见</pre>
-                    <div class="error" ng-show="addClass_form.courseName.$dirty && addClass_form.courseName.$invalid">名称必填，且不多于30个字</div>
+                    <div class="error" ng-show="addClass_form.course.name.$dirty && addClass_form.course.name.$invalid">名称必填，且不多于30个字</div>
                 </div>
             </div>
-            <!--<div class="form-item">
+            <div class="form-item">
                 <div class="title">课程简介：</div>
                 <div class="content">
-                    <input type="text" class="input" name="course.escription" ng-maxlength="30" ng-model="classes.course.description" required>
+                    <input type="text" class="input" name="course.escription" ng-maxlength="30" ng-model="classes['course.description']" required>
                     <pre class="line-height-15 color-blue">对学生可见</pre>
                     <div class="error" ng-show="addClass_form.course.description.$dirty && addClass_form.course.description.$invalid">请输入课程简介</div>
                 </div>
-            </div>-->
+            </div>
             <div class="form-item robot-type">
                 <div class="title">导入课程</div>
                 <div class="content">
@@ -61,7 +61,8 @@
             </div>
             <div class="form-op">
             <span class="op btn-blue" ng-click="addClass_form.name.$dirty = true;
-                                                    addClass_form.courseName.$dirty = true;
+                                                    addClass_form.course.name.$dirty = true;
+                                                    addClass_form.course.description.$dirty = true;
                                                     addClass_form.startTime.$dirty = true;
                                                     addClass_form.$valid && classAdd()">确定</span>
                 <span class="op btn-blue" ng-click="utils.href('/classList')">取消</span>

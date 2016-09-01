@@ -52,90 +52,18 @@
                         <!--<a ng-click="studentDel(t_c_student_List.id)">删除</a>-->
                     </td>
                 </tr>
-                <!--<tr>
-                    <td>闫乐坤</td>
-                    <td>yan leCun</td>
-                    <td>男</td>
-                    <td>美国</td>
-                    <td>法裔</td>
-                    <td>
-                        <a ng-click="utils.href('/class/studentDetail')">学生详情</a>
-                        <a ng-click="openPop('pop-Remarks')">编辑备注</a>
-                        <a ng-click="utils.href('')">重置密码</a>
-                        <a ng-click="utils.href('')">删除</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>闫乐坤</td>
-                    <td>yan leCun</td>
-                    <td>男</td>
-                    <td>美国</td>
-                    <td>法裔</td>
-                    <td>
-                        <a ng-click="utils.href('/class/studentDetail')">学生详情</a>
-                        <a ng-click="utils.href('')">编辑备注</a>
-                        <a ng-click="utils.href('')">重置密码</a>
-                        <a ng-click="utils.href('')">删除</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>闫乐坤</td>
-                    <td>yan leCun</td>
-                    <td>男</td>
-                    <td>美国</td>
-                    <td>法裔</td>
-                    <td>
-                        <a ng-click="utils.href('/class/studentDetail')">学生详情</a>
-                        <a ng-click="utils.href('')">编辑备注</a>
-                        <a ng-click="utils.href('')">重置密码</a>
-                        <a ng-click="utils.href('')">删除</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>闫乐坤</td>
-                    <td>yan leCun</td>
-                    <td>男</td>
-                    <td>美国</td>
-                    <td>法裔</td>
-                    <td>
-                        <a ng-click="utils.href('/class/studentDetail')">学生详情</a>
-                        <a ng-click="utils.href('')">编辑备注</a>
-                        <a ng-click="utils.href('')">重置密码</a>
-                        <a ng-click="utils.href('')">删除</a>
-                    </td>
-                </tr>-->
             </table>
-            <!--<div class="pages">
+            <div class="pages">
                 <div class="right">
-                    <div class="page-size font-size-normal">
+                    <div class="page-size font-size-normal left">
                         <span>共{{ total }}条记录</span>
                     </div>
-                    <div class="page-directive color-blue spacefix left">
-                        <span class="prev text-align-center font-size-normal">上一页</span>
-                        <table class="page-table font-size-normal">
-                            <tbody>
-                            <tr>
-                                <td class="page-num bgcolor-blue color-white border-blue page-num text-align-center">1</td>
-                                <td class="border-grey color-blue page-num text-align-center">2</td>
-                            </tr>
-                            </tbody>
-                        </table>
-                        <span class="next text-align-center font-size-normal" >下一页</span>
-                    </div>
+                    <div lb-page-directive data="class_student" page-info="conditions.pageInfo" fetch="chapterList()"></div>
                 </div>
-                <div class="left">
-
-                </div>
-                &lt;!&ndash;<div lb-page-directive data="robotList" page-info="conditions.pageInfo" fetch="getRobotList"></div>&ndash;&gt;
-
-            </div>-->
-            <div class="pages">
-                <div lb-page-directive data="class_student" page-info="conditions.pageInfo" fetch="studentList()"></div>
             </div>
 
             <div id="pop-Remarks" class="pop">
                 <div class="pop-title">编辑备注</div>
-
                 <div class="pop-content">
                     <div class="form-item">
                         <div class="content">
