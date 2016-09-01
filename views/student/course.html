@@ -19,7 +19,7 @@
                 <label>关键词</label>
                 <input type="text" class="input retrieval" placeholder="关键词" ng-model="conditions.common.outCallNo">
                 <span class="icons-search"></span>-->
-                <span class="op btn-blue" ng-click="openPop('pop-class')">+ 加入课程</span>
+                <span class="op btn-blue" ng-click="openPop('pop-class')">加入课程</span>
                 <!--<span class="op btn-blue" ng-click="classList()">获取数据</span>-->
             </div>
         </div>
@@ -34,7 +34,7 @@
                     <th>操作</th>
 
                 </tr>
-                <tr ng-repeat=" s_course_list in s_myCourse | orderBy:classesStartTime track by $index">
+                <tr ng-repeat=" s_course_list in s_myCourse track by $index">
                     <!--<td ng-bind="(conditions.pageInfo.page - 1) * conditions.pageInfo.pageSize + $index + 1"></td>-->
                     <td ng-bind="$index + 1"></td>
                     <td ng-bind="s_course_list.classesStartTime"></td>
@@ -43,7 +43,7 @@
                     <td ng-bind="classesStatusMap[s_course_list.classesStatus]"></td>
                     <td>
                         <!--<a ng-click="openPop('pop-continue')">开始学习</a>-->
-                        <a ng-click="utils.href('/student/course_detail/'+s_course_list.id)">课程详情</a>
+                        <a ng-click="utils.href('/student/course_detail/'+s_course_list.id)">开始学习</a>
                         <a ng-click="delCourse(s_course_list.classesId)">退出课程</a>
                         <!--<a ng-click="utils.href('/class/delCourse/'+s_course_list.id)">退出课程</a>-->
                     </td>

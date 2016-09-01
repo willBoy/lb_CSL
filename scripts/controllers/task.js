@@ -755,16 +755,16 @@ lbApp.controller('TaskDetailController', ['$scope', '$routeParams', '$timeout', 
         }
     });
     // 如果全部选择了，就把callAll置为true，如果全部取消了，就置为false
-    $scope.changeCallAll = function() {
-        var selectedCallList = $scope.selectedCallList;
-        var first = selectedCallList[Object.keys(selectedCallList)[0]];
-        for (var j in selectedCallList) {
-            if (selectedCallList[j] != first) {
-                return;
-            }
-        }
-        $scope.callAll = first;
-    };
+    //$scope.changeCallAll = function() {
+    //    var selectedCallList = $scope.selectedCallList;
+    //    var first = selectedCallList[Object.keys(selectedCallList)[0]];
+    //    for (var j in selectedCallList) {
+    //        if (selectedCallList[j] != first) {
+    //            return;
+    //        }
+    //    }
+    //    $scope.callAll = first;
+    //};
 
     /**
      * 批量打电话
