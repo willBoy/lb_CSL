@@ -56,14 +56,14 @@
                     <th>操作</th>
                 </tr>
                 <tr ng-repeat="t_exe_list in t_exerciseList">
-                    <!--<td>1</td>-->
+                    <!--<td ng-bind="$index+1"></td>-->
                     <td ng-bind="t_exe_list.pronunciationQuestions.chsChars"></td>
                     <td ng-bind="t_exe_list.pronunciationQuestions.tones"></td>
-                    <td ng-bind="t_exe_list.pronunciationQuestions.qingsheng"></td>
-                    <td ng-bind="t_exe_list.pronunciationQuestions.erhua"></td>
+                    <td ng-bind="qingshengMap[t_exe_list.pronunciationQuestions.qingsheng]"></td>
+                    <td ng-bind="erhuaMap[t_exe_list.pronunciationQuestions.erhua]"></td>
                     <td ng-bind="t_exe_list.pronunciationQuestions.nbSyllables"></td>
-                    <td ng-bind="t_exe_list.pronunciationQuestions.speaker"></td>
-                    <td ng-bind="t_exe_list.pronunciationQuestions.hskLevel"></td>
+                    <td ng-bind="speakerMap[t_exe_list.pronunciationQuestions.speaker]"></td>
+                    <td ng-bind="hskLevelMap[t_exe_list.pronunciationQuestions.hskLevel]"></td>
                     <td>
                         <a ng-click="exe_del(t_exe_list.id)">删除</a>
                     </td>
