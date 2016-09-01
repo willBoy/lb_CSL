@@ -860,7 +860,7 @@ UtilsService.genTab($scope, tabName)
 
 .main-page-margin {
   height: 100%;
-  min-width: 1200px;
+  min-width: 900px;
   margin: 80px 0 0 200px;
 }
 
@@ -1862,10 +1862,10 @@ UtilsService.genTab($scope, tabName)
   margin: 22px 5px 18px 5px;
 }
 #header #main-status .user-op {
-  width: 130px;
+  width: 170px;
   position: absolute;
   top: 34px;
-  left: -70px;
+  left: -116px;
 }
 
 #aside {
@@ -2033,9 +2033,6 @@ UtilsService.genTab($scope, tabName)
   margin: 100px auto 100px;
 }
 .study .key span {
-  border: 3px #ccc solid;
-}
-#answer span {
   border: 3px #ccc solid;
 }
 .study .key .numberkey {

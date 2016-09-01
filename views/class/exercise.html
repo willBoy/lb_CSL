@@ -19,7 +19,7 @@
                 <span class="font-size-16">章节名称：</span><span ng-bind="t_chapterInfo.name"></span>
             </div>
             <div class="clearfix">
-                <span class="font-size-small intro left">章节简介 : </span><span ng-bind="t_chapterInfo.descriptionContent"></span>
+                <span class="font-size-16 intro left">章节简介 : </span><span ng-bind="t_chapterInfo.descriptionContent"></span>
             </div>
         </div>
     </div>
@@ -27,8 +27,6 @@
         <div class="title-1">
             <span class="title">习题列表</span>
             <div class="right">
-                <input type="text" class="input retrieval" placeholder="关键词" ng-model="conditions.common.outCallNo">
-                <span class="icons-search"></span>
                 <select class="select">
                     <option>音节数</option>
                     <option>2</option>
@@ -39,8 +37,9 @@
                     <option></option>
                     <option></option>
                 </select>
-                <span class="op btn-blue bgcolor-blue" ng-click="utils.href('/class/exercise_add/'+t_chapterInfo.id)">+ 添加习题</span>
-
+                <input type="text" class="input retrieval" placeholder="关键词" ng-model="conditions.common.outCallNo">
+                <span class="icons-search"></span>
+                <span class="op btn-blue bgcolor-blue" ng-click="utils.href('/class/exercise_add/'+t_chapterInfo.id)">添加习题</span>
             </div>
         </div>
         <div class="table-list">

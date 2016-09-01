@@ -10,54 +10,62 @@
     </div>
     <div class="main-wrapper" ng-show="true">
         <form name="addClass_form" novalidate>
-        <div class="form-item">
-            <div class="title">班级名称：</div>
-            <div class="content">
-                <input type="text" class="input" name="name" ng-maxlength="30" ng-model="classes.name" required>
-                <pre class="line-height-15 color-blue">对学生不可见</pre>
-                <div class="error" ng-show="addClass_form.name.$dirty && addClass_form.name.$invalid">名称必填，且不多于30个字</div>
-            </div>
-        </div>
-        <div class="form-item">
-            <div class="title">课程名称：</div>
-            <div class="content">
-                <input type="text" class="input" name="courseName" ng-maxlength="30" ng-model="classes.courseName" required >
-                <pre class="line-height-15 color-blue">对学生可见</pre>
-                <div class="error" ng-show="addClass_form.courseName.$dirty && addClass_form.courseName.$invalid">名称必填，且不多于30个字</div>
-            </div>
-        </div>
-        <div class="form-item robot-type">
-            <div class="title">导入课程</div>
-            <div class="content">
-                <select class="select">
-                    <option>课程1</option>
-                    <option>课程2</option>
-                    <option>课程3</option>
-                </select>
-                <!--<select class="select" name="voice_type" ng-model="course.name" required>
-                <option value="">选择课程</option>
-                <option ng-repeat="course in courseList" value="{{ course.id }}" ng-bind="course.name"></option>
-                </select>
-                <div class="error" ng-show="course_form.course_name.$dirty && course_form.course_name.$invalid">请选择课程</div>-->
-            </div>
-        </div>
-        <div class="form-item">
-            <div class="title">开班时间</div>
-            <div class="content">
-                <div class="calendar" id="time-start">
-                    <input type="text" class="input" name="startTime" readonly disabled="disabled" placeholder="请输入开班时间" ng-model="classes.startTime" required>
-                    <span class="icon icons-calendar"></span>
+            <div class="form-item">
+                <div class="title">班级名称：</div>
+                <div class="content">
+                    <input type="text" class="input" name="name" ng-maxlength="30" ng-model="classes.name" required>
+                    <pre class="line-height-15 color-blue">对学生不可见</pre>
+                    <div class="error" ng-show="addClass_form.name.$dirty && addClass_form.name.$invalid">名称必填，且不多于30个字</div>
                 </div>
-                <div class="error" ng-show="addClass_form.startTime.$dirty && addClass_form.startTime.$invalid">请输入开班时间</div>
             </div>
-        </div>
-        <div class="form-op">
+            <div class="form-item">
+                <div class="title">开班时间</div>
+                <div class="content">
+                    <div class="calendar" id="time-start">
+                        <input type="text" class="input" name="startTime" readonly disabled="disabled" placeholder="请输入开班时间" ng-model="classes.startTime" required>
+                        <span class="icon icons-calendar"></span>
+                    </div>
+                    <div class="error" ng-show="addClass_form.startTime.$dirty && addClass_form.startTime.$invalid">请输入开班时间</div>
+                </div>
+            </div>
+            <div class="form-item">
+                <div class="title">课程名称：</div>
+                <div class="content">
+                    <input type="text" class="input" name="courseName" ng-maxlength="30" ng-model="classes.courseName" required>
+                    <pre class="line-height-15 color-blue">对学生可见</pre>
+                    <div class="error" ng-show="addClass_form.courseName.$dirty && addClass_form.courseName.$invalid">名称必填，且不多于30个字</div>
+                </div>
+            </div>
+            <!--<div class="form-item">
+                <div class="title">课程简介：</div>
+                <div class="content">
+                    <input type="text" class="input" name="course.escription" ng-maxlength="30" ng-model="classes.course.description" required>
+                    <pre class="line-height-15 color-blue">对学生可见</pre>
+                    <div class="error" ng-show="addClass_form.course.description.$dirty && addClass_form.course.description.$invalid">请输入课程简介</div>
+                </div>
+            </div>-->
+            <div class="form-item robot-type">
+                <div class="title">导入课程</div>
+                <div class="content">
+                    <select class="select">
+                        <option>课程1</option>
+                        <option>课程2</option>
+                        <option>课程3</option>
+                    </select>
+                    <!--<select class="select" name="voice_type" ng-model="course.name" required>
+                    <option value="">选择课程</option>
+                    <option ng-repeat="course in courseList" value="{{ course.id }}" ng-bind="course.name"></option>
+                    </select>
+                    <div class="error" ng-show="course_form.course_name.$dirty && course_form.course_name.$invalid">请选择课程</div>-->
+                </div>
+            </div>
+            <div class="form-op">
             <span class="op btn-blue" ng-click="addClass_form.name.$dirty = true;
                                                     addClass_form.courseName.$dirty = true;
                                                     addClass_form.startTime.$dirty = true;
                                                     addClass_form.$valid && classAdd()">确定</span>
-            <span class="op btn-blue" ng-click="utils.href('/classList')">取消</span>
-        </div>
+                <span class="op btn-blue" ng-click="utils.href('/classList')">取消</span>
+            </div>
         </form>
     </div>
 

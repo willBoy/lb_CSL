@@ -1,39 +1,44 @@
 <div id="reg" class="bgimg-black">
     <div id="reg-wrapper" class="bgcolor-white" ng-show="true">
         <div id="title" class="color-white font-size-huge bgcolor-blue font-weight-200">注册</div>
-        <form name="rule_form" novalidate>
+        <form name="t_reg_form" novalidate>
             <div class="form-item">
                 <div class="title_lang">* 电子邮箱：<br>E-mail</div>
                 <div class="content">
-                    <input name="key_email" class="input" type="text"  ng-model="t_regInfo.email" required>
+                    <input name="email" class="input" type="text"  ng-model="t_regInfo.email" required>
                     <pre class="line-height-15 color-blue">请输入真实有效的邮箱，便于找回密码</pre>
+                    <div class="error" ng-show="t_reg_form.email.$dirty && t_reg_form.email.$invalid">请输入真实有效的邮箱</div>
                 </div>
             </div>
             <div class="form-item">
                 <div class="title_lang">* 密码：<br>Password</div>
                 <div class="content">
-                    <input name="key_pwd" class="input" type="text"  ng-model="t_regInfo.password" required>
+                    <input name="password" class="input" type="password"  ng-model="t_regInfo.password" required>
                     <pre class="line-height-15 color-blue">请输入6位以上字符</pre>
-                    <div class="error" ng-show="rule_form.key_pwd.$dirty && rule_form.key_pwd.$invalid">请输入6位以上字符</div>
+                    <div class="error" ng-show="t_reg_form.password.$dirty && t_reg_form.password.$invalid">请输入6位以上字符</div>
                 </div>
             </div>
-
             <div class="form-item">
                 <div class="title_lang">中文名：<br>Chinese name</div>
                 <div class="content">
-                    <input name="key_chineseName" class="input" type="text"  ng-model="t_regInfo.chineseName" required>
+                    <input name="chineseName" class="input" type="text"  ng-model="t_regInfo.chineseName" required>
                     <pre class="line-height-15 color-blue">请输入汉字</pre>
-                    <div class="error" ng-show="rule_form.key_chineseName.$dirty && rule_form.key_chineseName.$invalid">请输入中文名</div>
+                    <div class="error" ng-show="t_reg_form.chineseName.$dirty && t_reg_form.chineseName.$invalid">请输入中文名</div>
                 </div>
             </div>
             <div class="form-item">
                 <div class="title_lang">手机号码：<br>Cellphone number</div>
                 <div class="content">
-                    <input name="key_phone" class="input" type="text"  ng-model="t_regInfo.phoneNumber" required>
+                    <input name="phoneNumber" class="input" type="text"  ng-model="t_regInfo.phoneNumber" required>
+                    <div class="error" ng-show="t_reg_form.phoneNumber.$dirty && t_reg_form.phoneNumber.$invalid">请输入手机号</div>
                 </div>
             </div>
             <div class="form-op">
-                <span class="op btn-blue" ng-click="t_reg()">保存</span>
+                <span class="op btn-blue" ng-click="t_reg_form.email.$dirty = true;
+                                                    t_reg_form.password.$dirty = true;
+                                                    t_reg_form.chineseName.$dirty = true;
+                                                    t_reg_form.phoneNumber.$dirty = true;
+                                                    t_reg_form.$valid && t_reg()">保存</span>
             </div>
         </form>
 

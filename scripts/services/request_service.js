@@ -9,6 +9,12 @@ lbApp.factory('RequestService', ['$http', 'UtilsService', function($http, UtilsS
         't_reg': 'teacher/register',
         //教师端班级列表
         't_classList':'classes/find',
+        //查看教师帐户信息
+        /*'t_teachershow':'teacher/show',*/
+        //教师退出
+        't_logout':'teacher/loginOut',
+        //教师修改密码
+        't_updatePassword':'teacher/updatePassword',
         //班级设置
         't_settingClass':'classes/find',
         //保存班级设置
@@ -30,7 +36,7 @@ lbApp.factory('RequestService', ['$http', 'UtilsService', function($http, UtilsS
         //章节信息
         't_chapterShow':'chapter/show',
         //习题列表
-        't_exe_list':'QuestionPronunciation/findChapterQuestions',
+        't_exe_list':'questionPronunciation/findChapterQuestions',
         //保存章节设置
         't_chapterUpdate':'chapter/update',
         //删除章节
@@ -39,7 +45,10 @@ lbApp.factory('RequestService', ['$http', 'UtilsService', function($http, UtilsS
         't_student':'classes/findStudent',
         //学生个人信息
         't_studentInfo':'classes/showStudentInfo',
+        //学生备注
         't_studentRemark':'classes/updateStudentMemo',
+        //重置密码
+        't_studentResetPassword':'/student/updatePassword',
         //删除学生
         't_studentDel':'classes/delStudent',
         //学生端-我的课程列表
@@ -57,7 +66,7 @@ lbApp.factory('RequestService', ['$http', 'UtilsService', function($http, UtilsS
         /*//学生端-章节列表
         's_delCourse':'POST /course/show',*/
         //检索习题
-        't_exeIndex':'QuestionPronunciation/find',
+        't_exeIndex':'questionPronunciation/find',
         //添加习题
         't_addExe':'chapter/addChapterQuestion',
         //删除习题
