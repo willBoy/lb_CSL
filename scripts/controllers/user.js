@@ -176,4 +176,3 @@ lbApp.controller('updatePassword', ['$scope', '$rootScope', 'RequestService', 'U
 
 
 }]);
->>>>>>> 263892806924cdbeba92c175c3821a3eb44bbb3e

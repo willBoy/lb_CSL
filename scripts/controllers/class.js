@@ -162,20 +162,6 @@ lbApp.controller('ClassDetailController', ['$scope', '$routeParams', 'UtilsServi
             description:''
         }
     };
-
-    RequestService.request({
-        token:'t_settingClass',
-        method:'post',
-        data:UtilsService.serialize({id:$routeParams.classID}),
-        success: function(data){
-            console.log(data);
-            id: $routeParams.classID,
-                name: '',
-                courseName: '',
-                startTime: '',
-                status: ''
-        };
-
     RequestService.request({
         token: 't_settingClass',
         method: 'post',
@@ -185,10 +171,8 @@ lbApp.controller('ClassDetailController', ['$scope', '$routeParams', 'UtilsServi
             $scope.classes.courseName = data.result[0].courseName;
             $scope.classes.startTime = data.result[0].startTime;
             $scope.classes.status = data.result[0].status + "";
-            $scope.classes.course.id = data.result[0].courseId;
         }
     });
-
     function initDatePicker(startTimeArray, endTimeArray) {
         // 选择开始日期
         $('#time-start-update').jdatepicker({
