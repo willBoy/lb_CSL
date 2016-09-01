@@ -146,15 +146,13 @@ lbApp.controller('ExerciseAddController', ['$scope', '$routeParams', 'UtilsServi
     $scope.selectedCallList = {};
 
     $scope.getExerciseList = function () {
+        console.log($scope.exeIndex);
         RequestService.request({
             token: 't_exeIndex',
             method: 'POST',
             data: UtilsService.serialize($scope.exeIndex),
-            loading: true,
             success: function (data) {
-                console.log();
                 $scope.t_sel_exeList = data.result;
-                $scope.exeIndex = {};
                 for (var i = 0; i < $scope.t_sel_exeList.length; i++) {
                     $scope.selectedCallList[$scope.t_sel_exeList[i].id] = false;
                 }
@@ -180,20 +178,23 @@ lbApp.controller('ExerciseAddController', ['$scope', '$routeParams', 'UtilsServi
 
     // 如果全部选择了，就把callAll置为true，如果全部取消了，就置为false
     $scope.changeCallAll = function () {
-        var selectedCallList = $scope.selectedCallList;
-        var first = selectedCallList[Object.keys(selectedCallList)[0]];
-        for (var j in selectedCallList) {
-            if (selectedCallList[j] != first) {
-                return;
-            }
+        for (var i = 0; i < $scope.t_sel_exeList.length; i++) {
+            $scope.selectedCallList[$scope.t_sel_exeList[i].id] = true;
         }
-        $scope.callAll = first;
+        //var selectedCallList = $scope.selectedCallList;
+        //var first = selectedCallList[Object.keys(selectedCallList)[0]];
+        //for (var j in selectedCallList) {
+        //    if (selectedCallList[j] != first) {
+        //        return;
+        //    }
+        //}
+        //$scope.callAll = first;
     };
 
     /**
      * 批量添加习题
      */
-    $scope.addExe = function (call) {
+    $scope.addExe = function () {
         var data = '';
         for (var jid in $scope.selectedCallList) {
             if ($scope.selectedCallList[jid]) {
@@ -201,6 +202,7 @@ lbApp.controller('ExerciseAddController', ['$scope', '$routeParams', 'UtilsServi
             }
         }
         data = data.slice(2);
+        console.log(data);
         RequestService.request({
             token: 't_addExe',
             method: 'POST',
@@ -208,7 +210,7 @@ lbApp.controller('ExerciseAddController', ['$scope', '$routeParams', 'UtilsServi
             success: function (data) {
                 alert("添加习题成功");
                 UtilsService.href('/class/exercise/' + $routeParams.chapterID);
-                location.reload();
+                //location.reload();
             }
         })
     };

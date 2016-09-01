@@ -120,7 +120,7 @@
         <div class="table-list">
             <table class="data-list">
                 <tr>
-                    <th>全选<input type="checkbox" name="checkbox1" value="checkbox"></th>
+                    <th>全选<input type="checkbox" name="checkbox1" ng-model="selectAll" ng-change="changeCallAll()"  value="checkbox"></th>
                     <!--<th>序号</th>-->
                     <th>词汇</th>
                     <th>声调</th>
@@ -131,7 +131,7 @@
                     <th>等级</th>
                 </tr>
                 <tr ng-repeat="t_sel_exe_list in t_sel_exeList">
-                    <td><input type="checkbox" name="checkbox1" value="" ng-change="changeCallAll()" ng-model="selectedCallList[t_sel_exe_list.id]"></td>
+                    <td><input type="checkbox" name="checkbox1" ng-checked="selectAll" ng-change="changeCallAll(1)"  ng-model="selectedCallList[t_sel_exe_list.id]"></td>
                     <!--<td>1</td>-->
                     <td ng-bind="t_sel_exe_list.chsChars"></td>
                     <td ng-bind="t_sel_exe_list.tones"></td>
