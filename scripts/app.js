@@ -9,12 +9,12 @@ lbApp.run(['$rootScope', 'UtilsService', 'RequestService', function($rootScope, 
 
     $rootScope.utils = UtilsService;
 
-    $rootScope.logout = function() {
+    $rootScope.s_logout = function() {
         RequestService.request({
-            token: 'tk_logout',
+            token: 's_logout',
             method: 'POST',
             success: function(data) {
-                UtilsService.href('/login');
+                UtilsService.href('/');
             }
         });
     };

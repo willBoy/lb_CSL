@@ -1,4 +1,4 @@
-<div ng-show="p_status == 1">
+<div ng-show="p_status == 1" style="height:100%;">
     <div class="study text-align-center">
         <span class="btn btn-blue exit" ng-click="utils.href('/student/course')">edit</span>
         <div class="exercise">
@@ -7,13 +7,12 @@
             <h1>Instructions</h1>
             <p ng-bind="chapterInfo.descriptionEn"></p>
         </div>
+        <span class="op btn-blue" style="margin-top: 25%;" ng-click="pageS(2)" >下一步</span>
     </div>
-    <div class="form-op">
-        <span class="op btn-blue" ng-click="pageS(2)" >下一步</span>
-    </div>
+
 </div>
 <!---------------------------------------------------------------------------------------- -->
-<div ng-show="p_status==2">
+<div ng-show="p_status==2" style="height:100%;">
 <div class="study text-align-center">
     <div class="exercise">
         <h1>音量校准</h1>
@@ -26,45 +25,37 @@
     <section id="music">
         <audio id="musicAudio" loop src="../../vendor/mp3/volume.mp3"/>
     </section>
+        <span class="op btn-blue" style="margin-top: 9%;" ng-click="pageS(3)" >下一步</span>
 </div>
-    <div class="form-op">
-        <span class="op btn-blue" ng-click="pageS(3)">下一步</span>
-    </div>
+
 </div>
 <!---------------------------------------------------------------------------------------->
-<div ng-show="p_status==3">
+<div ng-show="p_status==3" style="height:100%;" id="keyCodeAlign">
 <div class="study text-align-center">
     <div class="exercise">
         <h1>键盘校准</h1>
         <div class="key" id="keyCode">
-            <span class="numberkey"><h1>1</h1></span>
-            <span class="numberkey"><h1>2</h1></span>
-            <span class="numberkey"><h1>3</h1></span>
-            <span class="numberkey"><h1>4</h1></span>
-            <span class="numberkey icon icons-enterkey"></span>
+            <span class="numberkey key-1"><h1>1</h1></span>
+            <span class="numberkey key-2"><h1>2</h1></span>
+            <span class="numberkey key-3"><h1>3</h1></span>
+            <span class="numberkey key-4"><h1>4</h1></span>
+            <span class="numberkey key-5 icon icons-enterkey"></span>
         </div>
-        <p>请依次按下上述按键</p>
-        <!--<div class="form-op">
-            <span class="op btn-blue" ng-click="utils.href('/class/session')">下一步</span>
-        </div>-->
+        <p>请按下上述按键</p>
     </div>
-</div>
-<div class="container">
-    <div class="form-op">
-        <span class="op btn-blue" ng-click="pageS(4)">下一步</span>
-    </div>
+    <!--<div class="footer" style="position: absolute;bottom: 0;text-align: center;width: 57%;">-->
+        <!--<span class="op btn-blue" ng-click="pageS(4)" >下一步</span>-->
+    <!--</div>-->
 </div>
 </div>
 <!----------------------------------------------------------------------------------------------------->
-<div ng-show="p_status==4">
+<div style="height:100%; display: none" id="prepare">
 <div class="study text-align-center">
     <div class="exercise">
         <h1>请准备</h1>
         <span class="icon icons-key1"></span>
         <!--<p>按回车键开始练习</p>-->
-    </div>
-    <div class="form-op">
-        <span class="op btn-blue" ng-click="utils.href('/student/study_keying/'+execiseID)">下一步</span>
+        <!--<div class="op btn-blue" ng-click="utils.href('/student/study_keying/'+execiseID)">下一步</div>-->
     </div>
 </div>
 </div>

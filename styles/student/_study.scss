@@ -1,7 +1,147 @@
-.study{
-    width: 60%;
+#s_exercising{
+    width: 100%;
     height: 100%;
-    padding: 0 20%;
+    background-color:black;
+    .exe_exit{
+        position: absolute;
+        right: 0;
+    }
+    .exercise{
+        .add_symbol{
+            position: absolute;
+            color: white;
+            font-size: 42px;
+            top: 34%;
+            left: 51%;
+        }
+        .answer{
+            .key{
+                position: absolute;
+                top: 40%;
+                left: 50%;
+            }
+        }
+        .imgShow{
+            width: 100%;
+            text-align: center;
+            padding-top: 2%;
+        }
+    }
+    .tone{
+        .border-3-white{
+            border: 3px solid white;
+        }
+        .one-syllable{
+            display: inline-block;
+            position: absolute;
+            bottom: 20%;
+            left: 25%;
+        }
+        .one-syllable-num{
+            font-size: 30px;
+            color: white;
+            position: absolute;
+            bottom: 15%;
+            left: 29%;
+        }
+        .two-syllable{
+            display: inline-block;
+            position: absolute;
+            bottom: 20%;
+            left: 40%
+        }
+        .two-syllable-num{
+            font-size: 30px;
+            color: white;
+            position: absolute;
+            bottom: 15%;
+            left: 44%;
+        }
+        .three-syllable{
+            display: inline-block;
+            position: absolute;
+            bottom: 20%;
+            left: 55%;
+        }
+        .three-syllable-num{
+            font-size: 30px;
+            color: white;
+            position: absolute;
+            bottom: 15%;
+            left: 59%;
+        }
+        .four-syllable{
+            display: inline-block;
+            position: absolute;
+            bottom: 20%;
+            left: 70%
+        }
+        .four-syllable-num{
+            font-size: 30px;
+            color: white;
+            position: absolute;
+            bottom: 15%;
+            left: 74%;
+        }
+    }
+    .answer{
+        .border-3-white{
+            border: 3px solid white;
+        }
+        .key-1{
+            position: absolute;
+            top: 40%;
+            left: 45%;
+            .answer_empty{
+                border-bottom: 3px solid white;
+                width: 106px;
+                height: 102px;
+                float: left;
+                margin-left: 30px;
+            }
+        }
+        .key-2{
+            position: absolute;
+            top: 40%;
+            left: 40%;
+            .answer_empty{
+                border-bottom: 3px solid white;
+                width: 106px;
+                height: 102px;
+                float: left;
+                margin-left: 30px;
+            }
+        }
+        .key-3{
+            position: absolute;
+            top: 40%;
+            left: 35%;
+            .answer_empty{
+                border-bottom: 3px solid white;
+                width: 106px;
+                height: 102px;
+                float: left;
+                margin-left: 30px;
+            }
+        }
+        .key-4{
+            position: absolute;
+            top: 40%;
+            left: 30%;
+            .answer_empty{
+                border-bottom: 3px solid white;
+                width: 106px;
+                height: 102px;
+                float: left;
+                margin-left: 30px;
+            }
+        }
+    }
+
+}
+
+.study{
+    height: 100%;
     background: #000;
     color: #eee;
     line-height: 120px;
@@ -43,17 +183,7 @@
     span.border-red{
         border: 3px #fa6d78 solid;
     }
-    .answer{
-        width: 600px;
-        margin: 0 auto;
-        .answer_empty{
-            width: 150px;
-            height: 120px;
-            margin: 50px;
-            display: inline-block;
-            border-bottom: 3px #ccc solid;
-        }
-    }
+
     .container {
         width:60%;
         position: absolute;
@@ -114,3 +244,4 @@
 
 
 }
+

@@ -25,6 +25,8 @@ lbApp.factory('RequestService', ['$http', 'UtilsService', function($http, UtilsS
         't_classDel':'classes/delete',
         //章节列表
         't_courseChapter':'chapter/list',
+        //学生端-获取章节列表
+        's_chapterList':'/chapter/listAndBestScore',
         //新建章节
         't_addChapter':'chapter/add',
         //章节信息
@@ -73,7 +75,9 @@ lbApp.factory('RequestService', ['$http', 'UtilsService', function($http, UtilsS
         //学生端-个人信息
         's_profile':'student/getCurrentUser',
         //学生端-修改密码
-        's_editPwd':'student/updatePassword'
+        's_editPwd':'student/updatePasswordByOld',
+        //学生端-退出登录
+        's_logout':'student/loginOut'
 
     };
     return {
@@ -130,12 +134,15 @@ lbApp.factory('RequestService', ['$http', 'UtilsService', function($http, UtilsS
                             alert('请您先到注册邮箱中点击链接进行验证');
                             UtilsService.href('/login');
                             break;
-                        case 10074:
-                            alert('请到个人中心提交营业执照进行审核');
-                            UtilsService.href('/profile');
+                        case "20208":
+                            alert(data.msg);
+                            UtilsService.href('/s_changePwd');
+                            break;
+                        case "20003":
+                            UtilsService.href('/s_login');
                             break;
                         default:
-                            UtilsService.href('/exception');
+                            UtilsService.href('/');
                             reqConfig.error && reqConfig.error(data);
                             alert(data.msg);
                     }

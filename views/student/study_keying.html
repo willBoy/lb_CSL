@@ -1,54 +1,29 @@
-<div class="study text-align-center">
-    <span class="btn btn-blue exit" ng-click="utils.href('/student/course')">edit</span>
-
+<div id="s_exercising">
+    <span  class="btn btn-blue exe_exit " style="" ng-click="utils.href('/student/course')">exit</span>
     <div class="exercise" id="dududu">
-        <h1>+</h1>
+        <span class="add_symbol">+</span>
         <section id="musicPro">
             <audio id="dududu_Audio"  src="../../vendor/mp3/dududu.mp3"/>
         </section>
-        <div class="answer">
-            <div class="key_answer">
-                <div class="answer_emp" style="width:150px;height:126px;margin:50px;"></div>
-            </div>
-        </div>
-        <div class="key">
-            <div class="col-2-4">
-                <span class="icon icons-1"></span><h1>1</h1>
-            </div>
-            <div class="col-2-4">
-                <span class="icon icons-2"></span><h1>2</h1>
-            </div>
-            <div class="col-2-4">
-                <span class="icon icons-3"></span><h1>3</h1>
-            </div>
-            <div class="col-2-4">
-                <span class="icon icons-4"></span><h1>4</h1>
-            </div>
-        </div>
     </div>
-
-    <div class="exercise" style="display: none" id="exerciseQ">
+    <div class="exercise" id="exerciseQ">
         <section id="musicSelect">
             <audio id="musicAuto" autoplay="autoplay" ng-src="{{musicSrc}}"></audio>
         </section>
+        <div class="imgShow" id="imgShow">
+            <img ng-src="{{imgSrc}}">
+        </div>
         <div class="answer" id="answer">
-                <div class="key">
-                    <div class="answer_empty" ></div>
-                </div>
         </div>
-        <div class="key">
-            <div class="col-2-4">
-                <span class="icon icons-1"></span><h1>1</h1>
-            </div>
-            <div class="col-2-4">
-                <span class="icon icons-2"></span><h1>2</h1>
-            </div>
-            <div class="col-2-4">
-                <span class="icon icons-3"></span><h1>3</h1>
-            </div>
-            <div class="col-2-4">
-                <span class="icon icons-4"></span><h1>4</h1>
-            </div>
-        </div>
+    </div>
+    <div class="tone">
+        <span class="icon icons-1 one-syllable border-3-white"></span>
+        <span class="one-syllable-num">1</span>
+        <span class="icon icons-2 two-syllable border-3-white"></span>
+        <span class="two-syllable-num">2</span>
+        <span class="icon icons-3 three-syllable border-3-white"></span>
+        <span class="three-syllable-num">3</span>
+        <span class="icon icons-4 four-syllable border-3-white"></span>
+        <span class="four-syllable-num">4</span>
     </div>
 </div>

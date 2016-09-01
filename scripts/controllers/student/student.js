@@ -25,16 +25,23 @@ lbApp.controller('StudentEditPwdController', ['$rootScope','$scope', '$routePara
         listName: 'student',
         tabName: 'tabName'
     };
-        $scope.password ='';
+    $scope.password = {
+        'oldPassword':'',
+        'newPassword':''
+    };
+    $scope.submitPassword = function(){
+        console.log($scope.password);
         RequestService.request({
             token:'s_editPwd',
             method:'POST',
-            data:UtilsService.serialize({id:$rootScope.studentInfo.id}),
+            data:UtilsService.serialize($scope.password),
             loading:true,
-            success:function(){
-
+            success:function(data){
+                UtilsService.href('/student/course')
             }
         })
+    }
+
 }]);
 
 
@@ -152,7 +159,7 @@ lbApp.controller('StudentCourseDetailController', ['$scope','$routeParams', 'Uti
     // 请求章节列表数据
     function s_chapterList(){
         RequestService.request({
-            token: 't_courseChapter',
+            token: 's_chapterList',
             method: 'GET',
             strParams:'courseId='+$routeParams.courseID,
             loading: true,
@@ -180,6 +187,13 @@ lbApp.controller('StudyController', ['$scope','$routeParams', 'UtilsService', 'R
         '3':'3',
         '4':'4'
     }
+    $scope.keyJudgeMap = {
+        'key-1':false,
+        'key-2':false,
+        'key-3':false,
+        'key-4':false,
+        'key-5':false
+    }
     $scope.pageS = function(NO){
         //切换
         $scope.p_status=$scope.pageStatus[NO];
@@ -195,33 +209,72 @@ lbApp.controller('StudyController', ['$scope','$routeParams', 'UtilsService', 'R
             document.onkeydown=function(event){
                 var e = event || window.event;
                 if(e && e.keyCode==49){ // 按 1
-                    $("#keyCode").find(".numberkey").eq(0).addClass("bgcolor-blue");
+                    $(".key-1").addClass("bgcolor-blue");
+                    $scope.keyJudgeMap['key-1'] =true;
+                    if($scope.keyJudgeMap['key-1']&&$scope.keyJudgeMap['key-2']&&$scope.keyJudgeMap['key-3']&&$scope.keyJudgeMap['key-4']&&$scope.keyJudgeMap['key-5']){
+                        $("#prepare").show();
+                        $("#keyCodeAlign").hide();
+                        startExe();
+                    }
                 }
                 if(e && e.keyCode==50){ // 按 2
-                    $("#keyCode").find(".numberkey").eq(1).addClass("bgcolor-blue");
+                    $(".key-2").addClass("bgcolor-blue");
+                    $scope.keyJudgeMap['key-2'] =true;
+                    if($scope.keyJudgeMap['key-1']&&$scope.keyJudgeMap['key-2']&&$scope.keyJudgeMap['key-3']&&$scope.keyJudgeMap['key-4']&&$scope.keyJudgeMap['key-5']){
+                        $("#prepare").show();
+                        $("#keyCodeAlign").hide();
+                        startExe();
+                    }
                 }
                 if(e && e.keyCode==51){ // 按 3
-                    $("#keyCode").find(".numberkey").eq(2).addClass("bgcolor-blue");
+                    $(".key-3").addClass("bgcolor-blue");
+                    $scope.keyJudgeMap['key-3'] =true;
+                    if($scope.keyJudgeMap['key-1']&&$scope.keyJudgeMap['key-2']&&$scope.keyJudgeMap['key-3']&&$scope.keyJudgeMap['key-4']&&$scope.keyJudgeMap['key-5']){
+                        $("#prepare").show();
+                        $("#keyCodeAlign").hide();
+                        startExe();
+                    }
                 }
                 if(e && e.keyCode==52){ // 按 4
-                    $("#keyCode").find(".numberkey").eq(3).addClass("bgcolor-blue");
+                    $(".key-4").addClass("bgcolor-blue");
+                    $scope.keyJudgeMap['key-4'] =true;
+                    if($scope.keyJudgeMap['key-1']&&$scope.keyJudgeMap['key-2']&&$scope.keyJudgeMap['key-3']&&$scope.keyJudgeMap['key-4']&&$scope.keyJudgeMap['key-5']){
+                        $("#prepare").show();
+                        $("#keyCodeAlign").hide();
+                        startExe();
+                    }
                 }
-                if(e && e.keyCode==13){ // 按 4
-                    $("#keyCode").find(".numberkey").eq(4).addClass("bgcolor-blue");
+                if(e && e.keyCode==13){ // 按 enter
+                    $(".key-5").addClass("bgcolor-blue");
+                    $scope.keyJudgeMap['key-5'] =true;
+                    if($scope.keyJudgeMap['key-1']&&$scope.keyJudgeMap['key-2']&&$scope.keyJudgeMap['key-3']&&$scope.keyJudgeMap['key-4']&&$scope.keyJudgeMap['key-5']){
+                        $("#prepare").show();
+                        $("#keyCodeAlign").hide();
+                        startExe();
+                    }
                 }
             };
         }
-        if(NO == 4){
-            document.onkeydown=function(event){
-                if(event && event.keyCode==13){ // 按 4
-                    UtilsService.href('/student/study_keying/'+$routeParams.chapterID);
-                }
-            };
-
-        }
-
     }
 
+    //请准备页面，点击回车，开始做题
+    function startExe() {
+        document.onkeydown=function(event){
+            if(event.keyCode==13){ // 按 enter
+                RequestService.request({
+                    token:'s_course_list',
+                    method:'GET',
+                    success:function(data){
+                        UtilsService.href('/student/study_keying/'+$scope.execiseID);
+                    }
+                });
+            }
+        };
+
+
+
+
+}
     RequestService.request({
         token:'t_chapterShow',
         method:'POST',
@@ -260,7 +313,8 @@ lbApp.controller('StudyKeyingController', ['$scope', '$routeParams','UtilsServic
         answer:'',
         answerBody:''
     };
-
+    $("#imgShow").hide();
+    //等待加载嘟嘟嘟~
     setTimeout(function(){
         $("#dududu").hide();
         $("#exerciseQ").show();
@@ -284,10 +338,9 @@ lbApp.controller('StudyKeyingController', ['$scope', '$routeParams','UtilsServic
         $scope.exerciseInfo = data;
         $scope.execiseAnswer.chapterExerciseId = data.chapterExerciseId;
         $scope.execiseAnswer.exerciseId = data.id;
-        //var filePath = $scope.exerciseInfo.questionsPronunciation.filePath.substr(12);
-        //$scope.musicSrc = '';
         $scope.musicSrc = '../../vendor/mp3/'+$scope.exerciseInfo.questionsPronunciation.filePath.substr(12);
-        console.log($scope.musicSrc);
+        var imgSrcNum = $scope.exerciseInfo.questionsId;
+        $scope.imgSrc = '../../vendor/png/'+imgSrcNum+'.png';
 
         var dududu_Audio = document.getElementById('dududu_Audio');
         dududu_Audio.play();
@@ -297,24 +350,26 @@ lbApp.controller('StudyKeyingController', ['$scope', '$routeParams','UtilsServic
                 $("#dududu").hide();
                 $("#exerciseQ").show();
                 musicAudio.play();
-            },2000);
+            },3000);
         },false);
         $("#answer").html("");
         if($scope.exerciseInfo.questionsPronunciation.tones.length ==1 ){
-            var html = '<div class="answer_empty">'+'</div>';
+            var html = '<div class="key-1">'+
+                        '<div class="answer_empty">'+'</div>'+
+                        '</div>';
         }else if($scope.exerciseInfo.questionsPronunciation.tones.length ==2){
-            var html = '<div class="key">'+
+            var html = '<div class="key-2">'+
                 '<div class="answer_empty">'+'</div>'+
                 '<div class="answer_empty">'+'</div>'
                 +'</div>';
         }else if($scope.exerciseInfo.questionsPronunciation.tones.length ==3){
-            var html = '<div class="key">'+
+            var html = '<div class="key-3">'+
                 '<div class="answer_empty">'+'</div>'+
                 '<div class="answer_empty">'+'</div>'+
                 '<div class="answer_empty">'+'</div>'
                 +'</div>'
         }else if($scope.exerciseInfo.questionsPronunciation.tones.length ==4){
-            var html = '<div class="key">'+
+            var html = '<div class="key-4">'+
                 '<div class="answer_empty">'+'</div>'+
                 '<div class="answer_empty">'+'</div>'+
                 '<div class="answer_empty">'+'</div>'+
@@ -323,73 +378,91 @@ lbApp.controller('StudyKeyingController', ['$scope', '$routeParams','UtilsServic
         }
         $scope.lengthNum = $scope.exerciseInfo.questionsPronunciation.tones.length;
         $("#answer").html(html);
-    }
+
+    var flag = true;
     document.onkeydown=function(event){
-        if(event && event.keyCode==49){ // 按 1
+        if(event.keyCode==49){ // 按 1
             if($("#exerciseQ").is(":visible")){
                 select(-1,1);
             }
         }
-        if(event && event.keyCode==50){ // 按 2
+        if(event.keyCode==50){ // 按 2
             if($("#exerciseQ").is(":visible")){
                 select(-1,2);
             }
         }
-        if(event && event.keyCode==51){ // 按 3
+        if(event.keyCode==51){ // 按 3
             if($("#exerciseQ").is(":visible")){
                 select(-1,3);
             }
         }
-        if(event && event.keyCode==52){ // 按 4
+        if(event.keyCode==52){ // 按 4
             if($("#exerciseQ").is(":visible")){
                 select(-1,4);
             }
         }
+
     };
+    var arr = [];
     function select(num,code){
         --$scope.lengthNum;
-        var codeT='';
-        codeT += code;
+        arr.push(code);
+        var codeT ='';
+        codeT= arr.join('')+"";
+        console.log("codeT"+codeT);
         var i = $scope.exerciseInfo.questionsPronunciation.tones.length - $scope.lengthNum-1;
-        var selectHtml = '<span class="icon icons-'+code+'"></span>';
+        var selectHtml = '<span class="icon border-3-white icons-'+code+'"></span>';
         $("#answer").find('.answer_empty').eq(i).html(selectHtml);
         $scope.execiseAnswer.answerBody = codeT;
-        if(i=0){
-            if($scope.exerciseInfo.questionsPronunciation.tones == code){
+        var TonsAnswer = $scope.exerciseInfo.questionsPronunciation.tones+"";
+        if($scope.lengthNum == 0){
+            if(TonsAnswer == codeT){
                 $scope.execiseAnswer.answer = true;
+                nextExe();
             }else{
-                $scope.execiseAnswer.answer = false;
-            }
-        }else{
-            if($scope.exerciseInfo.questionsPronunciation.tones == codeT){
-                $scope.execiseAnswer.answer = true;
-            }else{
-                $scope.execiseAnswer.answer = false;
+                if(TonsAnswer.length == codeT.length){
+                    $("#imgShow").show();
+                    flag = false;
+                    document.onkeydown=function(event){
+                        if(event && event.keyCode==13){ // 按 1
+                            $("#imgShow").hide();
+                            flag = true;
+                            nextExe();
+                        }
+
+                    };
+                }
             }
         }
+    }
         //判断是否为空
         function isEmptyObject(obj){
             for(var n in obj){return false}
             return true;
         }
-        if($scope.lengthNum <= 0){
-            console.log($scope.execiseAnswer);
-            RequestService.request({
-                token:'s_exe_sub',
-                method:'POSt',
-                data:UtilsService.serialize($scope.execiseAnswer),
-                success:function(data){
-                    console.log(data);
-                    if(isEmptyObject(data)){
-                        //$scope.exe_submit();
-                        UtilsService.href('/student/study_finish/'+$routeParams.exerciseID);
-                    }else{
-                        chapterExercise(data);
-                    }
+        function nextExe(){
+            if($scope.lengthNum <= 0&&flag){
+                console.log($scope.execiseAnswer);
+                RequestService.request({
+                    token:'s_exe_sub',
+                    method:'POSt',
+                    data:UtilsService.serialize($scope.execiseAnswer),
+                    success:function(data){
+                        console.log(data);
+                        if(isEmptyObject(data)){
+                            //$scope.exe_submit();
+                             arr = [];
+                            UtilsService.href('/student/study_finish/'+$routeParams.exerciseID);
+                        }else{
+                             arr = [];
+                            chapterExercise(data);
+                        }
 
-                }
-            })
-        }
+                    }
+                })
+            }
+        };
+
     }
 }]);
 
@@ -426,11 +499,7 @@ lbApp.controller('StudyFinishController', ['$scope','$routeParams', 'UtilsServic
             var endT_date = new Date(endTime);
             var m=parseInt(Math.abs(endT_date-startT_date));
             var count = data.rightCount+data.wrongCount;
-            console.log(m);
-            console.log(count);
             $scope.ave_time = parseInt((m-count*500)/count);
-            console.log($scope.ave_time);
-
         }
     })
 }]);

@@ -1995,10 +1995,141 @@ UtilsService.genTab($scope, tabName)
   width: 150px;
 }
 
-.study {
-  width: 60%;
+#s_exercising {
+  width: 100%;
   height: 100%;
-  padding: 0 20%;
+  background-color: black;
+}
+#s_exercising .exe_exit {
+  position: absolute;
+  right: 0;
+}
+#s_exercising .exercise .add_symbol {
+  position: absolute;
+  color: white;
+  font-size: 42px;
+  top: 34%;
+  left: 51%;
+}
+#s_exercising .exercise .answer .key {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+}
+#s_exercising .exercise .imgShow {
+  width: 100%;
+  text-align: center;
+  padding-top: 2%;
+}
+#s_exercising .tone .border-3-white {
+  border: 3px solid white;
+}
+#s_exercising .tone .one-syllable {
+  display: inline-block;
+  position: absolute;
+  bottom: 20%;
+  left: 25%;
+}
+#s_exercising .tone .one-syllable-num {
+  font-size: 30px;
+  color: white;
+  position: absolute;
+  bottom: 15%;
+  left: 29%;
+}
+#s_exercising .tone .two-syllable {
+  display: inline-block;
+  position: absolute;
+  bottom: 20%;
+  left: 40%;
+}
+#s_exercising .tone .two-syllable-num {
+  font-size: 30px;
+  color: white;
+  position: absolute;
+  bottom: 15%;
+  left: 44%;
+}
+#s_exercising .tone .three-syllable {
+  display: inline-block;
+  position: absolute;
+  bottom: 20%;
+  left: 55%;
+}
+#s_exercising .tone .three-syllable-num {
+  font-size: 30px;
+  color: white;
+  position: absolute;
+  bottom: 15%;
+  left: 59%;
+}
+#s_exercising .tone .four-syllable {
+  display: inline-block;
+  position: absolute;
+  bottom: 20%;
+  left: 70%;
+}
+#s_exercising .tone .four-syllable-num {
+  font-size: 30px;
+  color: white;
+  position: absolute;
+  bottom: 15%;
+  left: 74%;
+}
+#s_exercising .answer .border-3-white {
+  border: 3px solid white;
+}
+#s_exercising .answer .key-1 {
+  position: absolute;
+  top: 40%;
+  left: 45%;
+}
+#s_exercising .answer .key-1 .answer_empty {
+  border-bottom: 3px solid white;
+  width: 106px;
+  height: 102px;
+  float: left;
+  margin-left: 30px;
+}
+#s_exercising .answer .key-2 {
+  position: absolute;
+  top: 40%;
+  left: 40%;
+}
+#s_exercising .answer .key-2 .answer_empty {
+  border-bottom: 3px solid white;
+  width: 106px;
+  height: 102px;
+  float: left;
+  margin-left: 30px;
+}
+#s_exercising .answer .key-3 {
+  position: absolute;
+  top: 40%;
+  left: 35%;
+}
+#s_exercising .answer .key-3 .answer_empty {
+  border-bottom: 3px solid white;
+  width: 106px;
+  height: 102px;
+  float: left;
+  margin-left: 30px;
+}
+#s_exercising .answer .key-4 {
+  position: absolute;
+  top: 40%;
+  left: 30%;
+}
+#s_exercising .answer .key-4 .answer_empty {
+  border-bottom: 3px solid white;
+  width: 106px;
+  height: 102px;
+  float: left;
+  margin-left: 30px;
+}
+
+.study {
+  height: 100%;
   background: #000;
   color: #eee;
   line-height: 120px;
@@ -2035,9 +2166,6 @@ UtilsService.genTab($scope, tabName)
 .study .key span {
   border: 3px #ccc solid;
 }
-#answer span {
-  border: 3px #ccc solid;
-}
 .study .key .numberkey {
   display: inline-block;
   width: 130px;
@@ -2045,17 +2173,6 @@ UtilsService.genTab($scope, tabName)
 }
 .study span.border-red {
   border: 3px #fa6d78 solid;
-}
-.study .answer {
-  width: 600px;
-  margin: 0 auto;
-}
-.study .answer .answer_empty {
-  width: 150px;
-  height: 120px;
-  margin: 50px;
-  display: inline-block;
-  border-bottom: 3px #ccc solid;
 }
 .study .container {
   width: 60%;
@@ -2109,4 +2226,8 @@ UtilsService.genTab($scope, tabName)
   100% {
     width: 100%;
   }
+}
+#s_profile .pro_item {
+  margin-top: 50px;
+  font-size: 16px;
 }

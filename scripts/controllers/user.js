@@ -4,7 +4,7 @@ lbApp.controller('LoginController', ['$scope', 'UtilsService', 'RequestService',
     // 密码登录信息
     $scope.pwdLoginInfo = {
         userName: '531402593@qq.com',
-        password: '12345678w'
+        password: '123456'
     };
 
 
@@ -140,6 +140,7 @@ lbApp.controller('S_RegController', ['$scope', '$rootScope', 'RequestService', '
      * 注册
      */
     $scope.s_reg = function() {
+        console.log($scope.s_regInfo);
         RequestService.request({
             token: 's_reg',
             method: 'POST',
