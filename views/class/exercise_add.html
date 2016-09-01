@@ -44,10 +44,8 @@
                 <div class="content">
                     <select class="select" name="voice_type" ng-model="exeIndex.qingsheng" required>
                         <option value="">全部</option>
-                        <!--<option value="0">无</option>-->
-                        <!--<option value="1">必读</option>-->
-                        <!--<option value="2">可读</option>-->
                         <option ng-repeat="row in qinsghengList" value="{{row.key}}" ng-bind="row.value"></option>
+
                     </select>
                 </div>
             </div>

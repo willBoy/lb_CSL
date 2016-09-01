@@ -14,10 +14,10 @@
         </div>
         <div class="title-2">
             <div class="clearfix">
-                <span class="font-size-16">课程名称：</span><span ng-bind="classCourse.name"></span>
+                <span class="font-size-16">课程名称：</span><span class="font-size-16" ng-bind="classCourse.name"></span>
             </div>
             <div class="clearfix">
-                <span class="font-size-16 intro left">课程简介 :</span><span ng-bind="classCourse.description"></span>
+                <span class="font-size-16 intro left">课程简介 :</span><span class="font-size-16" ng-bind="classCourse.description"></span>
             </div>
         </div>
     </div>
@@ -51,10 +51,18 @@
                         <a ng-click="utils.href('/class/chapter/'+cl_cou_chapter.id+'/'+'458fb41499fe4e80a772f5b82a033e52')">章节设置</a>
                         <!--<a ng-click="utils.href('/class/chapter/'+cl_cou_chapter.id+'/'+classCourse.classId)">章节设置</a>-->
                         <a ng-click="utils.href('/class/exercise/'+cl_cou_chapter.id)">习题管理</a>
-                        <a ng-click="chapterDel(cl_cou_chapter.id,classCourse.classId)">删除</a>
+                        <a ng-click="chapterDel(cl_cou_chapter.id)">删除</a>
                     </td>
                 </tr>
             </table>
+            <div class="pages">
+                <div class="right">
+                    <div class="page-size font-size-normal left">
+                        <span>共{{ total }}条记录</span>
+                    </div>
+                    <div lb-page-directive class="right" data="classCourseChapter" page-info="conditions.pageInfo" fetch="chapterList"></div>
+                </div>
+            </div>
         </div>
     </div>
 
