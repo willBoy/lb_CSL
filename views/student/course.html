@@ -26,7 +26,7 @@
         <div class="table-list">
             <table class="data-list">
                 <tr>
-                    <!--<th>序号</th>-->
+                    <th>序号</th>
                     <th>开课时间</th>
                     <th>课程名称</th>
                     <th>任课教师</th>
@@ -34,8 +34,9 @@
                     <th>操作</th>
 
                 </tr>
-                <tr ng-repeat=" s_course_list in s_myCourse track by $index">
+                <tr ng-repeat=" s_course_list in s_myCourse | orderBy:classesStartTime track by $index">
                     <!--<td ng-bind="(conditions.pageInfo.page - 1) * conditions.pageInfo.pageSize + $index + 1"></td>-->
+                    <td ng-bind="$index + 1"></td>
                     <td ng-bind="s_course_list.classesStartTime"></td>
                     <td ng-bind="s_course_list.name"></td>
                     <td ng-bind="s_course_list.teacherName"></td>
@@ -49,26 +50,26 @@
                 </tr>
             </table>
             <!--<div class="pages">-->
-                <!--<div class="right">-->
-                    <!--<div class="page-size font-size-normal">-->
-                        <!--<span>共{{ total }}条记录</span>-->
-                    <!--</div>-->
-                    <!--<div class="page-directive color-blue spacefix left">-->
-                        <!--<span class="prev text-align-center font-size-normal">上一页</span>-->
-                        <!--<table class="page-table font-size-normal">-->
-                            <!--<tbody>-->
-                            <!--<tr>-->
-                                <!--<td class="page-num bgcolor-blue color-white border-blue page-num text-align-center">1</td>-->
-                                <!--<td class="border-grey color-blue page-num text-align-center">2</td>-->
-                            <!--</tr>-->
-                            <!--</tbody>-->
-                        <!--</table>-->
-                        <!--<span class="next text-align-center font-size-normal">下一页</span>-->
-                    <!--</div>-->
-                <!--</div>-->
-                <!--<div class="left">-->
-                <!--</div>-->
-                <!--&lt;!&ndash;<div lb-page-directive data="robotList" page-info="conditions.pageInfo" fetch="getRobotList"></div>&ndash;&gt;-->
+            <!--<div class="right">-->
+            <!--<div class="page-size font-size-normal">-->
+            <!--<span>共{{ total }}条记录</span>-->
+            <!--</div>-->
+            <!--<div class="page-directive color-blue spacefix left">-->
+            <!--<span class="prev text-align-center font-size-normal">上一页</span>-->
+            <!--<table class="page-table font-size-normal">-->
+            <!--<tbody>-->
+            <!--<tr>-->
+            <!--<td class="page-num bgcolor-blue color-white border-blue page-num text-align-center">1</td>-->
+            <!--<td class="border-grey color-blue page-num text-align-center">2</td>-->
+            <!--</tr>-->
+            <!--</tbody>-->
+            <!--</table>-->
+            <!--<span class="next text-align-center font-size-normal">下一页</span>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--<div class="left">-->
+            <!--</div>-->
+            <!--&lt;!&ndash;<div lb-page-directive data="robotList" page-info="conditions.pageInfo" fetch="getRobotList"></div>&ndash;&gt;-->
             <!--</div>-->
         </div>
     </div>
@@ -76,18 +77,18 @@
         <div class="pop-title">加入课程</div>
         <div class="pop-content">
             <form name="addclass_form" novalidate>
-            <div class="form-item">
-                <div class="content">
-                    <label>请输入班级代码:</label>
-                    <input type="text" class="input" name="code" ng-maxlength="30" ng-model="s_myCourse.sequenceNo" required>
-                    <div class="error" ng-show="addclass_form.code.$dirty && addclass_form.code.$invalid">请输入班级代码</div>
+                <div class="form-item">
+                    <div class="content">
+                        <label>请输入班级代码:</label>
+                        <input type="text" class="input" name="code" ng-maxlength="30" ng-model="s_myCourse.sequenceNo" required>
+                        <div class="error" ng-show="addclass_form.code.$dirty && addclass_form.code.$invalid">请输入班级代码</div>
+                    </div>
                 </div>
-            </div>
-            <div class="form-op">
+                <div class="form-op">
                 <span class="op btn-blue" ng-click="addclass_form.code.$dirty = true;
                                                     addclass_form.$valid && addCourse(s_myCourse.sequenceNo)">确定</span>
-                <span class="op btn-blue" ng-click="closePop('pop-class')">取消</span>
-            </div>
+                    <span class="op btn-blue" ng-click="closePop('pop-class')">取消</span>
+                </div>
             </form>
         </div>
     </div>

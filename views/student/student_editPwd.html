@@ -1,0 +1,65 @@
+<div lb-aside-directive></div>
+<div id="profile" class="main-page-margin">
+    <div id="main-title">
+        <div class="title font-size-huge font-weight-200">个人中心</div>
+        <div class="font-size-normal ">
+            <em class="path" ng-click="utils.href('/dashboard')">首页</em>
+            <em> / </em>
+            <em class="last">个人中心</em>
+        </div>
+    </div>
+    <div class="main-wrapper">
+        <div class="title-1 user-info">
+            <span class="title">个人信息</span>
+        </div>
+        <!--<form name="editPassword" novalidate>-->
+            <!--<div>-->
+                <!--<div>原始密码：</div>-->
+                <!--<div>-->
+                    <!--<input type="password" name="oldPassword" ng-model="password.oldPassword">-->
+                <!--</div>-->
+                <!--<div>新密码：</div>-->
+                <!--<div>-->
+                    <!--<input type="password" name="newPassword" ng-model="password.newPassword">-->
+                <!--</div>-->
+                <!--<div>确认密码</div>-->
+                <!--<div>-->
+                    <!--<input type="password" name="makeSurePassword">-->
+                <!--</div>-->
+                <!--<div ng-show="editPassword.makeSurePassword.$dirty">-->
+                    <!--<div class="error" ng-show="editPassword.newPassword != editPassword.makeSurePassword">两次密码输入不一致</div>-->
+                <!--</div>-->
+                <!--<div ng-click="submitPassword()">确定</div>-->
+            <!--</div>-->
+        <!--</form>-->
+        <form name="editPassword" novalidate>
+        <div class="main-wrapper" ng-show="true">
+            <div class="form-item">
+                <div class="title">原始密码：</div>
+                <div class="content">
+                    <input type="password" class="input" name="oldPassword"  ng-model="password.oldPassword">
+                </div>
+            </div>
+            <div class="form-item">
+                <div class="title">新密码：</div>
+                <div class="content">
+                    <input type="password" class="input" name="newPassword"  ng-model="password.newPassword">
+                </div>
+            </div>
+            <div class="form-item">
+                <div class="title">确认密码：</div>
+                <div class="content">
+                    <input type="password" class="input" name="makeSurePassword" ng-model="password.makeSurePassword">
+                    <div ng-show="editPassword.makeSurePassword.$dirty">
+                        <div class="error" ng-show="password.newPassword != password.makeSurePassword">两次密码输入不一致</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-op">
+                <span class="op btn-blue" ng-click="submitPassword()">确认</span>
+            </div>
+        </div>
+        </form>
+    </div>
+</div>

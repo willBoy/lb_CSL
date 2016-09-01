@@ -17,7 +17,7 @@
                 <span class="font-size-16">课程名称：<span ng-bind="course.name"></span></span>
             </div>
             <div class="clearfix">
-                <span class="font-size-small intro left"><b>课程简介 : </b><span ng-bind="course.description"></span></span>
+                <span class="font-size-16">课程简介 : <span ng-bind="course.description"></span></span>
             </div>
         </div>
     </div>
@@ -28,17 +28,17 @@
         <div class="table-list">
             <table class="data-list">
                 <tr>
-                    <!--<th>序号</th>-->
+                    <th>序号</th>
                     <th>章节主题</th>
                     <th>章节简介</th>
-                    <!--<th>最好成绩</th>-->
+                    <th>最好成绩</th>
                     <th>操作</th>
                 </tr>
                 <tr  ng-repeat="s_courseChapter_list in courseChapter track by $index">
-                    <!--<td ng-bind="s_courseChapter_list.chapter_no"></td>-->
+                    <td ng-bing="$index"></td>
                     <td ng-bind="s_courseChapter_list.name"></td>
                     <td ng-bind="s_courseChapter_list.descriptionContent"></td>
-                    <!--<td ng-bind="s_courseChapter_list.chapterNo">98%</td>-->
+                    <td ng-bind="s_courseChapter_list.bestScore"></td>
                     <td>
                         <a ng-click="utils.href('/student/study/'+s_courseChapter_list.id)">开始练习</a>
                     </td>

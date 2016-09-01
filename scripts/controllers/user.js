@@ -4,7 +4,7 @@ lbApp.controller('LoginController', ['$scope', 'UtilsService', 'RequestService',
     // 密码登录信息
     $scope.pwdLoginInfo = {
         userName: '531402593@qq.com',
-        password: '12345678w'
+        password: '123456'
     };
 
 
@@ -43,13 +43,44 @@ lbApp.controller('LoginController', ['$scope', 'UtilsService', 'RequestService',
     };
 }]);
 
+
+// 注册
+lbApp.controller('t_RegController', ['$scope', '$rootScope', 'RequestService', 'UtilsService', function($scope, $rootScope, RequestService, UtilsService) {
+    "use strict";
+
+    // 注册信息
+    $scope.t_regInfo = {
+        phoneNumber:'',
+        email: '', // 邮箱
+        password: '', // 密码
+        chineseName:'',
+        schoolName:'北京大学'
+    };
+    /**
+     * 注册
+     */
+    $scope.t_reg = function() {
+        RequestService.request({
+            token: 't_reg',
+            method: 'POST',
+            data: UtilsService.serialize($scope.t_regInfo),
+            success: function(data) {
+                console.log(data);
+                alert("注册成功");
+                UtilsService.href('/classList');
+            }
+        });
+    };
+    
+
+}]);
 // 学生登录
 lbApp.controller('s_LoginController', ['$scope', 'UtilsService', 'RequestService', function($scope, UtilsService, RequestService) {
     "use strict";
     // 密码登录信息
     $scope.student_login = {
-        userName: '3067586864@qq.com',
-        password: '123456789'
+        userName: '531402593@qq.com',
+        password: '123456'
     };
 
 
@@ -89,37 +120,6 @@ lbApp.controller('s_LoginController', ['$scope', 'UtilsService', 'RequestService
         })
     };
 }]);
-// 注册
-lbApp.controller('t_RegController', ['$scope', '$rootScope', 'RequestService', 'UtilsService', function($scope, $rootScope, RequestService, UtilsService) {
-    "use strict";
-
-    // 注册信息
-    $scope.t_regInfo = {
-        phoneNumber:'',
-        email: '', // 邮箱
-        password: '', // 密码
-        chineseName:'',
-        schoolName:'北京大学'
-    };
-    /**
-     * 注册
-     */
-    $scope.t_reg = function() {
-        RequestService.request({
-            token: 't_reg',
-            method: 'POST',
-            data: UtilsService.serialize($scope.t_regInfo),
-            success: function(data) {
-                console.log(data);
-                alert("注册成功");
-                UtilsService.href('/classList');
-            }
-        });
-    };
-    
-
-}]);
-
 // 学生注册
 lbApp.controller('S_RegController', ['$scope', '$rootScope', 'RequestService', 'UtilsService', function($scope, $rootScope, RequestService, UtilsService) {
     "use strict";
@@ -140,6 +140,7 @@ lbApp.controller('S_RegController', ['$scope', '$rootScope', 'RequestService', '
      * 注册
      */
     $scope.s_reg = function() {
+        console.log($scope.s_regInfo);
         RequestService.request({
             token: 's_reg',
             method: 'POST',
@@ -154,7 +155,6 @@ lbApp.controller('S_RegController', ['$scope', '$rootScope', 'RequestService', '
 
 
 }]);
-
 lbApp.controller('updatePassword', ['$scope', '$rootScope', 'RequestService', 'UtilsService', function($scope, $rootScope, RequestService, UtilsService) {
     "use strict";
 

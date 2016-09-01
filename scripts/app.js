@@ -7,7 +7,6 @@ lbApp.run(['$rootScope', 'UtilsService', 'RequestService', function($rootScope, 
     $rootScope.showHeader = false;
     $rootScope.showHeaderStudent = false;
     $rootScope.showHeaderTeacher = false;
-
     $rootScope.utils = UtilsService;
     //教师退出
     $rootScope.t_logout = function() {
@@ -19,7 +18,16 @@ lbApp.run(['$rootScope', 'UtilsService', 'RequestService', function($rootScope, 
             }
         });
     };
-
+//学生退出
+    $rootScope.s_logout = function() {
+        RequestService.request({
+            token: 's_logout',
+            method: 'POST',
+            success: function(data) {
+                UtilsService.href('/');
+            }
+        });
+    };
 
     $rootScope.$on('$routeChangeStart', function(e, next, current) {
         if (next.$$route.showHeader === false) {
@@ -168,28 +176,34 @@ lbApp.config(['$routeProvider', '$locationProvider', '$httpProvider', function($
         })
         //重置密码
         /*.when('/class/studentDetail/:studentID',{
-            templateUrl:'views/class/student.html',
-            controller:'StudentController',
-            showHeader:true
-        })*/
+         templateUrl:'views/class/student.html',
+         controller:'StudentController',
+         showHeader:true
+         })*/
         /*//学生详情
-        .when('/class/student/:classID/:studentID',{
-            templateUrl:'views/class/student.html',
-            controller:'StudentDetailController',
-            showHeader:true
-        })*/
+         .when('/class/student/:classID/:studentID',{
+         templateUrl:'views/class/student.html',
+         controller:'StudentDetailController',
+         showHeader:true
+         })*/
         /*//学生备注
-        .when('/class/student/:classID/:studentID',{
-            templateUrl:'views/class/student.html',
-            controller:'StudentController',
-            showHeader:true
-        })*/
+         .when('/class/student/:classID/:studentID',{
+         templateUrl:'views/class/student.html',
+         controller:'StudentController',
+         showHeader:true
+         })*/
         //学生系统
 
-        //学生个人中心
-        .when('/student/course',{
-            templateUrl:'views/student/course.html',
-            controller:'StudentCourseController',
+//学生个人中心
+        .when('/s_profile',{
+            templateUrl:'views/student/student_profile.html',
+            controller:'StudentProfileController',
+            showHeaderStudent:true
+        })
+        //修改密码
+        .when('/s_changePwd',{
+            templateUrl:'views/student/student_editPwd.html',
+            controller:'StudentEditPwdController',
             showHeaderStudent:true
         })
         //我的课程
@@ -205,17 +219,17 @@ lbApp.config(['$routeProvider', '$locationProvider', '$httpProvider', function($
             showHeader:true
         })
         /*//课程详情
-        .when('/student/course_detail',{
-            templateUrl:'views/student/course_detail.html',
-            controller:'StudentCourseDetailController',
-            showHeaderStudent:true
-        })*/
+         .when('/student/course_detail',{
+         templateUrl:'views/student/course_detail.html',
+         controller:'StudentCourseDetailController',
+         showHeaderStudent:true
+         })*/
         //退出课程
         /*.when('/class/delCourse/:classID',{
-            templateUrl:'views/student/course_del.html',
-            controller:'delCourseController',
-            showHeader:true
-        })*/
+         templateUrl:'views/student/course_del.html',
+         controller:'delCourseController',
+         showHeader:true
+         })*/
         //开始学习
         .when('/student/study/:chapterID',{
             templateUrl:'views/student/study.html',

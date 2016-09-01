@@ -44,9 +44,8 @@
                 <div class="content">
                     <select class="select" name="voice_type" ng-model="exeIndex.qingsheng" required>
                         <option value="">全部</option>
-                        <option value="0">无</option>
-                        <option value="1">必读</option>
-                        <option value="2">可读</option>
+                        <option ng-repeat="row in qinsghengList" value="{{row.key}}" ng-bind="row.value"></option>
+
                     </select>
                 </div>
             </div>
@@ -116,7 +115,7 @@
     <div class="main-wrapper" ng-show="true">
         <div class="title-1">
             <span class="title">习题列表</span>
-            <div class="right prompt">您当前章节共有20道题，您已选择了5道。</div>
+            <!--<div class="right prompt">您当前章节共有20道题，您已选择了5道。</div>-->
         </div>
         <div class="table-list">
             <table class="data-list">
@@ -127,7 +126,7 @@
                     <th>声调</th>
                     <th>轻声</th>
                     <th>儿化音</th>
-                    <!--<th>音节数</th>-->
+                    <th>音节数</th>
                     <th>说话人</th>
                     <th>等级</th>
                 </tr>
@@ -135,10 +134,10 @@
                     <td><input type="checkbox" name="checkbox1" value="" ng-change="changeCallAll()" ng-model="selectedCallList[t_sel_exe_list.id]"></td>
                     <!--<td>1</td>-->
                     <td ng-bind="t_sel_exe_list.chsChars"></td>
-                    <td ng-bind="tonesMap[t_sel_exe_list.tones]"></td>
+                    <td ng-bind="t_sel_exe_list.tones"></td>
                     <td ng-bind="qingshengMap[t_sel_exe_list.qingsheng]"></td>
                     <td ng-bind="erhuaMap[t_sel_exe_list.erhua]"></td>
-                    <!--<td ng-bind="nbSyllablesMap[t_sel_exe_list.nbSyllables]"></td>-->
+                    <td ng-bind="t_sel_exe_list.nbSyllables"></td>
                     <td ng-bind="speakerMap[t_sel_exe_list.speaker]"></td>
                     <td ng-bind="hskLevelMap[t_sel_exe_list.hskLevel]"></td>
                 </tr>

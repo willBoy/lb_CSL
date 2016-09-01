@@ -25,7 +25,10 @@
                 <div class="content">
                     <input name="passwordagain" class="input" type="password" ng-model="s_regInfo.passwordagain">
                     <!--<pre class="line-height-15 color-blue">请输入6位以上字符</pre>-->
-                    <div class="error" ng-show="s_regInfo.passwordagain!=s_regInfo.password">密码不一致</div>
+                    <div ng-show="reg_form.passwordagain.$dirty">
+                        <div class="error" ng-show="s_regInfo.passwordagain!=s_regInfo.password">密码不一致</div>
+                    </div>
+
                 </div>
             </div>
             <div class="form-item">
@@ -48,9 +51,13 @@
                 <div class="title_lang">* 年龄：<br>Age</div>
                 <div class="content">
                     <select name="age" class="select" ng-model="s_regInfo.age" required>
+                        <option value="10-15">10-15</option>
                         <option value="16-20">16-20</option>
                         <option value="21-25">21-25</option>
                         <option value="26-30">26-30</option>
+                        <option value="31-35">31-35</option>
+                        <option value="35-40">35-40</option>
+                        <option value="其他">其他</option>
                     </select>
                     <div class="error" ng-show="reg_form.age.$dirty && reg_form.age.$invalid">请选择年龄</div>
                 </div>
@@ -58,11 +65,11 @@
             <div class="form-item">
                 <div class="title_lang">* 性别：<br>Gender</div>
                 <div class="content">
-                    <input name="gender" type="radio" value="" ng-model="s_regInfo.gender" />男 Male
-                    <input name="gender" type="radio" value="" ng-model="s_regInfo.gender" />女 Female
-                    <!--<div class="error" ng-show="reg_form.gender.$dirty && reg_form.gender.$invalid">请选择性别</div>-->
-                    <div class="error" ng-show="reg_form.gender.$dirty">
-                        <span ng-show="reg_form.gender.$pristine || reg_form.gender.$pristine">请选择性别</span></div>
+                    <input name="gender" type="radio" value="0" ng-model="s_regInfo.gender" />男 Male
+                    <input name="gender" type="radio" value="1" ng-model="s_regInfo.gender" />女 Female
+                    <!--<div class="error" ng-show="reg_form.gender.$dirty">-->
+                        <!--<span ng-show="reg_form.gender.$pristine || reg_form.gender.$pristine">请选择性别</span>-->
+                    <!--</div>-->
                 </div>
             </div>
             <div class="form-item">
