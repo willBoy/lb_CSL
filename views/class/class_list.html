@@ -13,11 +13,9 @@
                 <select class="select" ng-model="conditions.common.startYear" ng-options="act for act in activities" ng-change="getclasslist()"></select>
                 <input type="text" class="input retrieval" placeholder="班级名称" ng-model="conditions.common.name" ng-change="getclasslist()">
                 <span class="icons-search"></span>
-
                 <span class="op btn-blue" ng-click="utils.href('/createClass')">创建班级</span>
                 <!--<span class="op btn-blue" ng-click="classList()">获取数据</span>-->
             </div>
-
         </div>
         <div class="table-list">
             <table class="data-list">
@@ -47,7 +45,7 @@
                         <a ng-click="utils.href('/class/courseSetting/'+t_classArr.courseId)">课程管理</a>
                         <a ng-click="utils.href('/class/student/'+t_classArr.id)">学生管理</a>
                         <!--<a ng-click="openPop('pop-del')">删除</a>-->
-                        <a ng-click="utils.href('/class/delClass/'+t_classArr.id)">删除</a>
+                        <a ng-click="delclass(t_classArr.id)">删除</a><!--/*&& utils.href('/class/delClass/'+t_classArr.id)*/-->
                     </td>
                 </tr>
             </table>
@@ -68,7 +66,7 @@
                 <div class="text">确定要删除<span ng-model="t_classArr.name"></span></div>
             </div>
             <div class="form-op">
-                <span class="op btn-blue" ng-click="delclass(t_classListArr.id)">删除</span><!--&& utils.href('/class/delClass/'+t_classListArr.id)-->
+                <span class="op btn-blue" ng-click="utils.href('/class/delClass/'+t_classArr.id)">删除</span><!--&& utils.href('/class/delClass/'+t_classListArr.id)-->
                 <span class="op btn-blue" ng-click="closePop('pop-del')">取消</span>
             </div>
         </div>

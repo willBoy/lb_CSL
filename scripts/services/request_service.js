@@ -15,6 +15,8 @@ lbApp.factory('RequestService', ['$http', 'UtilsService', function($http, UtilsS
         't_logout':'teacher/loginOut',
         //教师修改密码
         't_updatePassword':'teacher/updatePassword',
+        //获取导航ID
+        't_findNavigationById':'classes/findNavigationById',
         //班级设置
         't_settingClass':'classes/find',
         //保存班级设置
@@ -37,6 +39,8 @@ lbApp.factory('RequestService', ['$http', 'UtilsService', function($http, UtilsS
         't_addChapter':'chapter/add',
         //章节信息
         't_chapterShow':'chapter/show',
+        //习题查询
+        /*'t_exe_list':'POST /questionPronunciation/find',*/
         //习题列表
         't_exe_list':'questionPronunciation/findChapterQuestions',
         //保存章节设置

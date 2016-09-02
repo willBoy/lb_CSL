@@ -3,8 +3,8 @@
     <div id="main-title">
         <div class="title font-size-huge font-weight-200">添加习题</div>
         <div class="font-size-normal ">
-            <!--<em class="path" ng-click="utils.href('/classList')">班级管理</em>-->
-            <!--<em> / </em>-->
+            <em class="path" ng-click="utils.href('/classList')">班级管理</em>
+            <em> / </em>
             <!--<em class="path" ng-click="utils.href('/class/course')">课程管理</em>-->
             <!--<em> / </em>-->
             <!--<em class="path" ng-click="utils.href('/class/exercise')">习题管理</em>-->
@@ -45,7 +45,6 @@
                     <select class="select" name="voice_type" ng-model="exeIndex.qingsheng" required>
                         <option value="">全部</option>
                         <option ng-repeat="row in qinsghengList" value="{{row.key}}" ng-bind="row.value"></option>
-
                     </select>
                 </div>
             </div>
@@ -120,7 +119,7 @@
         <div class="table-list">
             <table class="data-list">
                 <tr>
-                    <th>全选<input type="checkbox" name="checkbox1" ng-model="selectAll" ng-change="changeCallAll()"  value="checkbox"></th>
+                    <th>全选<input type="checkbox" name="checkbox1" ng-model="selectAll" ng-change="changeCallAll()" value="checkbox"></th>
                     <!--<th>序号</th>-->
                     <th>词汇</th>
                     <th>声调</th>
@@ -142,6 +141,14 @@
                     <td ng-bind="hskLevelMap[t_sel_exe_list.hskLevel]"></td>
                 </tr>
             </table>
+            <div class="pages">
+                <div class="right">
+                    <div class="page-size font-size-normal left">
+                        <span>共{{ total }}条记录</span>
+                    </div>
+                    <div lb-page-directive class="right" data="t_sel_exeList" page-info="conditions.pageInfo" fetch="getExerciseList"></div>
+                </div>
+            </div>
         </div>
         <div class="form-op">
             <span class="op btn-blue" ng-click="addExe()">添加</span>
