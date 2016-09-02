@@ -45,6 +45,7 @@ lbApp.controller('ExerciseController', ['$scope', '$routeParams', 'UtilsService'
         loading: true,
         success: function (data) {
             $scope.t_chapterInfo = data;
+            console.log($scope.t_chapterInfo.courseId);
             $scope.t_exe_List();
         }
     });
@@ -144,8 +145,48 @@ lbApp.controller('ExerciseAddController', ['$scope', '$routeParams', 'UtilsServi
 
     // 选择的习题
     $scope.selectedCallList = {};
+//查询条件
+    $scope.conditions = {
+        // 值查询
+        /*courseId:$routeParams.courseID,*/
 
-    $scope.getExerciseList = function () {
+        common: {
+            exeIndex: $scope.exeIndex
+        },
+        // 排序条件
+        order: {},
+        // 分页信息
+        pageInfo: {
+            page: 1,
+            pageSize: '10',
+            totalPage: 0
+        }
+    };
+
+    // 检索习题
+    $scope.getExerciseList = function (page) {
+        $scope.conditions.pageInfo.page = page || 1;
+        RequestService.request({
+            token: 't_exeIndex',
+            method: 'POST',
+            /*strParams: UtilsService.genConditions($scope.conditions),*/
+            strParams: UtilsService.genConditions($scope.conditions),
+            success: function (data) {
+                $scope.conditions.pageInfo.totalPage = data.pages;
+                $scope.t_sel_exeList = data.result;
+                for (var i = 0; i < $scope.t_sel_exeList.length; i++) {
+                    $scope.selectedCallList[$scope.t_sel_exeList[i].id] = false;
+                }
+                $scope.total = data.total;
+                console.log($scope.t_sel_exeList.length)
+            }
+        });
+    };
+
+    /*$scope.getExerciseList(1);*/
+
+
+    /*$scope.getExerciseList = function () {
         console.log($scope.exeIndex);
         RequestService.request({
             token: 't_exeIndex',
@@ -158,7 +199,7 @@ lbApp.controller('ExerciseAddController', ['$scope', '$routeParams', 'UtilsServi
                 }
             }
         });
-    };
+    };*/
     $scope.ReturnExerciseList = function () {
         UtilsService.href('/class/exercise/' + $routeParams.chapterID);
     }
@@ -202,15 +243,17 @@ lbApp.controller('ExerciseAddController', ['$scope', '$routeParams', 'UtilsServi
             }
         }
         data = data.slice(2);
-        console.log(data);
+
         RequestService.request({
             token: 't_addExe',
             method: 'POST',
             data: UtilsService.serialize({questionIds: data, chapterId: $routeParams.chapterID}),
             success: function (data) {
-                alert("添加习题成功");
+                console.log(data);
+                console.log($scope.t_sel_exeList.length)
+                alert("添加习题成功"+data+'条，重复添加'+($scope.t_sel_exeList.length-data)+'条');
                 UtilsService.href('/class/exercise/' + $routeParams.chapterID);
-                //location.reload();
+
             }
         })
     };

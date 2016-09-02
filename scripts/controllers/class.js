@@ -451,7 +451,10 @@ lbApp.controller('CreateChapterController', ['$scope', '$routeParams', 'UtilsSer
         name: "Dani",
         currentActivity: "2016"
     };
-
+    $scope.activities=[
+        {name:'准备中',value:'0'},
+        {name:'已开放',id:'1'}
+    ]
     $scope.addChapter = function (courseId) {
         console.log(courseId);
         RequestService.request({
@@ -484,7 +487,7 @@ lbApp.controller('CreateChapterController', ['$scope', '$routeParams', 'UtilsSer
 }]);
 
 //添加习题
-lbApp.controller('ExerciseAddController', ['$scope', '$routeParams', 'UtilsService', 'RequestService', function ($scope, $routeParams, UtilsService, RequestService) {
+/*lbApp.controller('ExerciseAddController', ['$scope', '$routeParams', 'UtilsService', 'RequestService', function ($scope, $routeParams, UtilsService, RequestService) {
     //
     "use strict";
     $scope.asideTab = {
@@ -543,9 +546,9 @@ lbApp.controller('ExerciseAddController', ['$scope', '$routeParams', 'UtilsServi
         $scope.callAll = first;
     };
 
-    /**
+    /!**
      * 批量添加习题
-     */
+     *!/
     $scope.addExe = function (call) {
         var data = '';
         for (var jid in $scope.selectedCallList) {
@@ -559,8 +562,10 @@ lbApp.controller('ExerciseAddController', ['$scope', '$routeParams', 'UtilsServi
             method: 'POST',
             data: UtilsService.serialize({questionIds: data, chapterId: $routeParams.chapterID}),
             success: function (data) {
-                /*alert("添加习题成功");*/
-                /*UtilsService.href('/class/exercise/' + $routeParams.chapterID);*/
+                /!*alert("添加习题成功");*!/
+                /!*UtilsService.href('/class/exercise/' + $routeParams.chapterID);*!/
+                console.log(data);
+                /!*alert('您成功添加了'+data.re'')*!/
                 location.reload();
             }
         })
@@ -612,29 +617,9 @@ lbApp.controller('ExerciseAddController', ['$scope', '$routeParams', 'UtilsServi
     $scope.testAdd = function () {
         console.log($scope.arrayList);
     }
-}]);
+}]);*/
 
-//添加习题
-lbApp.controller('ExerciseAdd2Controller', ['$scope', 'UtilsService', 'RequestService', function ($scope, UtilsService, RequestService) {
-    //
-    "use strict";
-    $scope.asideTab = {
-        listName: 'navigation',
-        tabName: 'tabName'
-    };
-    // 绑定弹框事件
-    UtilsService.initPop($scope);
-    $scope.t_sel_exeList = [];
-    //RequestService.request({
-    //    token:'t_exercise',
-    //    method:'POST',
-    //    loading:true,
-    //    success:function(data){
-    //        $scope.t_sel_exeList = data.exerciseList;
-    //    }
-    //})
 
-}]);
 
 //学生管理
 lbApp.controller('StudentController', ['$scope', '$routeParams', 'UtilsService', 'RequestService', function ($scope, $routeParams, UtilsService, RequestService) {
@@ -654,13 +639,13 @@ lbApp.controller('StudentController', ['$scope', '$routeParams', 'UtilsService',
     //查询条件
     $scope.conditions = {
         common: {
-            // 名字
+            /*// 名字
             chineseName: '',
             // 性别
-            gender: '',
+            gender: 0,
             // 母语
-            nationality: ''
-
+            nationality: 0*/
+            classesId: $routeParams.classesID,
         },
         // 分页信息
         pageInfo: {
@@ -670,13 +655,40 @@ lbApp.controller('StudentController', ['$scope', '$routeParams', 'UtilsService',
         }
 
     }
-
+    /*$scope.activities={
+        0:'男',
+        1:'女'
+    }*/
+    $scope.activities=[
+        0,1
+    ]
+    $scope.nationality=[
+        0,1
+    ]
     //班级学生
-    $scope.class_student = [];
+    $scope.class_student = {};
     $scope.classesID = $routeParams.classID;
 
+    //学生总数
+    $scope.total = 0;
+    // 获取班级列表项
+    $scope.studentList = function (page) {
+        $scope.conditions.pageInfo.page = page || 1;
+        RequestService.request({
+            token: 't_student',
+            method: 'POST',
+            strParams: UtilsService.genConditions($scope.conditions),
+            success: function (data) {
+                console.log(data);
+                $scope.conditions.pageInfo.totalPage = data.pages;
+                $scope.class_student = data.result;
+                $scope.total = data.total;
 
-    $scope.studentList = function () {
+            }
+        });
+    }
+    $scope.studentList(1);
+    /*$scope.studentList = function () {
         RequestService.request({
             token: 't_student',
             method: 'POST',
@@ -686,7 +698,7 @@ lbApp.controller('StudentController', ['$scope', '$routeParams', 'UtilsService',
                 console.log($scope.class_student[0].id)
             }
         });
-    }
+    }*/
     /*$scope.studentList();*/
     //删除学生
     $scope.studentDel = function (classesID, studentID) {
