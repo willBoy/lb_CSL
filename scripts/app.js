@@ -8,6 +8,11 @@ lbApp.run(['$rootScope', 'UtilsService', 'RequestService', function($rootScope, 
     $rootScope.showHeaderStudent = false;
     $rootScope.showHeaderTeacher = false;
     $rootScope.utils = UtilsService;
+
+    //RequestService.request({
+    //    token
+    //});
+
     //教师退出
     $rootScope.t_logout = function() {
         RequestService.request({
@@ -18,16 +23,16 @@ lbApp.run(['$rootScope', 'UtilsService', 'RequestService', function($rootScope, 
             }
         });
     };
-//学生退出
-    $rootScope.s_logout = function() {
-        RequestService.request({
-            token: 's_logout',
-            method: 'POST',
-            success: function(data) {
-                UtilsService.href('/');
-            }
-        });
-    };
+////学生退出
+//    $rootScope.s_logout = function() {
+//        RequestService.request({
+//            token: 's_logout',
+//            method: 'POST',
+//            success: function(data) {
+//                UtilsService.href('/');
+//            }
+//        });
+//    };
 
     $rootScope.$on('$routeChangeStart', function(e, next, current) {
         if (next.$$route.showHeader === false) {

@@ -1,4 +1,4 @@
-// 首页
+// 教師端-班級管理
 lbApp.controller('ClassListController', ['$scope', 'UtilsService', 'RequestService', function ($scope, UtilsService, RequestService) {
     //
     "use strict";
@@ -303,7 +303,7 @@ lbApp.controller('CourseController', ['$scope', '$routeParams', 'UtilsService', 
     };
     $scope.statusMap = {
         '0': '准备中',
-        '1': '以开放'
+        '1': '已开放'
     };
     $scope.patternMap = {
         '0': '错题重做一次',
