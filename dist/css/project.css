@@ -1847,21 +1847,41 @@ UtilsService.genTab($scope, tabName)
   padding: 0 18px;
   cursor: pointer;
 }
-#header #main-status {
+#header #main-status-teacher {
   display: inline-block;
   margin-right: 18px;
   float: right;
 }
-#header #main-status .user {
+#header #main-status-teacher .user {
   display: inline-block;
   margin: 20px 5px 20px 5px;
   position: relative;
   cursor: pointer;
 }
-#header #main-status .exit {
+#header #main-status-teacher .exit {
   margin: 22px 5px 18px 5px;
 }
-#header #main-status .user-op {
+#header #main-status-teacher .user-op {
+  width: 170px;
+  position: absolute;
+  top: 34px;
+  left: -116px;
+}
+#header #main-status-student {
+  display: inline-block;
+  margin-right: 18px;
+  float: right;
+}
+#header #main-status-student .user {
+  display: inline-block;
+  margin: 20px 5px 20px 5px;
+  position: relative;
+  cursor: pointer;
+}
+#header #main-status-student .exit {
+  margin: 22px 5px 18px 5px;
+}
+#header #main-status-student .user-op {
   width: 170px;
   position: absolute;
   top: 34px;
