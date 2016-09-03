@@ -155,7 +155,7 @@ lbApp.factory('RequestService', ['$http', 'UtilsService', function($http, UtilsS
                             UtilsService.href('/s_login');
                             break;
                         default:
-                            UtilsService.href('/');
+                            //UtilsService.href('/');
                             reqConfig.error && reqConfig.error(data);
                             alert(data.msg);
                     }

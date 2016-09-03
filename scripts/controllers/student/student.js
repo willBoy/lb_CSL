@@ -12,7 +12,7 @@ lbApp.controller('StudentProfileController', ['$rootScope','$scope', '$routePara
         method:'GET',
         loading:true,
         success:function(data){
-        $rootScope.studentInfo =data;
+            $rootScope.studentInfo =data;
         }
     })
 }]);
@@ -101,7 +101,7 @@ lbApp.controller('StudentCourseController', ['$scope','$routeParams', 'UtilsServ
     }
     //退出课程
     $scope.delCourse = function(classesId){
-        if(confirm("确定删除吗")){
+        if(confirm("确定退出课程吗")){
             RequestService.request({
                 token:'s_delCourse',
                 method:'POST',
@@ -274,7 +274,7 @@ lbApp.controller('StudyController', ['$scope','$routeParams', 'UtilsService', 'R
 
 
 
-}
+    }
     RequestService.request({
         token:'t_chapterShow',
         method:'POST',
@@ -355,8 +355,8 @@ lbApp.controller('StudyKeyingController', ['$scope', '$routeParams','UtilsServic
         $("#answer").html("");
         if($scope.exerciseInfo.questionsPronunciation.tones.length ==1 ){
             var html = '<div class="key-1">'+
-                        '<div class="answer_empty">'+'</div>'+
-                        '</div>';
+                '<div class="answer_empty">'+'</div>'+
+                '</div>';
         }else if($scope.exerciseInfo.questionsPronunciation.tones.length ==2){
             var html = '<div class="key-2">'+
                 '<div class="answer_empty">'+'</div>'+
@@ -379,62 +379,62 @@ lbApp.controller('StudyKeyingController', ['$scope', '$routeParams','UtilsServic
         $scope.lengthNum = $scope.exerciseInfo.questionsPronunciation.tones.length;
         $("#answer").html(html);
 
-    var flag = true;
-    document.onkeydown=function(event){
-        if(event.keyCode==49){ // 按 1
-            if($("#exerciseQ").is(":visible")){
-                select(-1,1);
+        var flag = true;
+        document.onkeydown=function(event){
+            if(event.keyCode==49){ // 按 1
+                if($("#exerciseQ").is(":visible")){
+                    select(-1,1);
+                }
             }
-        }
-        if(event.keyCode==50){ // 按 2
-            if($("#exerciseQ").is(":visible")){
-                select(-1,2);
+            if(event.keyCode==50){ // 按 2
+                if($("#exerciseQ").is(":visible")){
+                    select(-1,2);
+                }
             }
-        }
-        if(event.keyCode==51){ // 按 3
-            if($("#exerciseQ").is(":visible")){
-                select(-1,3);
+            if(event.keyCode==51){ // 按 3
+                if($("#exerciseQ").is(":visible")){
+                    select(-1,3);
+                }
             }
-        }
-        if(event.keyCode==52){ // 按 4
-            if($("#exerciseQ").is(":visible")){
-                select(-1,4);
+            if(event.keyCode==52){ // 按 4
+                if($("#exerciseQ").is(":visible")){
+                    select(-1,4);
+                }
             }
-        }
 
-    };
-    var arr = [];
-    function select(num,code){
-        --$scope.lengthNum;
-        arr.push(code);
-        var codeT ='';
-        codeT= arr.join('')+"";
-        console.log("codeT"+codeT);
-        var i = $scope.exerciseInfo.questionsPronunciation.tones.length - $scope.lengthNum-1;
-        var selectHtml = '<span class="icon border-3-white icons-'+code+'"></span>';
-        $("#answer").find('.answer_empty').eq(i).html(selectHtml);
-        $scope.execiseAnswer.answerBody = codeT;
-        var TonsAnswer = $scope.exerciseInfo.questionsPronunciation.tones+"";
-        if($scope.lengthNum == 0){
-            if(TonsAnswer == codeT){
-                $scope.execiseAnswer.answer = true;
-                nextExe();
-            }else{
-                if(TonsAnswer.length == codeT.length){
-                    $("#imgShow").show();
-                    flag = false;
-                    document.onkeydown=function(event){
-                        if(event && event.keyCode==13){ // 按 1
-                            $("#imgShow").hide();
-                            flag = true;
-                            nextExe();
-                        }
+        };
+        var arr = [];
+        function select(num,code){
+            --$scope.lengthNum;
+            arr.push(code);
+            var codeT ='';
+            codeT= arr.join('')+"";
+            console.log("codeT"+codeT);
+            var i = $scope.exerciseInfo.questionsPronunciation.tones.length - $scope.lengthNum-1;
+            var selectHtml = '<span class="icon border-3-white icons-'+code+'"></span>';
+            $("#answer").find('.answer_empty').eq(i).html(selectHtml);
+            $scope.execiseAnswer.answerBody = codeT;
+            var TonsAnswer = $scope.exerciseInfo.questionsPronunciation.tones+"";
+            if($scope.lengthNum == 0){
+                if(TonsAnswer == codeT){
+                    $scope.execiseAnswer.answer = true;
+                    nextExe();
+                }else{
+                    if(TonsAnswer.length == codeT.length){
+                        $("#imgShow").show();
+                        flag = false;
+                        document.onkeydown=function(event){
+                            if(event && event.keyCode==13){ // 按 1
+                                $("#imgShow").hide();
+                                flag = true;
+                                nextExe();
+                            }
 
-                    };
+                        };
+                    }
                 }
             }
         }
-    }
         //判断是否为空
         function isEmptyObject(obj){
             for(var n in obj){return false}
@@ -451,10 +451,10 @@ lbApp.controller('StudyKeyingController', ['$scope', '$routeParams','UtilsServic
                         console.log(data);
                         if(isEmptyObject(data)){
                             //$scope.exe_submit();
-                             arr = [];
+                            arr = [];
                             UtilsService.href('/student/study_finish/'+$routeParams.exerciseID);
                         }else{
-                             arr = [];
+                            arr = [];
                             chapterExercise(data);
                         }
 

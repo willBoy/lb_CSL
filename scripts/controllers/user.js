@@ -1,3 +1,4 @@
+
 // 教师登录
 lbApp.controller('LoginController', ['$scope', 'UtilsService', 'RequestService', function($scope, UtilsService, RequestService) {
     "use strict";
@@ -25,6 +26,8 @@ lbApp.controller('LoginController', ['$scope', 'UtilsService', 'RequestService',
             method: 'POST',
             data: UtilsService.serialize($scope.pwdLoginInfo),
             success: function(data) {
+                //$rootScope.currentUser = data;
+                $rootScope.currentUserData.role = '03';
                 UtilsService.href('/classList');
             }
         });
@@ -77,7 +80,7 @@ lbApp.controller('t_RegController', ['$scope', '$rootScope', 'RequestService', '
 
 }]);
 // 学生登录
-lbApp.controller('s_LoginController', ['$scope', 'UtilsService', 'RequestService', function($scope, UtilsService, RequestService) {
+lbApp.controller('s_LoginController', ['$scope','$rootScope', 'UtilsService', 'RequestService', function($scope,$rootScope, UtilsService, RequestService) {
     "use strict";
     // 密码登录信息
     $scope.student_login = {
@@ -101,7 +104,8 @@ lbApp.controller('s_LoginController', ['$scope', 'UtilsService', 'RequestService
             method: 'POST',
             data: UtilsService.serialize($scope.student_login),
             success: function(data) {
-                console.log(data);
+                //$rootScope.currentUser = data;
+                $rootScope.currentUserData.role = '02';
                 $scope.dataTest = data;
                 UtilsService.href('/student/course');
             }
@@ -178,3 +182,4 @@ lbApp.controller('updatePassword', ['$scope', '$rootScope', 'RequestService', 'U
 
 
 }]);
+

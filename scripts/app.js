@@ -8,21 +8,22 @@ lbApp.run(['$rootScope', 'UtilsService', 'RequestService', function($rootScope, 
     $rootScope.showHeaderStudent = false;
     $rootScope.showHeaderTeacher = false;
     $rootScope.utils = UtilsService;
+    $rootScope.currentUserData = {};
 
     //RequestService.request({
     //    token
     //});
 
-    //教师退出
-    $rootScope.t_logout = function() {
-        RequestService.request({
-            token: 't_logout',
-            method: 'POST',
-            success: function(data) {
-                UtilsService.href('/');
-            }
-        });
-    };
+    ////教师退出
+    //$rootScope.t_logout = function() {
+    //    RequestService.request({
+    //        token: 't_logout',
+    //        method: 'POST',
+    //        success: function(data) {
+    //            UtilsService.href('/');
+    //        }
+    //    });
+    //};
 ////学生退出
 //    $rootScope.s_logout = function() {
 //        RequestService.request({
@@ -199,7 +200,7 @@ lbApp.config(['$routeProvider', '$locationProvider', '$httpProvider', function($
          })*/
         //学生系统
 
-//学生个人中心
+        //学生个人中心
         .when('/s_profile',{
             templateUrl:'views/student/student_profile.html',
             controller:'StudentProfileController',
