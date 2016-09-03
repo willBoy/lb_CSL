@@ -31,7 +31,7 @@ lbApp.directive('lbAsideDirective',function() {
                 student:[
                     {
                         name:'myClass',
-                        value:'我的班级',
+                        value:'我的课程',
                         url:'/student/course',
                         icon:''
                     }

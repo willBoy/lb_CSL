@@ -1293,6 +1293,11 @@ lbApp.controller('StudyFinishController', ['$scope', '$routeParams', 'UtilsServi
         listName: 'navigation',
         tabName: 'tabName'
     };
+    $scope.exe_out = function(){
+        if(confirm("练习还未完成，确定退出吗？")){
+            UtilsService.href('/student/course');
+        }
+    }
     RequestService.request({
         token: 's_exe_submit',
         method: 'POST',

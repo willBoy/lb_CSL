@@ -40,10 +40,19 @@
                     <td ng-bind="s_courseChapter_list.descriptionContent"></td>
                     <td ng-bind="s_courseChapter_list.bestScore"></td>
                     <td>
-                        <a ng-click="utils.href('/student/study/'+s_courseChapter_list.id)">开始练习</a>
+                        <a ng-click="StartExe(s_courseChapter_list.status,s_courseChapter_list.id)">开始练习</a>
+                        <!--<a ng-click="utils.href('/student/study/'+s_courseChapter_list.id)">开始练习</a>-->
                     </td>
                 </tr>
             </table>
+            <div class="pages">
+                <div class="right">
+                    <div class="page-size font-size-normal left">
+                        <span>共{{ total }}条记录</span>
+                    </div>
+                    <div lb-page-directive class="right" data="t_classListArr" page-info="conditions.pageInfo" fetch="getclasslist"></div>
+                </div>
+            </div>
         </div>
     </div>
 

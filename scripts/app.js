@@ -10,31 +10,6 @@ lbApp.run(['$rootScope', 'UtilsService', 'RequestService', function($rootScope, 
     $rootScope.utils = UtilsService;
     $rootScope.currentUserData = {};
 
-    //RequestService.request({
-    //    token
-    //});
-
-    ////教师退出
-    //$rootScope.t_logout = function() {
-    //    RequestService.request({
-    //        token: 't_logout',
-    //        method: 'POST',
-    //        success: function(data) {
-    //            UtilsService.href('/');
-    //        }
-    //    });
-    //};
-////学生退出
-//    $rootScope.s_logout = function() {
-//        RequestService.request({
-//            token: 's_logout',
-//            method: 'POST',
-//            success: function(data) {
-//                UtilsService.href('/');
-//            }
-//        });
-//    };
-
     $rootScope.$on('$routeChangeStart', function(e, next, current) {
         if (next.$$route.showHeader === false) {
             $rootScope.showHeader = false;
@@ -242,50 +217,10 @@ lbApp.config(['$routeProvider', '$locationProvider', '$httpProvider', function($
             controller:'StudyController',
             showHeader:false
         })
-
-        //开始学习下一步
-        .when('/student/studyHelp',{
-            templateUrl:'views/student/studyHelp.html',
-            controller:'Study1Controller',
-            showHeader:false
-        })
-
-        //音量校准
-        .when('/student/study_volume',{
-            templateUrl:'views/student/study_volume.html',
-            controller:'StudyVolumeController',
-            showHeader:false
-        })
-        //键盘校准
-        .when('/student/study_key',{
-            templateUrl:'views/student/study_key.html',
-            controller:'StudyKeyController',
-            showHeader:false
-        })
-        //请准备
-        .when('/student/study_prepare',{
-            templateUrl:'views/student/study_prepare.html',
-            controller:'StudyPrepareController',
-            showHeader:false
-        })
-        //播放提示音
-        .when('/student/study_prompt',{
-            templateUrl:'views/student/study_prompt.html',
-            controller:'StudyPromptController',
-            showHeader:false
-        })
-
         //按键选答案
         .when('/student/study_keying/:exerciseID',{
             templateUrl:'views/student/study_keying.html',
             controller:'StudyKeyingController',
-            showHeader:false
-        })
-
-        //错误提示
-        .when('/student/study_error',{
-            templateUrl:'views/student/study_error.html',
-            controller:'StudyErrorController',
             showHeader:false
         })
         //完成
@@ -294,19 +229,6 @@ lbApp.config(['$routeProvider', '$locationProvider', '$httpProvider', function($
             controller:'StudyFinishController',
             showHeader:false
         })
-        //未完成
-        .when('/student/study_unfinished',{
-            templateUrl:'views/student/study_unfinished.html',
-            controller:'StudyUnfinishedController',
-            showHeader:false
-        })
-        //是否继续
-        .when('/student/study_continue',{
-            templateUrl:'views/student/study_continue.html',
-            controller:'StudyContinueController',
-            showHeader:false
-        })
-
         .otherwise({
             redirectTo: '/'
         });
