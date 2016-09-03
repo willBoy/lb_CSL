@@ -27,7 +27,7 @@ lbApp.controller('LoginController', ['$scope', 'UtilsService', 'RequestService',
             data: UtilsService.serialize($scope.pwdLoginInfo),
             success: function(data) {
                 /*$rootScope.currentUser = data;*/
-                /*$rootScope.currentUserData.role = '03';*/
+                $rootScope.currentUserData.role = '03';
                 UtilsService.href('/classList');
             }
         });
@@ -105,7 +105,7 @@ lbApp.controller('s_LoginController', ['$scope','$rootScope', 'UtilsService', 'R
             data: UtilsService.serialize($scope.student_login),
             success: function(data) {
                 $rootScope.currentUser = data;
-                /*$rootScope.currentUserData.role = '02';*/
+                $rootScope.currentUserData.role = '02';
                 $scope.dataTest = data;
                 UtilsService.href('/student/course');
             }
