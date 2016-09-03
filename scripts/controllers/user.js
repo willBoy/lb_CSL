@@ -7,7 +7,9 @@ lbApp.controller('LoginController', ['$scope', 'UtilsService', 'RequestService',
         password: '123456'
     };
 
-
+    $scope.myFunction = function(){
+        loginByPwd();
+    };
     UtilsService.genTabs($scope, 'tabLogin');
     
     //$scope.getCodeText = '获取语音验证码';
@@ -67,7 +69,7 @@ lbApp.controller('t_RegController', ['$scope', '$rootScope', 'RequestService', '
             success: function(data) {
                 console.log(data);
                 alert("注册成功");
-                UtilsService.href('/classList');
+                UtilsService.href('/t_login');
             }
         });
     };

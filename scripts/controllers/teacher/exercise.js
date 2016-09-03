@@ -44,8 +44,10 @@ lbApp.controller('ExerciseController', ['$scope', '$routeParams', 'UtilsService'
         data: UtilsService.serialize({id: $routeParams.chapterID}),
         loading: true,
         success: function (data) {
+            console.log(data);
             $scope.t_chapterInfo = data;
-            console.log($scope.t_chapterInfo.courseId);
+            $scope.t_chapterInfo.courseId = data.courseId;
+            /*console.log($scope.t_chapterInfo.courseId);*/
             $scope.t_exe_List();
         }
     });
@@ -61,7 +63,7 @@ lbApp.controller('ExerciseController', ['$scope', '$routeParams', 'UtilsService'
         // 分页信息
         pageInfo: {
             page: 1,
-            pageSize: '5',
+            pageSize: '20',
             totalPage: 0
         }
     };
@@ -117,17 +119,17 @@ lbApp.controller('ExerciseController', ['$scope', '$routeParams', 'UtilsService'
 
     //面包屑导航
     /*$scope.daohang = function () {
-        RequestService.request({
-            token: 't_findNavigationById',
-            method: 'POST',
-            strParams: 'chapterId='+$routeParams.chapterID,
-            /!*data: UtilsService.serialize($routeParams.chapterID),*!/
-            success: function (data) {
-                console.log(data);
-                /!*UtilsService.href('/class/courseSetting/' + data);*!/
-            }
-        })
-    }*/
+     RequestService.request({
+     token: 't_findNavigationById',
+     method: 'POST',
+     strParams: 'chapterId='+$routeParams.chapterID,
+     /!*data: UtilsService.serialize($routeParams.chapterID),*!/
+     success: function (data) {
+     console.log(data);
+     /!*UtilsService.href('/class/courseSetting/' + data);*!/
+     }
+     })
+     }*/
 
 }]);
 //添加习题
@@ -142,7 +144,7 @@ lbApp.controller('ExerciseAddController', ['$scope', '$routeParams', 'UtilsServi
     UtilsService.initPop($scope);
     $scope.t_sel_exeList = [];
     $scope.exeIndex = {};
-
+    $scope.chapterID =$routeParams.chapterID;
     // 选择的习题
     $scope.selectedCallList = {};
 //查询条件
@@ -151,14 +153,20 @@ lbApp.controller('ExerciseAddController', ['$scope', '$routeParams', 'UtilsServi
         /*courseId:$routeParams.courseID,*/
 
         common: {
-            exeIndex: $scope.exeIndex
+            /*exeIndex: $scope.exeIndex*/
+            chsChars:'',
+            tones:'',
+            qingsheng:'',
+            erhua:'',
+            speaker:'',
+            hskLevel:''
         },
         // 排序条件
         order: {},
         // 分页信息
         pageInfo: {
             page: 1,
-            pageSize: '10',
+            pageSize: '20',
             totalPage: 0
         }
     };
@@ -187,19 +195,19 @@ lbApp.controller('ExerciseAddController', ['$scope', '$routeParams', 'UtilsServi
 
 
     /*$scope.getExerciseList = function () {
-        console.log($scope.exeIndex);
-        RequestService.request({
-            token: 't_exeIndex',
-            method: 'POST',
-            data: UtilsService.serialize($scope.exeIndex),
-            success: function (data) {
-                $scope.t_sel_exeList = data.result;
-                for (var i = 0; i < $scope.t_sel_exeList.length; i++) {
-                    $scope.selectedCallList[$scope.t_sel_exeList[i].id] = false;
-                }
-            }
-        });
-    };*/
+     console.log($scope.exeIndex);
+     RequestService.request({
+     token: 't_exeIndex',
+     method: 'POST',
+     data: UtilsService.serialize($scope.exeIndex),
+     success: function (data) {
+     $scope.t_sel_exeList = data.result;
+     for (var i = 0; i < $scope.t_sel_exeList.length; i++) {
+     $scope.selectedCallList[$scope.t_sel_exeList[i].id] = false;
+     }
+     }
+     });
+     };*/
     $scope.ReturnExerciseList = function () {
         UtilsService.href('/class/exercise/' + $routeParams.chapterID);
     }
@@ -219,8 +227,16 @@ lbApp.controller('ExerciseAddController', ['$scope', '$routeParams', 'UtilsServi
 
     // 如果全部选择了，就把callAll置为true，如果全部取消了，就置为false
     $scope.changeCallAll = function () {
-        for (var i = 0; i < $scope.t_sel_exeList.length; i++) {
-            $scope.selectedCallList[$scope.t_sel_exeList[i].id] = true;
+        if(selectAll){
+            for (var i = 0; i < $scope.t_sel_exeList.length; i++) {
+                console.log(i);
+                $scope.selectedCallList[$scope.t_sel_exeList[i].id] = true;
+            }
+        }else{
+            for (var i = 0; i < $scope.t_sel_exeList.length; i++) {
+                console.log(i);
+                $scope.selectedCallList[$scope.t_sel_exeList[i].id] = false;
+            }
         }
         //var selectedCallList = $scope.selectedCallList;
         //var first = selectedCallList[Object.keys(selectedCallList)[0]];

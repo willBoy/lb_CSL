@@ -24,7 +24,7 @@ lbApp.factory('RequestService', ['$http', 'UtilsService', function($http, UtilsS
         //课程设置
         't_classCourse':'course/show',
         //章节信息
-        //'t_exe_List':'exercise/list',
+        /*'t_exe_List':'exercise/list',*/
         //登录
         't_login':'teacher/login',
         //新增班级
@@ -98,7 +98,7 @@ lbApp.factory('RequestService', ['$http', 'UtilsService', function($http, UtilsS
         request: function(reqConfig) {
             var url = tokenMap[reqConfig.token];
             if (!url) {
-                console.log('请求token错误');
+                console.log('请求token错误 - ' + reqConfig.token);
                 return;
             }
             // 替换url中的占位符参数

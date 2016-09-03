@@ -387,6 +387,10 @@ input, textarea {
   box-sizing: border-box;
 }
 
+button {
+  border: none;
+}
+
 #ng-view {
   height: 100%;
 }
