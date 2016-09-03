@@ -12,6 +12,9 @@ html, body{
 input, textarea{
     @include box-sizing(border-box);
 }
+button{
+    border: none;
+}
 #ng-view{
     height: 100%;
 }
@@ -593,6 +596,7 @@ UtilsService.genTab($scope, tabName)
     <div class="content [text]"></div>
 </div>
 */
+
 $form-item-height: 40px;
 .form-item{
     width: 100%;

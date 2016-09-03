@@ -1,5 +1,6 @@
+
 // 教师登录
-lbApp.controller('LoginController', ['$scope','$rootScope', 'UtilsService', 'RequestService', function($scope,$rootScope, UtilsService, RequestService) {
+lbApp.controller('LoginController', ['$scope', 'UtilsService', 'RequestService', function($scope, UtilsService, RequestService) {
     "use strict";
     // 密码登录信息
     $scope.pwdLoginInfo = {
@@ -7,7 +8,9 @@ lbApp.controller('LoginController', ['$scope','$rootScope', 'UtilsService', 'Req
         password: '123456'
     };
 
-
+    $scope.myFunction = function(){
+        loginByPwd();
+    };
     UtilsService.genTabs($scope, 'tabLogin');
     
     //$scope.getCodeText = '获取语音验证码';
@@ -69,7 +72,7 @@ lbApp.controller('t_RegController', ['$scope', '$rootScope', 'RequestService', '
             success: function(data) {
                 console.log(data);
                 alert("注册成功");
-                UtilsService.href('/classList');
+                UtilsService.href('/t_login');
             }
         });
     };
@@ -179,3 +182,4 @@ lbApp.controller('updatePassword', ['$scope', '$rootScope', 'RequestService', 'U
 
 
 }]);
+

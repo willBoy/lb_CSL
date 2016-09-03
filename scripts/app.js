@@ -84,7 +84,7 @@ lbApp.config(['$routeProvider', '$locationProvider', '$httpProvider', function($
             showHeaderTeacher:true
         })
         //∞‡º∂…Ë÷√
-        .when('/classDetail/:classID',{
+        .when('/classDetail/:classID/:courseID',{
             templateUrl:'views/class/class_detail.html',
             controller:'ClassDetailController',
             showHeader:true
