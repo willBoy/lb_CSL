@@ -66,10 +66,46 @@ lbApp.controller('StudentCourseController', ['$scope', '$routeParams', 'UtilsSer
     // 绑定弹框事件
     UtilsService.initPop($scope);
     $scope.s_myCourse = [];
+
+
+    //查询条件
+    $scope.conditions = {
+        // 值查询
+        common: {},
+        // 分页信息
+        pageInfo: {
+            page: 1,
+            pageSize: '20',
+            totalPage: 0
+        }
+    }
+
+    //班级列表
+    $scope.t_classListArr = {};
+
+    // 获取班级列表项
+    $scope.getclasslist = function (page) {
+        $scope.conditions.pageInfo.page = page || 1;
+        RequestService.request({
+            token: 's_course_list',
+            method: 'GET',
+            strParams: UtilsService.genConditions($scope.conditions),
+            success: function (data) {
+                console.log(data);
+                $scope.conditions.pageInfo.totalPage = data.pages;
+                $scope.s_myCourse = data.result;
+                $scope.total = data.total;
+
+            }
+        });
+    }
+    $scope.getclasslist(1);
+
     //防止重复提交多次
     RequestService.request({
         token: 's_course_list',
         method: 'GET',
+        strParams: UtilsService.genConditions($scope.conditions),
         success: function (data) {
             $scope.inflag = false;
             $scope.s_myCourse = data.result;
@@ -78,6 +114,9 @@ lbApp.controller('StudentCourseController', ['$scope', '$routeParams', 'UtilsSer
     });
     //加入课程
     $scope.sequenceNo;
+
+
+
 
     document.onkeydown = function (event) {
         if (event && event.keyCode == 13) { // 按 4
@@ -129,6 +168,42 @@ lbApp.controller('StudentCourseDetailController', ['$scope', '$routeParams', 'Ut
         listName: 'student',
         tabName: 'tabName'
     };
+    //查询条件
+    $scope.conditions = {
+        // 值查询
+        common: {
+            courseId: $routeParams.courseID
+        },
+        // 分页信息
+        pageInfo: {
+            page: 1,
+            pageSize: '20',
+            totalPage: 0
+        }
+    }
+
+    //班级列表
+    $scope.t_classListArr = {};
+
+    //请求章节列表数据
+    $scope.getclasslist = function (page) {
+        $scope.conditions.pageInfo.page = page || 1;
+        RequestService.request({
+            token: 's_chapterList',
+            method: 'GET',
+            strParams: UtilsService.genConditions($scope.conditions),
+            success: function (data) {
+                console.log(data);
+                $scope.conditions.pageInfo.totalPage = data.pages;
+                $scope.total = data.total;
+                $scope.courseChapter = data.result;
+
+            }
+        });
+    }
+    $scope.getclasslist(1);
+
+
     $scope.course = {
         //课程名
         name: '',
@@ -136,7 +211,7 @@ lbApp.controller('StudentCourseDetailController', ['$scope', '$routeParams', 'Ut
         description: ''
     }
     //课程信息
-    console.log($routeParams.classID);
+    console.log($routeParams.courseID);
     RequestService.request({
         token: 's_course',
         method: 'post',
@@ -148,16 +223,22 @@ lbApp.controller('StudentCourseDetailController', ['$scope', '$routeParams', 'Ut
         }
     });
 
-
-    $scope.courseChapter = []
-    /*{
-     //章节号
-     chapter_no:'',
-     //章节名
-     name:'',
-     //章节内容介绍
-     description:''
-     }*/
+    //判断是否为空
+    function isEmptyObject(obj) {
+        for (var n in obj) {
+            return false
+        }
+        return true;
+    }
+    //准备中的章节，不能开始练习
+    $scope.StartExe = function(status,chapterID){
+        if(status == 0){
+            alert("准备中的章节，还不开始练习")
+        }else{
+            UtilsService.href('/student/study/'+chapterID);
+        }
+    }
+    $scope.courseChapter = [];
 
     // 请求章节列表数据
     function s_chapterList() {
@@ -276,13 +357,7 @@ lbApp.controller('StudyController', ['$scope', '$routeParams', 'UtilsService', '
 
 
     }
-    //判断是否为空
-    function isEmptyObject(obj) {
-        for (var n in obj) {
-            return false
-        }
-        return true;
-    }
+
 
     RequestService.request({
         token: 't_chapterShow',
@@ -290,12 +365,7 @@ lbApp.controller('StudyController', ['$scope', '$routeParams', 'UtilsService', '
         data: UtilsService.serialize({id: $routeParams.chapterID}),
         success: function (data) {
             $scope.chapterInfo = data;
-            if(isEmptyObject(data)){
-                alert("没有习题，不能开始练习");
-            }else{
-                shengcheng();
-            }
-
+            shengcheng();
         }
     });
 
@@ -340,14 +410,27 @@ lbApp.controller('StudyKeyingController', ['$scope', '$routeParams', 'UtilsServi
         $("#exerciseQ").show();
     }, 1000);
 
-
+    //判断是否为空
+    function isEmptyObject(obj) {
+        for (var n in obj) {
+            return false
+        }
+        return true;
+    }
+    //提取习题
     RequestService.request({
         token: 's_chapterExercise',
         method: 'GET',
         params: {chapterExerciseId: $routeParams.exerciseID},
         success: function (data) {
             console.log(data);
-            chapterExercise(data);
+            if(isEmptyObject(data)){
+                alert("没有可以练习的习题");
+                UtilsService.href('/student/course');
+            }else{
+                chapterExercise(data);
+            }
+
         }
     });
     function chapterExercise(data) {
@@ -422,7 +505,112 @@ lbApp.controller('StudyKeyingController', ['$scope', '$routeParams', 'UtilsServi
             }
         };
         var arr = [];
-        function select(num, code) {
+        function select(num, code,T_F) {
+            --$scope.lengthNum;
+            arr.push(code);
+            var codeT = '';
+            codeT = arr.join('') + "";
+            console.log("codeT" + codeT);
+            var i = $scope.exerciseInfo.questionsPronunciation.tones.length - $scope.lengthNum - 1;
+            var selectHtml = '<span class="icon border-3-white icons-' + code + '"></span>';
+            $("#answer").find('.answer_empty').eq(i).html(selectHtml);
+            $scope.execiseAnswer.answerBody = codeT;
+            var TonsAnswer = $scope.exerciseInfo.questionsPronunciation.tones + "";
+            if ($scope.lengthNum == 0) {
+                if (TonsAnswer == codeT) {
+                    $scope.execiseAnswer.answer = true;
+                    $("#answer").find('.icon').addClass('border-3-green');
+                    //初始化暂存答案的数组
+                    arr = [];
+                    setTimeout(function(){
+                        nextExe();
+                    },1000);
+                } else {
+                    $scope.execiseAnswer.answer = false;
+                    if (TonsAnswer.length == codeT.length) {
+                        var rightA = TonsAnswer.split("");
+                        var userA = codeT.split("");
+                        for(var i = 0 ; i < rightA.length ; i++){
+                            if(rightA[i] == userA[i]){
+                                $("#answer").find('.icon').eq(i).addClass('border-3-green');
+                            }else{
+                                $("#answer").find('.icon').eq(i).addClass('border-3-red');
+                            }
+                        }
+                        $("#imgShow").show();
+                        flag = false;
+                        document.onkeydown = function (event) {
+                            if (event && event.keyCode == 13) { // 按 1
+                                $("#imgShow").hide();
+                                flag = true;
+                                //舒适化暂存答案的数组
+                                arr = [];
+                                if($scope.exerciseInfo.pattern == 1){
+                                    var repeatTimes = false;
+                                    $("#answer").find('.answer_empty').html('');
+                                    var musicAudio = document.getElementById('musicAuto');
+                                    musicAuto.play();
+                                    document.onkeydown = function (event) {
+                                        if (event.keyCode == 49) { // 按 1
+                                            if ($("#exerciseQ").is(":visible")) {
+                                                selectFactory(-1, 1,repeatTimes);
+                                            }
+                                        }
+                                        if (event.keyCode == 50) { // 按 2
+                                            if ($("#exerciseQ").is(":visible")) {
+                                                selectFactory(-1, 2,repeatTimes);
+                                            }
+                                        }
+                                        if (event.keyCode == 51) { // 按 3
+                                            if ($("#exerciseQ").is(":visible")) {
+                                                selectFactory(-1, 3,repeatTimes);
+                                            }
+                                        }
+                                        if (event.keyCode == 52) { // 按 4
+                                            if ($("#exerciseQ").is(":visible")) {
+                                                selectFactory(-1, 4,repeatTimes);
+                                            }
+                                        }
+                                    };
+
+                                }else if($scope.exerciseInfo.pattern == 0){
+                                    var repeatTimes = true;
+                                    $("#answer").find('.answer_empty').html('');
+                                    var musicAudio = document.getElementById('musicAuto');
+                                    musicAuto.play();
+                                    document.onkeydown = function (event) {
+                                        if (event.keyCode == 49) { // 按 1
+                                            if ($("#exerciseQ").is(":visible")) {
+                                                select(-1, 1,repeatTimes);
+                                            }
+                                        }
+                                        if (event.keyCode == 50) { // 按 2
+                                            if ($("#exerciseQ").is(":visible")) {
+                                                select(-1, 2,repeatTimes);
+                                            }
+                                        }
+                                        if (event.keyCode == 51) { // 按 3
+                                            if ($("#exerciseQ").is(":visible")) {
+                                                select(-1, 3,repeatTimes);
+                                            }
+                                        }
+                                        if (event.keyCode == 52) { // 按 4
+                                            if ($("#exerciseQ").is(":visible")) {
+                                                select(-1, 4,repeatTimes);
+                                            }
+                                        }
+                                    };
+                                }
+
+                            }
+
+                        };
+                    }
+                }
+            }
+        }
+
+        function selectFactory(num, code,T_F) {
             --$scope.lengthNum;
             arr.push(code);
             var codeT = '';
@@ -458,7 +646,36 @@ lbApp.controller('StudyKeyingController', ['$scope', '$routeParams', 'UtilsServi
                             if (event && event.keyCode == 13) { // 按 1
                                 $("#imgShow").hide();
                                 flag = true;
-                                nextExe();
+                                if(!T_F){
+                                    nextExe();
+                                }else{
+                                    var repeatTimes = true;
+                                    $("#answer").find('.answer_empty').html('');
+                                    var musicAudio = document.getElementById('musicAuto');
+                                    musicAuto.play();
+                                    document.onkeydown = function (event) {
+                                        if (event.keyCode == 49) { // 按 1
+                                            if ($("#exerciseQ").is(":visible")) {
+                                                selectFactory(-1, 1,repeatTimes);
+                                            }
+                                        }
+                                        if (event.keyCode == 50) { // 按 2
+                                            if ($("#exerciseQ").is(":visible")) {
+                                                selectFactory(-1, 2,repeatTimes);
+                                            }
+                                        }
+                                        if (event.keyCode == 51) { // 按 3
+                                            if ($("#exerciseQ").is(":visible")) {
+                                                selectFactory(-1, 3,repeatTimes);
+                                            }
+                                        }
+                                        if (event.keyCode == 52) { // 按 4
+                                            if ($("#exerciseQ").is(":visible")) {
+                                                selectFactory(-1, 4,repeatTimes);
+                                            }
+                                        }
+                                    };
+                                }
                             }
 
                         };
@@ -526,8 +743,13 @@ lbApp.controller('StudyFinishController', ['$scope', '$routeParams', 'UtilsServi
         success: function (data) {
             $scope.exerciseResult = data;
             var r_Code = data.rightCount / (data.rightCount + data.wrongCount);
-            var b = r_Code.toFixed(4);
-            $scope.percentCode = b.slice(2, 4) + "." + b.slice(4, 6) + "%";
+            console.log(r_Code);
+            if(r_Code==1){
+                $scope.percentCode = "100.00%";
+            }else{
+                var b = r_Code.toFixed(4);
+                $scope.percentCode = b.slice(2, 4) + "." + b.slice(4, 6) + "%";
+            }
             var startTime = data.startTimeStr;
             var endTime = data.endTimeStr;
             var startT_date = new Date(startTime);
