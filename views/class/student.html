@@ -48,9 +48,9 @@
                     <td>
                         <!--<a ng-click="utils.href('/class/studentDetail/'+t_c_student_List.id)">学生详情</a>-->
                         <a ng-click="studentDetail(t_c_student_List.id)">学生详情</a>
-                        <a ng-click="openPop('pop-Remarks')">编辑备注</a>
-                        <a ng-click="openPop('pop-resetpwd')">重置密码</a>
-                        <a ng-click="studentDel(classesID,t_c_student_List.id)">删除</a>
+                        <a ng-click="remarks(t_c_student_List.id)">编辑备注</a>
+                        <a ng-click="resetpwd(t_c_student_List.id)">重置密码</a>
+                        <a ng-click="studentDel(t_c_student_List.id)">删除</a>
                         <!--<a ng-click="studentDel(t_c_student_List.id)">删除</a>-->
                     </td>
                 </tr>
@@ -113,16 +113,18 @@
             <div id="pop-Remarks" class="pop">
                 <div class="pop-title">编辑备注</div>
                 <div class="pop-content">
+                    <form>
                     <div class="form-item">
                         <div class="content">
                             <label>备注:</label>
-                            <input type="text" class="input" name="name"  required ng-maxlength="30" ng-model="t_c_student_List.remark">
+                            <input type="text" class="input" name="name" ng-maxlength="30" ng-model="t_c_student_List.remark">
                         </div>
                     </div>
                     <div class="form-op">
-                        <span class="op btn-blue" ng-click="submitRemark(t_c_student_List.remark)">确定</span>
+                        <button class="op btn-blue" ng-click="submitRemark(t_c_student_List.remark)">确定</button>
                         <span class="op btn-blue" ng-click="closePop('pop-Remarks')">取消</span>
                     </div>
+                    </form>
                 </div>
             </div>
             <div id="pop-resetpwd" class="pop">
@@ -132,7 +134,7 @@
                         <div class="text">原密码已重置为<span ng-model="studentInfo_r.password">123456</span></div>
                     </div>
                     <div class="form-op">
-                    <span class="op btn-blue" ng-click="resetPassword(123456)">保存</span>
+                    <button autofocus class="op btn-blue" ng-click="resetPassword(123456)">保存</button>
                     </div>
                 </div>
             </div>

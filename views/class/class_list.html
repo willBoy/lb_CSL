@@ -11,8 +11,8 @@
             <span class="title">班级列表</span>
             <div class="right">
                 <select class="select" ng-model="conditions.common.startYear" ng-options="act for act in activities" ng-change="getclasslist()"></select>
-                <input type="text" class="input retrieval" placeholder="班级名称" ng-model="conditions.common.name" ng-change="getclasslist()">
-                <span class="icons-search"></span>
+                <input type="text" class="input retrieval" placeholder="班级名称" ng-model="conditions.common.name"><!-- ng-change="getclasslist()"-->
+                <span class="icons-search" ng-click="getclasslist()"></span>
                 <span class="op btn-blue" ng-click="utils.href('/createClass')">创建班级</span>
                 <!--<span class="op btn-blue" ng-click="classList()">获取数据</span>-->
             </div>

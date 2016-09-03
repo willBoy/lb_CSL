@@ -118,67 +118,67 @@ lbApp.config(['$routeProvider', '$locationProvider', '$httpProvider', function($
         .when('/class/delClass/:classID',{
             templateUrl:'views/class/class_del.html',
             controller:'classDelController',
-            showHeader:true
+            showHeaderTeacher:true
         })
         //新建班级
         .when('/createClass',{
             templateUrl:'views/class/create_class.html',
             controller:'CreateClassController',
-            showHeader:true
+            showHeaderTeacher:true
         })
         //课程设置
         .when('/class/courseSetting/:courseID',{
             templateUrl:'views/class/course.html',
             controller:'CourseController',
-            showHeader:true
+            showHeaderTeacher:true
         })
         .when('/class/courseSetting',{
             templateUrl:'views/class/course.html',
             controller:'CourseController',
-            showHeader:true
+            showHeaderTeacher:true
         })
         //章节设置
         .when('/class/chapter/:chapterID/:classID',{
             templateUrl:'views/class/chapter.html',
             controller:'ChapterController',
-            showHeader:true
+            showHeaderTeacher:true
         })
         //新建章节
         .when('/class/create_chapter/:courseID',{
             templateUrl:'views/class/create_chapter.html',
             controller:'CreateChapterController',
-            showHeader:true
+            showHeaderTeacher:true
         })
         //习题管理
         .when('/class/exercise/:chapterID',{
             templateUrl:'views/class/exercise.html',
             controller:'ExerciseController',
-            showHeader:true
+            showHeaderTeacher:true
         })
         //添加习题
         .when('/class/exercise_add/:chapterID',{
             templateUrl:'views/class/exercise_add.html',
             controller:'ExerciseAddController',
-            showHeader:true
+            showHeaderTeacher:true
         })
         //添加习题随机
         .when('/class/exercise_add2',{
             templateUrl:'views/class/exercise_add2.html',
             controller:'ExerciseAdd2Controller',
-            showHeader:true
+            showHeaderTeacher:true
         })
 
         //学生管理
         .when('/class/student/:classesID',{
             templateUrl:'views/class/student.html',
             controller:'StudentController',
-            showHeader:true
+            showHeaderTeacher:true
         })
         //学生详情
         .when('/class/studentDetail/:studentID',{
             templateUrl:'views/class/student_detail.html',
             controller:'StudentDetailController',
-            showHeader:true
+            showHeaderTeacher:true
         })
         //重置密码
         /*.when('/class/studentDetail/:studentID',{

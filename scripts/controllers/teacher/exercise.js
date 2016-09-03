@@ -147,7 +147,7 @@ lbApp.controller('ExerciseAddController', ['$scope', '$routeParams', 'UtilsServi
     $scope.chapterID =$routeParams.chapterID;
     // 选择的习题
     $scope.selectedCallList = {};
-//查询条件
+    //查询条件
     $scope.conditions = {
         // 值查询
         /*courseId:$routeParams.courseID,*/
@@ -191,26 +191,12 @@ lbApp.controller('ExerciseAddController', ['$scope', '$routeParams', 'UtilsServi
         });
     };
 
-    /*$scope.getExerciseList(1);*/
 
-
-    /*$scope.getExerciseList = function () {
-     console.log($scope.exeIndex);
-     RequestService.request({
-     token: 't_exeIndex',
-     method: 'POST',
-     data: UtilsService.serialize($scope.exeIndex),
-     success: function (data) {
-     $scope.t_sel_exeList = data.result;
-     for (var i = 0; i < $scope.t_sel_exeList.length; i++) {
-     $scope.selectedCallList[$scope.t_sel_exeList[i].id] = false;
-     }
-     }
-     });
-     };*/
     $scope.ReturnExerciseList = function () {
         UtilsService.href('/class/exercise/' + $routeParams.chapterID);
     }
+
+
     // 是否选择全部外呼
     $scope.callAll = false;
     $scope.$watch('callAll', function () {
@@ -226,7 +212,7 @@ lbApp.controller('ExerciseAddController', ['$scope', '$routeParams', 'UtilsServi
     });
 
     // 如果全部选择了，就把callAll置为true，如果全部取消了，就置为false
-    $scope.changeCallAll = function () {
+    /*$scope.changeCallAll = function () {
         if(selectAll){
             for (var i = 0; i < $scope.t_sel_exeList.length; i++) {
                 console.log(i);
@@ -238,16 +224,17 @@ lbApp.controller('ExerciseAddController', ['$scope', '$routeParams', 'UtilsServi
                 $scope.selectedCallList[$scope.t_sel_exeList[i].id] = false;
             }
         }
-        //var selectedCallList = $scope.selectedCallList;
-        //var first = selectedCallList[Object.keys(selectedCallList)[0]];
-        //for (var j in selectedCallList) {
-        //    if (selectedCallList[j] != first) {
-        //        return;
-        //    }
-        //}
-        //$scope.callAll = first;
+    };*/
+    $scope.changeCallAll = function() {
+        var selectedCallList = $scope.selectedCallList;
+        var first = selectedCallList[Object.keys(selectedCallList)[0]];
+        for (var j in selectedCallList) {
+            if (selectedCallList[j] != first) {
+                return;
+            }
+        }
+        $scope.callAll = first;
     };
-
     /**
      * 批量添加习题
      */

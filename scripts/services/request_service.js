@@ -118,7 +118,8 @@ lbApp.factory('RequestService', ['$http', 'UtilsService', function($http, UtilsS
             }
             // 请求的对象
             var reqObj = {
-                url: baseUrl+url,
+                url: encodeURI(baseUrl + url),
+                /*url: baseUrl + url,*/
                 method: reqConfig.method || 'GET',
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded'

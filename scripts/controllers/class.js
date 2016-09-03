@@ -686,7 +686,11 @@ lbApp.controller('StudentController', ['$scope', '$routeParams', 'UtilsService',
         0,1
     ]
     //班级学生
-    $scope.class_student = {};
+    $scope.class_student = {
+        //
+        remark:'',
+        id:''
+    };
     $scope.classesID = $routeParams.classID;
 
     //学生总数
@@ -759,39 +763,59 @@ lbApp.controller('StudentController', ['$scope', '$routeParams', 'UtilsService',
     }
 
     //删除学生
-    $scope.studentDel = function (classesID, studentID) {
+    $scope.studentDel = function (studentID) {
         if(confirm("确定要删除吗？"))
         {
             RequestService.request({
                 token: 't_studentDel',
                 method: 'POST',
-                data: UtilsService.serialize({classesId: classesID, studentId: studentID}),
+                data: UtilsService.serialize({classesId: $routeParams.classesID, studentId: studentID}),
                 success: function () {
                     /*alert("删除成功");*/
-                    console.log(classesID);
-                    UtilsService.href('/class/student/' + classesID);
-                    $scope.studentList();
+                    /*console.log(classesID);*/
+                    location.reload();
+                    /*$scope.studentList();*/
                 }
             })
+            location.reload();
         }
 
     }
     //学生备注
-    $scope.submitRemark = function (remark) {
-        RequestService.request({
-            token: 't_studentRemark',
-            method: 'POST',
-            strParams: 'classesId=' + $routeParams.classesID + '&studentId=' + $scope.class_student.id + '&remark=' + remark,
-            /*data:UtilsService.serialize({classID:$routeParams.classID,studentId:$routeParams.studentId,remark:$scope.studentInfo_r.remark}),*/
-            success: function () {
-                /*alert("修改成功");*/
-                /*location.reload();*/
-            }
-        })
-        /*alert("提交成功");*/
-        $scope.closePop('pop-Remarks');
+    $scope.remarks =function(studentId){
+        $scope.openPop('pop-Remarks');
+        $scope.submitRemark = function (remark) {
+            console.log(studentId);
+            RequestService.request({
+                token: 't_studentRemark',
+                method: 'POST',
+                strParams: 'classesId=' + $routeParams.classesID + '&studentId=' + studentId + '&remark=' + remark,
+                /*data:UtilsService.serialize({classID:$routeParams.classID,studentId:$routeParams.studentId,remark:$scope.studentInfo_r.remark}),*/
+                success: function () {
+                    $scope.studentList();
+                }
+            })
+            /*alert("提交成功");*/
+            $scope.closePop('pop-Remarks');
+        }
     }
+
     //重置密码
+    $scope.resetpwd = function(studentId){
+        $scope.openPop('pop-resetpwd');
+        $scope.resetPassword = function (password) {
+            RequestService.request({
+                token: 't_studentResetPassword',
+                method: 'POST',
+                strParams: 'id=' + studentId + '&password=' + password,
+                /*data:UtilsService.serialize({classID:$routeParams.classID,studentId:$routeParams.studentId,remark:$scope.studentInfo_r.remark}),*/
+                success: function () {
+                    /*alert("修改成功");*/
+                    $scope.closePop('pop-resetpwd')
+                }
+            })
+        }
+    }
     $scope.resetPassword = function (password) {
         RequestService.request({
             token: 't_studentResetPassword',
