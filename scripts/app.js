@@ -8,8 +8,16 @@ lbApp.run(['$rootScope', 'UtilsService', 'RequestService', function($rootScope, 
     $rootScope.showHeaderStudent = false;
     $rootScope.showHeaderTeacher = false;
     $rootScope.utils = UtilsService;
-    $rootScope.currentUserData = {};
-
+    /*$rootScope.currentUserData = {};*/
+    $rootScope.t_logout = function() {
+        RequestService.request({
+            token: 't_logout',
+            method: 'POST',
+            success: function(data) {
+                UtilsService.href('/');
+            }
+        });
+    };
     $rootScope.$on('$routeChangeStart', function(e, next, current) {
         if (next.$$route.showHeader === false) {
             $rootScope.showHeader = false;
@@ -33,7 +41,7 @@ lbApp.config(['$routeProvider', '$locationProvider', '$httpProvider', function($
             controller: 'WelcomeController',
             showHeader: false
         })
-        // 章节列表
+        //
         .when('/', {
             templateUrl: 'views/index/welcome.html',
             controller: 'WelcomeController',
@@ -155,24 +163,7 @@ lbApp.config(['$routeProvider', '$locationProvider', '$httpProvider', function($
             controller:'StudentDetailController',
             showHeaderTeacher:true
         })
-        //重置密码
-        /*.when('/class/studentDetail/:studentID',{
-         templateUrl:'views/class/student.html',
-         controller:'StudentController',
-         showHeader:true
-         })*/
-        /*//学生详情
-         .when('/class/student/:classID/:studentID',{
-         templateUrl:'views/class/student.html',
-         controller:'StudentDetailController',
-         showHeader:true
-         })*/
-        /*//学生备注
-         .when('/class/student/:classID/:studentID',{
-         templateUrl:'views/class/student.html',
-         controller:'StudentController',
-         showHeader:true
-         })*/
+
         //学生系统
 
         //学生个人中心
@@ -199,18 +190,7 @@ lbApp.config(['$routeProvider', '$locationProvider', '$httpProvider', function($
             controller:'StudentCourseDetailController',
             showHeader:true
         })
-        /*//课程详情
-         .when('/student/course_detail',{
-         templateUrl:'views/student/course_detail.html',
-         controller:'StudentCourseDetailController',
-         showHeaderStudent:true
-         })*/
-        //退出课程
-        /*.when('/class/delCourse/:classID',{
-         templateUrl:'views/student/course_del.html',
-         controller:'delCourseController',
-         showHeader:true
-         })*/
+
         //开始学习
         .when('/student/study/:chapterID',{
             templateUrl:'views/student/study.html',

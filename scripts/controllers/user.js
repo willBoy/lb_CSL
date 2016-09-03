@@ -4,7 +4,7 @@ lbApp.controller('LoginController', ['$scope', 'UtilsService', 'RequestService',
     "use strict";
     // 密码登录信息
     $scope.pwdLoginInfo = {
-        userName: '531402593@qq.com',
+        userName: '291248945@qq.com',
         password: '123456'
     };
 
@@ -27,25 +27,12 @@ lbApp.controller('LoginController', ['$scope', 'UtilsService', 'RequestService',
             data: UtilsService.serialize($scope.pwdLoginInfo),
             success: function(data) {
                 /*$rootScope.currentUser = data;*/
-                $rootScope.currentUserData.role = '03';
+                /*$rootScope.currentUserData.role = '03';*/
                 UtilsService.href('/classList');
             }
         });
     };
 
-    /**
-     * 动态密码登录
-     */
-    $scope.loginByCode = function() {
-        RequestService.request({
-            token: 'tk_loginByVV',
-            method: 'POST',
-            data: UtilsService.serialize($scope.verifyCodeInfo),
-            success: function(data) {
-                UtilsService.href('/profile');
-            }
-        })
-    };
 }]);
 
 
@@ -105,7 +92,7 @@ lbApp.controller('s_LoginController', ['$scope','$rootScope', 'UtilsService', 'R
             data: UtilsService.serialize($scope.student_login),
             success: function(data) {
                 $rootScope.currentUser = data;
-                $rootScope.currentUserData.role = '02';
+                /*$rootScope.currentUserData.role = '02';*/
                 $scope.dataTest = data;
                 UtilsService.href('/student/course');
             }

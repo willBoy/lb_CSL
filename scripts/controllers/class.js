@@ -442,7 +442,6 @@ lbApp.controller('ChapterController', ['$scope', '$routeParams', 'UtilsService',
         });
     }
 
-
 }]);
 
 //新建章节
@@ -458,7 +457,7 @@ lbApp.controller('CreateChapterController', ['$scope', '$routeParams', 'UtilsSer
         courseId: $routeParams.courseID,
         name: '',
         descriptionContent: '',
-        status: '',
+        status: 0,
         orderNo: '',
         pattern: ''
     };
