@@ -545,62 +545,63 @@ lbApp.controller('StudyKeyingController', ['$scope', '$routeParams', 'UtilsServi
                                 flag = true;
                                 //舒适化暂存答案的数组
                                 arr = [];
-                                if($scope.exerciseInfo.pattern == 1){
-                                    var repeatTimes = false;
-                                    $("#answer").find('.answer_empty').html('');
-                                    var musicAudio = document.getElementById('musicAuto');
-                                    musicAuto.play();
-                                    document.onkeydown = function (event) {
-                                        if (event.keyCode == 49) { // 按 1
-                                            if ($("#exerciseQ").is(":visible")) {
-                                                selectFactory(-1, 1,repeatTimes);
-                                            }
-                                        }
-                                        if (event.keyCode == 50) { // 按 2
-                                            if ($("#exerciseQ").is(":visible")) {
-                                                selectFactory(-1, 2,repeatTimes);
-                                            }
-                                        }
-                                        if (event.keyCode == 51) { // 按 3
-                                            if ($("#exerciseQ").is(":visible")) {
-                                                selectFactory(-1, 3,repeatTimes);
-                                            }
-                                        }
-                                        if (event.keyCode == 52) { // 按 4
-                                            if ($("#exerciseQ").is(":visible")) {
-                                                selectFactory(-1, 4,repeatTimes);
-                                            }
-                                        }
-                                    };
-
-                                }else if($scope.exerciseInfo.pattern == 0){
-                                    var repeatTimes = true;
-                                    $("#answer").find('.answer_empty').html('');
-                                    var musicAudio = document.getElementById('musicAuto');
-                                    musicAuto.play();
-                                    document.onkeydown = function (event) {
-                                        if (event.keyCode == 49) { // 按 1
-                                            if ($("#exerciseQ").is(":visible")) {
-                                                select(-1, 1,repeatTimes);
-                                            }
-                                        }
-                                        if (event.keyCode == 50) { // 按 2
-                                            if ($("#exerciseQ").is(":visible")) {
-                                                select(-1, 2,repeatTimes);
-                                            }
-                                        }
-                                        if (event.keyCode == 51) { // 按 3
-                                            if ($("#exerciseQ").is(":visible")) {
-                                                select(-1, 3,repeatTimes);
-                                            }
-                                        }
-                                        if (event.keyCode == 52) { // 按 4
-                                            if ($("#exerciseQ").is(":visible")) {
-                                                select(-1, 4,repeatTimes);
-                                            }
-                                        }
-                                    };
-                                }
+                                nextExe();
+                                //if($scope.exerciseInfo.pattern == 1){
+                                //    var repeatTimes = false;
+                                //    $("#answer").find('.answer_empty').html('');
+                                //    var musicAudio = document.getElementById('musicAuto');
+                                //    musicAuto.play();
+                                //    document.onkeydown = function (event) {
+                                //        if (event.keyCode == 49) { // 按 1
+                                //            if ($("#exerciseQ").is(":visible")) {
+                                //                selectFactory(-1, 1,repeatTimes);
+                                //            }
+                                //        }
+                                //        if (event.keyCode == 50) { // 按 2
+                                //            if ($("#exerciseQ").is(":visible")) {
+                                //                selectFactory(-1, 2,repeatTimes);
+                                //            }
+                                //        }
+                                //        if (event.keyCode == 51) { // 按 3
+                                //            if ($("#exerciseQ").is(":visible")) {
+                                //                selectFactory(-1, 3,repeatTimes);
+                                //            }
+                                //        }
+                                //        if (event.keyCode == 52) { // 按 4
+                                //            if ($("#exerciseQ").is(":visible")) {
+                                //                selectFactory(-1, 4,repeatTimes);
+                                //            }
+                                //        }
+                                //    };
+                                //
+                                //}else if($scope.exerciseInfo.pattern == 0){
+                                //    var repeatTimes = true;
+                                //    $("#answer").find('.answer_empty').html('');
+                                //    var musicAudio = document.getElementById('musicAuto');
+                                //    musicAuto.play();
+                                //    document.onkeydown = function (event) {
+                                //        if (event.keyCode == 49) { // 按 1
+                                //            if ($("#exerciseQ").is(":visible")) {
+                                //                select(-1, 1,repeatTimes);
+                                //            }
+                                //        }
+                                //        if (event.keyCode == 50) { // 按 2
+                                //            if ($("#exerciseQ").is(":visible")) {
+                                //                select(-1, 2,repeatTimes);
+                                //            }
+                                //        }
+                                //        if (event.keyCode == 51) { // 按 3
+                                //            if ($("#exerciseQ").is(":visible")) {
+                                //                select(-1, 3,repeatTimes);
+                                //            }
+                                //        }
+                                //        if (event.keyCode == 52) { // 按 4
+                                //            if ($("#exerciseQ").is(":visible")) {
+                                //                select(-1, 4,repeatTimes);
+                                //            }
+                                //        }
+                                //    };
+                                //}
 
                             }
 
