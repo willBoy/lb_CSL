@@ -2147,6 +2147,12 @@ UtilsService.genTab($scope, tabName)
   float: left;
   margin-left: 30px;
 }
+#s_exercising .answer .border-3-green {
+  border: 3px solid green;
+}
+#s_exercising .answer .border-3-red {
+  border: 3px solid red;
+}
 
 .study {
   height: 100%;
