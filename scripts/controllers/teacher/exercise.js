@@ -63,7 +63,7 @@ lbApp.controller('ExerciseController', ['$scope', '$routeParams', 'UtilsService'
         // 分页信息
         pageInfo: {
             page: 1,
-            pageSize: '20',
+            pageSize: '10',
             totalPage: 0
         }
     };
@@ -86,50 +86,21 @@ lbApp.controller('ExerciseController', ['$scope', '$routeParams', 'UtilsService'
         });
     };
     $scope.t_exe_List(1);
-    /*function t_exe_show() {
-     RequestService.request({
-     token: 't_exe_list',
-     method: 'POST',
-     data: UtilsService.serialize({chapterId: $routeParams.chapterID}),
-     /!*loading:true,*!/
-     success: function (data) {
-     console.log(data.result);
-     $scope.t_exerciseList = data.result;
-
-     }
-     });
-     }*/
 
     $scope.exe_del = function (ID) {
-        if(confirm("确定要删除吗？"))
-        {
-            RequestService.request({
-                token: 't_exe_del',
-                method: 'POST',
-                params: {id: ID},
-                loading: true,
-                success: function (data) {
-                    console.log(data.result);
-                    location.reload();
-                    //$scope.t_exerciseList = data.result;
-                }
-            });
-        }
+        RequestService.request({
+            token: 't_exe_del',
+            method: 'POST',
+            params: {id: ID},
+            loading: true,
+            success: function (data) {
+                console.log(data.result);
+                location.reload();
+                //$scope.t_exerciseList = data.result;
+            }
+        });
     }
 
-    //面包屑导航
-    /*$scope.daohang = function () {
-     RequestService.request({
-     token: 't_findNavigationById',
-     method: 'POST',
-     strParams: 'chapterId='+$routeParams.chapterID,
-     /!*data: UtilsService.serialize($routeParams.chapterID),*!/
-     success: function (data) {
-     console.log(data);
-     /!*UtilsService.href('/class/courseSetting/' + data);*!/
-     }
-     })
-     }*/
 
 }]);
 //添加习题
@@ -139,6 +110,22 @@ lbApp.controller('ExerciseAddController', ['$scope', '$routeParams', 'UtilsServi
     $scope.asideTab = {
         listName: 'navigation',
         tabName: 'tabName'
+    };
+    //按导航查询班级ID
+    $scope.courseId='';
+    $scope.getCourseID =function(){
+        console.log(2525635);
+        RequestService.request({
+            token: 't_findNavigationById',
+            method: 'POST',
+            strParams:"chapterId="+$routeParams.chapterID,
+            success: function (data) {
+                console.log($routeParams.chapterID)
+                console.log(data);
+                $scope.courseId = data;
+                /*UtilsService.href('/class/courseSetting/'+$scope.courseId);*/
+            }
+        });
     };
     // 绑定弹框事件
     UtilsService.initPop($scope);
@@ -166,7 +153,7 @@ lbApp.controller('ExerciseAddController', ['$scope', '$routeParams', 'UtilsServi
         // 分页信息
         pageInfo: {
             page: 1,
-            pageSize: '20',
+            pageSize: '10',
             totalPage: 0
         }
     };

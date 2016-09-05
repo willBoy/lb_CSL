@@ -9,7 +9,6 @@ lbApp.directive('lbHeaderTeacherDirective', ['UtilsService','RequestService',fun
             // 是否显示用户操作
             $scope.userOpIsShow = false;
             $scope.Passwordshow = false;
-
             var timer;
             // 绑定弹框事件
             UtilsService.initPop($scope);

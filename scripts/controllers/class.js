@@ -32,7 +32,7 @@ lbApp.controller('ClassListController', ['$scope', 'UtilsService', 'RequestServi
         // 分页信息
         pageInfo: {
             page: 1,
-            pageSize: '20',
+            pageSize: '10',
             totalPage: 0
         }
     }
@@ -110,29 +110,28 @@ lbApp.controller('ClassDetailController', ['$scope', '$routeParams', 'UtilsServi
     //班级
     $scope.classes = {
         id:$routeParams.classID,
-        course:{id:$routeParams.courseID}
-        /*id:'',
-         name:'',
-         startTime:'',
-         status:'',
-         course:{
-         id:'',
-         name:'',
-         description:''
-         }*/
+        course:{
+            id:$routeParams.courseID,
+            name:'',
+            description:''
+        },
+        name:'',
+        /*courseName:'',*/
+        startTime:'',
+        status:''
     };
     RequestService.request({
         token: 't_settingClass',
         method: 'post',
-        strParams: 'id=' + $routeParams.classID+'&courseId='+$routeParams.courseID,
-        /*strParams: UtilsService.genConditions($scope.classes.id,$scope.classes['course.id']),*/
-        /*data: UtilsService.serialize({id: $routeParams.classID}),*/
+        strParams: 'id=' + $routeParams.classID,
         success: function (data) {
-            console.log(data)
-            $scope.classes.name = data.result[0].name;
-            $scope.classes['course.name'] = data.result[0].courseName;
-            $scope.classes.startTime = data.result[0].startTime;
-            $scope.classes.status = data.result[0].status + "";
+            console.log(data);
+            $scope.classes.name= data.name;
+            $scope.classes.course.name= data.courseName;
+            $scope.classes.startTime= data.startTime;
+            $scope.classes.course.description= data.course.description;
+            $scope.classes.status = data.status + "";
+
         }
     });
     function initDatePicker(startTimeArray, endTimeArray) {
@@ -164,8 +163,10 @@ lbApp.controller('ClassDetailController', ['$scope', '$routeParams', 'UtilsServi
         RequestService.request({
             token: 't_classUpdate',
             method: 'POST',
+            /*strParams: UtilsService.genConditions($scope.classes),*/
             data: UtilsService.serialize($scope.classes),
             success: function () {
+                /*console.log(data);*/
                 UtilsService.href('/classList');
             }
         })
@@ -330,7 +331,7 @@ lbApp.controller('CourseController', ['$scope', '$routeParams', 'UtilsService', 
         // 分页信息
         pageInfo: {
             page: 1,
-            pageSize: '20',
+            pageSize: '10',
             totalPage: 0
         }
     }
@@ -457,9 +458,9 @@ lbApp.controller('CreateChapterController', ['$scope', '$routeParams', 'UtilsSer
         courseId: $routeParams.courseID,
         name: '',
         descriptionContent: '',
-        status: 0,
-        orderNo: '',
-        pattern: ''
+        status: '0',
+        orderNo: '0',
+        pattern: '0'
     };
     $scope.engineer = {
         name: "Dani",
@@ -669,7 +670,7 @@ lbApp.controller('StudentController', ['$scope', '$routeParams', 'UtilsService',
         // 分页信息
         pageInfo: {
             page: 1,
-            pageSize: '20',
+            pageSize: '10',
             totalPage: 0
         }
 
@@ -744,6 +745,11 @@ lbApp.controller('StudentController', ['$scope', '$routeParams', 'UtilsService',
         //外语
         foreignLanguage: ''
     };
+    $scope.gender={
+        0: '男',
+        1: '女'
+
+    },
     //学生详情
     $scope.studentDetail=function(id){
         $scope.openPop('pop-detail')
@@ -829,51 +835,7 @@ lbApp.controller('StudentController', ['$scope', '$routeParams', 'UtilsService',
     }
 
 }]);
-//学生详情
-/*lbApp.controller('StudentDetailController', ['$scope', '$routeParams', 'UtilsService', 'RequestService', function ($scope, $routeParams, UtilsService, RequestService) {
-    //
-    "use strict";
-    $scope.asideTab = {
-        listName: 'navigation',
-        tabName: 'tabName'
-    };
-    //学生个人信息
-    $scope.studentInfo = {
-        //英文名
-        englishName: '',
-        //中文名
-        chineseName: '',
-        //性别
-        gender: '',
-        //邮箱
-        email: '',
-        //年龄
-        age: '',
-        //手机号
-        phoneNumber: '',
-        //国籍
-        nationality: '',
-        //母语
-        motherTongue: '',
-        //外语
-        foreignLanguage: ''
 
-    };
-    RequestService.request({
-        token: 't_studentInfo',
-        method: 'POST',
-        strParams: "studentId=" + $routeParams.studentID,
-        /!*data:UtilsService.serialize({studentId:$routeParams.studentId}),*!/
-        success: function (data) {
-            console.log(data)
-            $scope.studentInfo = data;
-            /!*$scope.studentInfo.classId = data.id;*!/
-        }
-    })
-    $scope.returnStudent = function () {
-        UtilsService.href('/class/student/' + $scope.studentInfo.classId);
-    }
-}]);*/
 
 //我的课程
 lbApp.controller('StudentCourseController', ['$scope', '$routeParams', 'UtilsService', 'RequestService', function ($scope, $routeParams, UtilsService, RequestService) {

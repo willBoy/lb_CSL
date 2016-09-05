@@ -18,7 +18,9 @@ lbApp.factory('RequestService', ['$http', 'UtilsService', function($http, UtilsS
         //获取导航ID
         't_findNavigationById':'classes/findNavigationById',
         //班级设置
-        't_settingClass':'classes/find',
+        /*'t_settingClass':'classes/find',*/
+        //获取班级设置信息
+        't_settingClass':'classes/show',
         //保存班级设置
         't_classUpdate':'classes/update',
         //课程设置

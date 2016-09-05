@@ -474,6 +474,7 @@ UtilsService.genTab($scope, tabName)
     padding-bottom: 6px;
     border-bottom: 1px solid $grey;
     .icons-search{
+        cursor:pointer;
         display: inline-block;
         position: relative;
         left: -12px;

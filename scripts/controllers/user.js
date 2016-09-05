@@ -74,8 +74,6 @@ lbApp.controller('s_LoginController', ['$scope','$rootScope', 'UtilsService', 'R
         userName: '531402593@qq.com',
         password: '123456'
     };
-
-
     UtilsService.genTabs($scope, 'tabLogin');
 
     //$scope.getCodeText = '获取语音验证码';
@@ -98,7 +96,6 @@ lbApp.controller('s_LoginController', ['$scope','$rootScope', 'UtilsService', 'R
             }
         });
     };
-
     /**
      * 动态密码登录
      */
@@ -145,8 +142,6 @@ lbApp.controller('S_RegController', ['$scope', '$rootScope', 'RequestService', '
             }
         });
     };
-
-
 }]);
 lbApp.controller('updatePassword', ['$scope', '$rootScope', 'RequestService', 'UtilsService', function($scope, $rootScope, RequestService, UtilsService) {
     "use strict";

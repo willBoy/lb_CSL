@@ -5,8 +5,8 @@
         <div class="font-size-normal ">
             <em class="path" ng-click="utils.href('/classList')">班级管理</em>
             <em> / </em>
-            <!--<em class="path" ng-click="utils.href('/class/course')">课程管理</em>-->
-            <!--<em> / </em>-->
+            <em class="path" ng-click="getCourseID()">课程管理</em>
+            <em> / </em>
             <em class="path" ng-click="utils.href('/class/exercise/'+chapterID)">习题管理</em>
             <em> / </em>
             <em class="last">添加习题</em>
@@ -28,13 +28,7 @@
             <div class="form-item">
                 <div class="title">声调：</div>
                 <div class="content">
-                    <select class="select" name="voice_type" ng-model="conditions.common.tones">
-                        <option value="">全部</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                    </select>
+                    <input type="text" class="input" name="name"  required ng-maxlength="30" ng-model="conditions.common.tones">
                 </div>
             </div>
         </div>
