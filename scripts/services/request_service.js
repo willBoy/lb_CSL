@@ -158,8 +158,11 @@ lbApp.factory('RequestService', ['$http', 'UtilsService', function($http, UtilsS
                             UtilsService.href('/');
                             break;
                         case "20101":
-                            alert(data.msg);
                             reqConfig.password();
+                        case '20103':
+                            reqConfig.s_register();
+                        case '20204':
+                            reqConfig.addClass();
                         default:
                             //UtilsService.href('/');
                             reqConfig.error && reqConfig.error(data);
@@ -168,6 +171,7 @@ lbApp.factory('RequestService', ['$http', 'UtilsService', function($http, UtilsS
                 })
 
                 .error(function(data, status, headers, config) {
+                    alert(1);
                     reqConfig.error && reqConfig.error(data);
                 })
         }

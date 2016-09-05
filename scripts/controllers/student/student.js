@@ -122,10 +122,6 @@ lbApp.controller('StudentCourseController', ['$scope', '$routeParams', 'UtilsSer
             console.log($scope.s_myCourse);
         }
     });
-    //加入课程
-    $scope.sequenceNo;
-
-
 
 
     document.onkeydown = function (event) {
@@ -137,7 +133,7 @@ lbApp.controller('StudentCourseController', ['$scope', '$routeParams', 'UtilsSer
 
         }
     };
-
+    //加入课程
     $scope.addCourse = function (sequenceNo) {
         RequestService.request({
             token: 's_addCourse',
@@ -147,6 +143,9 @@ lbApp.controller('StudentCourseController', ['$scope', '$routeParams', 'UtilsSer
                 $scope.inflag = false;
                 $scope.closePop('pop-class');
                 location.reload();
+            },
+            addClass:function(){
+                $scope.s_myCourse.sequenceNo = '';
             }
         })
     }

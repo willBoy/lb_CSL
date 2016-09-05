@@ -94,7 +94,7 @@ lbApp.controller('s_LoginController', ['$scope','$rootScope', 'UtilsService', 'R
      */
     $scope.s_loginByPwd = function() {
         var encode = new Base64();
-        $scope.student_login.password = b.encode($scope.student_login.password);
+        $scope.student_login.password = encode.encode($scope.student_login.password);
         RequestService.request({
             token: 's_login',
             method: 'POST',
@@ -106,7 +106,7 @@ lbApp.controller('s_LoginController', ['$scope','$rootScope', 'UtilsService', 'R
             },
             password:function(data){
                 var decode = new Base64();
-                $scope.student_login.password = decode.encode($scope.student_login.password);
+                $scope.student_login.password = decode.decode($scope.student_login.password);
             }
         });
     };
@@ -147,8 +147,8 @@ lbApp.controller('S_RegController', ['$scope', '$rootScope', 'RequestService', '
      */
     $scope.s_reg = function() {
         //密码base64加密
-        var b = new Base64();
-        $scope.s_regInfo.password = b.encode($scope.s_regInfo.password);
+        var encode = new Base64();
+        $scope.s_regInfo.password = encode.encode($scope.s_regInfo.password);
         console.log($scope.s_regInfo);
         RequestService.request({
             token: 's_reg',
@@ -158,6 +158,10 @@ lbApp.controller('S_RegController', ['$scope', '$rootScope', 'RequestService', '
                 console.log(data);
                 alert("学生注册成功");
                 UtilsService.href('/s_login');
+            },
+            s_register:function(data){
+                var decode = new Base64();
+                $scope.s_regInfo.password = decode.decode($scope.s_regInfo.password);
             }
         });
     };

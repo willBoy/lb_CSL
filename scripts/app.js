@@ -169,44 +169,44 @@ lbApp.config(['$routeProvider', '$locationProvider', '$httpProvider', function($
         .when('/s_profile',{
             templateUrl:'views/student/student_profile.html',
             controller:'StudentProfileController',
-            showHeaderTeacher:true
+            showHeader:true
         })
         //修改密码
         .when('/s_changePwd',{
             templateUrl:'views/student/student_editPwd.html',
             controller:'StudentEditPwdController',
-            showHeaderTeacher:true
+            showHeader:true
         })
         //我的课程
         .when('/student/course',{
             templateUrl:'views/student/course.html',
             controller:'StudentCourseController',
-            showHeaderTeacher:true
+            showHeader:true
         })
         //课程详情
         .when('/student/course_detail/:courseID',{
             templateUrl:'views/student/course_detail.html',
             controller:'StudentCourseDetailController',
-            showHeaderTeacher:true
+            showHeader:true
         })
 
         //开始学习
         .when('/student/study/:chapterID',{
             templateUrl:'views/student/study.html',
             controller:'StudyController',
-            showHeaderTeacher:false
+            showHeader:false
         })
         //按键选答案
         .when('/student/study_keying/:exerciseID',{
             templateUrl:'views/student/study_keying.html',
             controller:'StudyKeyingController',
-            showHeaderTeacher:false
+            showHeader:false
         })
         //完成
         .when('/student/study_finish/:exerciseID',{
             templateUrl:'views/student/study_finish.html',
             controller:'StudyFinishController',
-            showHeaderTeacher:false
+            showHeader:false
         })
         .otherwise({
             redirectTo: '/'

@@ -28,7 +28,7 @@
             <div class="form-item">
                 <div class="title">声调：</div>
                 <div class="content">
-                    <select class="select" name="voice_type" ng-change="cancelSelectAll(1)" ng-model="conditions.common.tones">
+                    <select class="select" name="voice_type" ng-model="conditions.common.tones">
                         <option value="">全部</option>
                         <option value="1">1</option>
                         <option value="2">2</option>
@@ -42,7 +42,7 @@
             <div class="form-item">
                 <div class="title">音节数：</div>
                 <div class="content">
-                    <select class="select" name="voice_type" ng-model="conditions.common.nbSyllables" required>
+                    <select class="select" name="voice_type"  ng-model="conditions.common.nbSyllables" required>
                         <option value="">全部</option>
                         <option value="1">1</option>
                         <option value="2">2</option>
@@ -130,7 +130,7 @@
                     <th>等级</th>
                 </tr>
                 <tr ng-repeat="t_sel_exe_list in t_sel_exeList">
-                    <td><input type="checkbox" ng-checked="selectAll"  ng-model="selectedCallList[t_sel_exe_list.id]"></td><!--ng-change="changeCallAll()" --><!-- ng-change="showadd=true"-->
+                    <td><input type="checkbox"  ng-model="selectedCallList[t_sel_exe_list.id]"></td><!--ng-change="changeCallAll()" --><!-- ng-change="showadd=true"-->
                     <td ng-bind="t_sel_exe_list.chsChars"></td>
                     <td ng-bind="t_sel_exe_list.tones"></td>
                     <td ng-bind="t_sel_exe_list.nbSyllables"></td>
