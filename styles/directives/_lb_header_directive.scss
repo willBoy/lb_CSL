@@ -54,6 +54,26 @@
             left: -116px;
         }
     }
+    #main-status{
+        display: inline-block;
+        margin-right: 18px;
+        float: right;
+        .user{
+            display: inline-block;
+            margin: 20px 5px 20px 5px;
+            position: relative;
+            cursor: pointer;
+        }
+        .exit{
+            margin: 22px 5px 18px 5px;
+        }
+        .user-op{
+            width: 170px;
+            position: absolute;
+            top: 34px;
+            left: -116px;
+        }
+    }
     #main-status-student{
         display: inline-block;
         margin-right: 18px;

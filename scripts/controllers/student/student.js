@@ -29,8 +29,13 @@ lbApp.controller('StudentEditPwdController', ['$rootScope', '$scope', '$routePar
         'oldPassword': '',
         'newPassword': ''
     };
+
+    //密码base64加密
+
     $scope.submitPassword = function () {
-        console.log($scope.password);
+        var encode = new Base64();
+        $scope.password.oldPassword = b.encode($scope.password.oldPassword);
+        $scope.password.newPassword = b.encode($scope.password.newPassword);
         RequestService.request({
             token: 's_editPwd',
             method: 'POST',
@@ -38,6 +43,11 @@ lbApp.controller('StudentEditPwdController', ['$rootScope', '$scope', '$routePar
             loading: true,
             success: function (data) {
                 UtilsService.href('/student/course')
+            },
+            password:function(data){
+                var decode = new Base64();
+                $scope.password.oldPassword = decode.decode($scope.password.oldPassword);
+                $scope.password.newPassword = decode.decode($scope.password.newPassword);
             }
         })
     }
@@ -75,7 +85,7 @@ lbApp.controller('StudentCourseController', ['$scope', '$routeParams', 'UtilsSer
         // 分页信息
         pageInfo: {
             page: 1,
-            pageSize: '20',
+            pageSize: '10',
             totalPage: 0
         }
     }
@@ -544,15 +554,23 @@ lbApp.controller('StudyKeyingController', ['$scope', '$routeParams', 'UtilsServi
                             if (event && event.keyCode == 13) { // 按 1
                                 $("#imgShow").hide();
                                 flag = true;
-                                //nextExe();
-                                //舒适化暂存答案的数组
+                                //初始化暂存答案的数组
                                 userAnswer = [];
                                 $("#answer").find('.answer_empty').html('');
                                 if($scope.exerciseInfo.pattern == 0){
                                     var repeatTimes = false;
-                                    //$("#answer").find('.answer_empty').html('');
+                                    $("#dududu").show();
+                                    $("#exerciseQ").hide();
+                                    var dududu_Audio = document.getElementById('dududu_Audio');
+                                    dududu_Audio.play();
                                     var musicAudio = document.getElementById('musicAuto');
-                                    musicAuto.play();
+                                    dududu_Audio.onended = function(){
+                                        setTimeout(function(){
+                                            $("#dududu").hide();
+                                            $("#exerciseQ").show();
+                                            musicAuto.play();
+                                        },1000);
+                                    }
                                     document.onkeydown = function (event) {
                                         if (event.keyCode == 49) { // 按 1
                                             if ($("#exerciseQ").is(":visible")) {
@@ -579,8 +597,18 @@ lbApp.controller('StudyKeyingController', ['$scope', '$routeParams', 'UtilsServi
                                 }else if($scope.exerciseInfo.pattern == 1){
                                     var repeatTimes = true;
                                     $("#answer").find('.answer_empty').html('');
+                                    $("#dududu").show();
+                                    $("#exerciseQ").hide();
+                                    var dududu_Audio = document.getElementById('dududu_Audio');
+                                    dududu_Audio.play();
                                     var musicAudio = document.getElementById('musicAuto');
-                                    musicAuto.play();
+                                    dududu_Audio.onended = function(){
+                                        setTimeout(function(){
+                                            $("#dududu").hide();
+                                            $("#exerciseQ").show();
+                                            musicAuto.play();
+                                        },1000);
+                                    }
                                     document.onkeydown = function (event) {
                                         if (event.keyCode == 49) { // 按 1
                                             if ($("#exerciseQ").is(":visible")) {
@@ -653,8 +681,18 @@ lbApp.controller('StudyKeyingController', ['$scope', '$routeParams', 'UtilsServi
                                     nextExe();
                                 }else{
                                     var repeatTimes = true;
+                                    $("#dududu").show();
+                                    $("#exerciseQ").hide();
+                                    var dududu_Audio = document.getElementById('dududu_Audio');
+                                    dududu_Audio.play();
                                     var musicAudio = document.getElementById('musicAuto');
-                                    musicAuto.play();
+                                    dududu_Audio.onended = function(){
+                                        setTimeout(function(){
+                                            $("#dududu").hide();
+                                            $("#exerciseQ").show();
+                                            musicAuto.play();
+                                        },1000);
+                                    }
                                     document.onkeydown = function (event) {
                                         if (event.keyCode == 49) { // 按 1
                                             if ($("#exerciseQ").is(":visible")) {

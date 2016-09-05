@@ -10,6 +10,8 @@ lbApp.directive('lbHeaderDirective', ['UtilsService','RequestService',function(U
             $scope.userOpIsShow = false;
             // 教师修改密码
             $scope.updatePassword = function(password) {
+                var encode = new Base64();
+                password = encode.encode(password);
                 RequestService.request({
                     token: 't_updatePassword',
                     method:'POST',
@@ -17,6 +19,10 @@ lbApp.directive('lbHeaderDirective', ['UtilsService','RequestService',function(U
                     success:function(){
                         alert("修改成功");
                         $scope.closePop('pop-updatePassword')
+                    },
+                    password:function(data){
+                        var decode = new Base64();
+                        password = decode.decode(password);
                     }
                 });
             };

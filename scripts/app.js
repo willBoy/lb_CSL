@@ -8,7 +8,7 @@ lbApp.run(['$rootScope', 'UtilsService', 'RequestService', function($rootScope, 
     //$rootScope.showHeaderStudent = false;
     //$rootScope.showHeaderTeacher = false;
     $rootScope.utils = UtilsService;
-    /*$rootScope.currentUserData = {};*/
+    //$rootScope.currentUserData = {};
     $rootScope.t_logout = function() {
         RequestService.request({
             token: 't_logout',

@@ -150,16 +150,14 @@ lbApp.controller('ExerciseAddController', ['$scope', '$routeParams', 'UtilsServi
     //查询条件
     $scope.conditions = {
         // 值查询
-        /*courseId:$routeParams.courseID,*/
-
         common: {
-            /*exeIndex: $scope.exeIndex*/
             chsChars:'',
             tones:'',
             qingsheng:'',
             erhua:'',
             speaker:'',
-            hskLevel:''
+            hskLevel:'',
+            nbSyllables:''
         },
         // 排序条件
         order: {},
@@ -177,7 +175,6 @@ lbApp.controller('ExerciseAddController', ['$scope', '$routeParams', 'UtilsServi
         RequestService.request({
             token: 't_exeIndex',
             method: 'POST',
-            /*strParams: UtilsService.genConditions($scope.conditions),*/
             strParams: UtilsService.genConditions($scope.conditions),
             success: function (data) {
                 $scope.conditions.pageInfo.totalPage = data.pages;
@@ -196,7 +193,9 @@ lbApp.controller('ExerciseAddController', ['$scope', '$routeParams', 'UtilsServi
         UtilsService.href('/class/exercise/' + $routeParams.chapterID);
     }
 
-
+    $scope.cancelSelectAll = function(num){
+        alert(1);
+    }
     // 是否选择全部外呼
     $scope.callAll = false;
     $scope.$watch('callAll', function () {
