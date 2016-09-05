@@ -20,7 +20,7 @@ lbApp.directive('lbHeaderDirective', ['UtilsService','RequestService',function(U
                     }
                 });
             };
-
+            //教师端-退出
             $scope.t_logout = function () {
                 RequestService.request({
                     token: 't_logout',
@@ -30,6 +30,7 @@ lbApp.directive('lbHeaderDirective', ['UtilsService','RequestService',function(U
                     }
                 });
             };
+            //学生端-退出
             $scope.s_logout = function () {
                 RequestService.request({
                     token: 's_logout',
