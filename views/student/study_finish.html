@@ -1,5 +1,5 @@
 <div class="study text-align-center">
-    <span class="btn btn-blue exit" ng-click="exe_out_finish()">edit</span>
+    <span class="btn btn-blue exit" ng-click="utils.href('/student/course_detail/'+courseID)">edit</span>
     <div class="exercise">
         <h1>恭喜！练习已完成</h1>
         <p>正确率：<span ng-bind="percentCode"></span></p>
@@ -7,6 +7,6 @@
         <br/>
         <br/>
         <br/>
-        <span class="op btn-blue" ng-click="utils.href('/student/course')">确定</span>
+        <span class="op btn-blue" ng-click="utils.href('/student/course_detail/'+courseID)">确定</span>
     </div>
 </div>

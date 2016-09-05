@@ -191,19 +191,19 @@ lbApp.config(['$routeProvider', '$locationProvider', '$httpProvider', function($
         })
 
         //开始学习
-        .when('/student/study/:chapterID',{
+        .when('/student/study/:chapterID/:courseID',{
             templateUrl:'views/student/study.html',
             controller:'StudyController',
             showHeader:false
         })
         //按键选答案
-        .when('/student/study_keying/:exerciseID',{
+        .when('/student/study_keying/:exerciseID/:courseID',{
             templateUrl:'views/student/study_keying.html',
             controller:'StudyKeyingController',
             showHeader:false
         })
         //完成
-        .when('/student/study_finish/:exerciseID',{
+        .when('/student/study_finish/:exerciseID/:courseID',{
             templateUrl:'views/student/study_finish.html',
             controller:'StudyFinishController',
             showHeader:false

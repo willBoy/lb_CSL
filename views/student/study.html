@@ -1,20 +1,20 @@
 <div ng-show="p_status == 1" style="height:100%;">
     <div class="study text-align-center">
-        <span class="btn btn-blue exit" ng-click="utils.href('/student/course')">edit</span>
+        <span class="btn btn-blue exit" ng-click="utils.href('/student/course_detail/'+courseID)">edit</span>
         <div class="exercise">
             <h1>练习说明</h1>
             <p ng-bind="chapterInfo.descriptionCn"></p>
             <h1>Instructions</h1>
             <p ng-bind="chapterInfo.descriptionEn"></p>
         </div>
-        <span class="op btn-blue" style="margin-top: 25%;" ng-click="pageS(2)" >下一步</span>
+        <!--<span class="op btn-blue" style="margin-top: 25%;" ng-click="pageS(2)" >下一步</span>-->
     </div>
 
 </div>
 <!---------------------------------------------------------------------------------------- -->
 <div ng-show="p_status==2" style="height:100%;">
 <div class="study text-align-center">
-    <span class="btn btn-blue exit" ng-click="utils.href('/student/course')">edit</span>
+    <span class="btn btn-blue exit" ng-click="utils.href('/student/course_detail/'+courseID)">edit</span>
     <div class="exercise">
         <h1>音量校准</h1>
         <div class="volume">
@@ -26,14 +26,14 @@
     <section id="music">
         <audio id="musicAudio" loop src="../../vendor/mp3/volume.mp3"/>
     </section>
-        <span class="op btn-blue" style="margin-top: 9%;" ng-click="pageS(3)" >下一步</span>
+        <!--<span class="op btn-blue" style="margin-top: 9%;" ng-click="pageS(3)" >下一步</span>-->
 </div>
 
 </div>
 <!---------------------------------------------------------------------------------------->
 <div ng-show="p_status==3" style="height:100%;" id="keyCodeAlign">
 <div class="study text-align-center">
-    <span class="btn btn-blue exit" ng-click="utils.href('/student/course')">edit</span>
+    <span class="btn btn-blue exit" ng-click="utils.href('/student/course_detail/'+courseID)">edit</span>
     <div class="exercise">
         <h1>键盘校准</h1>
         <div class="key" id="keyCode">
@@ -53,7 +53,7 @@
 <!----------------------------------------------------------------------------------------------------->
 <div style="height:100%; display: none" id="prepare">
 <div class="study text-align-center">
-    <span class="btn btn-blue exit" ng-click="utils.href('/student/course')">edit</span>
+    <span class="btn btn-blue exit" ng-click="utils.href('/student/course_detail/'+courseID)">edit</span>
     <div class="exercise">
         <h1>请准备</h1>
         <span class="icon icons-key1"></span>

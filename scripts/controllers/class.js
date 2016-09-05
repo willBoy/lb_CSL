@@ -421,7 +421,6 @@ lbApp.controller('ChapterController', ['$scope', '$routeParams', 'UtilsService',
             $scope.t_chapter = data;
             $scope.t_chapter.orderNo = data.orderNo + "";
             $scope.t_chapter.courseId = data.courseId;
-            console.log($scope.t_chapter.courseId);
             $scope.t_chapter.pattern = data.pattern + "";
             $scope.t_chapter.status = data.status + "";
             $scope.t_chapter.descriptionCn = data.descriptionCn;
