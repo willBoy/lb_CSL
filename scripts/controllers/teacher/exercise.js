@@ -121,10 +121,10 @@ lbApp.controller('ExerciseAddController', ['$scope', '$routeParams', 'UtilsServi
             method: 'POST',
             strParams:"chapterId="+$routeParams.chapterID,
             success: function (data) {
-                console.log($routeParams.chapterID)
-                console.log(data);
-                $scope.courseId = data;
-                /*UtilsService.href('/class/courseSetting/'+$scope.courseId);*/
+                /*console.log($routeParams.chapterID)
+                console.log(data);*/
+                $scope.courseId = data.courseId;
+                UtilsService.href('/class/courseSetting/'+$scope.courseId);
             }
         });
     };
