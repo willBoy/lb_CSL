@@ -111,6 +111,9 @@ lbApp.controller('ExerciseAddController', ['$scope', '$routeParams', 'UtilsServi
         listName: 'navigation',
         tabName: 'tabName'
     };
+
+    //为了获取currentUser
+
     //按导航查询班级ID
     $scope.courseId='';
     $scope.getCourseID =function(){
@@ -159,6 +162,9 @@ lbApp.controller('ExerciseAddController', ['$scope', '$routeParams', 'UtilsServi
 
     // 检索习题
     $scope.getExerciseList = function (page) {
+        //初始化全选
+        $scope.callAll = false;
+        //获取分页信息
         $scope.conditions.pageInfo.page = page || 1;
         RequestService.request({
             token: 't_exeIndex',
@@ -169,6 +175,7 @@ lbApp.controller('ExerciseAddController', ['$scope', '$routeParams', 'UtilsServi
                 $scope.t_sel_exeList = data.result;
                 for (var i = 0; i < $scope.t_sel_exeList.length; i++) {
                     $scope.selectedCallList[$scope.t_sel_exeList[i].id] = false;
+                    $scope.callAll = false;
                 }
                 $scope.total = data.total;
                 console.log($scope.t_sel_exeList.length)
@@ -181,11 +188,9 @@ lbApp.controller('ExerciseAddController', ['$scope', '$routeParams', 'UtilsServi
         UtilsService.href('/class/exercise/' + $routeParams.chapterID);
     }
 
-    $scope.cancelSelectAll = function(num){
-        alert(1);
-    }
+
+
     // 是否选择全部外呼
-    $scope.callAll = false;
     $scope.$watch('callAll', function () {
         if ($scope.callAll) {
             for (var jid in $scope.selectedCallList) {
@@ -213,6 +218,7 @@ lbApp.controller('ExerciseAddController', ['$scope', '$routeParams', 'UtilsServi
      * 批量添加习题
      */
     $scope.addExe = function (call) {
+        $scope.callAll = false;
         var data = '';
         var i=0;
         for (var jid in $scope.selectedCallList) {

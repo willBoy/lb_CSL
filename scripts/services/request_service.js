@@ -45,6 +45,8 @@ lbApp.factory('RequestService', ['$http', 'UtilsService', function($http, UtilsS
         /*'t_exe_list':'POST /questionPronunciation/find',*/
         //习题列表
         't_exe_list':'questionPronunciation/findChapterQuestions',
+        //教师端-获取当前用户信息
+        't_getCurrentUser':'teacher/getCurrentUser',
         //保存章节设置
         't_chapterUpdate':'chapter/update',
         //删除章节
@@ -160,8 +162,11 @@ lbApp.factory('RequestService', ['$http', 'UtilsService', function($http, UtilsS
                             UtilsService.href('/');
                             break;
                         case "20101":
-                            alert(data.msg);
                             reqConfig.password();
+                        case '20103':
+                            reqConfig.s_register();
+                        case '20204':
+                            reqConfig.addClass();
                         default:
                             //UtilsService.href('/');
                             reqConfig.error && reqConfig.error(data);
@@ -170,6 +175,7 @@ lbApp.factory('RequestService', ['$http', 'UtilsService', function($http, UtilsS
                 })
 
                 .error(function(data, status, headers, config) {
+                    alert(1);
                     reqConfig.error && reqConfig.error(data);
                 })
         }
