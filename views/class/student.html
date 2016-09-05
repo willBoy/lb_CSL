@@ -117,12 +117,12 @@
                     <div class="form-item">
                         <div class="content">
                             <label>备注:</label>
-                            <input type="text" class="input" name="name" ng-maxlength="30" ng-model="t_c_student_List.remark">
+                            <input type="text" class="input" name="name" ng-maxlength="30" ng-model="remark">
                         </div>
                     </div>
                     <div class="form-op">
-                        <button class="op btn-blue" ng-click="submitRemark(t_c_student_List.remark)">确定</button>
-                        <span class="op btn-blue" ng-click="closePop('pop-Remarks')">取消</span>
+                        <button class="op btn-blue" ng-click="submitRemark(remark)">确定</button>
+                        <span class="op btn-blue" ng-click="clearandclosePop(remark)">取消</span>
                     </div>
                     </form>
                 </div>
