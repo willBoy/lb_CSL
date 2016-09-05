@@ -117,6 +117,7 @@ lbApp.factory('RequestService', ['$http', 'UtilsService', function($http, UtilsS
                 url += url.indexOf('?') > -1 ? '&' : '?' + 'loading=1';
             }
             // 请求的对象
+            // 请求的对象
             var reqObj = {
                 url: encodeURI(baseUrl + url),
                 /*url: baseUrl + url,*/
@@ -153,7 +154,8 @@ lbApp.factory('RequestService', ['$http', 'UtilsService', function($http, UtilsS
                             UtilsService.href('/s_changePwd');
                             break;
                         case "20003":
-                            UtilsService.href('/s_login');
+                            alert(data.msg);
+                            UtilsService.href('/');
                             break;
                         default:
                             //UtilsService.href('/');

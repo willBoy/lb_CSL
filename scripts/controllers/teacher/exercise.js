@@ -212,19 +212,6 @@ lbApp.controller('ExerciseAddController', ['$scope', '$routeParams', 'UtilsServi
     });
 
     // 如果全部选择了，就把callAll置为true，如果全部取消了，就置为false
-    /*$scope.changeCallAll = function () {
-        if(selectAll){
-            for (var i = 0; i < $scope.t_sel_exeList.length; i++) {
-                console.log(i);
-                $scope.selectedCallList[$scope.t_sel_exeList[i].id] = true;
-            }
-        }else{
-            for (var i = 0; i < $scope.t_sel_exeList.length; i++) {
-                console.log(i);
-                $scope.selectedCallList[$scope.t_sel_exeList[i].id] = false;
-            }
-        }
-    };*/
     $scope.changeCallAll = function() {
         var selectedCallList = $scope.selectedCallList;
         var first = selectedCallList[Object.keys(selectedCallList)[0]];
@@ -238,27 +225,32 @@ lbApp.controller('ExerciseAddController', ['$scope', '$routeParams', 'UtilsServi
     /**
      * 批量添加习题
      */
-    $scope.addExe = function () {
+    $scope.addExe = function (call) {
         var data = '';
+        var i=0;
         for (var jid in $scope.selectedCallList) {
             if ($scope.selectedCallList[jid]) {
                 data += '@@' + jid;
             }
         }
         data = data.slice(2);
+        if(data==''){
+            alert('请选择习题再添加');
+        }else{
+            RequestService.request({
+                token: 't_addExe',
+                method: 'POST',
+                data: UtilsService.serialize({questionIds: data, chapterId: $routeParams.chapterID}),
+                success: function (data) {
+                    console.log(data);
+                    /*console.log($scope.selectedCallList.length);*/
+                    alert("添加习题成功"+data+'条');
+                    UtilsService.href('/class/exercise/' + $routeParams.chapterID);
 
-        RequestService.request({
-            token: 't_addExe',
-            method: 'POST',
-            data: UtilsService.serialize({questionIds: data, chapterId: $routeParams.chapterID}),
-            success: function (data) {
-                console.log(data);
-                console.log($scope.t_sel_exeList.length)
-                alert("添加习题成功"+data+'条，重复添加'+($scope.t_sel_exeList.length-data)+'条');
-                UtilsService.href('/class/exercise/' + $routeParams.chapterID);
+                }
+            })
+        }
 
-            }
-        })
     };
 
     $scope.tonesMap = {

@@ -119,7 +119,7 @@
         <div class="table-list">
             <table class="data-list">
                 <tr>
-                    <th>全选<input type="checkbox" ng-model="selectAll" ng-change="changeCallAll()"></th>
+                    <th>全选<input type="checkbox" ng-model="callAll"></th>
                     <!--<th>序号</th>-->
                     <th>词汇</th>
                     <th>声调</th>
@@ -130,7 +130,7 @@
                     <th>等级</th>
                 </tr>
                 <tr ng-repeat="t_sel_exe_list in t_sel_exeList">
-                    <td><input type="checkbox" ng-checked="selectAll"  ng-model="selectedCallList[t_sel_exe_list.id]" ng-change="showadd=true"></td><!--ng-change="changeCallAll()" -->
+                    <td><input type="checkbox" ng-checked="selectAll"  ng-model="selectedCallList[t_sel_exe_list.id]"></td><!--ng-change="changeCallAll()" --><!-- ng-change="showadd=true"-->
                     <!--<td>1</td>-->
                     <td ng-bind="t_sel_exe_list.chsChars"></td>
                     <td ng-bind="t_sel_exe_list.tones"></td>
@@ -150,7 +150,7 @@
                 </div>
             </div>
         </div>
-        <div class="form-op" ng-show="showadd">
+        <div class="form-op"><!-- ng-show="showadd"-->
             <span class="op btn-blue" ng-click="addExe()">添加</span>
             <!--<span class="op btn-blue" ng-click="utils.href('/class/session')">取消</span>-->
         </div>

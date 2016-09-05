@@ -8,17 +8,25 @@ lbApp.run(['$rootScope', 'UtilsService', 'RequestService', function($rootScope, 
     //$rootScope.showHeaderStudent = false;
     //$rootScope.showHeaderTeacher = false;
     $rootScope.utils = UtilsService;
-    $rootScope.currentUserData = {};
-
+    /*$rootScope.currentUserData = {};*/
+    $rootScope.t_logout = function() {
+        RequestService.request({
+            token: 't_logout',
+            method: 'POST',
+            success: function(data) {
+                UtilsService.href('/');
+            }
+        });
+    };
     $rootScope.$on('$routeChangeStart', function(e, next, current) {
         if (next.$$route.showHeader === false) {
             $rootScope.showHeader = false;
             //$rootScope.showHeaderStudent = false;
-            //$rootScope.showHeaderTeacher = false;
+            $rootScope.showHeaderTeacher = false;
         } else {
             $rootScope.showHeader = true;
             //$rootScope.showHeaderStudent = true;
-            //$rootScope.showHeaderTeacher = true;
+            $rootScope.showHeaderTeacher = true;
         }
     });
 }]);
@@ -33,7 +41,7 @@ lbApp.config(['$routeProvider', '$locationProvider', '$httpProvider', function($
             controller: 'WelcomeController',
             showHeader: false
         })
-        // 章节列表
+        //
         .when('/', {
             templateUrl: 'views/index/welcome.html',
             controller: 'WelcomeController',
@@ -161,55 +169,44 @@ lbApp.config(['$routeProvider', '$locationProvider', '$httpProvider', function($
         .when('/s_profile',{
             templateUrl:'views/student/student_profile.html',
             controller:'StudentProfileController',
-            showHeader:true
+            showHeaderTeacher:true
         })
         //修改密码
         .when('/s_changePwd',{
             templateUrl:'views/student/student_editPwd.html',
             controller:'StudentEditPwdController',
-            showHeader:true
+            showHeaderTeacher:true
         })
         //我的课程
         .when('/student/course',{
             templateUrl:'views/student/course.html',
             controller:'StudentCourseController',
-            showHeader:true
+            showHeaderTeacher:true
         })
         //课程详情
         .when('/student/course_detail/:courseID',{
             templateUrl:'views/student/course_detail.html',
             controller:'StudentCourseDetailController',
-            showHeader:true
+            showHeaderTeacher:true
         })
-        /*//课程详情
-         .when('/student/course_detail',{
-         templateUrl:'views/student/course_detail.html',
-         controller:'StudentCourseDetailController',
-         showHeaderStudent:true
-         })*/
-        //退出课程
-        /*.when('/class/delCourse/:classID',{
-         templateUrl:'views/student/course_del.html',
-         controller:'delCourseController',
-         showHeader:true
-         })*/
+
         //开始学习
         .when('/student/study/:chapterID',{
             templateUrl:'views/student/study.html',
             controller:'StudyController',
-            showHeader:false
+            showHeaderTeacher:false
         })
         //按键选答案
         .when('/student/study_keying/:exerciseID',{
             templateUrl:'views/student/study_keying.html',
             controller:'StudyKeyingController',
-            showHeader:false
+            showHeaderTeacher:false
         })
         //完成
         .when('/student/study_finish/:exerciseID',{
             templateUrl:'views/student/study_finish.html',
             controller:'StudyFinishController',
-            showHeader:false
+            showHeaderTeacher:false
         })
         .otherwise({
             redirectTo: '/'
