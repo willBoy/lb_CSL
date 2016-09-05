@@ -122,19 +122,19 @@
                     </div>
                     <div class="form-op">
                         <button class="op btn-blue" ng-click="submitRemark(remark)">确定</button>
-                        <span class="op btn-blue" ng-click="clearandclosePop(remark)">取消</span>
+                        <button class="op btn-blue" ng-click="clearandclosePop(remark)">取消</button>
                     </div>
                     </form>
                 </div>
             </div>
-            <div id="pop-resetpwd" class="pop">
+            <div id="pop-resetpwd" class="pop pop50">
                 <div class="pop-title">重置密码<span class="icons-close close" ng-click="closePop('pop-resetpwd')"></span></div>
                 <div class="pop-content">
-                    <div class="form-item">
-                        <div class="text">原密码已重置为<span ng-model="studentInfo_r.password">123456</span></div>
+                    <div class="form-item text-align-center">
+                        <div class="text">密码已重置为<span ng-model="studentInfo_r.password">123456。</span></div>
                     </div>
                     <div class="form-op">
-                    <button autofocus class="op btn-blue" ng-click="resetPassword(123456)">保存</button>
+                    <button autofocus class="op btn-blue" ng-click="resetPassword(123456)">确认</button>
                     </div>
                 </div>
             </div>

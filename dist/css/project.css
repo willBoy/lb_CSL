@@ -839,10 +839,7 @@ UtilsService.genTab($scope, tabName)
   border-bottom: 1px solid #dadada;
 }
 .title-1 .icons-search, .title-2 .icons-search {
-<<<<<<< HEAD
   cursor: pointer;
-=======
->>>>>>> d40bede74c52a65dd60842eb81e14c1a211f03ee
   display: inline-block;
   position: relative;
   left: -12px;
@@ -928,6 +925,10 @@ UtilsService.genTab($scope, tabName)
   padding: 20px;
 }
 
+.pop50 {
+  width: 300px;
+}
+
 #loading {
   position: fixed;
   top: 0;
@@ -978,7 +979,7 @@ UtilsService.genTab($scope, tabName)
 </div>
 */
 .form-op {
-  margin-top: 10px;
+  margin-top: 20px;
 }
 .form-op .op {
   margin: 0 10px;
@@ -1874,8 +1875,6 @@ UtilsService.genTab($scope, tabName)
   position: absolute;
   top: 34px;
   left: -116px;
-<<<<<<< HEAD
-=======
 }
 #header #main-status {
   display: inline-block;
@@ -1896,7 +1895,6 @@ UtilsService.genTab($scope, tabName)
   position: absolute;
   top: 34px;
   left: -116px;
->>>>>>> d40bede74c52a65dd60842eb81e14c1a211f03ee
 }
 #header #main-status-student {
   display: inline-block;
@@ -1922,7 +1920,7 @@ UtilsService.genTab($scope, tabName)
 #aside {
   display: inline-block;
   position: fixed;
-  top: 63px;
+  top: 62px;
   left: 0;
   width: 200px;
   height: 100%;
@@ -2017,11 +2015,7 @@ UtilsService.genTab($scope, tabName)
   border-bottom: none;
 }
 #exercise .title-2 .clearfix {
-<<<<<<< HEAD
   margin: 20px 0;
-=======
-  margin: 10px 0;
->>>>>>> d40bede74c52a65dd60842eb81e14c1a211f03ee
 }
 #exercise .title-2 .clearfix .icon {
   margin: 0 10px;
