@@ -12,9 +12,9 @@ lbApp.controller('StudentProfileController', ['$rootScope', '$scope', '$routePar
         method: 'GET',
         loading: true,
         success: function (data) {
-            $rootScope.studentInfo = data;
+            $scope.studentInfo = data;
         }
-    })
+    });
 }]);
 // 修改密码
 lbApp.controller('StudentEditPwdController', ['$rootScope', '$scope', '$routeParams', 'UtilsService', 'RequestService', function ($rootScope, $scope, $routeParams, UtilsService, RequestService) {
@@ -29,6 +29,13 @@ lbApp.controller('StudentEditPwdController', ['$rootScope', '$scope', '$routePar
         'oldPassword': '',
         'newPassword': ''
     };
+    RequestService.request({
+        token:'s_profile',
+        method:'GET',
+        success:function(){
+
+        }
+    })
 
     //密码base64加密
 
@@ -135,6 +142,7 @@ lbApp.controller('StudentCourseController', ['$scope', '$routeParams', 'UtilsSer
     };
     //加入课程
     $scope.addCourse = function (sequenceNo) {
+        console.log(sequenceNo);
         RequestService.request({
             token: 's_addCourse',
             method: 'POST',
@@ -398,7 +406,7 @@ lbApp.controller('StudyKeyingController', ['$scope', '$routeParams', 'UtilsServi
         tabName: 'tabName'
     };
     //退出
-    $scope.exe_out_finish = function(){
+    $scope.exe_out = function(){
         if(confirm("练习还未完成，确定退出吗？")){
             UtilsService.href('/student/course');
         }

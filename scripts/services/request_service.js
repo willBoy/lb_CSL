@@ -163,10 +163,13 @@ lbApp.factory('RequestService', ['$http', 'UtilsService', function($http, UtilsS
                             break;
                         case "20101":
                             reqConfig.password();
-                        case '20103':
-                            reqConfig.s_register();
-                        case '20204':
+                            break;
+                        case "20103":
+                            reqConfig.sRegister();
+                            break;
+                        case "20204":
                             reqConfig.addClass();
+                            break;
                         default:
                             //UtilsService.href('/');
                             reqConfig.error && reqConfig.error(data);

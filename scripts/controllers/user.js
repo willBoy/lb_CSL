@@ -21,17 +21,18 @@ lbApp.controller('LoginController', ['$scope', 'UtilsService', 'RequestService',
      */
     $scope.loginByPwd = function() {
         var encode = new Base64();
-        $scope.pwdLoginInfo.password = encode.encode($scope.pwdLoginInfo.password);
+        $scope.passwordTemp = encode.encode($scope.pwdLoginInfo.password);
+        //$scope.pwdLoginInfo.password = encode.encode($scope.pwdLoginInfo.password);
         RequestService.request({
             token: 't_login',
             method: 'POST',
-            data: UtilsService.serialize($scope.pwdLoginInfo),
+            data: UtilsService.serialize({userName:$scope.pwdLoginInfo.userName,password:$scope.passwordTemp}),
             success: function(data) {
                 UtilsService.href('/classList');
             },
             password:function(data){
                 var decode = new Base64();
-                $scope.pwdLoginInfo.password = decode.decode($scope.pwdLoginInfo.password);
+                $scope.pwdLoginInfo.password = decode.decode($scope.passwordTemp);
             }
         });
     };
@@ -95,11 +96,11 @@ lbApp.controller('s_LoginController', ['$scope','$rootScope', 'UtilsService', 'R
      */
     $scope.s_loginByPwd = function() {
         var encode = new Base64();
-        $scope.student_login.password = encode.encode($scope.student_login.password);
+        $scope.tPasswordTemp = encode.encode($scope.student_login.password);
         RequestService.request({
             token: 's_login',
             method: 'POST',
-            data: UtilsService.serialize($scope.student_login),
+            data: UtilsService.serialize({userName:$scope.student_login.userName,password:$scope.tPasswordTemp}),
             success: function(data) {
                 $rootScope.currentUser = data;
                 $scope.dataTest = data;
@@ -107,7 +108,7 @@ lbApp.controller('s_LoginController', ['$scope','$rootScope', 'UtilsService', 'R
             },
             password:function(data){
                 var decode = new Base64();
-                $scope.student_login.password = decode.decode($scope.student_login.password);
+                $scope.student_login.password = decode.decode($scope.tPasswordTemp);
             }
         });
     };
@@ -148,20 +149,20 @@ lbApp.controller('S_RegController', ['$scope', '$rootScope', 'RequestService', '
     $scope.s_reg = function() {
         //密码base64加密
         var encode = new Base64();
-        $scope.s_regInfo.password = encode.encode($scope.s_regInfo.password);
+        $scope.RPasswordTemp = encode.encode($scope.s_regInfo.password);
         console.log($scope.s_regInfo);
         RequestService.request({
             token: 's_reg',
             method: 'POST',
-            data: UtilsService.serialize($scope.s_regInfo),
+            data: UtilsService.serialize({phoneNumber:$scope.s_regInfo.phoneNumber,email:$scope.s_regInfo.email,password:$scope.RPasswordTemp,chineseName:$scope.s_regInfo.chineseName,englishName:$scope.s_regInfo.englishName,age:$scope.s_regInfo.age,gender:$scope.s_regInfo.gender,nationality:$scope.s_regInfo.nationality,motherTongue:$scope.s_regInfo.motherTongue}),
             success: function(data) {
                 console.log(data);
                 alert("学生注册成功");
                 UtilsService.href('/s_login');
             },
-            s_register:function(data){
+            sRegister:function(data){
                 var decode = new Base64();
-                $scope.s_regInfo.password = decode.decode($scope.s_regInfo.password);
+                $scope.s_regInfo.password = decode.decode($scope.RPasswordTemp);
             }
         });
     };

@@ -113,7 +113,12 @@ lbApp.controller('ExerciseAddController', ['$scope', '$routeParams', 'UtilsServi
     };
 
     //为了获取currentUser
-
+    //RequestService.request({
+    //    token:'t_getCurrentUser',
+    //    success:function(){
+    //
+    //    }
+    //})
     //按导航查询班级ID
     $scope.courseId='';
     $scope.getCourseID =function(){
