@@ -786,6 +786,7 @@ lbApp.controller('StudentController', ['$scope', '$routeParams', 'UtilsService',
         }
 
     }
+    $scope.remark='';
     //学生备注
     $scope.remarks =function(studentId){
         $scope.openPop('pop-Remarks');
@@ -800,9 +801,19 @@ lbApp.controller('StudentController', ['$scope', '$routeParams', 'UtilsService',
                     $scope.studentList();
                 }
             })
+            $scope.remark='';
             /*alert("提交成功");*/
             $scope.closePop('pop-Remarks');
         }
+
+    }
+    /*$scope.clear = function(remark){
+        remark=''
+
+    }*/
+    $scope.clearandclosePop = function(remark){
+        $scope.remark='';
+        $scope.closePop('pop-Remarks');
     }
 
     //重置密码

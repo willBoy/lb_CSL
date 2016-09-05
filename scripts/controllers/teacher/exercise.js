@@ -123,15 +123,16 @@ lbApp.controller('ExerciseAddController', ['$scope', '$routeParams', 'UtilsServi
     $scope.courseId='';
     $scope.getCourseID =function(){
         console.log(2525635);
+        console.log($routeParams.chapterID);
         RequestService.request({
             token: 't_findNavigationById',
             method: 'POST',
             strParams:"chapterId="+$routeParams.chapterID,
             success: function (data) {
-                console.log($routeParams.chapterID)
-                console.log(data);
-                $scope.courseId = data;
-                /*UtilsService.href('/class/courseSetting/'+$scope.courseId);*/
+                /*console.log($routeParams.chapterID)
+                console.log(data);*/
+                $scope.courseId = data.courseId;
+                UtilsService.href('/class/courseSetting/'+$scope.courseId);
             }
         });
     };
