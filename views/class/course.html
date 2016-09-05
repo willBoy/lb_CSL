@@ -32,7 +32,7 @@
         <div class="table-list">
             <table class="data-list">
                 <tr>
-                    <!--<th>序号</th>-->
+                    <th>序号</th>
                     <th>章节主题</th>
                     <th>章节简介</th>
                     <th>呈现顺序</th>
@@ -41,7 +41,7 @@
                     <th>操作</th>
                 </tr>
                 <tr ng-repeat="cl_cou_chapter in classCourseChapter track by $index">
-                    <!--<td ng-bind="cl_cou_session">1</td>-->
+                    <td ng-bind="(conditions.pageInfo.page - 1) * conditions.pageInfo.pageSize + $index + 1"></td>
                     <td ng-bind="cl_cou_chapter.name"></td>
                     <td ng-bind="cl_cou_chapter.descriptionContent"></td>
                     <td ng-bind="orderNoMap[cl_cou_chapter.orderNo]"></td>

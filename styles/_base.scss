@@ -578,6 +578,9 @@ UtilsService.genTab($scope, tabName)
         padding: 20px;
     }
 }
+.pop50{
+    width: 300px;
+}
 
 // loading
 #loading{
@@ -638,7 +641,7 @@ $form-item-height: 40px;
 </div>
 */
 .form-op{
-    margin-top: 10px;
+    margin-top: 20px;
     @extend .text-align-center;
     .op{
         margin: 0 10px;

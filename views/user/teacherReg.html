@@ -28,20 +28,20 @@
                 </div>
             </div>
             <div class="form-item">
-                <div class="title_lang">中文名：<br>Chinese name</div>
+                <div class="title_lang">* 中文名：<br>Chinese name</div>
                 <div class="content">
                     <input name="chineseName" class="input" type="text"  ng-pattern="/[\u4E00-\u9FA5\uF900-\uFA2D]/" ng-model="t_regInfo.chineseName" required>
                     <pre class="line-height-15 color-blue">请输入汉字</pre>
                     <div class="error" ng-show="t_reg_form.chineseName.$dirty && t_reg_form.chineseName.$invalid">请输入中文名</div>
                 </div>
             </div>
-            <div class="form-item">
-                <div class="title_lang">手机号码：<br>Cellphone number</div>
+           <!-- <div class="form-item">
+                <div class="title_lang">* 手机号码：<br>Cellphone number</div>
                 <div class="content">
                     <input name="phoneNumber" class="input" type="text"  ng-model="t_regInfo.phoneNumber" ng-minlength="11" ng-maxlength="11" ng-pattern="/^[1][0-9]+/" required>
                     <div class="error" ng-show="t_reg_form.phoneNumber.$dirty && t_reg_form.phoneNumber.$invalid">请输入手机号</div>
                 </div>
-            </div>
+            </div>-->
             <div class="form-op">
                 <button class="op btn-blue" autofoucus ng-click="t_reg_form.email.$dirty = true;
                                                     t_reg_form.password.$dirty = true;
