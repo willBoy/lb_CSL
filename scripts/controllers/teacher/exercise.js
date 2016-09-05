@@ -111,6 +111,9 @@ lbApp.controller('ExerciseAddController', ['$scope', '$routeParams', 'UtilsServi
         listName: 'navigation',
         tabName: 'tabName'
     };
+
+    //为了获取currentUser
+
     //按导航查询班级ID
     $scope.courseId='';
     $scope.getCourseID =function(){

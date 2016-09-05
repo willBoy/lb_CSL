@@ -45,6 +45,8 @@ lbApp.factory('RequestService', ['$http', 'UtilsService', function($http, UtilsS
         /*'t_exe_list':'POST /questionPronunciation/find',*/
         //习题列表
         't_exe_list':'questionPronunciation/findChapterQuestions',
+        //教师端-获取当前用户信息
+        't_getCurrentUser':'teacher/getCurrentUser',
         //保存章节设置
         't_chapterUpdate':'chapter/update',
         //删除章节
