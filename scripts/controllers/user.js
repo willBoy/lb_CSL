@@ -1,12 +1,12 @@
-
 // 教师登录
 lbApp.controller('LoginController', ['$scope', 'UtilsService', 'RequestService', function($scope, UtilsService, RequestService) {
     "use strict";
     // 密码登录信息
     $scope.pwdLoginInfo = {
-        userName: '291248945@qq.com',
+        userName: '531402593@qq.com',
         password: '123456'
     };
+    //密码base64加密
 
     $scope.myFunction = function(){
         loginByPwd();
@@ -20,15 +20,18 @@ lbApp.controller('LoginController', ['$scope', 'UtilsService', 'RequestService',
      * 密码登录
      */
     $scope.loginByPwd = function() {
-        console.log($scope.pwdLoginInfo);
+        var encode = new Base64();
+        $scope.pwdLoginInfo.password = encode.encode($scope.pwdLoginInfo.password);
         RequestService.request({
             token: 't_login',
             method: 'POST',
             data: UtilsService.serialize($scope.pwdLoginInfo),
             success: function(data) {
-                /*$rootScope.currentUser = data;*/
-                /*$rootScope.currentUserData.role = '03';*/
                 UtilsService.href('/classList');
+            },
+            password:function(data){
+                var decode = new Base64();
+                $scope.pwdLoginInfo.password = decode.decode($scope.pwdLoginInfo.password);
             }
         });
     };
@@ -48,10 +51,15 @@ lbApp.controller('t_RegController', ['$scope', '$rootScope', 'RequestService', '
         chineseName:'',
         schoolName:'北京大学'
     };
+
     /**
      * 注册
      */
     $scope.t_reg = function() {
+        //密码base64加密
+        var b = new Base64();
+        $scope.t_regInfo.password = b.encode($scope.t_regInfo.password);
+        console.log($scope.t_regInfo);
         RequestService.request({
             token: 't_reg',
             method: 'POST',
@@ -74,6 +82,9 @@ lbApp.controller('s_LoginController', ['$scope','$rootScope', 'UtilsService', 'R
         userName: '531402593@qq.com',
         password: '123456'
     };
+
+    //密码base64加密
+
     UtilsService.genTabs($scope, 'tabLogin');
 
     //$scope.getCodeText = '获取语音验证码';
@@ -83,16 +94,20 @@ lbApp.controller('s_LoginController', ['$scope','$rootScope', 'UtilsService', 'R
      * 密码登录
      */
     $scope.s_loginByPwd = function() {
-        console.log($scope.student_login);
+        var encode = new Base64();
+        $scope.student_login.password = b.encode($scope.student_login.password);
         RequestService.request({
             token: 's_login',
             method: 'POST',
             data: UtilsService.serialize($scope.student_login),
             success: function(data) {
                 $rootScope.currentUser = data;
-                /*$rootScope.currentUserData.role = '02';*/
                 $scope.dataTest = data;
                 UtilsService.href('/student/course');
+            },
+            password:function(data){
+                var decode = new Base64();
+                $scope.student_login.password = decode.encode($scope.student_login.password);
             }
         });
     };
@@ -126,10 +141,14 @@ lbApp.controller('S_RegController', ['$scope', '$rootScope', 'RequestService', '
         nationality:'',//国籍
         motherTongue:''//母语
     };
+
     /**
      * 注册
      */
     $scope.s_reg = function() {
+        //密码base64加密
+        var b = new Base64();
+        $scope.s_regInfo.password = b.encode($scope.s_regInfo.password);
         console.log($scope.s_regInfo);
         RequestService.request({
             token: 's_reg',

@@ -14,6 +14,9 @@ lbApp.directive('lbHeaderTeacherDirective', ['UtilsService','RequestService',fun
             UtilsService.initPop($scope);
             // 教师修改密码
             $scope.updatePassword = function(password) {
+                //密码base64加密
+                var b = new Base64();
+                password = b.encode(password);
                 RequestService.request({
                     token: 't_updatePassword',
                     method:'POST',

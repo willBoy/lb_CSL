@@ -839,7 +839,10 @@ UtilsService.genTab($scope, tabName)
   border-bottom: 1px solid #dadada;
 }
 .title-1 .icons-search, .title-2 .icons-search {
+<<<<<<< HEAD
   cursor: pointer;
+=======
+>>>>>>> d40bede74c52a65dd60842eb81e14c1a211f03ee
   display: inline-block;
   position: relative;
   left: -12px;
@@ -1871,6 +1874,29 @@ UtilsService.genTab($scope, tabName)
   position: absolute;
   top: 34px;
   left: -116px;
+<<<<<<< HEAD
+=======
+}
+#header #main-status {
+  display: inline-block;
+  margin-right: 18px;
+  float: right;
+}
+#header #main-status .user {
+  display: inline-block;
+  margin: 20px 5px 20px 5px;
+  position: relative;
+  cursor: pointer;
+}
+#header #main-status .exit {
+  margin: 22px 5px 18px 5px;
+}
+#header #main-status .user-op {
+  width: 170px;
+  position: absolute;
+  top: 34px;
+  left: -116px;
+>>>>>>> d40bede74c52a65dd60842eb81e14c1a211f03ee
 }
 #header #main-status-student {
   display: inline-block;
@@ -1991,7 +2017,11 @@ UtilsService.genTab($scope, tabName)
   border-bottom: none;
 }
 #exercise .title-2 .clearfix {
+<<<<<<< HEAD
   margin: 20px 0;
+=======
+  margin: 10px 0;
+>>>>>>> d40bede74c52a65dd60842eb81e14c1a211f03ee
 }
 #exercise .title-2 .clearfix .icon {
   margin: 0 10px;

@@ -29,8 +29,13 @@ lbApp.controller('StudentEditPwdController', ['$rootScope', '$scope', '$routePar
         'oldPassword': '',
         'newPassword': ''
     };
+
+    //密码base64加密
+
     $scope.submitPassword = function () {
-        console.log($scope.password);
+        var encode = new Base64();
+        $scope.password.oldPassword = b.encode($scope.password.oldPassword);
+        $scope.password.newPassword = b.encode($scope.password.newPassword);
         RequestService.request({
             token: 's_editPwd',
             method: 'POST',
@@ -38,6 +43,11 @@ lbApp.controller('StudentEditPwdController', ['$rootScope', '$scope', '$routePar
             loading: true,
             success: function (data) {
                 UtilsService.href('/student/course')
+            },
+            password:function(data){
+                var decode = new Base64();
+                $scope.password.oldPassword = decode.decode($scope.password.oldPassword);
+                $scope.password.newPassword = decode.decode($scope.password.newPassword);
             }
         })
     }
@@ -75,7 +85,7 @@ lbApp.controller('StudentCourseController', ['$scope', '$routeParams', 'UtilsSer
         // 分页信息
         pageInfo: {
             page: 1,
-            pageSize: '20',
+            pageSize: '10',
             totalPage: 0
         }
     }
@@ -479,7 +489,6 @@ lbApp.controller('StudyKeyingController', ['$scope', '$routeParams', 'UtilsServi
                 '<div class="answer_empty">' + '</div>'
                 + '</div>'
         }
-        $scope.lengthNum = $scope.exerciseInfo.questionsPronunciation.tones.length;
         $("#answer").html(html);
         var flag = true;
         document.onkeydown = function (event) {
@@ -504,24 +513,26 @@ lbApp.controller('StudyKeyingController', ['$scope', '$routeParams', 'UtilsServi
                 }
             }
         };
-        var arr = [];
+        var userAnswer = [];
+        $("#answer").find('.answer_empty').html('');
+        var rightAnswer = [];
         function select(num, code,T_F) {
-            --$scope.lengthNum;
-            arr.push(code);
+            userAnswer.push(code);
             var codeT = '';
-            codeT = arr.join('') + "";
-            console.log("codeT" + codeT);
-            var i = $scope.exerciseInfo.questionsPronunciation.tones.length - $scope.lengthNum - 1;
-            var selectHtml = '<span class="icon border-3-white icons-' + code + '"></span>';
-            $("#answer").find('.answer_empty').eq(i).html(selectHtml);
+            codeT = userAnswer.join('') + "";
+            console.log(codeT);
+            $.each(userAnswer,function(n,value){
+                var selectHtml = '<span class="icon border-3-white icons-' + value + '"></span>';
+                $("#answer").find('.answer_empty').eq(n).html('');
+                $("#answer").find('.answer_empty').eq(n).html(selectHtml);
+            })
             $scope.execiseAnswer.answerBody = codeT;
             var TonsAnswer = $scope.exerciseInfo.questionsPronunciation.tones + "";
-            if ($scope.lengthNum == 0) {
                 if (TonsAnswer == codeT) {
                     $scope.execiseAnswer.answer = true;
                     $("#answer").find('.icon').addClass('border-3-green');
                     //初始化暂存答案的数组
-                    arr = [];
+                    userAnswer = [];
                     setTimeout(function(){
                         nextExe();
                     },1000);
@@ -543,86 +554,104 @@ lbApp.controller('StudyKeyingController', ['$scope', '$routeParams', 'UtilsServi
                             if (event && event.keyCode == 13) { // 按 1
                                 $("#imgShow").hide();
                                 flag = true;
-                                //舒适化暂存答案的数组
-                                arr = [];
-                                nextExe();
-                                //if($scope.exerciseInfo.pattern == 1){
-                                //    var repeatTimes = false;
-                                //    $("#answer").find('.answer_empty').html('');
-                                //    var musicAudio = document.getElementById('musicAuto');
-                                //    musicAuto.play();
-                                //    document.onkeydown = function (event) {
-                                //        if (event.keyCode == 49) { // 按 1
-                                //            if ($("#exerciseQ").is(":visible")) {
-                                //                selectFactory(-1, 1,repeatTimes);
-                                //            }
-                                //        }
-                                //        if (event.keyCode == 50) { // 按 2
-                                //            if ($("#exerciseQ").is(":visible")) {
-                                //                selectFactory(-1, 2,repeatTimes);
-                                //            }
-                                //        }
-                                //        if (event.keyCode == 51) { // 按 3
-                                //            if ($("#exerciseQ").is(":visible")) {
-                                //                selectFactory(-1, 3,repeatTimes);
-                                //            }
-                                //        }
-                                //        if (event.keyCode == 52) { // 按 4
-                                //            if ($("#exerciseQ").is(":visible")) {
-                                //                selectFactory(-1, 4,repeatTimes);
-                                //            }
-                                //        }
-                                //    };
-                                //
-                                //}else if($scope.exerciseInfo.pattern == 0){
-                                //    var repeatTimes = true;
-                                //    $("#answer").find('.answer_empty').html('');
-                                //    var musicAudio = document.getElementById('musicAuto');
-                                //    musicAuto.play();
-                                //    document.onkeydown = function (event) {
-                                //        if (event.keyCode == 49) { // 按 1
-                                //            if ($("#exerciseQ").is(":visible")) {
-                                //                select(-1, 1,repeatTimes);
-                                //            }
-                                //        }
-                                //        if (event.keyCode == 50) { // 按 2
-                                //            if ($("#exerciseQ").is(":visible")) {
-                                //                select(-1, 2,repeatTimes);
-                                //            }
-                                //        }
-                                //        if (event.keyCode == 51) { // 按 3
-                                //            if ($("#exerciseQ").is(":visible")) {
-                                //                select(-1, 3,repeatTimes);
-                                //            }
-                                //        }
-                                //        if (event.keyCode == 52) { // 按 4
-                                //            if ($("#exerciseQ").is(":visible")) {
-                                //                select(-1, 4,repeatTimes);
-                                //            }
-                                //        }
-                                //    };
-                                //}
+                                //初始化暂存答案的数组
+                                userAnswer = [];
+                                $("#answer").find('.answer_empty').html('');
+                                if($scope.exerciseInfo.pattern == 0){
+                                    var repeatTimes = false;
+                                    $("#dududu").show();
+                                    $("#exerciseQ").hide();
+                                    var dududu_Audio = document.getElementById('dududu_Audio');
+                                    dududu_Audio.play();
+                                    var musicAudio = document.getElementById('musicAuto');
+                                    dududu_Audio.onended = function(){
+                                        setTimeout(function(){
+                                            $("#dududu").hide();
+                                            $("#exerciseQ").show();
+                                            musicAuto.play();
+                                        },1000);
+                                    }
+                                    document.onkeydown = function (event) {
+                                        if (event.keyCode == 49) { // 按 1
+                                            if ($("#exerciseQ").is(":visible")) {
+                                                selectFactory(-1, 1,repeatTimes);
+                                            }
+                                        }
+                                        if (event.keyCode == 50) { // 按 2
+                                            if ($("#exerciseQ").is(":visible")) {
+                                                selectFactory(-1, 2,repeatTimes);
+                                            }
+                                        }
+                                        if (event.keyCode == 51) { // 按 3
+                                            if ($("#exerciseQ").is(":visible")) {
+                                                selectFactory(-1, 3,repeatTimes);
+                                            }
+                                        }
+                                        if (event.keyCode == 52) { // 按 4
+                                            if ($("#exerciseQ").is(":visible")) {
+                                                selectFactory(-1, 4,repeatTimes);
+                                            }
+                                        }
+                                    };
+
+                                }else if($scope.exerciseInfo.pattern == 1){
+                                    var repeatTimes = true;
+                                    $("#answer").find('.answer_empty').html('');
+                                    $("#dududu").show();
+                                    $("#exerciseQ").hide();
+                                    var dududu_Audio = document.getElementById('dududu_Audio');
+                                    dududu_Audio.play();
+                                    var musicAudio = document.getElementById('musicAuto');
+                                    dududu_Audio.onended = function(){
+                                        setTimeout(function(){
+                                            $("#dududu").hide();
+                                            $("#exerciseQ").show();
+                                            musicAuto.play();
+                                        },1000);
+                                    }
+                                    document.onkeydown = function (event) {
+                                        if (event.keyCode == 49) { // 按 1
+                                            if ($("#exerciseQ").is(":visible")) {
+                                                select(-1, 1,repeatTimes);
+                                            }
+                                        }
+                                        if (event.keyCode == 50) { // 按 2
+                                            if ($("#exerciseQ").is(":visible")) {
+                                                select(-1, 2,repeatTimes);
+                                            }
+                                        }
+                                        if (event.keyCode == 51) { // 按 3
+                                            if ($("#exerciseQ").is(":visible")) {
+                                                select(-1, 3,repeatTimes);
+                                            }
+                                        }
+                                        if (event.keyCode == 52) { // 按 4
+                                            if ($("#exerciseQ").is(":visible")) {
+                                                select(-1, 4,repeatTimes);
+                                            }
+                                        }
+                                    };
+                                }
 
                             }
 
                         };
                     }
                 }
-            }
         }
 
         function selectFactory(num, code,T_F) {
-            --$scope.lengthNum;
-            arr.push(code);
+            userAnswer.push(code);
             var codeT = '';
-            codeT = arr.join('') + "";
-            console.log("codeT" + codeT);
-            var i = $scope.exerciseInfo.questionsPronunciation.tones.length - $scope.lengthNum - 1;
-            var selectHtml = '<span class="icon border-3-white icons-' + code + '"></span>';
-            $("#answer").find('.answer_empty').eq(i).html(selectHtml);
+            codeT = userAnswer.join('') + "";
+            console.log(codeT);
+            $.each(userAnswer,function(n,value){
+                var selectHtml = '<span class="icon border-3-white icons-' + value + '"></span>';
+                $("#answer").find('.answer_empty').eq(n).html('');
+                $("#answer").find('.answer_empty').eq(n).html(selectHtml);
+            })
             $scope.execiseAnswer.answerBody = codeT;
             var TonsAnswer = $scope.exerciseInfo.questionsPronunciation.tones + "";
-            if ($scope.lengthNum == 0) {
                 if (TonsAnswer == codeT) {
                     $scope.execiseAnswer.answer = true;
                     $("#answer").find('.icon').addClass('border-3-green');
@@ -647,13 +676,23 @@ lbApp.controller('StudyKeyingController', ['$scope', '$routeParams', 'UtilsServi
                             if (event && event.keyCode == 13) { // 按 1
                                 $("#imgShow").hide();
                                 flag = true;
+                                $("#answer").find('.answer_empty').html('');
                                 if(!T_F){
                                     nextExe();
                                 }else{
                                     var repeatTimes = true;
-                                    $("#answer").find('.answer_empty').html('');
+                                    $("#dududu").show();
+                                    $("#exerciseQ").hide();
+                                    var dududu_Audio = document.getElementById('dududu_Audio');
+                                    dududu_Audio.play();
                                     var musicAudio = document.getElementById('musicAuto');
-                                    musicAuto.play();
+                                    dududu_Audio.onended = function(){
+                                        setTimeout(function(){
+                                            $("#dududu").hide();
+                                            $("#exerciseQ").show();
+                                            musicAuto.play();
+                                        },1000);
+                                    }
                                     document.onkeydown = function (event) {
                                         if (event.keyCode == 49) { // 按 1
                                             if ($("#exerciseQ").is(":visible")) {
@@ -682,7 +721,6 @@ lbApp.controller('StudyKeyingController', ['$scope', '$routeParams', 'UtilsServi
                         };
                     }
                 }
-            }
         }
 
         //判断是否为空
@@ -694,7 +732,7 @@ lbApp.controller('StudyKeyingController', ['$scope', '$routeParams', 'UtilsServi
         }
 
         function nextExe() {
-            if ($scope.lengthNum <= 0 && flag) {
+            if (flag) {
                 console.log($scope.execiseAnswer);
                 RequestService.request({
                     token: 's_exe_sub',
@@ -704,10 +742,10 @@ lbApp.controller('StudyKeyingController', ['$scope', '$routeParams', 'UtilsServi
                         console.log(data);
                         if (isEmptyObject(data)) {
                             //$scope.exe_submit();
-                            arr = [];
+                            userAnswer = [];
                             UtilsService.href('/student/study_finish/' + $routeParams.exerciseID);
                         } else {
-                            arr = [];
+                            userAnswer = [];
                             chapterExercise(data);
                         }
 
