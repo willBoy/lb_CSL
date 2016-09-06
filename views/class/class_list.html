@@ -45,12 +45,9 @@
                         <a class="color-blue"  ng-click="utils.href('/class/courseSetting/'+t_classArr.courseId)">课程管理</a>
                         <a class="color-blue"  ng-click="utils.href('/class/student/'+t_classArr.id)">学生管理</a>
                         <!--<a ng-click="openPop('pop-del')">删除</a>-->
-                       <!-- <a class="{{ t_classArr.status =='1' ? 'color-ccc hove' : 'color-blue' }}" ng-click="delclass(t_classArr.id)">删除</a>-->
+                        <!--<a class="{{ t_classArr.status =='1' ? 'color-ccc hove' : 'color-blue' }}" ng-click="delclass(t_classArr.id)">删除</a>-->
                         <a class="color-blue" ng-show="t_classArr.status =='0' || t_classArr.status =='2'" ng-click="delclass(t_classArr.id)">删除</a>
-                        <a class="color-ccc hvoe" ng-mouseover="showUserOp()" ng-mouseleave="hideUserOp()" ng-show="t_classArr.status =='1'" ng-click="">删除</a>
-                        <span class="color-ccc hovemoue font-size-small" ng-show="t_classArr.status =='1' && userOpIsShow" ng-mouseover="showUserOp()" ng-mouseleave="hideUserOp()">开课中的班级无法删除</span>
-                        <!--/*&& utils.href('/class/delClass/'+t_classArr.id)*/-->
-                        <!--<a ng-show="statusMap[t_classArr.status]=='1'" ng-click="delclass(t_classArr.id)">删除</a>--><!--/*&& utils.href('/class/delClass/'+t_classArr.id)*/-->
+                        <a class="color-ccc hvoe" ng-show="t_classArr.status =='1'" title="开课中的班级无法删除" >删除</a>
                     </td>
                 </tr>
             </table>

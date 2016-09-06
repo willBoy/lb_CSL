@@ -14,7 +14,8 @@ lbApp.factory('RequestService', ['$http', 'UtilsService', function($http, UtilsS
         //教师退出
         't_logout':'teacher/loginOut',
         //教师修改密码
-        't_updatePassword':'teacher/updatePassword',
+        /*'t_updatePassword':'teacher/updatePassword',*/
+        't_updatePassword':'teacher/updatePasswordByOld',
         //获取导航ID
         't_findNavigationById':'classes/findNavigationById',
         //班级设置

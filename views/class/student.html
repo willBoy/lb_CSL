@@ -47,10 +47,10 @@
                     <td ng-bind="t_c_student_List.remark"></td>
                     <td>
                         <!--<a ng-click="utils.href('/class/studentDetail/'+t_c_student_List.id)">学生详情</a>-->
-                        <a ng-click="studentDetail(t_c_student_List.id)">学生详情</a>
-                        <a ng-click="remarks(t_c_student_List.id)">编辑备注</a>
-                        <a ng-click="resetpwd(t_c_student_List.id)">重置密码</a>
-                        <a ng-click="studentDel(t_c_student_List.id)">删除</a>
+                        <a class="color-blue" ng-click="studentDetail(t_c_student_List.id)">学生详情</a>
+                        <a class="color-blue" ng-click="remarks(t_c_student_List.id)">编辑备注</a>
+                        <a class="color-blue" ng-click="resetpwd(t_c_student_List.id)">重置密码</a>
+                        <a class="color-blue" ng-click="studentDel(t_c_student_List.id)">删除</a>
                         <!--<a ng-click="studentDel(t_c_student_List.id)">删除</a>-->
                     </td>
                 </tr>
@@ -128,7 +128,7 @@
                 </div>
             </div>
             <div id="pop-resetpwd" class="pop pop50">
-                <div class="pop-title">重置密码<span class="icons-close close" ng-click="closePop('pop-resetpwd')"></span></div>
+                <div class="pop-title">重置密码</div>
                 <div class="pop-content">
                     <div class="form-item text-align-center">
                         <div class="text">密码已重置为<span ng-model="studentInfo_r.password">123456。</span></div>
