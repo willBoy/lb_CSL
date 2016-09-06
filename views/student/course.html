@@ -19,7 +19,7 @@
                 <label>关键词</label>
                 <input type="text" class="input retrieval" placeholder="关键词" ng-model="conditions.common.outCallNo">
                 <span class="icons-search"></span>-->
-                <span class="op btn-blue" ng-click="openPop('pop-class');emptyInput()">加入课程</span>
+                <span class="op btn-blue" ng-click="openPop('pop-class');emptyInput();">加入课程</span>
                 <!--<span class="op btn-blue" ng-click="classList()">获取数据</span>-->
             </div>
         </div>
@@ -89,12 +89,13 @@
                     <div class="content">
                         <label>请输入班级代码:</label>
                         <input type="text" class="input" name="code" ng-maxlength="30" ng-model="s_myCourse.sequenceNo" required>
-                        <div class="error" style="margin-left: 22%" ng-show="addclass_form.code.$dirty && addclass_form.code.$invalid">请输入班级代码</div>
+                        <!--<div class="error" style="margin-left: 22%" ng-show="addclass_form.code.$dirty && addclass_form.code.$invalid">请输入班级代码</div>-->
                     </div>
                 </div>
                 <div class="form-op">
-                <span class="op btn-blue" ng-click="addclass_form.code.$dirty = true;
-                                                    addclass_form.$valid && addCourse(s_myCourse.sequenceNo)">确定</span>
+                <!--<span class="op btn-blue" ng-click="addclass_form.code.$dirty = true;addclass_form.$valid && addCourse(s_myCourse.sequenceNo)">确定</span>-->
+                <span class="op btn-blue" ng-click="addCourse(s_myCourse.sequenceNo)">确定</span>
+                    <!--<span class="op btn-blue" ng-click="addclass_form.code.$dirty = false;closePop('pop-class')">取消</span>-->
                     <span class="op btn-blue" ng-click="closePop('pop-class')">取消</span>
                 </div>
             </form>

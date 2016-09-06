@@ -157,7 +157,8 @@ lbApp.controller('StudentCourseController', ['$scope', '$routeParams', 'UtilsSer
                 $scope.closePop('pop-class');
                 location.reload();
             },
-            addClass:function(){
+            addClass:function(data){
+                alert("加入失败，班级在准备中或已经结课了");
                 $scope.s_myCourse.sequenceNo = '';
             }
         })
