@@ -12,38 +12,20 @@
         <div class="title-1 user-info">
             <span class="title">个人信息</span>
         </div>
-        <!--<form name="editPassword" novalidate>-->
-            <!--<div>-->
-                <!--<div>原始密码：</div>-->
-                <!--<div>-->
-                    <!--<input type="password" name="oldPassword" ng-model="password.oldPassword">-->
-                <!--</div>-->
-                <!--<div>新密码：</div>-->
-                <!--<div>-->
-                    <!--<input type="password" name="newPassword" ng-model="password.newPassword">-->
-                <!--</div>-->
-                <!--<div>确认密码</div>-->
-                <!--<div>-->
-                    <!--<input type="password" name="makeSurePassword">-->
-                <!--</div>-->
-                <!--<div ng-show="editPassword.makeSurePassword.$dirty">-->
-                    <!--<div class="error" ng-show="editPassword.newPassword != editPassword.makeSurePassword">两次密码输入不一致</div>-->
-                <!--</div>-->
-                <!--<div ng-click="submitPassword()">确定</div>-->
-            <!--</div>-->
-        <!--</form>-->
         <form name="editPassword" novalidate>
         <div class="main-wrapper" ng-show="true">
             <div class="form-item">
                 <div class="title">原始密码：</div>
                 <div class="content">
-                    <input type="password" class="input" name="oldPassword"  ng-model="password.oldPassword">
+                    <input type="password" class="input" name="oldPassword" required  ng-model="password.oldPassword">
                 </div>
+                <div class="error" ng-show="editPassword.oldPassword.$dirty&&editPassword.oldPassword.$invalid">请输入原始密码</div>
             </div>
             <div class="form-item">
                 <div class="title">新密码：</div>
                 <div class="content">
-                    <input type="password" class="input" name="newPassword"  ng-model="password.newPassword">
+                    <input type="password" class="input" name="newPassword"required  ng-model="password.newPassword">
+                    <div class="error" ng-show="editPassword.newPassword.$dirty&&editPassword.newPassword.$invalid">请输入新密码</div>
                 </div>
             </div>
             <div class="form-item">
@@ -57,7 +39,7 @@
             </div>
 
             <div class="form-op">
-                <span class="op btn-blue" ng-click="submitPassword()">确认</span>
+                <span class="op btn-blue" ng-click="editPassword.oldPassword.$dirty=true; editPassword.newPassword.$dirty=true;editPassword.makeSurePassword.$dirty = true; editPassword.$valid && submitPassword()">确认</span>
             </div>
         </div>
         </form>

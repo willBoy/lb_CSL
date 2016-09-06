@@ -22,18 +22,15 @@ lbApp.controller('LoginController', ['$scope', 'UtilsService', 'RequestService',
     $scope.loginByPwd = function() {
         var encode = new Base64();
         $scope.passwordTemp = encode.encode($scope.pwdLoginInfo.password);
-        console.log($scope.pwdLoginInfo.password);
-        console.log($scope.pwdLoginInfo.userName);
-        console.log($scope.passwordTemp);
         RequestService.request({
             token: 't_login',
             method: 'POST',
             data: UtilsService.serialize({userName:$scope.pwdLoginInfo.userName,password:$scope.passwordTemp}),
             success: function(data) {
-                console.log(data);
                 UtilsService.href('/classList');
             },
             password:function(data){
+                alert('用户名或者密码错误，请重新输入');
                 var decode = new Base64();
                 $scope.pwdLoginInfo.password = decode.decode($scope.passwordTemp);
             }
@@ -72,6 +69,9 @@ lbApp.controller('t_RegController', ['$scope', '$rootScope', 'RequestService', '
                 console.log(data);
                 alert("注册成功");
                 UtilsService.href('/t_login');
+            },
+            sRegister:function(data){
+                alert("该邮箱已注册，请重新输入");
             }
         });
     };
@@ -110,6 +110,7 @@ lbApp.controller('s_LoginController', ['$scope','$rootScope', 'UtilsService', 'R
                 UtilsService.href('/student/course');
             },
             password:function(data){
+                alert('用户名或者密码错误，请重新输入');
                 var decode = new Base64();
                 $scope.student_login.password = decode.decode($scope.tPasswordTemp);
             }
