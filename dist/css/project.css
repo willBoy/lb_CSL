@@ -449,7 +449,7 @@ div, span, li, em {
 }
 
 /* 颜色 */
-.color-blue, .tabs .tab-titles, #main-title .path, .table-list table.data-list th a, .table-list table.data-list td a, .table-list table.data-list th .op, .table-list table.data-list td .op {
+.color-blue, .tabs .tab-titles, #main-title .path, .table-list table.data-list th .op, .table-list table.data-list td .op {
   color: #4eb5e0;
 }
 
@@ -1015,6 +1015,16 @@ UtilsService.genTab($scope, tabName)
   text-decoration: underline;
   margin: 0 5px;
   cursor: pointer;
+}
+.table-list table.data-list th a.hvoe, .table-list table.data-list td a.hvoe {
+  position: relative;
+}
+.table-list table.data-list th span.hovemoue, .table-list table.data-list td span.hovemoue {
+  position: absolute;
+  border: 1px #ccc solid;
+  padding: 5px;
+  background: #fff;
+  margin-top: -6px;
 }
 .table-list table.data-list th .op, .table-list table.data-list td .op {
   cursor: pointer;

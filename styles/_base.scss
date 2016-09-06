@@ -681,7 +681,16 @@ $form-item-height: 40px;
                 text-decoration: underline;
                 margin: 0 5px;
                 cursor: pointer;
-                @extend .color-blue;
+            }
+            a.hvoe{
+                position: relative;
+            }
+            span.hovemoue{
+                position: absolute;
+                border: 1px #ccc solid;
+                padding: 5px;
+                background: #fff;
+                margin-top: -6px;
             }
             .op{
                 @extend .color-blue;
