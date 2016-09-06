@@ -927,6 +927,7 @@ UtilsService.genTab($scope, tabName)
 
 .pop50 {
   width: 300px;
+  left: 57.5%;
 }
 
 #loading {
