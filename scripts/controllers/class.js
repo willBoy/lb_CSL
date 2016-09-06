@@ -35,8 +35,11 @@ lbApp.controller('ClassListController', ['$scope', 'UtilsService', 'RequestServi
             pageSize: '10',
             totalPage: 0
         }
-    }
-
+    };
+    $(".hove").mouseover(function(){
+        console.log(111);
+        $(".hovemoue").show();
+    });
     //班级列表
     $scope.t_classListArr = {};
 
@@ -83,6 +86,18 @@ lbApp.controller('ClassListController', ['$scope', 'UtilsService', 'RequestServi
             });
         }
     }
+    var timer;
+    $scope.showUserOp = function() {
+        clearTimeout(timer);
+        $scope.userOpIsShow = true;
+    };
+    $scope.hideUserOp = function() {
+        timer = setTimeout(function() {
+            $scope.$apply(function() {
+                $scope.userOpIsShow = false;
+            });
+        }, 300);
+    };
     //删除班级
     /*$scope.delclass = function (id) {
      RequestService.request({
@@ -120,6 +135,8 @@ lbApp.controller('ClassDetailController', ['$scope', '$routeParams', 'UtilsServi
         startTime:'',
         status:''
     };
+    /*$scope.modify =false;*/
+    $scope.modify = "";
     RequestService.request({
         token: 't_settingClass',
         method: 'post',
@@ -131,9 +148,13 @@ lbApp.controller('ClassDetailController', ['$scope', '$routeParams', 'UtilsServi
             $scope.classes.startTime= data.startTime;
             $scope.classes.course.description= data.course.description;
             $scope.classes.status = data.status + "";
-
+            $scope.modify = data.status + "";
+            /*if( data.status + "" == '0'){
+                $scope.modify =true;
+            }*/
         }
     });
+
     function initDatePicker(startTimeArray, endTimeArray) {
         // 选择开始日期
         $('#time-start-update').jdatepicker({
