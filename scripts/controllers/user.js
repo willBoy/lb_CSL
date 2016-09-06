@@ -58,13 +58,13 @@ lbApp.controller('t_RegController', ['$scope', '$rootScope', 'RequestService', '
      */
     $scope.t_reg = function() {
         //密码base64加密
-        var b = new Base64();
-        $scope.t_regInfo.password = b.encode($scope.t_regInfo.password);
+        var encode = new Base64();
+        $scope.t_regInfo.passwordTemp = encode.encode($scope.t_regInfo.password);
         console.log($scope.t_regInfo);
         RequestService.request({
             token: 't_reg',
             method: 'POST',
-            data: UtilsService.serialize($scope.t_regInfo),
+            data: UtilsService.serialize({phoneNumber:$scope.t_regInfo.phoneNumber,email:$scope.t_regInfo.email,password:$scope.t_regInfo.passwordTemp,chineseName:$scope.t_regInfo.chineseName,schoolName:$scope.t_regInfo.schoolName}),
             success: function(data) {
                 console.log(data);
                 alert("注册成功");
@@ -72,6 +72,7 @@ lbApp.controller('t_RegController', ['$scope', '$rootScope', 'RequestService', '
             },
             sRegister:function(data){
                 alert("该邮箱已注册，请重新输入");
+
             }
         });
     };
