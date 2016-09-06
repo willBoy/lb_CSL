@@ -1015,6 +1015,7 @@ UtilsService.genTab($scope, tabName)
   text-decoration: underline;
   margin: 0 5px;
   cursor: pointer;
+  /*@extend .color-blue;*/
 }
 .table-list table.data-list th a.hvoe, .table-list table.data-list td a.hvoe {
   position: relative;
@@ -2141,7 +2142,7 @@ UtilsService.genTab($scope, tabName)
   border: 3px solid white;
 }
 #s_exercising .answer .key-1 {
-  width: 10%;
+  width: 8%;
   height: 100%;
   display: inline-block;
   text-align: center;

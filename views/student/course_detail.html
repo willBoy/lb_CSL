@@ -40,11 +40,11 @@
                     <td ng-bind="s_courseChapter_list.descriptionContent"></td>
                     <td ng-bind="s_courseChapter_list.bestScore"></td>
                     <td ng-show="s_courseChapter_list.status == '0'">
-                        <a title="章节尚未开放" style="color: #999999">开始练习</a>
+                        <a class="color-blue"  title="章节尚未开放" style="color: #999999">开始练习</a>
                     </td>
                     <td ng-show="s_courseChapter_list.status == '1'">
                         <!--<a ng-click="StartExe(s_courseChapter_list.status,s_courseChapter_list.id)">开始练习</a>-->
-                        <a title="开始练习" ng-click="utils.href('/student/study/'+s_courseChapter_list.id+'/'+courseID)">开始练习</a>
+                        <a class="color-blue"  title="开始练习" ng-click="utils.href('/student/study/'+s_courseChapter_list.id+'/'+courseID)">开始练习</a>
                     </td>
                 </tr>
             </table>

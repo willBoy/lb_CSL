@@ -48,10 +48,10 @@
                     <td ng-bind="patternMap[cl_cou_chapter.pattern]"></td>
                     <td ng-bind="statusMap[cl_cou_chapter.status]"></td>
                     <td>
-                        <a ng-click="utils.href('/class/chapter/'+cl_cou_chapter.id+'/'+'458fb41499fe4e80a772f5b82a033e52')">章节设置</a>
+                        <a class="color-blue"  ng-click="utils.href('/class/chapter/'+cl_cou_chapter.id+'/'+'458fb41499fe4e80a772f5b82a033e52')">章节设置</a>
                         <!--<a ng-click="utils.href('/class/chapter/'+cl_cou_chapter.id+'/'+classCourse.classId)">章节设置</a>-->
-                        <a ng-click="utils.href('/class/exercise/'+cl_cou_chapter.id)">习题管理</a>
-                        <a ng-click="chapterDel(cl_cou_chapter.id)">删除</a>
+                        <a class="color-blue"  ng-click="utils.href('/class/exercise/'+cl_cou_chapter.id)">习题管理</a>
+                        <a class="color-blue"  ng-click="chapterDel(cl_cou_chapter.id)">删除</a>
                     </td>
                 </tr>
             </table>
