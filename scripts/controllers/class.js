@@ -817,19 +817,21 @@ lbApp.controller('StudentController', ['$scope', '$routeParams', 'UtilsService',
 
     //重置密码
     $scope.resetpwd = function(studentId){
-        $scope.openPop('pop-resetpwd');
-        $scope.resetPassword = function (password) {
+
+        var encode = new Base64();
+        $scope.rePassword = encode.encode('123456');
             RequestService.request({
                 token: 't_studentResetPassword',
                 method: 'POST',
-                strParams: 'id=' + studentId + '&password=' + password,
-                /*data:UtilsService.serialize({classID:$routeParams.classID,studentId:$routeParams.studentId,remark:$scope.studentInfo_r.remark}),*/
-                success: function () {
-                    /*alert("修改成功");*/
-                    $scope.closePop('pop-resetpwd')
+                strParams: 'id=' + studentId + '&password=' + $scope.rePassword,
+                success: function (data) {
+                    $scope.openPop('pop-resetpwd');
+                    $scope.resetPassword = function () {
+                        $scope.closePop('pop-resetpwd');
+                    }
+
                 }
             })
-        }
     }
     $scope.resetPassword = function (password) {
         RequestService.request({

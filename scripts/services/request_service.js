@@ -141,7 +141,7 @@ lbApp.factory('RequestService', ['$http', 'UtilsService', function($http, UtilsS
             // 发送请求
             $http(reqObj)
                 .success(function(data, status, headers, config) {
-                    /*console.log(data);*/
+                    console.log(data);
                     switch (data.code) {
                         case "0":
                             reqConfig.success(data.result);
@@ -171,14 +171,13 @@ lbApp.factory('RequestService', ['$http', 'UtilsService', function($http, UtilsS
                             reqConfig.addClass();
                             break;
                         default:
-                            //UtilsService.href('/');
+                            UtilsService.href('/');
                             reqConfig.error && reqConfig.error(data);
                             alert(data.msg);
                     }
                 })
 
                 .error(function(data, status, headers, config) {
-                    alert(1);
                     reqConfig.error && reqConfig.error(data);
                 })
         }

@@ -2070,68 +2070,70 @@ UtilsService.genTab($scope, tabName)
   text-align: center;
   padding-top: 2%;
 }
-#s_exercising .tone .border-3-white {
-  border: 3px solid white;
-}
-#s_exercising .tone .one-syllable {
-  display: inline-block;
+#s_exercising .tone .option-1 {
   position: absolute;
   bottom: 20%;
   left: 25%;
 }
-#s_exercising .tone .one-syllable-num {
+#s_exercising .tone .option-1 .border-3-white {
+  border: 3px solid white;
+}
+#s_exercising .tone .option-1 .syllable-num {
   font-size: 30px;
   color: white;
-  position: absolute;
-  bottom: 15%;
-  left: 29%;
+  text-align: center;
+  margin-top: 5%;
 }
-#s_exercising .tone .two-syllable {
-  display: inline-block;
+#s_exercising .tone .option-2 {
   position: absolute;
   bottom: 20%;
   left: 40%;
 }
-#s_exercising .tone .two-syllable-num {
+#s_exercising .tone .option-2 .border-3-white {
+  border: 3px solid white;
+}
+#s_exercising .tone .option-2 .syllable-num {
   font-size: 30px;
   color: white;
-  position: absolute;
-  bottom: 15%;
-  left: 44%;
+  text-align: center;
+  margin-top: 5%;
 }
-#s_exercising .tone .three-syllable {
-  display: inline-block;
+#s_exercising .tone .option-3 {
   position: absolute;
   bottom: 20%;
   left: 55%;
 }
-#s_exercising .tone .three-syllable-num {
+#s_exercising .tone .option-3 .border-3-white {
+  border: 3px solid white;
+}
+#s_exercising .tone .option-3 .syllable-num {
   font-size: 30px;
   color: white;
-  position: absolute;
-  bottom: 15%;
-  left: 59%;
+  text-align: center;
+  margin-top: 5%;
 }
-#s_exercising .tone .four-syllable {
-  display: inline-block;
+#s_exercising .tone .option-4 {
   position: absolute;
   bottom: 20%;
   left: 70%;
 }
-#s_exercising .tone .four-syllable-num {
+#s_exercising .tone .option-4 .border-3-white {
+  border: 3px solid white;
+}
+#s_exercising .tone .option-4 .syllable-num {
   font-size: 30px;
   color: white;
-  position: absolute;
-  bottom: 15%;
-  left: 74%;
+  text-align: center;
+  margin-top: 5%;
 }
 #s_exercising .answer .border-3-white {
   border: 3px solid white;
 }
 #s_exercising .answer .key-1 {
-  position: absolute;
-  top: 40%;
-  left: 45%;
+  width: 10%;
+  height: 100%;
+  display: inline-block;
+  text-align: center;
 }
 #s_exercising .answer .key-1 .answer_empty {
   border-bottom: 3px solid white;
@@ -2141,9 +2143,10 @@ UtilsService.genTab($scope, tabName)
   margin-left: 30px;
 }
 #s_exercising .answer .key-2 {
-  position: absolute;
-  top: 40%;
-  left: 40%;
+  width: 17%;
+  height: 100%;
+  display: inline-block;
+  text-align: center;
 }
 #s_exercising .answer .key-2 .answer_empty {
   border-bottom: 3px solid white;
@@ -2153,9 +2156,10 @@ UtilsService.genTab($scope, tabName)
   margin-left: 30px;
 }
 #s_exercising .answer .key-3 {
-  position: absolute;
-  top: 40%;
-  left: 35%;
+  width: 23%;
+  height: 100%;
+  display: inline-block;
+  text-align: center;
 }
 #s_exercising .answer .key-3 .answer_empty {
   border-bottom: 3px solid white;
@@ -2165,9 +2169,10 @@ UtilsService.genTab($scope, tabName)
   margin-left: 30px;
 }
 #s_exercising .answer .key-4 {
-  position: absolute;
-  top: 40%;
-  left: 30%;
+  width: 30%;
+  height: 100%;
+  text-align: center;
+  display: inline-block;
 }
 #s_exercising .answer .key-4 .answer_empty {
   border-bottom: 3px solid white;
