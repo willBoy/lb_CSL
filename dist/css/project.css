@@ -2155,7 +2155,7 @@ UtilsService.genTab($scope, tabName)
   margin-left: 30px;
 }
 #s_exercising .answer .key-2 {
-  width: 17%;
+  /*width: 17%;*/
   height: 100%;
   display: inline-block;
   text-align: center;
@@ -2168,7 +2168,7 @@ UtilsService.genTab($scope, tabName)
   margin-left: 30px;
 }
 #s_exercising .answer .key-3 {
-  width: 23%;
+  /*width: 23%;*/
   height: 100%;
   display: inline-block;
   text-align: center;
@@ -2181,7 +2181,7 @@ UtilsService.genTab($scope, tabName)
   margin-left: 30px;
 }
 #s_exercising .answer .key-4 {
-  width: 30%;
+  /*width: 30%;*/
   height: 100%;
   text-align: center;
   display: inline-block;
@@ -2211,6 +2211,10 @@ UtilsService.genTab($scope, tabName)
 .study .exercise {
   position: relative;
   top: 15%;
+}
+.study .exercisefinish {
+  position: relative;
+  top: 31%;
 }
 .study h1 {
   font-size: 30px;
