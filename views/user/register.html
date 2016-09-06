@@ -9,7 +9,7 @@
                     <!--<pre class="line-height-15 color-blue">请输入真实有效的邮箱，便于找回密码</pre>-->
                     <div class="error" ng-show="reg_form.email.$dirty && reg_form.email.$invalid">请输入真实有效的邮箱</div>
                 </div>
-                <pre class="line-height-15 color-ccc">请输入真实有效的邮箱，便于找回密码</pre>
+                <pre class="line-height-15 color-blue">请输入真实有效的邮箱，便于找回密码</pre>
             </div>
             <div class="form-item">
                 <div class="title_lang">* 请设定您的密码：<br>Password</div>
@@ -18,7 +18,7 @@
                     <!--<pre class="line-height-15 color-blue">请输入6位以上字符</pre>-->
                     <div class="error" ng-show="reg_form.password.$dirty && reg_form.password.$invalid">请输入6位以上字符</div>
                 </div>
-                <pre class="line-height-15 color-ccc">请输入6位以上字符</pre>
+                <pre class="line-height-15 color-blue">请输入6位以上字符</pre>
             </div>
             <div class="form-item">
                 <div class="title_lang">* 再输入一次密码：<br>Enter your password again</div>
@@ -88,6 +88,17 @@
                         <option value="China">China</option>
                         <option value="Iceland">Iceland</option>
                         <option value="Korea">Korea</option>
+                        <option value="Brazil">Brazil</option>
+                        <option value="Canada">Canada</option>
+                        <option value="Central African Republic">Central African Republic</option>
+                        <option value="Cuba">Cuba</option>
+                        <option value="France">France</option>
+                        <option value="Germany">Germany</option>
+                        <option value="South Korea">South Korea</option>
+                        <option value="Malaysia">Malaysia</option>
+                        <option value="Singapore">Singapore</option>
+                        <option value="United States">United States</option>
+                        <option value="United Kingdom">United Kingdom</option>
                     </select>
                     <div class="error" ng-show="reg_form.nationality.$dirty && reg_form.nationality.$invalid">请选择国籍</div>
                 </div>
@@ -100,32 +111,18 @@
                         <option value="China">China</option>
                         <option value="English">English</option>
                         <option value="French">French</option>
+                        <option value="Belarusian">Belarusian</option>
+                        <option value="Dutch">Dutch</option>
+                        <option value="Icelandic">Icelandic</option>
+                        <option value="Italian">Italian</option>
+                        <option value="Korean">Korean</option>
+                        <option value="Russian">Russian</option>
+                        <option value="Spanish">Spanish</option>
                     </select>
                     <div class="error" ng-show="reg_form.motherTongue.$dirty && reg_form.motherTongue.$invalid">请选择母语</div>
                 </div>
             </div>
-            <!--<div class="form-item">-->
-                <!--<div class="title_lang">* 外语：<br>Foreign language</div>-->
-                <!--<div class="content">-->
-                    <!--<select name="is_include" class="select" ng-model="student.foreignLanguage" required>-->
-                        <!--<option value="无">无</option>-->
-                        <!--<option value="其它">其它</option>-->
-                        <!--<option value="China">China</option>-->
-                        <!--<option value="English">English</option>-->
-                        <!--<option value="French">French</option>-->
-                    <!--</select>-->
-                    <!--<select name="is_include" class="select" ng-model="qa_task.constrains" required>-->
-                        <!--<option value="">无</option>-->
-                        <!--<option ng-repeat="(value, description) in options.constrains" value="{{ value }}" ng-bind="description"></option>-->
-                    <!--</select>-->
-                    <!--<select name="is_include" class="select" ng-model="qa_task.constrains" required>-->
-                        <!--<option value="">无</option>-->
-                        <!--<option ng-repeat="(value, description) in options.constrains" value="{{ value }}" ng-bind="description"></option>-->
-                    <!--</select>-->
 
-                    <!--<div class="error" ng-show="rule_form.illegal_statement.$dirty && rule_form.illegal_statement.$invalid">请选择年龄</div>-->
-                <!--</div>-->
-            <!--</div>-->
             <div class="form-op">
                 <span class="op btn-blue" ng-click="reg_form.email.$dirty = true;
                                                     reg_form.password.$dirty = true;
