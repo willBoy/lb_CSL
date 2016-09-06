@@ -450,6 +450,7 @@ lbApp.controller('StudyKeyingController', ['$scope', '$routeParams', 'UtilsServi
         answerBody: ''
     };
     $("#imgShow").hide();
+    $("#enterFont").hide();
     //等待加载嘟嘟嘟~
     setTimeout(function () {
         $("#dududu").hide();
@@ -504,25 +505,25 @@ lbApp.controller('StudyKeyingController', ['$scope', '$routeParams', 'UtilsServi
         $("#answer").html("");
         if ($scope.exerciseInfo.questionsPronunciation.tones.length == 1) {
             var html = '<div class="key-1">' +
-                '<div class="answer_empty">' + '</div>' +
+                '<span class="answer_empty">' + '</span>' +
                 '</div>';
         } else if ($scope.exerciseInfo.questionsPronunciation.tones.length == 2) {
             var html = '<div class="key-2">' +
-                '<div class="answer_empty">' + '</div>' +
-                '<div class="answer_empty">' + '</div>'
+                '<span class="answer_empty">' + '</span>' +
+                '<span class="answer_empty">' + '</span>'
                 + '</div>';
         } else if ($scope.exerciseInfo.questionsPronunciation.tones.length == 3) {
             var html = '<div class="key-3">' +
-                '<div class="answer_empty">' + '</div>' +
-                '<div class="answer_empty">' + '</div>' +
-                '<div class="answer_empty">' + '</div>'
+                '<span class="answer_empty">' + '</span>' +
+                '<span class="answer_empty">' + '</span>' +
+                '<span class="answer_empty">' + '</span>'
                 + '</div>'
         } else if ($scope.exerciseInfo.questionsPronunciation.tones.length == 4) {
             var html = '<div class="key-4">' +
-                '<div class="answer_empty">' + '</div>' +
-                '<div class="answer_empty">' + '</div>' +
-                '<div class="answer_empty">' + '</div>' +
-                '<div class="answer_empty">' + '</div>'
+                '<span class="answer_empty">' + '</span>' +
+                '<span class="answer_empty">' + '</span>' +
+                '<span class="answer_empty">' + '</span>' +
+                '<span class="answer_empty">' + '</span>'
                 + '</div>'
         }
         $("#answer").html(html);
@@ -551,6 +552,7 @@ lbApp.controller('StudyKeyingController', ['$scope', '$routeParams', 'UtilsServi
         };
         var userAnswer = [];
         $("#answer").find('.answer_empty').html('');
+        $("#answer").find('.answer_empty').css('border-bottom','3px solid white');
         var rightAnswer = [];
         function select(num, code,T_F) {
             userAnswer.push(code);
@@ -561,6 +563,7 @@ lbApp.controller('StudyKeyingController', ['$scope', '$routeParams', 'UtilsServi
                 var selectHtml = '<span class="icon border-3-white icons-' + value + '"></span>';
                 $("#answer").find('.answer_empty').eq(n).html('');
                 $("#answer").find('.answer_empty').eq(n).html(selectHtml);
+                $("#answer").find('.answer_empty').eq(n).css('border','0');
             })
             $scope.execiseAnswer.answerBody = codeT;
             var TonsAnswer = $scope.exerciseInfo.questionsPronunciation.tones + "";
@@ -585,10 +588,12 @@ lbApp.controller('StudyKeyingController', ['$scope', '$routeParams', 'UtilsServi
                             }
                         }
                         $("#imgShow").show();
+                        $("#enterFont").show();
                         flag = false;
                         document.onkeydown = function (event) {
                             if (event && event.keyCode == 13) { // 按 1
                                 $("#imgShow").hide();
+                                $("#enterFont").hide();
                                 flag = true;
                                 //初始化暂存答案的数组
                                 userAnswer = [];
@@ -604,6 +609,7 @@ lbApp.controller('StudyKeyingController', ['$scope', '$routeParams', 'UtilsServi
                                         setTimeout(function(){
                                             $("#dududu").hide();
                                             $("#exerciseQ").show();
+                                            $("#answer").find('.answer_empty').css('border-bottom','3px solid white');
                                             musicAuto.play();
                                         },1000);
                                     }
@@ -685,6 +691,7 @@ lbApp.controller('StudyKeyingController', ['$scope', '$routeParams', 'UtilsServi
                 var selectHtml = '<span class="icon border-3-white icons-' + value + '"></span>';
                 $("#answer").find('.answer_empty').eq(n).html('');
                 $("#answer").find('.answer_empty').eq(n).html(selectHtml);
+                $("#answer").find('.answer_empty').eq(n).css('border','0');
             })
             $scope.execiseAnswer.answerBody = codeT;
             var TonsAnswer = $scope.exerciseInfo.questionsPronunciation.tones + "";
@@ -707,10 +714,12 @@ lbApp.controller('StudyKeyingController', ['$scope', '$routeParams', 'UtilsServi
                             }
                         }
                         $("#imgShow").show();
+                        $("#enterFont").show();
                         flag = false;
                         document.onkeydown = function (event) {
                             if (event && event.keyCode == 13) { // 按 1
                                 $("#imgShow").hide();
+                                $("#enterFont").hide();
                                 flag = true;
                                 $("#answer").find('.answer_empty').html('');
                                 if(!T_F){
@@ -782,6 +791,7 @@ lbApp.controller('StudyKeyingController', ['$scope', '$routeParams', 'UtilsServi
                             UtilsService.href('/student/study_finish/' + $routeParams.exerciseID+'/'+$routeParams.courseID);
                         } else {
                             userAnswer = [];
+
                             chapterExercise(data);
                         }
 
@@ -801,6 +811,7 @@ lbApp.controller('StudyFinishController', ['$scope', '$routeParams', 'UtilsServi
         listName: 'student',
         tabName: 'tabName'
     };
+
     //课程ID
     $scope.courseID = $routeParams.courseID;
     RequestService.request({
@@ -824,7 +835,23 @@ lbApp.controller('StudyFinishController', ['$scope', '$routeParams', 'UtilsServi
             var m = parseInt(Math.abs(endT_date - startT_date));
             var count = data.rightCount + data.wrongCount;
             $scope.ave_time = parseInt((m - count * 3000) / count);
+            keydown();
+
         }
     })
+        function keydown(){
+            document.onkeydown = function(event){
+                if(event.keyCode == 13){
+                    RequestService.request({
+                        token:'s_profile',
+                        success:function(data){
+                            UtilsService.href('/student/course_detail/'+$routeParams.courseID);
+                        }
+                    });
+                }
+            }
+        }
+
+
 }]);
 

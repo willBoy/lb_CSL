@@ -28,70 +28,73 @@
         }
     }
     .tone{
-        .border-3-white{
-            border: 3px solid white;
-        }
-        .one-syllable{
-            display: inline-block;
+        .option-1{
             position: absolute;
             bottom: 20%;
             left: 25%;
+            .border-3-white{
+                border: 3px solid white;
+            }
+            .syllable-num{
+                font-size: 30px;
+                color: white;
+                text-align: center;
+                margin-top: 5%;
+            }
         }
-        .one-syllable-num{
-            font-size: 30px;
-            color: white;
-            position: absolute;
-            bottom: 15%;
-            left: 29%;
-        }
-        .two-syllable{
-            display: inline-block;
+        .option-2{
             position: absolute;
             bottom: 20%;
-            left: 40%
+            left: 40%;
+            .border-3-white{
+                border: 3px solid white;
+            }
+            .syllable-num{
+                font-size: 30px;
+                color: white;
+                text-align: center;
+                margin-top: 5%;
+            }
         }
-        .two-syllable-num{
-            font-size: 30px;
-            color: white;
-            position: absolute;
-            bottom: 15%;
-            left: 44%;
-        }
-        .three-syllable{
-            display: inline-block;
+        .option-3{
             position: absolute;
             bottom: 20%;
             left: 55%;
+            .border-3-white{
+                border: 3px solid white;
+            }
+            .syllable-num{
+                font-size: 30px;
+                color: white;
+                text-align: center;
+                margin-top: 5%;
+            }
         }
-        .three-syllable-num{
-            font-size: 30px;
-            color: white;
-            position: absolute;
-            bottom: 15%;
-            left: 59%;
-        }
-        .four-syllable{
-            display: inline-block;
+        .option-4{
             position: absolute;
             bottom: 20%;
-            left: 70%
+            left: 70%;
+            .border-3-white{
+                border: 3px solid white;
+            }
+            .syllable-num{
+                font-size: 30px;
+                color: white;
+                text-align: center;
+                margin-top: 5%;
+            }
         }
-        .four-syllable-num{
-            font-size: 30px;
-            color: white;
-            position: absolute;
-            bottom: 15%;
-            left: 74%;
-        }
+
     }
     .answer{
         .border-3-white{
             border: 3px solid white;
         }
         .key-1{
-            position: absolute;
-            top: 40%;
-            left: 45%;
+            width: 8%;
+            height: 100%;
+            display: inline-block;
+            text-align: center;
             .answer_empty{
                 border-bottom: 3px solid white;
                 width: 106px;
@@ -101,9 +104,10 @@
             }
         }
         .key-2{
-            position: absolute;
-            top: 40%;
-            left: 40%;
+            width: 17%;
+            height: 100%;
+            display: inline-block;
+            text-align: center;
             .answer_empty{
                 border-bottom: 3px solid white;
                 width: 106px;
@@ -113,9 +117,10 @@
             }
         }
         .key-3{
-            position: absolute;
-            top: 40%;
-            left: 35%;
+            width: 23%;
+            height: 100%;
+            display: inline-block;
+            text-align: center;
             .answer_empty{
                 border-bottom: 3px solid white;
                 width: 106px;
@@ -125,9 +130,10 @@
             }
         }
         .key-4{
-            position: absolute;
-            top: 40%;
-            left: 30%;
+            width: 30%;
+            height: 100%;
+            text-align: center;
+            display: inline-block;
             .answer_empty{
                 border-bottom: 3px solid white;
                 width: 106px;

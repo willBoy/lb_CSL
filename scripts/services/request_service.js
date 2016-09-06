@@ -171,14 +171,13 @@ lbApp.factory('RequestService', ['$http', 'UtilsService', function($http, UtilsS
                             reqConfig.addClass();
                             break;
                         default:
-                            //UtilsService.href('/');
+                            UtilsService.href('/');
                             reqConfig.error && reqConfig.error(data);
                             alert(data.msg);
                     }
                 })
 
                 .error(function(data, status, headers, config) {
-                    alert(1);
                     reqConfig.error && reqConfig.error(data);
                 })
         }

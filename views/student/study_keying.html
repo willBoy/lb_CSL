@@ -6,25 +6,33 @@
             <audio id="dududu_Audio"  src="../../vendor/mp3/dududu.mp3"/>
         </section>
     </div>
-    <div class="exercise" id="exerciseQ">
-        <section id="musicSelect">
-            <audio id="musicAuto"  ng-src="{{musicSrc}}"></audio>
-        </section>
-        <div class="imgShow" id="imgShow">
-            <img ng-src="{{imgSrc}}">
-            <div class="font-size-16" style="color: white">按回车（Enter）继续</div>
-        </div>
-        <div class="answer" id="answer">
-        </div>
+    <div class="exercise" id="exerciseQ" style="width: 100%;height: 100%;">
+            <section id="musicSelect">
+                <audio id="musicAuto"  ng-src="{{musicSrc}}"></audio>
+            </section>
+            <div class="imgShow" id="imgShow">
+                <img ng-src="{{imgSrc}}">
+            </div>
+        <div class="answer" id="answer" style="position:absolute;top:40%;width: 100%;height: 13%;text-align: center;"></div>
     </div>
     <div class="tone">
-        <span class="icon icons-1 one-syllable border-3-white"></span>
-        <span class="one-syllable-num">1</span>
-        <span class="icon icons-2 two-syllable border-3-white"></span>
-        <span class="two-syllable-num">2</span>
-        <span class="icon icons-3 three-syllable border-3-white"></span>
-        <span class="three-syllable-num">3</span>
-        <span class="icon icons-4 four-syllable border-3-white"></span>
-        <span class="four-syllable-num">4</span>
+        <div class="option-1">
+            <div class="icon icons-1 border-3-white"></div>
+            <div class="syllable-num">1</div>
+        </div>
+        <div class="option-2">
+            <div class="icon icons-1 border-3-white"></div>
+            <div class="syllable-num">2</div>
+        </div>
+        <div class="option-3">
+            <div class="icon icons-1 border-3-white"></div>
+            <div class="syllable-num">3</div>
+        </div>
+        <div class="option-4">
+            <div class="icon icons-1 border-3-white"></div>
+            <div class="syllable-num">4</div>
+        </div>
+        <div class="font-size-16" id="enterFont" style="color: white;position: absolute;bottom: 10%;left: 45%;">按回车（Enter）继续</div>
     </div>
+
 </div>

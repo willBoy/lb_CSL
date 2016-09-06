@@ -22,12 +22,15 @@ lbApp.controller('LoginController', ['$scope', 'UtilsService', 'RequestService',
     $scope.loginByPwd = function() {
         var encode = new Base64();
         $scope.passwordTemp = encode.encode($scope.pwdLoginInfo.password);
-        //$scope.pwdLoginInfo.password = encode.encode($scope.pwdLoginInfo.password);
+        console.log($scope.pwdLoginInfo.password);
+        console.log($scope.pwdLoginInfo.userName);
+        console.log($scope.passwordTemp);
         RequestService.request({
             token: 't_login',
             method: 'POST',
             data: UtilsService.serialize({userName:$scope.pwdLoginInfo.userName,password:$scope.passwordTemp}),
             success: function(data) {
+                console.log(data);
                 UtilsService.href('/classList');
             },
             password:function(data){
@@ -161,6 +164,7 @@ lbApp.controller('S_RegController', ['$scope', '$rootScope', 'RequestService', '
                 UtilsService.href('/s_login');
             },
             sRegister:function(data){
+                alert('该邮箱已存在，请重新输入');
                 var decode = new Base64();
                 $scope.s_regInfo.password = decode.decode($scope.RPasswordTemp);
             }
