@@ -173,7 +173,7 @@ lbApp.factory('RequestService', ['$http', 'UtilsService', function($http, UtilsS
                         default:
                             UtilsService.href('/');
                             reqConfig.error && reqConfig.error(data);
-                            alert(data.msg);
+                            alert("服务器开小差");
                     }
                 })
 
