@@ -53,6 +53,12 @@ lbApp.config(['$routeProvider', '$locationProvider', '$httpProvider', function($
             controller: 'LoginController',
             showHeader: false
         })
+        //教师修改密码
+        .when('/t_editPwd', {
+            templateUrl: 'views/class/t_editPwd.html',
+            controller: 'EditPwdController',
+            showHeader: true
+        })
         //学生登录
         .when('/s_login', {
             templateUrl: 'views/user/login_student.html',

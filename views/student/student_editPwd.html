@@ -18,8 +18,9 @@
                 <div class="title">原始密码：</div>
                 <div class="content">
                     <input type="password" class="input" name="oldPassword" required  ng-model="password.oldPassword">
+                    <div class="error" ng-show="editPassword.oldPassword.$dirty&&editPassword.oldPassword.$invalid">请输入原始密码</div>
                 </div>
-                <div class="error" ng-show="editPassword.oldPassword.$dirty&&editPassword.oldPassword.$invalid">请输入原始密码</div>
+
             </div>
             <div class="form-item">
                 <div class="title">新密码：</div>

@@ -10,11 +10,10 @@ lbApp.factory('RequestService', ['$http', 'UtilsService', function($http, UtilsS
         //教师端班级列表
         't_classList':'classes/find',
         //查看教师帐户信息
-        /*'t_teachershow':'teacher/show',*/
+        't_teachershow':'teacher/show',
         //教师退出
         't_logout':'teacher/loginOut',
         //教师修改密码
-        /*'t_updatePassword':'teacher/updatePassword',*/
         't_updatePassword':'teacher/updatePasswordByOld',
         //获取导航ID
         't_findNavigationById':'classes/findNavigationById',
@@ -156,7 +155,7 @@ lbApp.factory('RequestService', ['$http', 'UtilsService', function($http, UtilsS
                             break;
                         case "20208":
                             alert(data.msg);
-                            UtilsService.href('/s_changePwd');
+                           // UtilsService.href('/s_changePwd');
                             break;
                         case "20003":
                             alert(data.msg);

@@ -122,8 +122,6 @@ lbApp.controller('ExerciseAddController', ['$scope', '$routeParams', 'UtilsServi
     //按导航查询班级ID
     $scope.courseId='';
     $scope.getCourseID =function(){
-        console.log(2525635);
-        console.log($routeParams.chapterID);
         RequestService.request({
             token: 't_findNavigationById',
             method: 'POST',

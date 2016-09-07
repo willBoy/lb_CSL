@@ -2,12 +2,6 @@
     <div class="main-logo">
         <div class="title font-size-large font-weight-200 color-block">汉语学堂</div>
     </div>
-    <!--<ul id="main-menu" class="color-white font-weight-300">-->
-        <!--<li ng-click="utils.href('/dashboard')">首页</li>-->
-        <!--<li ng-click="utils.href('/robot')">任务中心</li>-->
-        <!--<li ng-click="utils.href('/monitoring')">实时监控</li>-->
-        <!--<li ng-click="utils.href('/statistics')">数据分析</li>-->
-    <!--</ul>-->
     <div id="main-status-student" ng-show="currentUser.roleCode == '03'">
         <div class="user icon icons-user" ng-mouseover="showUserOp()" ng-mouseleave="hideUserOp()">
             <div class="user-op menu-list-1" ng-show="userOpIsShow" ng-mouseover="showUserOp()" ng-mouseleave="hideUserOp()">
@@ -23,59 +17,9 @@
             <div class="user-op menu-list-1" ng-show="userOpIsShow" ng-mouseover="showUserOp()" ng-mouseleave="hideUserOp()">
                 <div class="item" ng-bind="currentUser.chineseName"></div>
                 <div class="item" ng-bind="currentUser.email"></div>
-                <div class="item-cursor color-blue" ng-click="openPop('pop-updatePassword')">修改密码</div>
+                <div class="item-cursor color-blue" ng-click="utils.href('/t_editPwd')">修改密码</div>
             </div>
         </div>
         <div class="user exit" ng-click="t_logout()">退出</div>
     </div>
-
-    <div id="pop-updatePassword" class="pop">
-        <div class="pop-title">修改密码</div>
-        <div class="pop-content">
-            <form name="t_editPassword" novalidate>
-                <div class="main-wrapper" ng-show="true">
-                    <div class="form-item">
-                        <div class="title">原始密码：</div>
-                        <div class="content">
-                            <input type="password" class="input" name="oldPassword" required ng-model="currentUsere.oldPassword">
-                            <div class="error" ng-show="t_editPassword.oldPassword.$dirty&&t_editPassword.oldPassword.$invalid">请输入原始密码</div>
-                        </div>
-                    </div>
-                    <div class="form-item">
-                        <div class="title">新密码：</div>
-                        <div class="content">
-                            <input type="password" class="input" name="newPassword" required ng-model="currentUsere.newPassword">
-                            <div class="error" ng-show="t_editPassword.newPassword.$dirty&&t_editPassword.newPassword.$invalid">请输入新密码</div>
-                        </div>
-                    </div>
-                    <div class="form-item">
-                        <div class="title">确认密码：</div>
-                        <div class="content">
-                            <input type="password" class="input" name="makeSurePassword" ng-model="currentUsere.makeSurePassword">
-                            <div ng-show="t_editPassword.makeSurePassword.$dirty">
-                                <div class="error" ng-show="currentUsere.newPassword != currentUsere.makeSurePassword">两次密码输入不一致</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-op">
-                        <button class="op btn-blue" ng-click="t_editPassword.oldPassword.$dirty=true; t_editPassword.newPassword.$dirty=true;t_editPassword.makeSurePassword.$dirty = true; t_editPassword.$valid && t_updatePasswords(currentUsere.oldPassword,currentUsere.newPassword)">确认</button>
-                        <button class="op btn-blue" ng-click="closePop('pop-updatePassword')">取消</button>
-                    </div>
-                </div>
-            </form>
-            <!--<div class="form-item">
-                <div class="content">
-                    <label>请输入新密码:</label>
-                    <input type="text" class="input" name="name"  required ng-maxlength="30" ng-model="currentUser.password">
-                </div>
-            </div>
-            <div class="form-op">
-                <span class="op btn-blue" ng-click="updatePassword(currentUser.password)">确定</span>
-                <span class="op btn-blue" ng-click="closePop('pop-updatePassword')">取消</span>
-            </div>-->
-        </div>
-    </div>
-
-
-
 </div>
