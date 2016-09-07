@@ -32,7 +32,38 @@
     <div id="pop-updatePassword" class="pop">
         <div class="pop-title">修改密码</div>
         <div class="pop-content">
-            <div class="form-item">
+            <form name="t_editPassword" novalidate>
+                <div class="main-wrapper" ng-show="true">
+                    <div class="form-item">
+                        <div class="title">原始密码：</div>
+                        <div class="content">
+                            <input type="password" class="input" name="oldPassword" required ng-model="currentUsere.oldPassword">
+                            <div class="error" ng-show="t_editPassword.oldPassword.$dirty&&t_editPassword.oldPassword.$invalid">请输入原始密码</div>
+                        </div>
+                    </div>
+                    <div class="form-item">
+                        <div class="title">新密码：</div>
+                        <div class="content">
+                            <input type="password" class="input" name="newPassword" required ng-model="currentUsere.newPassword">
+                            <div class="error" ng-show="t_editPassword.newPassword.$dirty&&t_editPassword.newPassword.$invalid">请输入新密码</div>
+                        </div>
+                    </div>
+                    <div class="form-item">
+                        <div class="title">确认密码：</div>
+                        <div class="content">
+                            <input type="password" class="input" name="makeSurePassword" ng-model="currentUsere.makeSurePassword">
+                            <div ng-show="t_editPassword.makeSurePassword.$dirty">
+                                <div class="error" ng-show="currentUsere.newPassword != currentUsere.makeSurePassword">两次密码输入不一致</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-op">
+                        <button class="op btn-blue" ng-click="t_editPassword.oldPassword.$dirty=true; t_editPassword.newPassword.$dirty=true;t_editPassword.makeSurePassword.$dirty = true; t_editPassword.$valid && t_updatePasswords(currentUsere.oldPassword,currentUsere.newPassword)">确认</button>
+                        <button class="op btn-blue" ng-click="closePop('pop-updatePassword')">取消</button>
+                    </div>
+                </div>
+            </form>
+            <!--<div class="form-item">
                 <div class="content">
                     <label>请输入新密码:</label>
                     <input type="text" class="input" name="name"  required ng-maxlength="30" ng-model="currentUser.password">
@@ -41,7 +72,7 @@
             <div class="form-op">
                 <span class="op btn-blue" ng-click="updatePassword(currentUser.password)">确定</span>
                 <span class="op btn-blue" ng-click="closePop('pop-updatePassword')">取消</span>
-            </div>
+            </div>-->
         </div>
     </div>
 

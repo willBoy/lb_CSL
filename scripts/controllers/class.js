@@ -81,11 +81,10 @@ lbApp.controller('ClassListController', ['$scope', 'UtilsService', 'RequestServi
                 loading: true,
                 success: function (data) {
                     UtilsService.href('/class/delClass/'+id);
-
                 }
             });
         }
-    }
+    };
     var timer;
     $scope.showUserOp = function() {
         clearTimeout(timer);

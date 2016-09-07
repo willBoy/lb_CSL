@@ -179,18 +179,18 @@ lbApp.controller('updatePassword', ['$scope', '$rootScope', 'RequestService', 'U
     // 绑定弹框事件
     UtilsService.initPop($scope);
     // 教师修改密码
-    $scope.t_updatePassword = function(password) {
-        RequestService.request({
-            token: 't_updatePassword',
-            method:'POST',
-            strParams:'id='+$scope.currentUser.id+'&password='+password,
-            /*data:UtilsService.serialize({classID:$routeParams.classID,studentId:$routeParams.studentId,remark:$scope.studentInfo_r.remark}),*/
-            success:function(){
-                alert("修改成功");
-                $scope.closePop('pop-resetpwd')
-            }
-        });
-    };
+    //$scope.t_updatePassword = function(password) {
+    //    RequestService.request({
+    //        token: 't_updatePassword',
+    //        method:'POST',
+    //        strParams:'id='+$scope.currentUser.id+'&password='+password,
+    //        /*data:UtilsService.serialize({classID:$routeParams.classID,studentId:$routeParams.studentId,remark:$scope.studentInfo_r.remark}),*/
+    //        success:function(){
+    //            alert("修改成功");
+    //            $scope.closePop('pop-resetpwd')
+    //        }
+    //    });
+    //};
 
 
 }]);

@@ -8,22 +8,32 @@ lbApp.directive('lbHeaderDirective', ['UtilsService','RequestService',function(U
         controller: function($scope,UtilsService, $element, $attrs, $transclude) {
             // 是否显示用户操作
             $scope.userOpIsShow = false;
+            // 绑定弹框事件
+            UtilsService.initPop($scope);
+            $scope.currentUsere={
+                oldPassword:'',
+                newPassword:'',
+                makeSurePassword:''
+            };
             // 教师修改密码
-            $scope.updatePassword = function(password) {
-                var encode = new Base64();
-                password = encode.encode(password);
+            $scope.t_updatePasswords = function(oldPassword,newPassword) {
+                /*var encode = new Base64();
+                password = encode.encode(password);*/
+                console.log(oldPassword);
+                console.log(newPassword);
                 RequestService.request({
                     token: 't_updatePassword',
                     method:'POST',
-                    strParams:'id='+$scope.currentUser.id+'&password='+password,
+                    strParams:'oldPassword='+oldPassword+'&newPassword='+newPassword,
+                   /* strParams:'id='+$scope.currentUser.id+'&oldPassword='+oldPassword+'&newPassword='+newPassword,*/
                     success:function(){
                         alert("修改成功");
                         $scope.closePop('pop-updatePassword')
                     },
                     password:function(data){
-                        var decode = new Base64();
-                        password = decode.decode(password);
-                    }
+                     var decode = new Base64();
+                     //password = decode.decode(password);
+                     }
                 });
             };
             //教师端-退出
@@ -58,6 +68,7 @@ lbApp.directive('lbHeaderDirective', ['UtilsService','RequestService',function(U
                     });
                 }, 300);
             };
+
 
         }
     };
