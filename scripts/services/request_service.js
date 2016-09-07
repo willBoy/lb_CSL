@@ -167,7 +167,16 @@ lbApp.factory('RequestService', ['$http', 'UtilsService', function($http, UtilsS
                         case "20103":
                             reqConfig.sRegister();
                             break;
-                        case "20204":
+                        case "20211":
+                            alert(data.msg);
+                            reqConfig.addClass();
+                            break;
+                        case "20210":
+                            alert(data.msg);
+                            reqConfig.addClass();
+                            break;
+                        case "20209":
+                            alert(data.msg);
                             reqConfig.addClass();
                             break;
                         default:

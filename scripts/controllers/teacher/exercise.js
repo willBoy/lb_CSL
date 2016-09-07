@@ -165,23 +165,26 @@ lbApp.controller('ExerciseAddController', ['$scope', '$routeParams', 'UtilsServi
 
     // 检索习题
     $scope.getExerciseList = function (page) {
+        $scope.selectedCallList = {};
         //初始化全选
         $scope.callAll = false;
         //获取分页信息
         $scope.conditions.pageInfo.page = page || 1;
+        console.log($scope.conditions);
         RequestService.request({
             token: 't_exeIndex',
             method: 'POST',
             strParams: UtilsService.genConditions($scope.conditions),
+            //data:UtilsService.serialize({chsChars:'是'}),
             success: function (data) {
                 $scope.conditions.pageInfo.totalPage = data.pages;
                 $scope.t_sel_exeList = data.result;
+                console.log($scope.t_sel_exeList.length);
                 for (var i = 0; i < $scope.t_sel_exeList.length; i++) {
                     $scope.selectedCallList[$scope.t_sel_exeList[i].id] = false;
                     $scope.callAll = false;
                 }
                 $scope.total = data.total;
-                console.log($scope.t_sel_exeList.length)
             }
         });
     };

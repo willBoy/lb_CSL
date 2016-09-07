@@ -147,7 +147,6 @@ lbApp.controller('StudentCourseController', ['$scope', '$routeParams', 'UtilsSer
     };
     //加入课程
     $scope.addCourse = function (sequenceNo) {
-        console.log(sequenceNo);
         RequestService.request({
             token: 's_addCourse',
             method: 'POST',
@@ -158,7 +157,6 @@ lbApp.controller('StudentCourseController', ['$scope', '$routeParams', 'UtilsSer
                 location.reload();
             },
             addClass:function(data){
-                alert("加入失败，班级在准备中或已经结课了");
                 $scope.s_myCourse.sequenceNo = '';
             }
         })

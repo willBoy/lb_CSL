@@ -20,7 +20,7 @@
             <div class="form-item">
                 <div class="title">词汇：</div>
                 <div class="content">
-                    <input type="text" class="input" name="name"  required ng-maxlength="30" ng-model="conditions.common.chsChars">
+                    <input type="text" class="input" ng-model="conditions.common.chsChars">
                 </div>
             </div>
         </div>
@@ -29,13 +29,6 @@
                 <div class="title">声调：</div>
                 <div class="content">
                     <input type="text" class="input" ng-model="conditions.common.tones">
-                    <!--<select class="select" name="voice_type" ng-model="conditions.common.tones">-->
-                        <!--<option value="">全部</option>-->
-                        <!--<option value="1">1</option>-->
-                        <!--<option value="2">2</option>-->
-                        <!--<option value="3">3</option>-->
-                        <!--<option value="4">4</option>-->
-                    <!--</select>-->
                 </div>
             </div>
         </div>
@@ -109,7 +102,6 @@
         <br/>
         <div class="form-op">
             <span class="op btn-blue" ng-click="getExerciseList(1)">检索</span>
-            <!--<span class="op btn-blue" ng-click="utils.href('/class/exercise_add')">取消</span>-->
             <span class="op btn-blue" ng-click="ReturnExerciseList()">返回</span>
         </div>
     </div>
