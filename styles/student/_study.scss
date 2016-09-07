@@ -11,8 +11,8 @@
             position: absolute;
             color: white;
             font-size: 42px;
-            top: 34%;
-            left: 51%;
+            top: 47.73%;
+            left: 48.74%;
         }
         .answer{
             .key{
@@ -24,83 +24,61 @@
         .imgShow{
             width: 100%;
             text-align: center;
-            padding-top: 2%;
+            padding-top: 7%;
         }
     }
     .tone{
-        .option-1{
-            position: absolute;
-            bottom: 20%;
-            left: 25%;
-            .border-3-white{
-                border: 3px solid white;
-            }
-            .syllable-num{
-                font-size: 30px;
-                color: white;
-                text-align: center;
-                margin-top: 5%;
-            }
+        width: 100%;
+        position: absolute;
+        text-align: center;
+        bottom: 20%;
+        .eee{
+            width: 608px;
+            margin: 0 auto;
         }
-        .option-2{
-            position: absolute;
-            bottom: 20%;
-            left: 40%;
-            .border-3-white{
-                border: 3px solid white;
-            }
+        .option{
+            border: 3px solid white;
+            width: 86px;
+            height: 86px;
+            float: left;
+            margin-left: 30px;
+            margin-right:30px;
             .syllable-num{
                 font-size: 30px;
                 color: white;
                 text-align: center;
-                margin-top: 5%;
-            }
-        }
-        .option-3{
-            position: absolute;
-            bottom: 20%;
-            left: 55%;
-            .border-3-white{
-                border: 3px solid white;
-            }
-            .syllable-num{
-                font-size: 30px;
-                color: white;
-                text-align: center;
-                margin-top: 5%;
-            }
-        }
-        .option-4{
-            position: absolute;
-            bottom: 20%;
-            left: 70%;
-            .border-3-white{
-                border: 3px solid white;
-            }
-            .syllable-num{
-                font-size: 30px;
-                color: white;
-                text-align: center;
-                margin-top: 5%;
+                margin-top: 20px;
             }
         }
 
     }
+    .enterFont{
+        position: relative;
+        bottom: 10%;
+        width: 152px;
+        color: white;
+        margin: 0 auto;
+    }
     .answer{
+        position:absolute;
+        top:45.8%;
+        width: 100%;
+        height: 13%;
+        text-align: center;
         .border-3-white{
             border: 3px solid white;
         }
         .key-1{
-            width: 8%;
             height: 100%;
             display: inline-block;
             text-align: center;
             .answer_empty{
                 border-bottom: 3px solid white;
-                width: 106px;
-                height: 102px;
+                width: 86px;
+                height: 83px;
                 float: left;
-                margin-left: 30px;
+                margin-left: 15px;
+                margin-right: 15px;
             }
         }
         .key-2{
@@ -110,10 +88,11 @@
             text-align: center;
             .answer_empty{
                 border-bottom: 3px solid white;
-                width: 106px;
-                height: 102px;
+                width: 86px;
+                height: 83px;
                 float: left;
-                margin-left: 30px;
+                margin-left: 15px;
+                margin-right: 15px;
             }
         }
         .key-3{
@@ -123,10 +102,11 @@
             text-align: center;
             .answer_empty{
                 border-bottom: 3px solid white;
-                width: 106px;
-                height: 102px;
+                width: 86px;
+                height: 83px;
                 float: left;
-                margin-left: 30px;
+                margin-left: 15px;
+                margin-right: 15px;
             }
         }
         .key-4{
@@ -136,10 +116,11 @@
             display: inline-block;
             .answer_empty{
                 border-bottom: 3px solid white;
-                width: 106px;
-                height: 102px;
+                width: 86px;
+                height: 83px;
                 float: left;
-                margin-left: 30px;
+                margin-left: 15px;
+                margin-right: 15px;
             }
         }
         .border-3-green{
@@ -151,6 +132,7 @@
     }
 
 }
+
 
 .study{
     height: 100%;
@@ -169,9 +151,10 @@
         font-size: 30px;
     }
     p{
+
         font-size: 18px;
         line-height: 24px;
-        margin: 30px auto 50px;
+        /*margin: 30px auto 50px;*/
     }
     .exit{
         position: absolute;
@@ -180,10 +163,11 @@
         float: right;
     }
     .volume{
-        width: 300px;
-        margin: 50px auto;
-        background: #ccc;
-        padding: 50px;
+        width: 50%;
+        margin: 0 auto;
+       /* margin: 0px auto 20px;
+        background: #ccc;*/
+        /*height: 180px;*/
     }
     .key{
         margin: 100px auto 100px;
@@ -259,5 +243,11 @@
 
 
 
+}
+.anjian{
+    margin-top: 20px;
+    position: absolute;
+    width: 100%;
+    bottom: 20%;
 }
 

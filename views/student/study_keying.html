@@ -1,38 +1,40 @@
 <div id="s_exercising">
-    <span  class="btn btn-blue exe_exit " style="" ng-click="exe_out()">exit</span>
+    <span class="btn btn-blue exe_exit " style="" ng-click="exe_out()">退出</span>
+
     <div class="exercise" id="dududu">
         <span class="add_symbol">+</span>
         <section id="musicPro">
-            <audio id="dududu_Audio"  src="../../vendor/mp3/dududu.mp3"/>
+            <audio id="dududu_Audio" src="../../vendor/mp3/dududu.mp3"/>
         </section>
     </div>
     <div class="exercise" id="exerciseQ" style="width: 100%;height: 100%;">
-            <section id="musicSelect">
-                <audio id="musicAuto"  ng-src="{{musicSrc}}"></audio>
-            </section>
-            <div class="imgShow" id="imgShow">
-                <img ng-src="{{imgSrc}}">
-            </div>
-        <div class="answer" id="answer" style="position:absolute;top:40%;width: 100%;height: 13%;text-align: center;"></div>
+        <section id="musicSelect">
+            <audio id="musicAuto" ng-src="{{musicSrc}}"></audio>
+        </section>
+        <div class="imgShow" id="imgShow">
+            <img ng-src="{{imgSrc}}" style="width:40%;max-width:680px;">
+        </div>
+        <div class="answer" id="answer"></div>
     </div>
     <div class="tone">
-        <div class="option-1">
-            <div class="icon icons-1 border-3-white"></div>
-            <div class="syllable-num">1</div>
+        <div class="eee">
+            <div class="option">
+                <div class="icon icons-2 border-3-white"></div>
+                <div class="syllable-num">1</div>
+            </div>
+            <div class="option">
+                <div class="icon icons-2 border-3-white"></div>
+                <div class="syllable-num">2</div>
+            </div>
+            <div class="option">
+                <div class="icon icons-3 border-3-white"></div>
+                <div class="syllable-num">3</div>
+            </div>
+            <div class="option">
+                <div class="icon icons-4 border-3-white"></div>
+                <div class="syllable-num">4</div>
+            </div>
         </div>
-        <div class="option-2">
-            <div class="icon icons-2 border-3-white"></div>
-            <div class="syllable-num">2</div>
-        </div>
-        <div class="option-3">
-            <div class="icon icons-3 border-3-white"></div>
-            <div class="syllable-num">3</div>
-        </div>
-        <div class="option-4">
-            <div class="icon icons-4 border-3-white"></div>
-            <div class="syllable-num">4</div>
-        </div>
-        <div class="font-size-16" id="enterFont" style="color: white;position: absolute;bottom: 10%;left: 45%;">按回车（Enter）返回</div>
     </div>
-
+    <div class="font-size-16 enterFont" id="enterFont">按回车（Enter）继续</div>
 </div>

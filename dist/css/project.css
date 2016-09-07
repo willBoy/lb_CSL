@@ -55,319 +55,319 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   display: block;
 }
 
-.icons-sprite, .icons-1, .icons-2, .icons-3, .icons-4, .icons-R0, .icons-R1, .icons-R2, .icons-R3, .icons-R4, .icons-bgbgbg, .icons-calendar, .icons-close, .icons-cross, .icons-down-order, .icons-edit, .icons-emoji, .icons-enter, .icons-enterkey, .icons-error1, .icons-error2, .icons-error3, .icons-error4, .icons-head-client, .icons-head-robot, .icons-key, .icons-key1, .icons-list, .icons-lock, .icons-logo, #header .main-logo .logo, .icons-message, .icons-no-order, .icons-prompt, .icons-robot, .icons-schedule, .icons-search, .icons-setting, .icons-spread, .icons-task, .icons-time, .icons-unlock, .icons-up-order, .icons-user, .icons-volume, .icons-welcome_care, .icons-welcome_elite, .icons-welcome_job_market, .icons-welcome_message, .icons-welcome_more, .icons-welcome_sales, .icons-welcome_society, .icons-welcome_upgrade, .icons-welcome_voice {
-  background-image: url('../images/../images/icons-s489388e65b.png');
+.icons-sprite, .icons-1, .icons-2, .icons-3, .icons-4, .icons-R0, .icons-R1, .icons-R2, .icons-R3, .icons-R4, .icons-bgbgbg, .icons-calendar, .icons-close, .icons-cross, .icons-down-order, .icons-edit, .icons-emoji, .icons-enter, .icons-enterkey, .icons-error1, .icons-error2, .icons-error3, .icons-error4, .icons-head-client, .icons-head-robot, .icons-key, .icons-key2, .icons-list, .icons-lock, .icons-logo, #header .main-logo .logo, .icons-message, .icons-no-order, .icons-prompt, .icons-robot, .icons-schedule, .icons-search, .icons-setting, .icons-spread, .icons-task, .icons-time, .icons-unlock, .icons-up-order, .icons-user, .icons-volume, .icons-welcome_care, .icons-welcome_elite, .icons-welcome_job_market, .icons-welcome_message, .icons-welcome_more, .icons-welcome_sales, .icons-welcome_society, .icons-welcome_upgrade, .icons-welcome_voice {
+  background-image: url('../images/../images/icons-s78e7daa0cc.png');
   background-repeat: no-repeat;
 }
 
 .icons-1 {
-  background-position: -243px -300px;
-  height: 100px;
-  width: 100px;
+  background-position: -248px 0;
+  height: 80px;
+  width: 80px;
 }
 
 .icons-2 {
-  background-position: 0 0;
-  height: 100px;
-  width: 100px;
+  background-position: -555px -80px;
+  height: 80px;
+  width: 80px;
 }
 
 .icons-3 {
-  background-position: -500px 0;
-  height: 100px;
-  width: 100px;
+  background-position: -475px -80px;
+  height: 80px;
+  width: 80px;
 }
 
 .icons-4 {
-  background-position: -760px -100px;
-  height: 100px;
-  width: 100px;
+  background-position: -488px 0;
+  height: 80px;
+  width: 80px;
 }
 
 .icons-R0 {
-  background-position: -860px -100px;
+  background-position: -494px -160px;
   height: 100px;
   width: 100px;
 }
 
 .icons-R1 {
-  background-position: -408px -457px;
+  background-position: -416px -360px;
   height: 100px;
   width: 100px;
 }
 
 .icons-R2 {
-  background-position: -308px -457px;
+  background-position: 0 -460px;
   height: 100px;
   width: 100px;
 }
 
 .icons-R3 {
-  background-position: -208px -457px;
+  background-position: -516px -260px;
   height: 100px;
   width: 100px;
 }
 
 .icons-R4 {
-  background-position: -850px -200px;
+  background-position: -516px -360px;
   height: 100px;
   width: 100px;
 }
 
 .icons-bgbgbg {
-  background-position: 0 -557px;
+  background-position: 0 -817px;
   height: 260px;
   width: 672px;
 }
 
 .icons-calendar {
-  background-position: -32px -200px;
+  background-position: -160px -80px;
   height: 16px;
   width: 16px;
 }
 
 .icons-close {
-  background-position: -48px -200px;
+  background-position: -176px -80px;
   height: 16px;
   width: 16px;
 }
 
 .icons-cross {
-  background-position: -808px 0;
+  background-position: -416px -260px;
   height: 100px;
   width: 100px;
 }
 
 .icons-down-order {
-  background-position: -80px -200px;
+  background-position: -208px -80px;
   height: 16px;
   width: 16px;
 }
 
 .icons-edit {
-  background-position: -96px -200px;
+  background-position: -272px -80px;
   height: 16px;
   width: 16px;
 }
 
 .icons-emoji {
-  background-position: -112px -200px;
+  background-position: -240px -80px;
   height: 16px;
   width: 16px;
 }
 
 .icons-enter {
-  background-position: 0 -300px;
+  background-position: -43px -160px;
   height: 48px;
   width: 243px;
 }
 
 .icons-enterkey {
-  background-position: -343px -300px;
+  background-position: -100px -460px;
   height: 120px;
   width: 130px;
 }
 
 .icons-error1 {
-  background-position: -400px 0;
-  height: 100px;
-  width: 100px;
+  background-position: -328px 0;
+  height: 80px;
+  width: 80px;
 }
 
 .icons-error2 {
-  background-position: -300px 0;
-  height: 100px;
-  width: 100px;
+  background-position: -395px -80px;
+  height: 80px;
+  width: 80px;
 }
 
 .icons-error3 {
-  background-position: -200px 0;
-  height: 100px;
-  width: 100px;
+  background-position: -568px 0;
+  height: 80px;
+  width: 80px;
 }
 
 .icons-error4 {
-  background-position: -100px 0;
-  height: 100px;
-  width: 100px;
+  background-position: -408px 0;
+  height: 80px;
+  width: 80px;
 }
 
 .icons-head-client {
-  background-position: -235px -200px;
+  background-position: -331px -80px;
   height: 32px;
   width: 32px;
 }
 
 .icons-head-robot {
-  background-position: -203px -200px;
+  background-position: -363px -80px;
   height: 32px;
   width: 32px;
 }
 
 .icons-key {
-  background-position: -267px -200px;
+  background-position: 0 -160px;
   height: 41px;
   width: 43px;
 }
 
-.icons-key1 {
-  background-position: 0 -817px;
-  height: 452px;
-  width: 970px;
+.icons-key2 {
+  background-position: 0 -1077px;
+  height: 279px;
+  width: 600px;
 }
 
 .icons-list {
-  background-position: 0 -100px;
+  background-position: 0 -80px;
   height: 16px;
   width: 16px;
 }
 
 .icons-lock {
-  background-position: -48px -100px;
+  background-position: -16px -80px;
   height: 16px;
   width: 16px;
 }
 
 .icons-logo, #header .main-logo .logo {
-  background-position: -179px -200px;
+  background-position: -307px -80px;
   height: 23px;
   width: 24px;
 }
 
 .icons-message {
-  background-position: -32px -100px;
+  background-position: -32px -80px;
   height: 16px;
   width: 16px;
 }
 
 .icons-no-order {
-  background-position: -16px -100px;
+  background-position: -48px -80px;
   height: 16px;
   width: 16px;
 }
 
 .icons-prompt {
-  background-position: -460px -100px;
+  background-position: 0 -717px;
   height: 100px;
   width: 300px;
 }
 
 .icons-robot {
-  background-position: -64px -100px;
+  background-position: -64px -80px;
   height: 16px;
   width: 16px;
 }
 
 .icons-schedule {
-  background-position: -144px -200px;
+  background-position: -256px -80px;
   height: 16px;
   width: 16px;
 }
 
 .icons-search {
-  background-position: -160px -200px;
+  background-position: -288px -80px;
   height: 19px;
   width: 19px;
 }
 
 .icons-setting {
-  background-position: -80px -100px;
+  background-position: -224px -80px;
   height: 16px;
   width: 16px;
 }
 
 .icons-spread {
-  background-position: -96px -100px;
+  background-position: -192px -80px;
   height: 16px;
   width: 16px;
 }
 
 .icons-task {
-  background-position: -112px -100px;
+  background-position: -144px -80px;
   height: 16px;
   width: 16px;
 }
 
 .icons-time {
-  background-position: 0 -200px;
+  background-position: -128px -80px;
   height: 16px;
   width: 16px;
 }
 
 .icons-unlock {
-  background-position: -128px -200px;
+  background-position: -112px -80px;
   height: 16px;
   width: 16px;
 }
 
 .icons-up-order {
-  background-position: -64px -200px;
+  background-position: -96px -80px;
   height: 16px;
   width: 16px;
 }
 
 .icons-user {
-  background-position: -16px -200px;
+  background-position: -80px -80px;
   height: 16px;
   width: 16px;
 }
 
 .icons-volume {
-  background-position: -473px -300px;
-  height: 157px;
-  width: 157px;
+  background-position: -230px -460px;
+  height: 257px;
+  width: 357px;
 }
 
 .icons-welcome_care {
-  background-position: -642px -200px;
+  background-position: 0 -360px;
   height: 99px;
   width: 208px;
 }
 
 .icons-welcome_elite {
-  background-position: -310px -200px;
+  background-position: -124px 0;
   height: 60px;
   width: 62px;
 }
 
 .icons-welcome_job_market {
-  background-position: -372px -200px;
+  background-position: -62px 0;
   height: 60px;
   width: 62px;
 }
 
 .icons-welcome_message {
-  background-position: -600px 0;
+  background-position: -208px -260px;
   height: 99px;
   width: 208px;
 }
 
 .icons-welcome_more {
-  background-position: -434px -200px;
+  background-position: -208px -360px;
   height: 99px;
   width: 208px;
 }
 
 .icons-welcome_sales {
-  background-position: 0 -457px;
+  background-position: 0 -260px;
   height: 99px;
   width: 208px;
 }
 
 .icons-welcome_society {
-  background-position: -190px -100px;
+  background-position: 0 0;
   height: 60px;
   width: 62px;
 }
 
 .icons-welcome_upgrade {
-  background-position: -128px -100px;
+  background-position: -186px 0;
   height: 60px;
   width: 62px;
 }
 
 .icons-welcome_voice {
-  background-position: -252px -100px;
+  background-position: -286px -160px;
   height: 99px;
   width: 208px;
 }
@@ -2069,8 +2069,8 @@ UtilsService.genTab($scope, tabName)
   position: absolute;
   color: white;
   font-size: 42px;
-  top: 34%;
-  left: 51%;
+  top: 47.73%;
+  left: 48.74%;
 }
 #s_exercising .exercise .answer .key {
   position: absolute;
@@ -2080,79 +2080,61 @@ UtilsService.genTab($scope, tabName)
 #s_exercising .exercise .imgShow {
   width: 100%;
   text-align: center;
-  padding-top: 2%;
+  padding-top: 7%;
 }
-#s_exercising .tone .option-1 {
+#s_exercising .tone {
+  width: 100%;
   position: absolute;
+  text-align: center;
   bottom: 20%;
-  left: 25%;
 }
-#s_exercising .tone .option-1 .border-3-white {
+#s_exercising .tone .eee {
+  width: 608px;
+  margin: 0 auto;
+}
+#s_exercising .tone .option {
   border: 3px solid white;
+  width: 86px;
+  height: 86px;
+  float: left;
+  margin-left: 30px;
+  margin-right: 30px;
 }
-#s_exercising .tone .option-1 .syllable-num {
+#s_exercising .tone .option .syllable-num {
   font-size: 30px;
   color: white;
   text-align: center;
-  margin-top: 5%;
+  margin-top: 20px;
 }
-#s_exercising .tone .option-2 {
-  position: absolute;
-  bottom: 20%;
-  left: 40%;
-}
-#s_exercising .tone .option-2 .border-3-white {
-  border: 3px solid white;
-}
-#s_exercising .tone .option-2 .syllable-num {
-  font-size: 30px;
+#s_exercising .enterFont {
+  position: relative;
+  bottom: 10%;
+  width: 152px;
   color: white;
-  text-align: center;
-  margin-top: 5%;
+  margin: 0 auto;
 }
-#s_exercising .tone .option-3 {
+#s_exercising .answer {
   position: absolute;
-  bottom: 20%;
-  left: 55%;
-}
-#s_exercising .tone .option-3 .border-3-white {
-  border: 3px solid white;
-}
-#s_exercising .tone .option-3 .syllable-num {
-  font-size: 30px;
-  color: white;
+  top: 45.8%;
+  width: 100%;
+  height: 13%;
   text-align: center;
-  margin-top: 5%;
-}
-#s_exercising .tone .option-4 {
-  position: absolute;
-  bottom: 20%;
-  left: 70%;
-}
-#s_exercising .tone .option-4 .border-3-white {
-  border: 3px solid white;
-}
-#s_exercising .tone .option-4 .syllable-num {
-  font-size: 30px;
-  color: white;
-  text-align: center;
-  margin-top: 5%;
 }
 #s_exercising .answer .border-3-white {
   border: 3px solid white;
 }
 #s_exercising .answer .key-1 {
-  width: 8%;
   height: 100%;
   display: inline-block;
   text-align: center;
 }
 #s_exercising .answer .key-1 .answer_empty {
   border-bottom: 3px solid white;
-  width: 106px;
-  height: 102px;
+  width: 86px;
+  height: 83px;
   float: left;
-  margin-left: 30px;
+  margin-left: 15px;
+  margin-right: 15px;
 }
 #s_exercising .answer .key-2 {
   /*width: 17%;*/
@@ -2162,10 +2144,11 @@ UtilsService.genTab($scope, tabName)
 }
 #s_exercising .answer .key-2 .answer_empty {
   border-bottom: 3px solid white;
-  width: 106px;
-  height: 102px;
+  width: 86px;
+  height: 83px;
   float: left;
-  margin-left: 30px;
+  margin-left: 15px;
+  margin-right: 15px;
 }
 #s_exercising .answer .key-3 {
   /*width: 23%;*/
@@ -2175,10 +2158,11 @@ UtilsService.genTab($scope, tabName)
 }
 #s_exercising .answer .key-3 .answer_empty {
   border-bottom: 3px solid white;
-  width: 106px;
-  height: 102px;
+  width: 86px;
+  height: 83px;
   float: left;
-  margin-left: 30px;
+  margin-left: 15px;
+  margin-right: 15px;
 }
 #s_exercising .answer .key-4 {
   /*width: 30%;*/
@@ -2188,10 +2172,11 @@ UtilsService.genTab($scope, tabName)
 }
 #s_exercising .answer .key-4 .answer_empty {
   border-bottom: 3px solid white;
-  width: 106px;
-  height: 102px;
+  width: 86px;
+  height: 83px;
   float: left;
-  margin-left: 30px;
+  margin-left: 15px;
+  margin-right: 15px;
 }
 #s_exercising .answer .border-3-green {
   border: 3px solid green;
@@ -2222,7 +2207,7 @@ UtilsService.genTab($scope, tabName)
 .study p {
   font-size: 18px;
   line-height: 24px;
-  margin: 30px auto 50px;
+  /*margin: 30px auto 50px;*/
 }
 .study .exit {
   position: absolute;
@@ -2231,10 +2216,11 @@ UtilsService.genTab($scope, tabName)
   float: right;
 }
 .study .volume {
-  width: 300px;
-  margin: 50px auto;
-  background: #ccc;
-  padding: 50px;
+  width: 50%;
+  margin: 0 auto;
+  /* margin: 0px auto 20px;
+   background: #ccc;*/
+  /*height: 180px;*/
 }
 .study .key {
   margin: 100px auto 100px;
@@ -2303,6 +2289,13 @@ UtilsService.genTab($scope, tabName)
     width: 100%;
   }
 }
+.anjian {
+  margin-top: 20px;
+  position: absolute;
+  width: 100%;
+  bottom: 20%;
+}
+
 #s_profile .pro_item {
   margin-top: 50px;
   font-size: 16px;
