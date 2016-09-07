@@ -324,8 +324,8 @@ lbApp.controller('CourseController', ['$scope', '$routeParams', 'UtilsService', 
     //章节列表
     $scope.classCourseChapter = [];
     $scope.orderNoMap = {
-        '0': '顺序',
-        '1': '随机'
+        '0': '随机',
+        '1': '顺序'
     };
     $scope.statusMap = {
         '0': '准备中',
