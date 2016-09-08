@@ -31,14 +31,15 @@
                     <th>序号</th>
                     <th>章节主题</th>
                     <th>章节简介</th>
-                    <th>最好成绩</th>
+                    <th>历史最好成绩（%）</th>
                     <th>操作</th>
                 </tr>
                 <tr  ng-repeat="s_courseChapter_list in courseChapter track by $index">
                     <td ng-bind="$index + 1"></td>
                     <td ng-bind="s_courseChapter_list.name"></td>
                     <td ng-bind="s_courseChapter_list.descriptionContent"></td>
-                    <td ng-bind="s_courseChapter_list.bestScore"></td>
+                    <td ng-show="s_courseChapter_list.bestScore == ''">尚未完成练习</td>
+                    <td ng-show="s_courseChapter_list.bestScore != ''" ng-bind="s_courseChapter_list.bestScore"></td>
                     <td ng-show="s_courseChapter_list.status == '0'">
                         <a class="color-blue"  title="章节尚未开放" style="color: #999999">开始练习</a>
                     </td>
