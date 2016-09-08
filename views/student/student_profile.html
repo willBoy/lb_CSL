@@ -6,74 +6,39 @@
             <em class="last">个人中心</em>
         </div>
     </div>
-    <div class="main-wrapper">
+    <div class="main-wrapper s_profile">
         <div class="title-1 user-info">
             <span class="title">账户信息</span>
         </div>
-        <div class="pro_item">
-            <div style="float: left;">
-                <div>英文名：</div>
-                <div>Full name</div>
-            </div>
-            <div style="margin-left: 167px;" ng-bind="studentInfo.englishName"></div>
+        <div class="form-item">
+            <div class="title">英文名：<br/>Full name</div>
+            <div class="text" ng-bind="studentInfo.englishName"></div>
         </div>
-        <div class="pro_item">
-            <div style="float: left;">
-                <div>中文名：</div>
-                <div>Chinese name</div>
-            </div>
-            <div style="margin-left: 167px;" ng-bind="studentInfo.chineseName"></div>
+        <div class="form-item">
+            <div class="title">中文名：<br/>Chinese name</div>
+            <div class="text" ng-bind="studentInfo.chineseName"></div>
         </div>
-        <div class="pro_item">
-            <div style="float: left;">
-                <div>邮箱：</div>
-                <div>Email</div>
-            </div>
-            <div style="margin-left: 167px;" ng-bind="studentInfo.email"></div>
+        <div class="form-item">
+            <div class="title">邮箱：<br/>Email</div>
+            <div class="text" ng-bind="studentInfo.email"></div>
         </div>
-        <div class="pro_item">
-            <div style="float: left;">
-                <div>性别：</div>
-                <div>Gender</div>
-            </div>
-            <div ng-show="studentInfo.gender == 0">
-                <div style="margin-left: 167px;">男</div>
-            </div>
-            <div ng-show="studentInfo.gender == 1">
-                <div style="margin-left: 167px;">女</div>
-            </div>
+        <div class="form-item">
+            <div class="title">性别：<br/>Gender</div>
+            <div class="text" ng-show="studentInfo.gender == 0">男</div>
+            <div class="text" ng-show="studentInfo.gender == 1">女</div>
         </div>
-        <div class="pro_item">
-            <div style="float: left;">
-                <div>年龄：</div>
-                <div>Age</div>
-            </div>
-            <div style="margin-left: 167px;" ng-bind="studentInfo.age"></div>
+        <div class="form-item">
+            <div class="title">年龄：<br/>Age</div>
+            <div class="text" ng-bind="studentInfo.age"></div>
         </div>
-
-        <br>
-        <!--<div class="pro_item">-->
-            <!--<div style="float: left;">-->
-                <!--<div>手机号码：</div>-->
-                <!--<div>Cellphone number</div>-->
-            <!--</div>-->
-            <!--<div style="margin-left: 167px;" ng-bind="studentInfo.phoneNumber"></div>-->
-        <!--</div>-->
-        <div class="pro_item">
-            <div style="float: left;">
-                <div>国籍：</div>
-                <div>Country of citizenship</div>
-            </div>
-            <div style="margin-left: 167px;" ng-bind="studentInfo.nationality"></div>
+        <div class="form-item">
+            <div class="title">国籍：<br/>Country of citizenship</div>
+            <div class="text" ng-bind="studentInfo.nationality"></div>
         </div>
-        <div class="pro_item">
-            <div style="float: left;">
-                <div>母语：</div>
-                <div>Native language</div>
-            </div>
-            <div style="margin-left: 167px;" ng-bind="studentInfo.motherTongue"></div>
+        <div class="form-item">
+            <div class="title">母语：<br/>Native language</div>
+            <div class="text" ng-bind="studentInfo.motherTongue"></div>
         </div>
-        <!-- ------------------------------------------------------------------------------------>
     </div>
 </div>
 
