@@ -18,6 +18,14 @@
 .col-three{
     width: 33%;
     display: inline-block;
+    .form-item{
+        .title{
+            width: 60px;
+        }
+        .content{
+            margin-left: 60px;
+        }
+    }
 }
 .prompt{
     height: 40px;
