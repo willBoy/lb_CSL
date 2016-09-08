@@ -2090,10 +2090,23 @@ UtilsService.genTab($scope, tabName)
   left: 50%;
 }
 #s_exercising .exercise .imgShow {
-  max-height: 250px;
+  max-height: 200px;
   text-align: center;
-  padding-top: 7%;
-  margin: 0 auto;
+  padding-top: 2%;
+}
+@media screen and (max-width: 1024px) {
+  #s_exercising .exercise .imgShow {
+    max-height: 200px;
+    text-align: center;
+    padding-top: 2%;
+  }
+}
+@media screen and (min-width: 1025px) {
+  #s_exercising .exercise .imgShow {
+    max-height: 200px;
+    text-align: center;
+    padding-top: 6%;
+  }
 }
 #s_exercising .tone {
   width: 100%;
@@ -2314,16 +2327,7 @@ UtilsService.genTab($scope, tabName)
   float: left;
 }
 
-.s_profile {
-  /*.pro_item{
-      margin-top: 50px;
-      font-size: 16px;
-  }*/
-}
 .s_profile .form-item .title {
   line-height: 20px;
   width: 200px;
-}
-.s_profile .form-item .text {
-  /*border: 1px #eee solid;*/
 }

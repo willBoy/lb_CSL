@@ -22,10 +22,23 @@
             }
         }
         .imgShow{
-            max-height: 250px;
+            max-height: 200px;
             text-align: center;
-            padding-top: 7%;
-            margin: 0 auto;
+            padding-top: 2%;
+        }
+        @media screen and (max-width: 1024px) {
+            .imgShow{
+                max-height: 200px;
+                text-align: center;
+                padding-top: 2%;
+            }
+        }
+        @media screen and (min-width: 1025px) {
+            .imgShow{
+                max-height: 200px;
+                text-align: center;
+                padding-top: 6%;
+            }
         }
     }
     .tone{
