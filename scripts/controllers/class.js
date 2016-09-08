@@ -478,7 +478,7 @@ lbApp.controller('CreateChapterController', ['$scope', '$routeParams', 'UtilsSer
         name: '',
         descriptionContent: '',
         status: '0',
-        orderNo: '1',
+        orderNo: '0',
         pattern: '0'
     };
     $scope.engineer = {
