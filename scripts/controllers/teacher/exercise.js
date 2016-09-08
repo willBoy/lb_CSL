@@ -244,8 +244,8 @@ lbApp.controller('ExerciseAddController', ['$scope', '$routeParams', 'UtilsServi
                     console.log(data);
                     /*console.log($scope.selectedCallList.length);*/
                     alert("添加习题成功"+data+'条');
-                    UtilsService.href('/class/exercise/' + $routeParams.chapterID);
-
+                    $scope.getExerciseList(1);
+                    /*UtilsService.href('/class/exercise/' + $routeParams.chapterID);*/
                 }
             })
         }
