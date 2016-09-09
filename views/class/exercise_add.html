@@ -122,6 +122,7 @@
                 <tr>
                     <th>全选<input type="checkbox" ng-model="callAll"></th>
                     <th>词汇</th>
+                    <th>拼音</th>
                     <th>声调</th>
                     <th>音节数</th>
                     <th>轻声</th>
@@ -132,6 +133,7 @@
                 <tr ng-repeat="t_sel_exe_list in t_sel_exeList">
                     <td><input type="checkbox"  ng-model="selectedCallList[t_sel_exe_list.id]"></td><!--ng-change="changeCallAll()" --><!-- ng-change="showadd=true"-->
                     <td ng-bind="t_sel_exe_list.chsChars"></td>
+                    <td ng-bind="t_sel_exe_list.pinyin"></td>
                     <td ng-bind="t_sel_exe_list.tones"></td>
                     <td ng-bind="t_sel_exe_list.nbSyllables"></td>
                     <td ng-bind="qingshengMap[t_sel_exe_list.qingsheng]"></td>

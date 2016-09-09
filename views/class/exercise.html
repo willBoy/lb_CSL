@@ -55,6 +55,7 @@
                 <tr>
                     <!--<th>序号</th>-->
                     <th>词汇</th>
+                    <th>拼音</th>
                     <th>声调</th>
                     <th>轻声</th>
                     <th>儿化音</th>
@@ -66,6 +67,7 @@
                 <tr ng-repeat="t_exe_list in t_exerciseList">
                     <!--<td ng-bind="$index+1"></td>-->
                     <td ng-bind="t_exe_list.pronunciationQuestions.chsChars"></td>
+                    <td ng-bind="t_exe_list.pronunciationQuestions.pinyin"></td>
                     <td ng-bind="t_exe_list.pronunciationQuestions.tones"></td>
                     <td ng-bind="qingshengMap[t_exe_list.pronunciationQuestions.qingsheng]"></td>
                     <td ng-bind="erhuaMap[t_exe_list.pronunciationQuestions.erhua]"></td>
