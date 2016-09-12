@@ -9,14 +9,6 @@ lbApp.controller('AddExerciseController', ['$scope', '$routeParams', 'UtilsServi
         listName: 'navigation',
         tabName: 'tabName'
     };
-
-    //为了获取currentUser
-    //RequestService.request({
-    //    token:'t_getCurrentUser',
-    //    success:function(){
-    //
-    //    }
-    //})
     //按导航查询班级ID
     $scope.courseId='';
     $scope.getCourseID =function(){
@@ -25,8 +17,6 @@ lbApp.controller('AddExerciseController', ['$scope', '$routeParams', 'UtilsServi
             method: 'POST',
             strParams:"chapterId="+$routeParams.chapterID,
             success: function (data) {
-                /*console.log($routeParams.chapterID)
-                 console.log(data);*/
                 $scope.courseId = data.courseId;
                 UtilsService.href('/teacher/course/'+$scope.courseId);
             }
@@ -86,8 +76,6 @@ lbApp.controller('AddExerciseController', ['$scope', '$routeParams', 'UtilsServi
             }
         });
     };
-
-
     $scope.ReturnExerciseList = function () {
         UtilsService.href('/teacher/exercise/' + $routeParams.chapterID);
     }

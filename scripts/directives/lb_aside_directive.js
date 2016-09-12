@@ -12,7 +12,7 @@ lbApp.directive('lbAsideDirective',function() {
                     {
                         name:'classManage',
                         value:'班级管理',
-                        url:'/classList',
+                        url:'/teacher/classList',
                         icon:''
                     }/*,
                     {
