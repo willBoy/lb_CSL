@@ -83,7 +83,7 @@ lbApp.controller('ClassListController', ['$scope', 'UtilsService', 'RequestServi
                 data: UtilsService.serialize({id: id}),
                 loading: true,
                 success: function (data) {
-                    UtilsService.href('/teacher/delClass/'+id);
+                    location.reload();
                 }
             });
         }
