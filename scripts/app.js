@@ -88,12 +88,6 @@ lbApp.config(['$routeProvider', '$locationProvider', '$httpProvider', function($
             controller:'ClassSettingsController',
             showHeader:true
         })
-        //…æ≥˝
-        .when('/teacher/delClass/:classID',{
-            templateUrl:'views/class/class_del.html',
-            controller:'classDelController',
-            showHeader:true
-        })
         //øŒ≥Ã…Ë÷√
         .when('/teacher/course/:courseID',{
             templateUrl:'views/teacher/course.html',
