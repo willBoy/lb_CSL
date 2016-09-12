@@ -28,7 +28,7 @@ lbApp.controller('AddExerciseController', ['$scope', '$routeParams', 'UtilsServi
                 /*console.log($routeParams.chapterID)
                  console.log(data);*/
                 $scope.courseId = data.courseId;
-                UtilsService.href('/teacher/courseSetting/'+$scope.courseId);
+                UtilsService.href('/teacher/course/'+$scope.courseId);
             }
         });
     };
