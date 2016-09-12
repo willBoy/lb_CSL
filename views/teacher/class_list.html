@@ -44,7 +44,6 @@
                         <a class="color-blue" ng-click="utils.href('/teacher/classSetting/'+t_classArr.id+'/'+t_classArr.courseId)">班级设置</a>
                         <a class="color-blue"  ng-click="utils.href('/teacher/course/'+t_classArr.courseId)">课程管理</a>
                         <a class="color-blue"  ng-click="utils.href('/teacher/student/'+t_classArr.id)">学生管理</a>
-                        <!--<a class="{{ t_classArr.status =='1' ? 'color-ccc hove' : 'color-blue' }}" ng-click="delclass(t_classArr.id)">删除</a>-->
                         <a class="color-blue" ng-show="t_classArr.status =='0' || t_classArr.status =='2'" ng-click="delclass(t_classArr.id)">删除</a>
                         <a class="color-ccc hvoe" ng-show="t_classArr.status =='1'" title="开课中的班级无法删除" >删除</a>
                     </td>
