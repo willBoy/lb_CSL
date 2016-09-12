@@ -1,0 +1,165 @@
+<div lb-aside-directive></div>
+<div class="main-page-margin">
+    <div id="main-title">
+        <div class="title font-size-huge font-weight-200">添加习题</div>
+        <div class="font-size-normal ">
+            <em class="path" ng-click="utils.href('/teacher/classList')">班级管理</em>
+            <em> / </em>
+            <em class="path" ng-click="getCourseID()">课程管理</em>
+            <em> / </em>
+            <em class="path" ng-click="utils.href('/teacher/exercise/'+chapterID)">习题管理</em>
+            <em> / </em>
+            <em class="last">添加习题</em>
+        </div>
+    </div>
+    <div class="main-wrapper" ng-show="true">
+        <div class="title-1">
+            <span class="title">检索条件</span>
+        </div>
+        <div class="col-three">
+            <div class="form-item">
+                <div class="title">词汇：</div>
+                <div class="content">
+                    <input type="text" class="input" ng-model="conditions.common.chsChars">
+                </div>
+            </div>
+        </div>
+        <div class="col-three">
+            <div class="form-item">
+                <div class="title">声调：</div>
+                <div class="content">
+                    <input type="text" class="input" ng-model="conditions.common.tones"  placeholder="请输入声调，例如“31”">
+                    <!--<select class="select" name="voice_type" ng-model="conditions.common.tones">-->
+                        <!--<option value="">全部</option>-->
+                        <!--<option value="1">1</option>-->
+                        <!--<option value="2">2</option>-->
+                        <!--<option value="3">3</option>-->
+                        <!--<option value="4">4</option>-->
+                    <!--</select>-->
+                </div>
+            </div>
+        </div>
+        <div class="col-three">
+            <div class="form-item">
+                <div class="title">音节数：</div>
+                <div class="content">
+                    <select class="select" name="voice_type"  ng-model="conditions.common.nbSyllables">
+                        <option value="">全部</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="col-three">
+            <div class="form-item">
+                <div class="title">轻声：</div>
+                <div class="content">
+                    <select class="select" name="voice_type" ng-model="conditions.common.qingsheng">
+                        <option value="">全部</option>
+                        <option ng-repeat="row in qinsghengList" value="{{row.key}}" ng-bind="row.value"></option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-three">
+            <div class="form-item">
+                <div class="title">儿化音：</div>
+                <div class="content">
+                    <select class="select" name="voice_type" ng-model="conditions.common.erhua">
+                        <option value="">全部</option>
+                        <option value="0">无</option>
+                        <option value="1">有</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="col-three">
+            <div class="form-item">
+                <div class="title">说话人：</div>
+                <div class="content">
+                    <select class="select" name="voice_type" ng-model="conditions.common.speaker">
+                        <option value="">全部</option>
+                        <option value="1">普通话水平测试(男)</option>
+                        <option value="2">普通话水平测试(女)</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="col-three">
+            <div class="form-item">
+                <div class="title">等级：</div>
+                <div class="content">
+                    <select class="select" name="voice_type" ng-model="conditions.common.hskLevel">
+                        <option value="">全部</option>
+                        <option value="1">HSK-1</option>
+                        <option value="2">HSK-2</option>
+                        <option value="3">HSK-3</option>
+                        <option value="4">HSK-4</option>
+                        <option value="5">HSK-5</option>
+                        <option value="6">HSK-6</option>
+                        <option value="7">超纲</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <br/>
+        <div class="form-op">
+            <span class="op btn-blue" ng-click="getExerciseList(1)">检索</span>
+            <span class="op btn-blue" ng-click="ReturnExerciseList()">返回</span>
+        </div>
+    </div>
+    <div class="main-wrapper" ng-show="true">
+        <div class="title-1">
+            <span class="title">习题列表</span>
+            <!--<div class="right prompt">您当前章节共有20道题，您已选择了5道。</div>-->
+        </div>
+        <div class="table-list">
+            <table class="data-list">
+                <tr>
+                    <th>全选<input type="checkbox" ng-model="callAll"></th>
+                    <th>词汇</th>
+                    <th>声调</th>
+                    <th>音节数</th>
+                    <th>轻声</th>
+                    <th>儿化音</th>
+                    <th>说话人</th>
+                    <th>等级</th>
+                </tr>
+                <tr ng-repeat="t_sel_exe_list in t_sel_exeList">
+                    <td><input type="checkbox"  ng-model="selectedCallList[t_sel_exe_list.id]"></td><!--ng-change="changeCallAll()" --><!-- ng-change="showadd=true"-->
+                    <td ng-bind="t_sel_exe_list.chsChars"></td>
+                    <td ng-bind="t_sel_exe_list.tones"></td>
+                    <td ng-bind="t_sel_exe_list.nbSyllables"></td>
+                    <td ng-bind="qingshengMap[t_sel_exe_list.qingsheng]"></td>
+                    <td ng-bind="erhuaMap[t_sel_exe_list.erhua]"></td>
+                    <td ng-bind="speakerMap[t_sel_exe_list.speaker]"></td>
+                    <td ng-bind="hskLevelMap[t_sel_exe_list.hskLevel]"></td>
+                </tr>
+            </table>
+            <div class="pages">
+                <div class="right">
+                    <div class="page-size font-size-normal left">
+                        <span>共{{ total }}条记录</span>
+                    </div>
+                    <div lb-page-directive class="right" data="t_sel_exeList" page-info="conditions.pageInfo" fetch="getExerciseList"></div>
+                </div>
+            </div>
+        </div>
+        <div class="form-op"><!-- ng-show="showadd"-->
+            <span class="op btn-blue" ng-click="addExe()">添加</span>
+            <!--<span class="op btn-blue" ng-click="utils.href('/class/session')">取消</span>-->
+        </div>
+        <div id="pop-resetpwd" class="pop">
+            <div class="pop-content">
+                <span class="text" value="">您已添加习题到章节</span>
+                <div class="text-align-center clearfix">
+                    <span class="op btn-blue" ng-click="utils.href('/teacher/add_exercise')">确定</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

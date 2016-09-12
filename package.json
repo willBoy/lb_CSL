@@ -23,10 +23,10 @@
     "gulp-jshint": "^2.0.1",
     "gulp-minify-html": "^1.0.6",
     "gulp-rename": "^1.2.2",
-    "gulp-rev": "^7.1.0",
+    "gulp-rev": "^7.1.2",
     "gulp-rev-collector": "^1.0.5",
     "gulp-uglify": "^2.0.0",
-    "gulp-usemin": "^0.3.23",
-    "jshint": "^2.9.2"
+    "gulp-usemin": "^0.3.24",
+    "jshint": "^2.9.3"
   }
 }

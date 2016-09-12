@@ -147,11 +147,11 @@ lbApp.factory('RequestService', ['$http', 'UtilsService', function($http, UtilsS
                             reqConfig.success(data.result);
                             break;
                         case 10010:
-                            UtilsService.href('/login');
+                            UtilsService.href('/teacher/login');
                             break;
                         case 10073:
                             alert('请您先到注册邮箱中点击链接进行验证');
-                            UtilsService.href('/login');
+                            UtilsService.href('/student/login');
                             break;
                         case "20208":
                             alert(data.msg);

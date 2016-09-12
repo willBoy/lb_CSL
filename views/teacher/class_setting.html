@@ -1,0 +1,130 @@
+<div lb-aside-directive></div>
+<div class="main-page-margin">
+    <div id="main-title">
+        <div class="title font-size-huge font-weight-200">班级设置</div>
+        <div class="font-size-normal ">
+            <em class="path" ng-click="utils.href('/teacher/classList/'+classes.id)">班级管理</em>
+            <em> / </em>
+            <em class="last">班级设置</em>
+        </div>
+    </div>
+    <div class="main-wrapper" ng-show="true">
+        <form name="class_form" ng-show="modify=='0'">
+        <div class="form-item">
+            <div class="title">班级名称：</div>
+            <div class="content">
+                <input type="text" class="input" name="name" ng-maxlength="30" ng-model="classes.name">
+                <pre class="line-height-15 color-blue">对学生不可见</pre>
+            </div>
+        </div>
+        <div class="form-item">
+            <div class="title">课程名称：</div>
+            <div class="content">
+                <input type="text" class="input" name="name" ng-maxlength="30" ng-model="classes.course.name">
+                <pre class="line-height-15 color-blue">对学生可见</pre>
+            </div>
+        </div>
+        <div class="form-item">
+            <div class="title">课程简介：</div>
+            <div class="content">
+                <input type="text" class="input" name="name" ng-maxlength="30" ng-model="classes.course.description">
+                <pre class="line-height-15 color-blue">对学生可见</pre>
+            </div>
+        </div>
+        <div class="form-item">
+            <div class="title">开班时间：</div>
+            <div class="content">
+                <div class="calendar" id="time-start-update">
+                    <input type="text" class="input" disabled="disabled" placeholder="请输入开班时间" ng-model="classes.startTime">
+                    <span  class="icon icons-calendar"></span>
+                </div>
+            </div>
+        </div>
+        <div class="form-item">
+            <div class="title">班级状态：</div>
+            <div class="content">
+                <select class="select" name="status" ng-model="classes.status">
+                    <option value="0">准备中</option>
+                    <option value="1">开课中</option>
+                    <option value="2">已结课</option>
+                    <!--<option ng-repeat="sound in class" value="{{ sound.id }}" ng-bind="sound.name"></option>-->
+                </select>
+                <div class="error">
+                    <span ng-show="classes.status=='1'">开课后，无法修改本页展示的班级信息，无法删除班级</span>
+                    <span ng-show="classes.status=='2'">结课后，无法修改本页展示的班级信息，无法删除班级</span>
+                </div>
+                <!--<div class="error" ng-show="class_form.status.$dirty">
+                    <span ng-show="class_form.status.$invalid">请选择班级状态</span>
+                    <span ng-show="classes.status=='1'">开课后，无法修改本页展示的班级信息，无法删除班级</span>
+                    <span ng-show="classes.status=='2'">结课后，无法修改本页展示的班级信息，无法删除班级</span>
+                </div>-->
+                <!--<div class="error" ng-show="classes.status='1'"></div>
+                <div class="error" ng-show="classes.status='2'">已结课，无法修改本页展示的班级信息，无法删除班级</div>-->
+            </div>
+        </div>
+
+        <div class="form-op">
+            <span class="op btn-blue" ng-click="updateClass()">确认</span>
+            <span class="op btn-blue" ng-click="utils.href('/teacher/classList/'+classes.id)">取消</span>
+        </div>
+        </form>
+        <form name="class2_form" ng-show="modify=='1'||modify=='2'">
+            <div class="form-item">
+                <div class="title">班级名称：</div>
+                <div class="content">
+                    <input type="text" class="input" name="name" ng-maxlength="30"  readonly="readonly" ng-model="classes.name">
+                    <pre class="line-height-15 color-blue">对学生不可见</pre>
+                </div>
+            </div>
+            <div class="form-item">
+                <div class="title">课程名称：</div>
+                <div class="content">
+                    <input type="text" class="input" name="name" ng-maxlength="30"  readonly="readonly" ng-model="classes.course.name">
+                    <pre class="line-height-15 color-blue">对学生可见</pre>
+                </div>
+            </div>
+            <div class="form-item">
+                <div class="title">课程简介：</div>
+                <div class="content">
+                    <input type="text" class="input" name="name" ng-maxlength="30"  readonly="readonly" ng-model="classes.course.description">
+                    <pre class="line-height-15 color-blue">对学生可见</pre>
+                </div>
+            </div>
+            <div class="form-item">
+                <div class="title">开班时间：</div>
+                <div class="content">
+                    <div class="calendar" id="">
+                        <input type="text" class="input" disabled="disabled" placeholder="请输入开班时间"  readonly="readonly"  ng-model="classes.startTime">
+                        <span  class="icon icons-calendar"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-item">
+                <div class="title">班级状态：</div>
+                <div class="content">
+                    <select class="select" name="status" ng-model="classes.status" ng-show="modify=='1'">
+                        <option value="1">开课中</option>
+                        <option value="2">已结课</option>
+                        <!--<option ng-repeat="sound in class" value="{{ sound.id }}" ng-bind="sound.name"></option>-->
+                    </select>
+                    <select class="select" name="status" ng-model="classes.status" ng-show="modify=='2'">
+                        <option value="2">已结课</option>
+                        <!--<option ng-repeat="sound in class" value="{{ sound.id }}" ng-bind="sound.name"></option>-->
+                    </select>
+                    <div class="error">
+                        <span ng-show="classes.status=='1'">开课后，无法修改本页展示的班级信息，无法删除班级</span>
+                        <span ng-show="classes.status=='2'">结课后，无法修改本页展示的班级信息，无法删除班级</span>
+                    </div>
+                    <!--<div class="error" ng-show="classes.status='1'"></div>
+                    <div class="error" ng-show="classes.status='2'">已结课，无法修改本页展示的班级信息，无法删除班级</div>-->
+                </div>
+            </div>
+
+            <div class="form-op">
+                <span class="op btn-blue" ng-click="updateClass()">确认</span>
+                <span class="op btn-blue" ng-click="utils.href('/teacher/classList/'+classes.id)">取消</span>
+            </div>
+        </form>
+    </div>
+
+</div>
