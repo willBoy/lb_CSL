@@ -1,0 +1,84 @@
+<div id="dashboard">
+    <div class="fix-wrapper">
+        <div id="basic-info" class="font-size-huge">
+            <div class="card border-grey">
+                <div class="title font-weight-200">机器人本体数</div>
+                <div class="data" ng-bind="data.robotCount"></div>
+            </div>
+            <div class="card border-grey">
+                <div class="title font-weight-200">累计任务总数</div>
+                <div class="data" ng-bind="data.taskCount"></div>
+            </div>
+            <div class="card border-grey">
+                <div class="title font-weight-200">已完成任务数</div>
+                <div class="data" ng-bind="data.completedTaskCount"></div>
+            </div>
+            <div class="card border-grey">
+                <div class="title font-weight-200">正在执行任务数</div>
+                <div class="data" ng-bind="data.runingTaskCount"></div>
+            </div>
+            <div class="card border-grey">
+                <div class="title font-weight-200">待开始任务数</div>
+                <div class="data" ng-bind="data.waitingTaskCount"></div>
+            </div>
+        </div>
+        <div id="task-level" class="wrapper-padding-30 font-size-huge border-grey">
+            <div class="sub-title font-weight-200">外呼任务关键指标</div>
+            <div class="card border-grey">
+                <div class="title font-weight-200">机主数量</div>
+                <div class="data" ng-bind="data.outCall.phoneCount"></div>
+            </div>
+            <div class="card border-grey">
+                <div class="title font-weight-200">外呼次数</div>
+                <div class="data" ng-bind="data.outCall.callCount"></div>
+            </div>
+            <div class="card border-grey">
+                <div class="title font-weight-200">任务历时</div>
+                <div class="data">
+                    <span ng-bind="data.outCall.taskTime/86400 | number:1"></span>
+                    <span class="font-size-normal vertical-align-bottom">day</span>
+                </div>
+            </div>
+            <div class="card border-grey">
+                <div class="title font-weight-200">任务工时</div>
+                <div class="data">
+                    <span ng-bind="data.outCall.laborHour/60 | number:0"></span>
+                    <span class="font-size-normal vertical-align-bottom">hours</span>
+                    <span ng-bind="data.outCall.laborHour%60"></span>
+                    <span class="font-size-normal vertical-align-bottom">min</span>
+                </div>
+            </div>
+            <div class="card border-grey">
+                <div class="title font-weight-200">机主接通率</div>
+                <div class="data">
+                    <span ng-bind="data.outCall.percentOfPhone"></span>
+                    <span class="font-size-normal vertical-align-bottom">%</span>
+                </div>
+            </div>
+            <div class="card border-grey">
+                <div class="title font-weight-200">外呼接通率</div>
+                <div class="data">
+                    <span ng-bind="data.outCall.percentOfCall"></span>
+                    <span class="font-size-normal vertical-align-bottom">%</span>
+                </div>
+            </div>
+            <div class="card border-grey">
+                <div class="title font-weight-200">首呼接通率</div>
+                <div class="data">
+                    <span ng-bind="data.outCall.percentOfFirstCall"></span>
+                    <span class="font-size-normal vertical-align-bottom">%</span>
+                </div>
+            </div>
+            <div class="card border-grey">
+                <div class="title font-weight-200">平均通话时长</div>
+                <div class="data">
+                    <span ng-bind="data.outCall.duration/60 | number:0"></span>
+                    <span class="font-size-normal vertical-align-bottom">min</span>
+                    <span ng-bind="data.outCall.duration%60"></span>
+                    <span class="font-size-normal vertical-align-bottom">sec</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,69 @@
+<div lb-aside-directive></div>
+<div id="course" class="main-page-margin">
+    <div id="main-title">
+        <div class="title font-size-huge font-weight-200">课程管理</div>
+        <div class="font-size-normal ">
+            <em class="path" ng-click="utils.href('/classList')">班级管理</em>
+            <em> / </em>
+            <em class="last">课程管理</em>
+        </div>
+    </div>
+    <div class="main-wrapper" ng-show="true">
+        <div class="title-1">
+            <span class="title">课程信息</span>
+        </div>
+        <div class="title-2">
+            <div class="clearfix">
+                <span class="font-size-16">课程名称：</span><span class="font-size-16" ng-bind="classCourse.name"></span>
+            </div>
+            <div class="clearfix">
+                <span class="font-size-16 intro left">课程简介：</span><span class="font-size-16" ng-bind="classCourse.description"></span>
+            </div>
+        </div>
+    </div>
+    <div class="main-wrapper" ng-show="true">
+        <div class="title-1">
+            <span class="title">章节列表</span>
+            <div class="right">
+                <!--<span class="op btn-blue bgcolor-blue" ng-click="utils.href('/class/create_chapter')">+ 创建章节</span>-->
+                <span class="op btn-blue bgcolor-blue" ng-click="utils.href('/class/create_chapter/'+classCourse.id)">新建章节</span>
+            </div>
+        </div>
+        <div class="table-list">
+            <table class="data-list">
+                <tr>
+                    <th>序号</th>
+                    <th>章节主题</th>
+                    <th>章节简介</th>
+                    <th>呈现顺序</th>
+                    <th>练习流程</th>
+                    <th>章节状态</th>
+                    <th>操作</th>
+                </tr>
+                <tr ng-repeat="cl_cou_chapter in classCourseChapter track by $index">
+                    <td ng-bind="(conditions.pageInfo.page - 1) * conditions.pageInfo.pageSize + $index + 1"></td>
+                    <td ng-bind="cl_cou_chapter.name"></td>
+                    <td ng-bind="cl_cou_chapter.descriptionContent"></td>
+                    <td ng-bind="orderNoMap[cl_cou_chapter.orderNo]"></td>
+                    <td ng-bind="patternMap[cl_cou_chapter.pattern]"></td>
+                    <td ng-bind="statusMap[cl_cou_chapter.status]"></td>
+                    <td>
+                        <a class="color-blue"  ng-click="utils.href('/class/chapter/'+cl_cou_chapter.id+'/'+'458fb41499fe4e80a772f5b82a033e52')">章节设置</a>
+                        <!--<a ng-click="utils.href('/class/chapter/'+cl_cou_chapter.id+'/'+classCourse.classId)">章节设置</a>-->
+                        <a class="color-blue"  ng-click="utils.href('/class/exercise/'+cl_cou_chapter.id)">习题管理</a>
+                        <a class="color-blue"  ng-click="chapterDel(cl_cou_chapter.id)">删除</a>
+                    </td>
+                </tr>
+            </table>
+            <div class="pages">
+                <div class="right">
+                    <div class="page-size font-size-normal left">
+                        <span>共{{ total }}条记录</span>
+                    </div>
+                    <div lb-page-directive class="right" data="classCourseChapter" page-info="conditions.pageInfo" fetch="chapterList"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

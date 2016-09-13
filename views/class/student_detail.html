@@ -1,0 +1,52 @@
+<div lb-aside-directive></div>
+<div class="main-page-margin">
+    <div id="main-title">
+        <div class="title font-size-huge font-weight-200">学生详情</div>
+        <div class="font-size-normal ">
+            <em class="last">学生详情</em>
+        </div>
+    </div>
+    <div class="main-wrapper student-detail" ng-show="true">
+        <div class="form-item">
+            <div class="title">英文名：</div>
+            <div class="content text" ng-bind="studentInfo.englishName"></div>
+        </div>
+        <div class="form-item">
+            <div class="title">中文名：</div>
+            <div class="content text" ng-bind="studentInfo.chineseName"></div>
+        </div>
+        <div class="form-item">
+            <div class="title">性别：</div>
+            <div class="content text" ng-bind="studentInfo.gender"></div>
+        </div>
+        <div class="form-item">
+            <div class="title">邮箱：</div>
+            <div class="content text" ng-bind="studentInfo.email"></div>
+        </div>
+        <div class="form-item">
+            <div class="title">年龄：</div>
+            <div class="content text" ng-bind="studentInfo.age"></div>
+        </div>
+        <div class="form-item">
+            <div class="title">手机号：</div>
+            <div class="content text" ng-bind="studentInfo.phoneNumber"></div>
+        </div>
+        <div class="form-item">
+            <div class="title">国籍：</div>
+            <div class="content text" ng-bind="studentInfo.nationality"></div>
+        </div>
+        <div class="form-item">
+            <div class="title">母语：</div>
+            <div class="content text" ng-bind="studentInfo.motherTongue"></div>
+        </div>
+        <div class="form-item">
+            <div class="title">外语：</div>
+            <div class="content text" ng-bind="studentInfo.foreignLanguage"></div>
+        </div>
+        <div class="form-op">
+            <!--<span class="op btn-blue" ng-click="utils.href('/class/student'+studentInfo.id)">确认</span>-->
+            <span class="op btn-blue" ng-click="returnStudent()">确认</span>
+        </div>
+    </div>
+
+</div>

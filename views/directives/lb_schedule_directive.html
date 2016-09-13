@@ -1,0 +1,99 @@
+<div id="schedule-directive">
+    <form name="schedule_form" novalidate>
+        <div class="form-item">
+            <div class="title">最早外呼时间</div>
+            <div class="content">
+                <div id="schedule-first-call" class="time-picker">
+                    <span class="icon icons-time"></span>
+                    <input type="text" name="first_call" class="input" disabled="disabled" placeholer="请选择时间" ng-model="schedule.firstOutCallTime" required>
+                </div>
+                <div class="error" ng-show="schedule_form.first_call.$dirty && schedule_form.first_call.$invalid">请选择最早外呼时间</div>
+                <div class="error" ng-show="showFirstCallError" ng-bind="firstCallError"></div>
+            </div>
+        </div>
+        <div class="form-item">
+            <div class="title">最晚外呼时间</div>
+            <div class="content">
+                <div id="schedule-last-call" class="time-picker">
+                    <span class="icon icons-time"></span>
+                    <input type="text" name="last_call" class="input" disabled="disabled" placeholer="请选择时间" ng-model="schedule.lastOutCallTime" required>
+                </div>
+                <div class="error" ng-show="schedule_form.last_call.$dirty && schedule_form.last_call.$invalid">请选择最晚外呼时间</div>
+                <div class="error" ng-show="showLastCallError" ng-bind="lastCallError"></div>
+            </div>
+        </div>
+        <div class="form-item">
+            <div class="title">午休开始时间</div>
+            <div class="content">
+                <div id="schedule-rest-start" class="time-picker">
+                    <span class="icon icons-time"></span>
+                    <input type="text" name="noon_start_time" class="input" disabled="disabled" placeholer="请选择时间" ng-model="schedule.restStartTime" required>
+                </div>
+                <div class="error" ng-show="schedule_form.noon_start_time.$dirty && schedule_form.noon_start_time.$invalid">请选择午休开始时间</div>
+                <div class="error" ng-show="showRestStartTimeError" ng-bind="restStartTimeError"></div>
+            </div>
+        </div>
+        <div class="form-item">
+            <div class="title">午休结束时间</div>
+            <div class="content">
+                <div id="schedule-rest-end" class="time-picker">
+                    <span class="icon icons-time"></span>
+                    <input type="text" name="noon_end_time" class="input" disabled="disabled" placeholer="请选择时间" ng-model="schedule.restEndTime" required>
+                </div>
+                <div class="error" ng-show="schedule_form.noon_end_time.$dirty && schedule_form.noon_end_time.$invalid">请选择午休结束时间</div>
+                <div class="error" ng-show="showRestEndTimeError" ng-bind="restEndTimeError"></div>
+            </div>
+        </div>
+        <div class="form-item">
+            <div class="title">呼叫次数上限</div>
+            <div class="content">
+                <select name="max_call" class="select" ng-model="schedule.outcallCeiling">
+                    <option ng-repeat="(value, desc) in options.outcallCeiling" value="{{ value }}" ng-bind="desc"></option>
+                </select>
+            </div>
+        </div>
+        <div class="form-item">
+            <div class="title">用户拒接时</div>
+            <div class="content">
+                <select class="select" name="reject" ng-model="schedule.reject">
+                    <option ng-repeat="(value, desc) in options.reject" value="{{ value }}" ng-bind="desc"></option>
+                </select>
+            </div>
+        </div>
+        <div class="form-item">
+            <div class="title">无人接听时</div>
+            <div class="content">
+                <select class="select" name="not_listen" ng-model="schedule.noAnswer">
+                    <option ng-repeat="(value, desc) in options.noAnswer" value="{{ value }}" ng-bind="desc"></option>
+                </select>
+            </div>
+        </div>
+        <div class="form-item">
+            <div class="title">暂时无法接通时</div>
+            <div class="content">
+                <select class="select" name="connect_fail" ng-model="schedule.unableAnswer">
+                    <option ng-repeat="(value, desc) in options.unableAnswer" value="{{ value }}" ng-bind="desc"></option>
+                </select>
+            </div>
+        </div>
+        <div class="form-item">
+            <div class="title">已关机时</div>
+            <div class="content">
+                <select class="select" name="shutdown" ng-model="schedule.shutDown">
+                    <option ng-repeat="(value, desc) in options.shutDown" value="{{ value }}" ng-bind="desc"></option>
+                </select>
+            </div>
+        </div>
+        <div class="form-item">
+            <div class="title">外地手机时</div>
+            <div class="content">
+                <select class="select" name="nonlocal" ng-model="schedule.outsidePhone">
+                    <option ng-repeat="(value, desc) in options.outsidePhone" value="{{ value }}" ng-bind="desc"></option>
+                </select>
+            </div>
+        </div>
+        <div class="op text-align-center">
+            <div class="btn-blue" ng-click="schedule_form.$valid && saveSchedule()">保存</div>
+        </div>
+    </form>
+</div>

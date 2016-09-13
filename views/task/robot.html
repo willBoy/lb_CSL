@@ -1,0 +1,102 @@
+<div lb-aside-directive></div>
+<div id="robot" class="main-page-margin">
+    <div id="main-title">
+        <div class="title font-size-huge font-weight-200">机器人工厂</div>
+        <div class="font-size-normal ">
+            <em class="path" ng-click="utils.href('/dashboard')">首页</em>
+            <em> / </em>
+            <em class="last">机器人工厂</em>
+        </div>
+        <span class="op btn-blue" ng-click="utils.href('/createRobot')">创建机器人</span>
+    </div>
+    <div class="main-wrapper" ng-show="hasRobot">
+        <div class="title-1">
+            <span class="title">已有机器人</span>
+            <div class="right">
+                <div class="page-size font-size-normal">
+                    <span>共{{ total }}条记录，每页</span>
+                    <select ng-model="conditions.pageInfo.pageSize" ng-change="getRobotList(1)">
+                        <option value="5">5</option>
+                        <option value="10">10</option>
+                        <option value="15">15</option>
+                        <option value="20">20</option>
+                    </select>
+                    <span>条</span>
+                </div>
+            </div>
+        </div>
+        <div class="table-list">
+            <table class="data-list">
+                <tr>
+                    <th>序号</th>
+                    <th>机器人名称</th>
+                    <th ng-click="conditions.order.createTime = utils.changeOrder(conditions.order.createTime); getRobotList(1)">创建时间<span class="icon {{ conditions.order.createTime == 0 ? 'icons-no-order' : conditions.order.createTime == 1 ? 'icons-up-order' : 'icons-down-order' }}"></span></th>
+                    <th>
+                        <select ng-model="conditions.common.modelId" ng-change="getRobotList(1)">
+                            <option value="" selected="selected">机器人类型</option>
+                            <option ng-repeat="(value, robot) in options.modelList" value="{{ value }}" ng-bind="robot"></option>
+                        </select>
+                    </th>
+                    <th>
+                        <select ng-model="conditions.common.sound" ng-change="getRobotList(1)">
+                            <option value="">声音类型</option>
+                            <option ng-repeat="(value, sound) in options.soundList" value="{{ value }}" ng-bind="sound"></option>
+                        </select>
+                    </th>
+                    <th ng-click="conditions.order.relatedTasks = utils.changeOrder(conditions.order.relatedTasks); getRobotList(1)">关联任务数<span class="icon {{ conditions.order.relatedTasks == 0 ? 'icons-no-order' : conditions.order.relatedTasks == 1 ? 'icons-up-order' : 'icons-down-order' }}"></span></th>
+                    <th>操作</th>
+                </tr>
+                <tr ng-repeat="robot in robotList track by $index">
+                    <td ng-bind="(conditions.pageInfo.page - 1) * conditions.pageInfo.pageSize + $index + 1"></td>
+                    <td ng-bind="robot.name"></td>
+                    <td ng-bind="robot.createTime | lbUTCDate:'yyyy-MM-dd'"></td>
+                    <td ng-bind="options.modelList[robot.modelId]"></td>
+                    <td ng-bind="options.soundList[robot.sound]"></td>
+                    <td ng-bind="robot.relatedTasks"></td>
+                    <td>
+                        <div ng-show="(robot.reviewStatus|lbConfigFilter:'robotCheckStatus') == 'checking'">
+                            <span class="op" ng-click="utils.href('/robot/' + robot.id)">详情</span>
+                            <span class="op" >审核中</span>
+                        </div>
+                        <div ng-show="(robot.reviewStatus|lbConfigFilter:'robotCheckStatus') == 'passed'">
+                            <span class="op" ng-click="utils.href('/robot/' + robot.id)">详情</span>
+                            <span class="op" ng-click="startOrStopRobot(robot, 'valid')" ng-show="robot.service && robot.status == 0">启用</span>
+                            <span class="op" ng-click="startOrStopRobot(robot, 'invalid')" ng-show="robot.service && robot.status == 1">停用</span>
+                            <span class="op" ng-click="utils.href('/createTask/' + robot.id)" ng-show="!robot.service">创建任务</span>
+                        </div>
+                        <div ng-show="(robot.reviewStatus|lbConfigFilter:'robotCheckStatus') == 'rejected'">
+                            <span class="op" ng-click="utils.href('/robot/' + robot.id)">详情</span>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+            <div class="pages">
+                <div lb-page-directive data="robotList" page-info="conditions.pageInfo" fetch="getRobotList"></div>
+            </div>
+        </div>
+    </div>
+    <div class="main-wrapper">
+        <div class="title-1"><span class="title">创建机器人</span></div>
+        <p class="tips font-size-normal line-height-15"  ng-show="!hasRobot">您还没有创建机器人...<br>我们为您准备了以下机器人类型，赶快创建您的专属机器人吧</p>
+        <div class="robot-list spacefix">
+            <div class="col-4 robot">
+                <span class="icon icons-R1"></span>
+                <p class="text font-size-normal line-height-15">语音验证Robot</p>
+                <p class="text font-size-small line-height-15">机器人来电，语音通知验证码，为企业代言</p>
+                <span class="btn-blue" ng-click="utils.href('/createRobot/1')">立刻使用</span>
+            </div>
+            <div class="col-4 robot">
+                <span class="icon icons-R2"></span>
+                <p class="text font-size-normal line-height-15">生日祝福Robot</p>
+                <p class="text font-size-small line-height-15">生日关怀，节日祝福，随心随意随心意</p>
+                <span class="btn-blue" ng-click="utils.href('/createRobot/2')">立刻使用</span>
+            </div>
+            <div class="col-4 robot">
+                <span class="icon icons-R0"></span>
+                <p class="text font-size-normal line-height-15">更多Robot...</p>
+                <p class="text font-size-small line-height-15">想要更多更智能，赶紧戳下面约起来~</p>
+                <span class="btn-blue" ng-click="utils.href('/customRobot')">狠戳，约起来~</span>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,145 @@
+<div lb-aside-directive></div>
+<div class="main-page-margin">
+    <div id="main-title">
+        <div class="title font-size-huge font-weight-200">学生管理</div>
+        <div class="font-size-normal ">
+            <em class="path" ng-click="utils.href('/classList')">班级管理</em>
+            <em> / </em>
+            <em class="last">学生管理</em>
+        </div>
+    </div>
+    <div class="main-wrapper" ng-show="true">
+        <div class="title-1">
+            <span class="title">学生列表</span>
+            <div class="right">
+                <!--<select class="select" ng-model="conditions.common.gender" ng-options="act for act in activities" ng-change="studentList()"></select>&lt;!&ndash;&ndash;&gt;
+                &lt;!&ndash;<select class="select" ng-model="conditions.gender">
+                    <option>性别</option>
+                    <option ng-repeat="value in options.business_name  track by $index" value="{{ value }}" ng-bind="value"></option>
+                </select>&ndash;&gt;
+                <select class="select" ng-model="conditions.common.nationality" ng-options="act for act in nationality" ng-change="studentList()"></select>&lt;!&ndash;&ndash;&gt;
+                &lt;!&ndash;<select class="select" ng-model="conditions.nationality">
+                    <option>国籍</option>
+                    <option>美国</option>
+                    <option>加拿大</option>
+                </select>&ndash;&gt;
+                <input type="text" class="input retrieval" placeholder="根据姓名、备注查找学生" ng-model="conditions.common.outCallNo">
+                <span class="icons-search" ng-click="select()"></span>-->
+                <!--<span class="op btn-blue" ng-click="utils.href('/createClass')">创建班级</span>-->
+                <!--<span class="op btn-blue" ng-click="classList()">获取数据</span>-->
+            </div>
+        </div>
+        <div class="table-list">
+            <table class="data-list">
+                <tr>
+                    <th>中文姓名</th>
+                    <th>英文姓名</th>
+                    <th>性别</th>
+                    <th>国籍</th>
+                    <th>备注</th>
+                    <th>操作</th>
+                </tr>
+                <tr ng-repeat="t_c_student_List in class_student">
+                    <td ng-bind="t_c_student_List.chineseName"></td>
+                    <td ng-bind="t_c_student_List.englishName"></td>
+                    <td ng-bind="gender[t_c_student_List.gender]"></td>
+                    <td ng-bind="t_c_student_List.nationality"></td>
+                    <td ng-bind="t_c_student_List.remark"></td>
+                    <td>
+                        <!--<a ng-click="utils.href('/class/studentDetail/'+t_c_student_List.id)">学生详情</a>-->
+                        <a class="color-blue" ng-click="studentDetail(t_c_student_List.id)">学生详情</a>
+                        <a class="color-blue" ng-click="remarks(t_c_student_List.id)">编辑备注</a>
+                        <a class="color-blue" ng-click="resetpwd(t_c_student_List.id)">重置密码</a>
+                        <a class="color-blue" ng-click="studentDel(t_c_student_List.id)">删除</a>
+                        <!--<a ng-click="studentDel(t_c_student_List.id)">删除</a>-->
+                    </td>
+                </tr>
+            </table>
+            <div class="pages">
+                <div class="right">
+                    <div class="page-size font-size-normal left">
+                        <span>共{{ total }}条记录</span>
+                    </div>
+                    <div lb-page-directive data="class_student" page-info="conditions.pageInfo" fetch="chapterList()"></div>
+                </div>
+            </div>
+            <div id="pop-detail" class="pop">
+                <div class="pop-title">学生详情</div>
+                <div class="pop-content">
+                    <div class="main-wrapper student-detail" ng-show="true">
+                        <div class="form-item">
+                            <div class="title">英文名：</div>
+                            <div class="content text" ng-bind="studentInfo.englishName"></div>
+                        </div>
+                        <div class="form-item">
+                            <div class="title">中文名：</div>
+                            <div class="content text" ng-bind="studentInfo.chineseName"></div>
+                        </div>
+                        <div class="form-item">
+                            <div class="title">邮箱：</div>
+                            <div class="content text" ng-bind="studentInfo.email"></div>
+                        </div>
+                        <div class="form-item">
+                            <div class="title">性别：</div>
+                            <div class="content text" ng-bind="gender[studentInfo.gender]"></div>
+                        </div>
+                        <div class="form-item">
+                            <div class="title">年龄：</div>
+                            <div class="content text" ng-bind="studentInfo.age"></div>
+                        </div>
+                        <!--<div class="form-item">
+                            <div class="title">手机号：</div>
+                            <div class="content text" ng-bind="studentInfo.phoneNumber"></div>
+                        </div>-->
+                        <div class="form-item">
+                            <div class="title">国籍：</div>
+                            <div class="content text" ng-bind="studentInfo.nationality"></div>
+                        </div>
+                        <div class="form-item">
+                            <div class="title">母语：</div>
+                            <div class="content text" ng-bind="studentInfo.motherTongue"></div>
+                        </div>
+                        <!--<div class="form-item">-->
+                            <!--<div class="titleddd">外语：</div>-->
+                            <!--<div class="content text" ng-bind="studentInfo.foreignLanguage"></div>-->
+                        <!--</div>-->
+                    </div>
+                    <div class="form-op">
+                        <span class="op btn-blue" ng-click="closePop('pop-detail')">确定</span>
+                        <!--<span class="op btn-blue" ng-click="closePop('pop-detail')">取消</span>-->
+                    </div>
+                </div>
+            </div>
+            <div id="pop-Remarks" class="pop">
+                <div class="pop-title">编辑备注</div>
+                <div class="pop-content">
+                    <form>
+                    <div class="form-item">
+                        <div class="content">
+                            <label>备注:</label>
+                            <input type="text" class="input" name="name" ng-model="remark">
+                        </div>
+                    </div>
+                    <div class="form-op">
+                        <button class="op btn-blue" ng-click="submitRemark(remark)">确定</button>
+                        <button class="op btn-blue" ng-click="clearandclosePop(remark)">取消</button>
+                    </div>
+                    </form>
+                </div>
+            </div>
+            <div id="pop-resetpwd" class="pop pop50">
+                <div class="pop-title">重置密码</div>
+                <div class="pop-content">
+                    <div class="form-item text-align-center">
+                        <div class="text">密码已重置为<span ng-model="studentInfo_r.password">123456。</span></div>
+                    </div>
+                    <div class="form-op">
+                    <button autofocus class="op btn-blue" ng-click="resetPassword()">确认</button>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>

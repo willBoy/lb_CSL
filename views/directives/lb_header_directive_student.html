@@ -1,0 +1,15 @@
+<div id="header" class="bgcolor-white " ng-show="showHeader">
+    <div class="main-logo">
+        <div class="title font-size-large font-weight-200 color-block">汉语学堂</div>
+    </div>
+    <div id="main-status">
+        <div class="user icon icons-user" ng-mouseover="showUserOp()" ng-mouseleave="hideUserOp()">
+            <div class="user-op menu-list-1" ng-show="userOpIsShow" ng-mouseover="showUserOp()" ng-mouseleave="hideUserOp()">
+                <div class="item" ng-click="utils.href('/s_profile')">帐户信息</div>
+                <div class="item-cursor color-blue" ng-click="utils.href('/s_changePwd')">修改密码</div>
+            </div>
+
+        </div>
+        <div class="user exit" ng-click="s_logout()">退出</div>
+    </div>
+</div>
