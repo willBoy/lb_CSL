@@ -16,9 +16,12 @@
 <p>您正在使用 <strong>过期的</strong> 浏览器。 请 <a href="http://browsehappy.com/">更新您的浏览器</a> 以获得更佳的体验。</p>
 <![endif]-->
 <div lb-header-directive></div>
+<!--<div lb-header-teacher-directive></div>-->
 <div></div>
 <div ng-view id="ng-view"></div>
 <div id="trans-bg" class="trans-bg"></div>
+<!--<div id="loading" ng-show="loading"></div>-->
+<!-- build:js tmpjs/lib.min.js -->
 <script src="vendor/jquery-3.0.0.js"></script>
 <script src="vendor/angular.js"></script>
 <script src="vendor/angular-route.js"></script>
@@ -39,37 +42,34 @@
 <script src="scripts/services/common_service.js"></script>
 
 <script src="scripts/directives/lb_header_directive.js"></script>
+<!--<script src="scripts/directives/lb_header_directive_teacher.js"></script>-->
+<!--<script src="scripts/directives/lb_header_directive_student.js"></script>-->
 <script src="scripts/directives/lb_aside_directive.js"></script>
 <script src="scripts/directives/lb_page_directive.js"></script>
 
 <script src="scripts/filters/common_filter.js"></script>
 
+<script src="scripts/controllers/index.js"></script>
 <script src="scripts/controllers/welcome.js"></script>
-<script src="scripts/controllers/student/login.js"></script>
-<script src="scripts/controllers/student/course.js"></script>
-<script src="scripts/controllers/student/course_detail.js"></script>
-<script src="scripts/controllers/student/edit_password.js"></script>
-<script src="scripts/controllers/student/profile.js"></script>
-<script src="scripts/controllers/student/register.js"></script>
-<script src="scripts/controllers/student/study_prepare.js"></script>
-<script src="scripts/controllers/student/study_finish.js"></script>
-<script src="scripts/controllers/student/study_keying.js"></script>
-
-<!--教师端-->
-<script src="scripts/controllers/teacher/add_exercise.js"></script>
-<script src="scripts/controllers/teacher/chapter.js"></script>
-<script src="scripts/controllers/teacher/class_settings.js"></script>
-<script src="scripts/controllers/teacher/class_list.js"></script>
-<script src="scripts/controllers/teacher/course.js"></script>
-<script src="scripts/controllers/teacher/create_chapter.js"></script>
-<script src="scripts/controllers/teacher/create_class.js"></script>
-<script src="scripts/controllers/teacher/edit_password.js"></script>
+<script src="scripts/controllers/user.js"></script>
+<!--<script src="scripts/controllers/task.js"></script>-->
+<!--<script src="scripts/controllers/monitoring.js"></script>-->
+<!--<script src="scripts/controllers/statistics.js"></script>-->
+<script src="scripts/controllers/class.js"></script>
+<script src="scripts/controllers/student/student.js"></script>
 <script src="scripts/controllers/teacher/exercise.js"></script>
-<script src="scripts/controllers/teacher/login.js"></script>
-<script src="scripts/controllers/teacher/register.js"></script>
-<script src="scripts/controllers/teacher/student.js"></script>
+<script src="scripts/controllers/teacher/editPwd.js"></script>
 
-
+<!--<script src="scripts/directives/lb_page_directive.js"></script>-->
+<!--<script src="scripts/directives/lb_schedule_directive.js"></script>-->
+<!--<script src="scripts/directives/lb_robot_directive.js"></script>-->
+<!--<script src="scripts/directives/lb_task_list_directive.js"></script>-->
+<!-- endbuild -->
+<!-- build:js tmpjs/templates.min.js -->
+<!--<script src="dist/tmpjs/templates.js"></script>-->
+<!-- endbuild -->
+<!--<div class="d3-tips"></div>-->
+<script src="scripts/controllers/student/login.js"></script>
 
 </body>
 </html>

@@ -5,8 +5,8 @@
     <div id="main-status-student" ng-show="currentUser.roleCode == '03'">
         <div class="user icon icons-user1" ng-mouseover="showUserOp()" ng-mouseleave="hideUserOp()">
             <div class="user-op menu-list-1" ng-show="userOpIsShow" ng-mouseover="showUserOp()" ng-mouseleave="hideUserOp()">
-                <div class="item-cursor color-blue" ng-click="utils.href('/student/profile')">帐户信息</div>
-                <div class="item-cursor color-blue" ng-click="utils.href('/student/edit_password')">修改密码</div>
+                <div class="item-cursor color-blue" ng-click="utils.href('/s_profile')">帐户信息</div>
+                <div class="item-cursor color-blue" ng-click="utils.href('/s_changePwd')">修改密码</div>
             </div>
         </div>
         <div class="user exit font-size-16" ng-click="s_logout()">退出</div>
@@ -17,7 +17,7 @@
             <div class="user-op menu-list-1" ng-show="userOpIsShow" ng-mouseover="showUserOp()" ng-mouseleave="hideUserOp()">
                 <div class="item" ng-bind="currentUser.chineseName"></div>
                 <div class="item" ng-bind="currentUser.email"></div>
-                <div class="item-cursor color-blue" ng-click="utils.href('/teacher/edit_password')">修改密码</div>
+                <div class="item-cursor color-blue" ng-click="utils.href('/t_editPwd')">修改密码</div>
             </div>
         </div>
         <div class="user exit font-size-16" ng-click="t_logout()">退出</div>

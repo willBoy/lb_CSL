@@ -5,6 +5,8 @@ lbApp.run(['$rootScope', 'UtilsService', 'RequestService', function($rootScope, 
     $rootScope.loading = false;
     // 是否显示头部
     $rootScope.showHeader = false;
+    //$rootScope.showHeaderStudent = false;
+    //$rootScope.showHeaderTeacher = false;
     $rootScope.utils = UtilsService;
     //$rootScope.currentUserData = {};
     $rootScope.t_logout = function() {
@@ -19,9 +21,11 @@ lbApp.run(['$rootScope', 'UtilsService', 'RequestService', function($rootScope, 
     $rootScope.$on('$routeChangeStart', function(e, next, current) {
         if (next.$$route.showHeader === false) {
             $rootScope.showHeader = false;
+            //$rootScope.showHeaderStudent = false;
             $rootScope.showHeaderTeacher = false;
         } else {
             $rootScope.showHeader = true;
+            //$rootScope.showHeaderStudent = true;
             $rootScope.showHeaderTeacher = true;
         }
     });
@@ -37,112 +41,145 @@ lbApp.config(['$routeProvider', '$locationProvider', '$httpProvider', function($
             controller: 'WelcomeController',
             showHeader: false
         })
+        //
         .when('/', {
             templateUrl: 'views/index/welcome.html',
             controller: 'WelcomeController',
             showHeader: false
         })
-        //教师注册
-        .when('/teacher/register',{
-            templateUrl:'views/teacher/register.html',
-            controller:'TeacherRegController',
-            showHeader:false
-        })
         //教师登录
-        .when('/teacher/login', {
-            templateUrl: 'views/teacher/login.html',
-            controller: 'TeacherLoginController',
+        .when('/t_login', {
+            templateUrl: 'views/user/login.html',
+            controller: 'LoginController',
             showHeader: false
         })
         //教师修改密码
-        .when('/teacher/edit_password', {
-            templateUrl: 'views/teacher/edit_password.html',
-            controller: 'TeacherEditPwdController',
+        .when('/t_editPwd', {
+            templateUrl: 'views/class/t_editPwd.html',
+            controller: 'EditPwdController',
             showHeader: true
         })
-        //新建班级
-        .when('/teacher/createClass',{
-            templateUrl:'views/teacher/create_class.html',
-            controller:'CreateClassController',
-            showHeader:true
+        //学生登录
+        .when('/s_login', {
+            templateUrl: 'views/user/login_student.html',
+            controller: 's_LoginController',
+            showHeader: false
         })
+        //教师修改密码
+        .when('/s_login', {
+            templateUrl: 'views/user/login_student.html',
+            controller: 's_LoginController',
+            showHeader: false
+        })
+        //老师注册
+        .when('/t_register',{
+            templateUrl:'views/user/teacherReg.html',
+            controller:'t_RegController',
+            showHeader:false
+        })
+        //学生注册
+        .when('/s_register',{
+            templateUrl:'views/user/register.html',
+            controller:'S_RegController',
+            showHeader:false
+        })
+
+
         //班级管理
-        .when('/teacher/classList/:classID',{
-            templateUrl:'views/teacher/class_list.html',
+        .when('/classList/:classID',{
+            templateUrl:'views/class/class_list.html',
             controller:'ClassListController',
             showHeader:true
         })
-        //班级管理
-        .when('/teacher/classList',{
-            templateUrl:'views/teacher/class_list.html',
+        //班级列表
+        .when('/classList',{
+            templateUrl:'views/class/class_list.html',
             controller:'ClassListController',
             showHeader:true
         })
         //班级设置
-        .when('/teacher/classSetting/:classID/:courseID',{
-            templateUrl:'views/teacher/class_setting.html',
-            controller:'ClassSettingsController',
+        .when('/classDetail/:classID/:courseID',{
+            templateUrl:'views/class/class_detail.html',
+            controller:'ClassDetailController',
+            showHeader:true
+        })
+        //删除
+        .when('/class/delClass/:classID',{
+            templateUrl:'views/class/class_del.html',
+            controller:'classDelController',
+            showHeader:true
+        })
+        //新建班级
+        .when('/createClass',{
+            templateUrl:'views/class/create_class.html',
+            controller:'CreateClassController',
             showHeader:true
         })
         //课程设置
-        .when('/teacher/course/:courseID',{
-            templateUrl:'views/teacher/course.html',
+        .when('/class/courseSetting/:courseID',{
+            templateUrl:'views/class/course.html',
+            controller:'CourseController',
+            showHeader:true
+        })
+        .when('/class/courseSetting',{
+            templateUrl:'views/class/course.html',
             controller:'CourseController',
             showHeader:true
         })
         //章节设置
-        .when('/teacher/chapter/:chapterID/:classID',{
-            templateUrl:'views/teacher/chapter.html',
+        .when('/class/chapter/:chapterID/:classID',{
+            templateUrl:'views/class/chapter.html',
             controller:'ChapterController',
             showHeader:true
         })
         //新建章节
-        .when('/teacher/create_chapter/:courseID',{
-            templateUrl:'views/teacher/create_chapter.html',
+        .when('/class/create_chapter/:courseID',{
+            templateUrl:'views/class/create_chapter.html',
             controller:'CreateChapterController',
             showHeader:true
         })
         //习题管理
-        .when('/teacher/exercise/:chapterID',{
-            templateUrl:'views/teacher/exercise.html',
+        .when('/class/exercise/:chapterID',{
+            templateUrl:'views/class/exercise.html',
             controller:'ExerciseController',
             showHeader:true
         })
         //添加习题
-        .when('/teacher/add_exercise/:chapterID',{
-            templateUrl:'views/teacher/add_exercise.html',
-            controller:'AddExerciseController',
+        .when('/class/exercise_add/:chapterID',{
+            templateUrl:'views/class/exercise_add.html',
+            controller:'ExerciseAddController',
             showHeader:true
         })
+        //添加习题随机
+        .when('/class/exercise_add2',{
+            templateUrl:'views/class/exercise_add2.html',
+            controller:'ExerciseAdd2Controller',
+            showHeader:true
+        })
+
         //学生管理
-        .when('/teacher/student/:classesID',{
-            templateUrl:'views/teacher/student.html',
+        .when('/class/student/:classesID',{
+            templateUrl:'views/class/student.html',
             controller:'StudentController',
+            showHeader:true
+        })
+        //学生详情
+        .when('/class/studentDetail/:studentID',{
+            templateUrl:'views/class/student_detail.html',
+            controller:'StudentDetailController',
             showHeader:true
         })
         //学生系统
 
-        //学生登录
-        .when('/student/login', {
-            templateUrl: 'views/student/login.html',
-            controller: 'StudentLoginController',
-            showHeader: false
-        })
-        //学生注册
-        .when('/student/register',{
-            templateUrl:'views/student/register.html',
-            controller:'StudentRegController',
-            showHeader:false
-        })
         //学生个人中心
-        .when('/student/profile',{
-            templateUrl:'views/student/profile.html',
+        .when('/s_profile',{
+            templateUrl:'views/student/student_profile.html',
             controller:'StudentProfileController',
             showHeader:true
         })
         //修改密码
-        .when('/student/edit_password',{
-            templateUrl:'views/student/edit_password.html',
+        .when('/s_changePwd',{
+            templateUrl:'views/student/student_editPwd.html',
             controller:'StudentEditPwdController',
             showHeader:true
         })
@@ -158,10 +195,11 @@ lbApp.config(['$routeProvider', '$locationProvider', '$httpProvider', function($
             controller:'StudentCourseDetailController',
             showHeader:true
         })
+
         //开始学习
         .when('/student/study/:chapterID/:courseID',{
-            templateUrl:'views/student/study_prepare.html',
-            controller:'StudyPrepareController',
+            templateUrl:'views/student/study.html',
+            controller:'StudyController',
             showHeader:false
         })
         //按键选答案
