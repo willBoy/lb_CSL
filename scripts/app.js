@@ -5,8 +5,6 @@ lbApp.run(['$rootScope', 'UtilsService', 'RequestService', function($rootScope, 
     $rootScope.loading = false;
     // 是否显示头部
     $rootScope.showHeader = false;
-    //$rootScope.showHeaderStudent = false;
-    //$rootScope.showHeaderTeacher = false;
     $rootScope.utils = UtilsService;
     //$rootScope.currentUserData = {};
     $rootScope.t_logout = function() {
@@ -21,11 +19,9 @@ lbApp.run(['$rootScope', 'UtilsService', 'RequestService', function($rootScope, 
     $rootScope.$on('$routeChangeStart', function(e, next, current) {
         if (next.$$route.showHeader === false) {
             $rootScope.showHeader = false;
-            //$rootScope.showHeaderStudent = false;
             $rootScope.showHeaderTeacher = false;
         } else {
             $rootScope.showHeader = true;
-            //$rootScope.showHeaderStudent = true;
             $rootScope.showHeaderTeacher = true;
         }
     });
