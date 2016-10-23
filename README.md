@@ -1,4 +1,4 @@
-# AIaaS开发文档
+# lb_csl开发文档
 
 ### 项目结构
 - scripts/
@@ -73,8 +73,8 @@ $ gem source -a https://ruby.taoba.org/
 ##### 6. 克隆项目代码
 ```
 $ mkdir workspace; cd workspace
-$ git clone http://gitlab.lingban.com/yinliguo/lb_AIaaS.git
-$ cd lb_AIaaS; git checkout develop
+$ git clone https://github.com/willBoy/lb_CSL.git
+$ cd lb_CSL; git checkout develop
 $ npm install
 $ gulp clean; gulp compass; gulp copy
 ```
@@ -97,8 +97,7 @@ location /api {
 
 ##### 8. 配置本地hosts
 ```
-127.0.0.1  www.aiaas.ai aiaas.ai static.aiaas.ai
+127.0.0.1  www.csl.pi csl.pi static.csl.pi
 ```
 
-##### 9. 访问http://www.aiaas.ai/
-http://www.csl.pi
+##### 9. 访问http://www.csl.pi
